@@ -1,4 +1,5 @@
 # bholdus-web
+
 Bholdus website (https://bholdus.com)
 
 ## Getting started
@@ -15,3 +16,4 @@ Run `cp .env.example .env` and fill the necessary environment variables.
 Run `yarn` to install all of the dependencies.
 
 - To start developing, run `yarn develop`
+- To create a build and start it, run `yarn build && yarn start`
