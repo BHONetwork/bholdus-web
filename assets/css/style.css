@@ -4,7 +4,8 @@
 
 @font-face {
   font-family: "Titillium Web";
-  src: local("Titillium Web"), url(../fonts//TitilliumWeb.ttf) format("ttf");
+  src: local("Titillium Web"),
+    url(../fonts//TitilliumWeb.ttf) format("truetype");
 }
 
 html {

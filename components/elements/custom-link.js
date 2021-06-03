@@ -2,7 +2,7 @@ import Link from "next/link";
 import PropTypes from "prop-types";
 import { linkPropTypes } from "../../lib/types";
 
-const CustomLink = ({ link, children }) => {
+const CustomLink = ({ link, children, ...restProps }) => {
   const isInternalLink = link.url.startsWith("/");
 
   // For internal links, use the Next.js Link component
@@ -22,6 +22,7 @@ const CustomLink = ({ link, children }) => {
       // Change target and rel attributes is newTab is turned on
       target={link.newTab ? "_blank" : "_self"}
       rel={link.newTab ? "noopener noreferrer" : ""}
+      {...restProps}
     >
       {children}
     </a>

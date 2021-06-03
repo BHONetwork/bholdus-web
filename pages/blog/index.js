@@ -45,7 +45,7 @@ const LocalArticles = ({ topic, articles, className }) => {
         </Text>
       </div>
 
-      <div className="lg:grid lg:grid-cols-3 flex flex-col gap-4">
+      <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-16">
         {articles.map((article) => (
           <CustomLink link={{ url: `/blog/article/${article.slug}` }}>
             <LocalArticle article={article} />

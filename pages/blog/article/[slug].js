@@ -68,13 +68,13 @@ const LocalArticleDetail = ({ article }) => {
         </div>
       </div>
 
-      {relatedArticles && isArray(relatedArticles) && (
+      {relatedArticles && isArray(relatedArticles.articles) && (
         <div className="flex flex-col">
           <Text className="mb-6" size="medium" weight="bold" color="black">
             More stories
           </Text>
-          <div className="grid grid-cols-3 gap-4">
-            {relatedArticles.map((article) => (
+          <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
+            {relatedArticles.articles.map((article) => (
               <LocalArticle article={article} />
             ))}
           </div>
@@ -88,7 +88,7 @@ const Article = ({ article, global }) => {
   const Hero = () => <BlogDetailHero article={article} />;
 
   return (
-    <Layout className="mt-14" Hero={Hero} global={global}>
+    <Layout className="mt-14 mb-14" Hero={Hero} global={global}>
       <LocalArticleDetail article={article} />
     </Layout>
   );

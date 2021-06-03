@@ -22,7 +22,7 @@ const Layout = ({
   return (
     <div
       className={classnames("flex flex-col justify-between min-h-screen", {
-        "bg-default bg-cover": displayPageBackground,
+        "bg-default md:bg-cover bg-contain": displayPageBackground,
       })}
     >
       <div className="flex-1 bg-hero bg-cover min-h-screen">

@@ -7,7 +7,7 @@ const BoardProfile = ({ data }) => {
   const socials = getSocials(data);
 
   return (
-    <div className="flex lg:flex-row flex-col">
+    <div key={data.id} className="flex lg:flex-row flex-col">
       <Image img={data.avatar} />
       <div
         className="flex flex-col text-left lg:p-10 p-4"
@@ -23,7 +23,7 @@ const BoardProfile = ({ data }) => {
           >
             {socials.map(({ type, url }, index: number) => (
               // eslint-disable-next-line
-              <a href={url} target="_blank" rel="nofollow" key={index}>
+              <a key={index} href={url} target="_blank" rel="nofollow">
                 <Image
                   img={{ url: `../../images/${type}.svg`, alt: type }}
                   style={{ width: 40, height: 40 }}

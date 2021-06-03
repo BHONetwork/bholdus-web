@@ -1,6 +1,9 @@
+import classnames from "classnames";
 import React from "react";
 import { styled } from "../../../assets/css/stitches.config";
+
 import CustomLink from "../../elements/custom-link";
+import Loader from "../../elements/loader";
 
 const ButtonComponent = styled("button", {
   padding: "1rem 2.8rem",
@@ -22,7 +25,7 @@ const ButtonComponent = styled("button", {
         background: "$purple",
       },
     },
-    type: {
+    buttonType: {
       primary: {
         background: "$green",
         color: "$white",
@@ -30,6 +33,10 @@ const ButtonComponent = styled("button", {
       secondary: {
         background: "$white",
         color: "$green2",
+      },
+      disabled: {
+        background: "$darkGrey",
+        color: "$white",
       },
     },
     border: {
@@ -42,7 +49,7 @@ const ButtonComponent = styled("button", {
     },
   },
   defaultVariants: {
-    type: "primary",
+    buttonType: "primary",
     border: "rounded",
   },
 });
@@ -50,10 +57,18 @@ const ButtonComponent = styled("button", {
 export type ButtonProps = any;
 
 const Button = (props: ButtonProps) => {
-  const { button, icon, isLink, children, ...restProps } = props;
+  const { button, icon, buttonType, isLink, loading, children, ...restProps } =
+    props;
 
   const Component = ({ as = "button" }) => (
-    <ButtonComponent as={as} {...restProps}>
+    <ButtonComponent
+      className={classnames({
+        "flex flex-row items-center justify-center": loading,
+      })}
+      as={as}
+      {...restProps}
+    >
+      {loading && <Loader />}
       {React.isValidElement(children) ? (
         children
       ) : (

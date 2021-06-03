@@ -101,7 +101,10 @@ const getRoadmapLine = (status: string, isLastItem: boolean) => {
 const RoadmapItem = ({ data, isLastItem }) => {
   const RoadmapLine = getRoadmapLine(data.status, isLastItem);
   return (
-    <div className="flex flex-row justify-center roadmap__item md:mb-0 mb-4">
+    <div
+      key={data.id}
+      className="flex flex-row justify-center roadmap__item md:mb-0 mb-4"
+    >
       <Text
         className="hidden md:block"
         size="normal"

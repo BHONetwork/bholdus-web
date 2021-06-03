@@ -37,11 +37,11 @@ const Home = ({ pageData, latestNews, global }) => {
     >
       <Introduction data={pageData.introduction} />
 
-      {pageData.sections.map((section: any) => {
+      {pageData.sections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
         const Section = mapSections[__component];
 
-        return <Section data={rest} />;
+        return <Section key={index} data={rest} />;
       })}
 
       <AdvisorSection data={pageData.advisorsSection} />

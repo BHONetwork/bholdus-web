@@ -8,9 +8,9 @@ const UsecaseSection = ({ data }) => {
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <div className="lg:grid lg:grid-cols-2 lg:gap-6 flex flex-col gap-4">
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6 flex flex-col lg:space-y-0 space-y-10">
         {data.useCases.map((usecase: any) => (
-          <UsecaseCard data={usecase} />
+          <UsecaseCard key={usecase.id} data={usecase} />
         ))}
       </div>
     </Section>
