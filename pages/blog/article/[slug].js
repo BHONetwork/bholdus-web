@@ -37,16 +37,15 @@ const LocalArticleDetail = ({ article }) => {
 
       <div className="flex flex-row gap-1 mb-16">
         <Image
-          img={{ url: "../../social_3_black.svg" }}
-          src="../../social_3_black.svg"
+          img={{ url: "../../images/facebook_black.svg" }}
           style={{ width: 28, height: 28 }}
         />
         <Image
-          img={{ url: "../../social_2_black.svg" }}
+          img={{ url: "../../images/instagram_black.svg" }}
           style={{ width: 28, height: 28 }}
         />
         <Image
-          img={{ url: "../../social_1_black.svg" }}
+          img={{ url: "../../images/telegram_black.svg" }}
           style={{ width: 28, height: 28 }}
         />
       </div>

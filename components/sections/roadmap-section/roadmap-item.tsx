@@ -21,7 +21,7 @@ const getRoadmapLine = (status: string, isLastItem: boolean) => {
             className="absolute"
             style={{
               borderLeft: "2px solid #39B54A",
-              height: "-webkit-fill-available",
+              height: "100%",
               top: "17px",
               left: "7.5px",
               opacity: !isLastItem ? 1 : 0,
@@ -58,7 +58,7 @@ const getRoadmapLine = (status: string, isLastItem: boolean) => {
             className="absolute"
             style={{
               borderLeft: "2px dashed #545C79",
-              height: "-webkit-fill-available",
+              height: "100%",
               top: "17px",
               left: "7.5px",
               opacity: !isLastItem ? 1 : 0,
@@ -86,7 +86,7 @@ const getRoadmapLine = (status: string, isLastItem: boolean) => {
             className="absolute"
             style={{
               borderLeft: "2px dashed #545C79",
-              height: "-webkit-fill-available",
+              height: "100%",
               top: "17px",
               left: "7.5px",
               opacity: !isLastItem ? 1 : 0,
