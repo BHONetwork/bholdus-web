@@ -5,6 +5,8 @@ import CustomLink from "../../elements/custom-link";
 const ButtonComponent = styled("button", {
   padding: "1rem 2.8rem",
   fontFamily: "$default",
+  textAlign: "center",
+  fontSize: "$normal",
   variants: {
     color: {
       green: {

@@ -25,7 +25,7 @@ const BoardProfile = ({ data }) => {
               // eslint-disable-next-line
               <a href={url} target="_blank" rel="nofollow" key={index}>
                 <Image
-                  img={{ url: `../../${type}.svg`, alt: type }}
+                  img={{ url: `../../images/${type}.svg`, alt: type }}
                   style={{ width: 40, height: 40 }}
                 />
               </a>

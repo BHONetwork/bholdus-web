@@ -10,13 +10,13 @@ const PlayButton = ({ className = "", style = {} }) => {
     >
       <img
         className="absolute inset-1/3"
-        src="../../play_btn.png"
+        src="../../images/play_btn.png"
         alt=""
         style={{ width: 69, height: 69 }}
       ></img>
       <img
         className="absolute"
-        src="../../play_btn_bg.png"
+        src="../../images/play_btn_bg.png"
         alt=""
         style={{ width: 205, height: 205 }}
       ></img>

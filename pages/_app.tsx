@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href={getMediaUrl(global.favicon.url)} />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Staatliches"
+          href="https://fonts.googleapis.com/css?family=Titillium+Web"
         />
         <link
           rel="stylesheet"
@@ -64,7 +64,7 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const locale = getLocale(ctx?.ctx || {});
-  const global = await fetchAPI(`/global`);
+  const global = await fetchAPI(`/global?_locale=${locale}`);
 
   const supportedLocales = await fetchAPI("/i18n/locales");
 

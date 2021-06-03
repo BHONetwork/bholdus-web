@@ -6,10 +6,10 @@ import {
   linkPropTypes,
   buttonLinkPropTypes,
 } from "../../lib/types";
-import ButtonLink from "./button-link";
 import { useLockBodyScroll } from "../../lib/hooks";
-import { getButtonAppearance } from "../../lib/button";
 import CustomLink from "./custom-link";
+import Button from "../common/button";
+import Text from "../common/text";
 
 const MobileNavMenu = ({ navbar, closeSelf }) => {
   // Prevent window scroll while mobile nav menu is open
@@ -34,17 +34,14 @@ const MobileNavMenu = ({ navbar, closeSelf }) => {
               <li key={navLink.id} className="block w-full">
                 <CustomLink link={navLink}>
                   <div className="hover:text-gray-900 py-6 flex flex-row justify-between items-center">
-                    <span>{navLink.text}</span>
+                    <Text color="black">{navLink.text}</Text>
                     <MdChevronRight className="h-8 w-auto" />
                   </div>
                 </CustomLink>
               </li>
             ))}
           </ul>
-          <ButtonLink
-            button={navbar.button}
-            appearance={getButtonAppearance(navbar.button.type, "light")}
-          />
+          {navbar.button && <Button button={navbar.button} isLink />}
         </div>
       </div>
     </div>
