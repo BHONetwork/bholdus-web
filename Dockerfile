@@ -1,4 +1,4 @@
-FROM node:14.4.0-alpine3.10
+FROM node:12.22.1-alpine3.11
 RUN mkdir /app
 WORKDIR /app
 # Download dependency first to remand cache
