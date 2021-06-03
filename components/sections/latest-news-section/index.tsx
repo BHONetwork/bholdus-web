@@ -1,3 +1,4 @@
+import CustomLink from "../../elements/custom-link";
 import Section from "../sections";
 import Article from "./article";
 
@@ -11,7 +12,9 @@ const LatestNewsSection = ({ articles }) => {
       >
         <div className="lg:grid lg:grid-cols-3 flex flex-col gap-6">
           {articles.map((article: any) => (
-            <Article data={article} />
+            <CustomLink link={{ url: `/blog/article/${article.slug}` }}>
+              <Article data={article} />
+            </CustomLink>
           ))}
         </div>
       </Section>

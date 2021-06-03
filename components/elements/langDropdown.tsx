@@ -9,7 +9,9 @@ import Text from "../common/text";
 const NextLink = ({ pathname, asPath, locale, children, ...restProps }) => {
   return (
     <Link href={pathname} as={asPath} locale={locale}>
-      <a {...restProps}>{children}</a>
+      <a style={{ textDecoration: "none" }} {...restProps}>
+        {children}
+      </a>
     </Link>
   );
 };

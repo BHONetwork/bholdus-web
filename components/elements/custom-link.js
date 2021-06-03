@@ -9,7 +9,7 @@ const CustomLink = ({ link, children }) => {
   if (isInternalLink) {
     return (
       <Link href={link.url} as={link.url}>
-        <a>{children}</a>
+        <a style={{ textDecoration: "none" }}>{children}</a>
       </Link>
     );
   }
@@ -17,6 +17,7 @@ const CustomLink = ({ link, children }) => {
   // Plain <a> tags for external links
   return (
     <a
+      style={{ textDecoration: "none" }}
       href={link.url}
       // Change target and rel attributes is newTab is turned on
       target={link.newTab ? "_blank" : "_self"}
