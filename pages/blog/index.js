@@ -1,35 +1,99 @@
 import React from "react";
+import classnames from "classnames";
 
-import Articles from "../../components/sections/articles";
-import Seo from "../../components/elements/seo";
+import Layout from "../../components/layout";
+import BlogHero from "../../components/sections/blog-hero";
+import Text from "../../components/common/text";
+import Image from "../../components/common/image";
+
 import { fetchAPI, getLocale } from "../../lib/api";
 
-const Blog = ({ articles, page }) => {
+const LocalArticle = ({ article }) => {
+  const { title, description, image, publishedAt } = article;
   return (
-    <>
-      <Seo seo={page.metadata} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{page.shortName}</h1>
-          <Articles articles={articles} />
-        </div>
+    <div className="flex flex-col text-left">
+      <Image className="mb-3" img={image} style={{ maxHeight: 300 }} />
+      <Text className="mb-3" color="black" weight="bold">
+        {title}
+      </Text>
+      <Text className="mb-3" color="black">
+        {description}
+      </Text>
+      <Text
+        color="lightGrey"
+        color="black"
+        weight="bold"
+        style={{ fontSize: 14 }}
+      >
+        {publishedAt}
+      </Text>
+    </div>
+  );
+};
+
+const LocalArticles = ({ topic, articles, className }) => {
+  return (
+    <div className={classnames("flex flex-col", className)}>
+      <div className="flex flex-row items-center mb-7">
+        <div
+          className="mr-2"
+          style={{ backgroundColor: "#00B871", width: 40, height: 1 }}
+        />
+        <Text size="small" weight="bold" uppercase color="green">
+          {topic}
+        </Text>
       </div>
-    </>
+
+      <div className="lg:grid lg:grid-cols-3 flex flex-col gap-4">
+        {articles.map((article) => (
+          <LocalArticle article={article} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
+  const Hero = () => <BlogHero pageData={pageData} article={featuredArticle} />;
+  return (
+    <Layout className="mt-20" Hero={Hero} global={global}>
+      {Object.keys(articlesByTopic).map((topic) => {
+        return (
+          <LocalArticles
+            className="md:mb-20 mb-10"
+            topic={topic}
+            articles={articlesByTopic[topic]}
+          />
+        );
+      })}
+    </Layout>
   );
 };
 
 export async function getStaticProps(ctx) {
   const locale = getLocale(ctx);
-  const [articles, categories, page] = await Promise.all([
+  const [topics, featuredArticles, pageData] = await Promise.all([
+    fetchAPI(`/topics`),
     fetchAPI(
-      `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc`
+      `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=1`
     ),
-    fetchAPI(`/categories?_locale=${locale}`),
     fetchAPI(`/pages?slug=blog&_locale=${locale}&status=published`),
   ]);
+  const featuredArticle = featuredArticles[0] || null;
+
+  const articlesByTopic = {};
+  for (let topicItem of topics) {
+    const { id, topic } = topicItem;
+    const fetchedArticles = await fetchAPI(
+      `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&topics.id=${id}&_limit=3`
+    );
+    articlesByTopic[topic] = articlesByTopic[topic]
+      ? articlesByTopic[topic].push(fetchedArticles)
+      : fetchedArticles;
+  }
 
   return {
-    props: { articles, categories, page },
+    props: { articlesByTopic, featuredArticle, pageData: pageData[0] || null },
     revalidate: 1, // redo SSG in the background
   };
 }

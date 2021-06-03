@@ -11,6 +11,9 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@headlessui/react": "^1.2.0",
+    "@martin_hotell/rex-tils": "^2.1.1",
+    "@stitches/react": "^0.1.9",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@tailwindcss/typography": "^0.3.0",
     "autoprefixer": "^9",
@@ -35,6 +38,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.3",
+    "@types/react": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "2.x",
     "@typescript-eslint/parser": "2.x",
     "eslint": "6.x",
@@ -48,6 +52,7 @@
     "eslint-plugin-react-hooks": "2.x",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "typescript": "^4.3.2"
   }
 }
