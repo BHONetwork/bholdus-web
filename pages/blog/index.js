@@ -5,6 +5,7 @@ import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
 import Text from "../../components/common/text";
 import Image from "../../components/common/image";
+import CustomLink from "../../components/elements/custom-link";
 
 import { fetchAPI, getLocale } from "../../lib/api";
 
@@ -46,7 +47,9 @@ const LocalArticles = ({ topic, articles, className }) => {
 
       <div className="lg:grid lg:grid-cols-3 flex flex-col gap-4">
         {articles.map((article) => (
-          <LocalArticle article={article} />
+          <CustomLink link={{ url: `/blog/article/${article.slug}` }}>
+            <LocalArticle article={article} />
+          </CustomLink>
         ))}
       </div>
     </div>
