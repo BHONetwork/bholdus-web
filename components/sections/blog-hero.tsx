@@ -55,7 +55,7 @@ const BlogHero = ({ pageData, article }) => {
             <Button
               isLink
               button={{ url: `/blog/article/${article.slug}`, newTab: false }}
-              type="secondary"
+              buttonType="secondary"
               border="rounded"
             >
               <Text color="green">Read more</Text>

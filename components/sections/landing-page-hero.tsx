@@ -22,7 +22,12 @@ const LandingPageHero = ({ data }) => {
         {/* Buttons row */}
         <div className="flex flex-row flex-wrap gap-4">
           {data.actions.map((button: any) => (
-            <Button isLink key={button.id} type={button.type} button={button} />
+            <Button
+              isLink
+              key={button.id}
+              buttonType={button.type}
+              button={button}
+            />
           ))}
         </div>
       </div>

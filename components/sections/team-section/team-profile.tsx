@@ -25,9 +25,15 @@ const TeamProfile = ({ data }) => {
           </Text>
         )}
         <div className="flex flex-row flex-wrap">
-          {socials.map(({ type, url }) => (
+          {socials.map(({ type, url }, index) => (
             // eslint-disable-next-line
-            <a className="mr-2 mb-2" href={url} target="_blank" rel="nofollow">
+            <a
+              key={index}
+              className="mr-2 mb-2"
+              href={url}
+              target="_blank"
+              rel="nofollow"
+            >
               <Image
                 img={{ url: `../../images/${type}.svg`, alt: type }}
                 style={{ width: 40, height: 40 }}

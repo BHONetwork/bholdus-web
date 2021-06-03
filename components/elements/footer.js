@@ -13,7 +13,7 @@ const Footer = ({ footer, className, children, displayBackground = false }) => {
     >
       <div className="container flex flex-col flex-1 justify-between">
         <div>{children}</div>
-        <div className="flex flex-col gap-4 lg:gap-0 lg:flex-row items-center justify-between my-20">
+        <div className="flex flex-col lg:space-y-0 space-y-10 lg:gap-0 lg:flex-row items-center justify-between my-20">
           <CustomLink link={{ url: "/" }}>
             <Image img={footer.logo} style={{ width: 186, height: 58 }} />
           </CustomLink>

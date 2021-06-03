@@ -16,7 +16,7 @@ const ServiceSection = ({ data }) => {
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <div className="lg:grid lg:grid-cols-5 lg:gap-2 flex flex-col gap-4">
+      <div className="lg:grid lg:grid-cols-5 lg:gap-2 flex flex-col lg:space-y-0 space-y-10">
         {data.services.map((service: any, index: number) => (
           <ServiceCard
             key={service.id}

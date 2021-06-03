@@ -3,7 +3,7 @@ import Text from "../../common/text";
 
 const UsecaseCard = ({ data }) => {
   return (
-    <div className="flex flex-col items-center lg:items-start">
+    <div key={data.id} className="flex flex-col items-center lg:items-start">
       <Image
         img={data.image}
         className="mr-7"

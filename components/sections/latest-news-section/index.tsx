@@ -10,9 +10,12 @@ const LatestNewsSection = ({ articles }) => {
         smallTitle="In the world"
         title="Latest News"
       >
-        <div className="lg:grid lg:grid-cols-3 flex flex-col gap-6">
+        <div className="lg:grid lg:grid-cols-3 lg:gap-6 flex flex-col lg:space-y-0 space-y-10">
           {articles.map((article: any) => (
-            <CustomLink link={{ url: `/blog/article/${article.slug}` }}>
+            <CustomLink
+              key={article.id}
+              link={{ url: `/blog/article/${article.slug}` }}
+            >
               <Article data={article} />
             </CustomLink>
           ))}

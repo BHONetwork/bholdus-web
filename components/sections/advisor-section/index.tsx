@@ -8,9 +8,9 @@ const AdvisorSection = ({ data }) => {
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <div className="lg:grid lg:grid-cols-2 gap-6 flex flex-col">
-        {data.persons.map((person) => (
-          <BoardProfile data={person} />
+      <div className="lg:grid lg:grid-cols-2 lg:gap-6 flex flex-col lg:space-y-0 space-y-10">
+        {data.persons.map((person: any) => (
+          <BoardProfile key={person.id} data={person} />
         ))}
       </div>
     </Section>

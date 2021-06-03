@@ -5,13 +5,13 @@ import { Formik, Form, Field } from "formik";
 import Button from "../common/button";
 import Text from "../common/text";
 
-const GetInTouchForm = ({ data }) => {
+const GetInTouchForm = () => {
   const [loading, setLoading] = useState(false);
 
   const FormSchema = yup.object().shape({
-    name: yup.string().length(100).required(),
+    name: yup.string().required(),
     email: yup.string().email().required(),
-    message: yup.string().length(500).required(),
+    message: yup.string().required(),
   });
 
   return (
@@ -26,8 +26,9 @@ const GetInTouchForm = ({ data }) => {
           await fetchAPI("/lead-form-submissions", {
             method: "POST",
             body: JSON.stringify({
+              name: values.name,
               email: values.email,
-              location: data.location,
+              message: values.message,
             }),
           });
         } catch (err) {
@@ -40,9 +41,9 @@ const GetInTouchForm = ({ data }) => {
     >
       {({ errors, touched, isSubmitting }) => (
         <>
-          <Form className="flex flex-col gap-6">
+          <Form className="flex flex-col lg:gap-6">
             <Field
-              className="form-field p-4 rounded focus:outline-none"
+              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-1"
               type="text"
               name="name"
               placeholder="Name"
@@ -51,7 +52,7 @@ const GetInTouchForm = ({ data }) => {
               {errors.name && touched.name && errors.name}
             </Text>
             <Field
-              className="form-field p-4 rounded focus:outline-none"
+              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="email"
               name="email"
               placeholder="Email"
@@ -60,7 +61,7 @@ const GetInTouchForm = ({ data }) => {
               {errors.email && touched.email && errors.email}
             </Text>
             <Field
-              className="form-field p-4 rounded focus:outline-none"
+              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               component="textarea"
               style={{ height: 190, resize: "none" }}
               type="text"
@@ -71,6 +72,7 @@ const GetInTouchForm = ({ data }) => {
               {errors.message && touched.message && errors.message}
             </Text>
             <Button
+              type="submit"
               button={{ text: "Send Message" }}
               disabled={isSubmitting}
               loading={loading}

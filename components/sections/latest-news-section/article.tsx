@@ -3,6 +3,7 @@ import Text from "../../common/text";
 const Article = ({ data }) => {
   return (
     <div
+      key={data.id}
       className="flex flex-col text-left p-10"
       style={{ background: "#252D4B" }}
     >
