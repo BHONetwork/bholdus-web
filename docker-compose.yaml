@@ -1,0 +1,11 @@
+version: "1"
+services:
+  bholdus-web:
+    restart: always
+    environment:
+      - NODE_ENV=production
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 3000:3000
