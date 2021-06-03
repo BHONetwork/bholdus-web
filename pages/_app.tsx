@@ -3,7 +3,6 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
 
-import Layout from "../components/layout";
 import { getMediaUrl } from "../lib/media";
 import { fetchAPI, getLocale } from "../lib/api";
 
@@ -20,6 +19,8 @@ const MyApp = ({ Component, pageProps }) => {
   if (global == null) {
     return null;
   }
+
+  const seoShareImageFormats = global.defaultSeo?.shareImage?.formats || {};
 
   return (
     <>
@@ -44,21 +45,16 @@ const MyApp = ({ Component, pageProps }) => {
         title={global.defaultSeo.metaTitle}
         description={global.defaultSeo.metaDescription}
         openGraph={{
-          images: Object.values(global.defaultSeo.shareImage.formats).map(
-            (image) => {
-              return {
-                url: getMediaUrl(image.url),
-                width: image.width,
-                height: image.height,
-              };
-            }
-          ),
+          images: Object.values(seoShareImageFormats).map((image: any) => {
+            return {
+              url: getMediaUrl(image.url),
+              width: image.width,
+              height: image.height,
+            };
+          }),
         }}
       />
-      {/* Display the content */}
-      <Layout global={global}>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </>
   );
 };
@@ -68,7 +64,7 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
   const locale = getLocale(ctx?.ctx || {});
-  const global = await fetchAPI(`/global?_locale=${locale}`);
+  const global = await fetchAPI(`/global`);
 
   const supportedLocales = await fetchAPI("/i18n/locales");
 

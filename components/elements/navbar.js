@@ -1,69 +1,69 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { MdMenu } from "react-icons/md";
+import classNames from "classnames";
 import MobileNavMenu from "./mobile-nav-menu";
-import ButtonLink from "./button-link";
-import Image from "./image";
+import Image from "../common/image";
 import {
   mediaPropTypes,
   linkPropTypes,
   buttonLinkPropTypes,
 } from "../../lib/types";
-import { getButtonAppearance } from "../../lib/button";
 import CustomLink from "./custom-link";
+import Text from "../common/text";
+import Button from "../common/button";
+import LangDropdown from "./langDropdown";
 
 const Navbar = ({ navbar }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
 
   return (
     <>
-      {/* The actual navbar */}
-      <nav className="border-gray-200 border-b-2 py-6 sm:py-2">
+      <nav className="py-6 sm:py-2 sticky">
         <div className="container flex flex-row items-center justify-between">
-          {/* Content aligned to the left */}
+          {/* Navbar items */}
           <div className="flex flex-row items-center">
             <CustomLink link={{ url: "/" }}>
-              <a>
-                <Image
-                  media={navbar.logo}
-                  className="h-8 w-auto object-contain"
-                />
-              </a>
+              <Image img={navbar.logo} style={{ width: 186, height: 58 }} />
             </CustomLink>
-            {/* List of links on desktop */}
-            <ul className="hidden list-none md:flex flex-row gap-4 items-baseline ml-10">
-              {navbar.links.map((navLink) => (
+            <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
+              {navbar.links.map((navLink, index) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
-                    <div className="hover:text-gray-900 px-2 py-1">
+                    <Text
+                      className={classNames("px-2 py-1", {
+                        underline: index === 0,
+                      })}
+                      type="div"
+                    >
                       {navLink.text}
-                    </div>
+                    </Text>
                   </CustomLink>
                 </li>
               ))}
             </ul>
+
+            <LangDropdown />
           </div>
-          {/* Hamburger menu on mobile */}
+
+          {/* Hamburger menu on small screens */}
           <button
             onClick={() => setMobileMenuIsShown(true)}
-            className="p-1 block md:hidden"
+            className="p-1 block xl:hidden"
           >
-            <MdMenu className="h-8 w-auto" />
+            <MdMenu className="h-8 w-auto" style={{ color: "white" }} />
           </button>
+
           {/* CTA button on desktop */}
           {navbar.button && (
-            <div className="hidden md:block">
-              <ButtonLink
-                button={navbar.button}
-                appearance={getButtonAppearance(navbar.button.type, "light")}
-                compact
-              />
+            <div className="hidden xl:block">
+              <Button button={navbar.button} isLink />
             </div>
           )}
         </div>
       </nav>
 
-      {/* Mobile navigation menu panel */}
+      {/* Mobile menu */}
       {mobileMenuIsShown && (
         <MobileNavMenu
           navbar={navbar}
