@@ -1,5 +1,3 @@
-const { colors } = require(`tailwindcss/defaultTheme`);
-
 module.exports = {
   purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -16,6 +14,7 @@ module.exports = {
         purple: "linear-gradient(90deg, #D150FF 0%, #BD00FF 100%)",
         lightBlue: "linear-gradient(90deg, #73DDFF 0%, #00C2FF 100%)",
       },
+
       container: {
         center: true,
         padding: {
@@ -38,6 +37,7 @@ module.exports = {
         45: "45%",
       },
     },
+
     screens: {
       xs: "320px",
       sm: "480px",
@@ -46,5 +46,6 @@ module.exports = {
       xl: "1280px",
     },
   },
+
   plugins: [require("@tailwindcss/typography")],
 };

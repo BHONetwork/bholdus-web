@@ -32,7 +32,7 @@ export async function fetchAPI(path, options = {}) {
     if (response.status === 404 && path.indexOf("_locale=") !== -1) {
       return await retryWithoutLocale(path, options);
     }
-    console.error(response.statusText);
+    console.error(response.statusText, "in", path);
     return null;
   }
 

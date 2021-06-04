@@ -4,6 +4,7 @@ import BoardProfile from "./advisor-profile";
 const AdvisorSection = ({ data }) => {
   return (
     <Section
+      id="team"
       className="mt-20 lg:mt-80"
       smallTitle={data.smallTitle}
       title={data.title}

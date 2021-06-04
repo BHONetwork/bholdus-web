@@ -1,13 +1,14 @@
 import React from "react";
-import classnames from "classnames";
+import classNames from "classnames";
+import { MdFilterDrama } from "react-icons/md";
 
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
 import Text from "../../components/common/text";
 import Image from "../../components/common/image";
-import CustomLink from "../../components/elements/custom-link";
+import CustomLink from "../../components/common/custom-link";
 
-import { fetchAPI, getLocale } from "../../lib/api";
+import { fetchAPI, getLocale } from "../../utils/api";
 
 const LocalArticle = ({ article }) => {
   const { title, description, image, publishedAt } = article;
@@ -34,7 +35,7 @@ const LocalArticle = ({ article }) => {
 
 const LocalArticles = ({ topic, articles, className }) => {
   return (
-    <div className={classnames("flex flex-col", className)}>
+    <div className={classNames("flex flex-col", className)}>
       <div className="flex flex-row items-center mb-7">
         <div
           className="mr-2"
@@ -60,15 +61,24 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
   const Hero = () => <BlogHero pageData={pageData} article={featuredArticle} />;
   return (
     <Layout className="mt-20" Hero={Hero} global={global}>
-      {Object.keys(articlesByTopic).map((topic) => {
-        return (
-          <LocalArticles
-            className="md:mb-20 mb-10"
-            topic={topic}
-            articles={articlesByTopic[topic]}
-          />
-        );
-      })}
+      {articlesByTopic ? (
+        Object.keys(articlesByTopic).map((topic) => {
+          return (
+            <LocalArticles
+              className="md:mb-20 mb-10"
+              topic={topic}
+              articles={articlesByTopic[topic]}
+            />
+          );
+        })
+      ) : (
+        <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
+          <MdFilterDrama size={200} />
+          <Text size="medium" color="black">
+            No articles yet! Please comeback later.
+          </Text>
+        </div>
+      )}
     </Layout>
   );
 };
@@ -84,15 +94,20 @@ export async function getStaticProps(ctx) {
   ]);
   const featuredArticle = featuredArticles[0] || null;
 
-  const articlesByTopic = {};
+  let articlesByTopic = null;
   for (let topicItem of topics) {
     const { id, topic } = topicItem;
     const fetchedArticles = await fetchAPI(
       `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&topics.id=${id}&_limit=3`
     );
-    articlesByTopic[topic] = articlesByTopic[topic]
-      ? articlesByTopic[topic].push(fetchedArticles)
-      : fetchedArticles;
+    if (fetchedArticles && fetchedArticles.length > 0) {
+      if (!articlesByTopic) {
+        articlesByTopic = {};
+      }
+      articlesByTopic[topic] = articlesByTopic[topic]
+        ? articlesByTopic[topic].push(fetchedArticles)
+        : fetchedArticles;
+    }
   }
 
   return {

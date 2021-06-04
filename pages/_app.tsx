@@ -3,9 +3,12 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
 
-import { getMediaUrl } from "../lib/media";
-import { fetchAPI, getLocale } from "../lib/api";
+import Layout from "../components/layout";
 
+import { getMediaUrl } from "../utils/media";
+import { fetchAPI, getLocale } from "../utils/api";
+
+import "../assets/css/tailwind.css";
 import "../assets/css/style.css";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -54,7 +57,13 @@ const MyApp = ({ Component, pageProps }) => {
           }),
         }}
       />
-      <Component {...pageProps} />
+      {router.pathname !== "/404" ? (
+        <Component {...pageProps} />
+      ) : (
+        <Layout Hero={() => null} global={global}>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </>
   );
 };

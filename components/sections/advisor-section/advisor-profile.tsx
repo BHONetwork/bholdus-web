@@ -1,7 +1,7 @@
 import Image from "../../common/image";
 import Text from "../../common/text";
 
-import { getSocials } from "../../../lib/api";
+import { getSocials } from "../../../utils/api";
 
 const BoardProfile = ({ data }) => {
   const socials = getSocials(data);

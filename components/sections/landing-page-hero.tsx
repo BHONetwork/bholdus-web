@@ -1,5 +1,5 @@
 import Button from "../common/button";
-import Image from "../elements/image";
+import Image from "../common/image";
 import Text from "../common/text";
 
 const LandingPageHero = ({ data }) => {
@@ -34,7 +34,7 @@ const LandingPageHero = ({ data }) => {
 
       {/* Right column for the image */}
       <div className="hidden md:flex flex-col justify-center md:pt-32 mr-0 xl:mr-60">
-        <Image media={data.image} className="w-40 h-40" />
+        <Image img={data.image} className="w-40 h-40" />
       </div>
     </main>
   );

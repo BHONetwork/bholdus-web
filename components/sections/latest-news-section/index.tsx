@@ -1,4 +1,4 @@
-import CustomLink from "../../elements/custom-link";
+import CustomLink from "../../common/custom-link";
 import Section from "../sections";
 import Article from "./article";
 

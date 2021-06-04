@@ -1,9 +1,10 @@
-import Text from "../common/text";
-import Section from "./sections";
+import Text from "../../common/text";
+import Section from "../sections";
 
 const TextSection = ({ data }) => {
   return (
     <Section
+      id="about"
       className="mt-20 lg:mt-48"
       smallTitle={data.smallTitle}
       title={data.title}

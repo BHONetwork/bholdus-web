@@ -12,6 +12,7 @@ const backgrounds = [
 const ServiceSection = ({ data }) => {
   return (
     <Section
+      id="services"
       className="mt-20 lg:mt-80"
       smallTitle={data.smallTitle}
       title={data.title}

@@ -1,33 +1,46 @@
-import { useState } from "react";
-import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { MdMenu } from "react-icons/md";
 import classNames from "classnames";
+
 import MobileNavMenu from "./mobile-nav-menu";
-import Image from "../common/image";
-import {
-  mediaPropTypes,
-  linkPropTypes,
-  buttonLinkPropTypes,
-} from "../../lib/types";
-import CustomLink from "./custom-link";
+import CustomLink from "../common/custom-link";
 import Text from "../common/text";
 import Button from "../common/button";
+import Image from "../common/image";
 import LangDropdown from "./langDropdown";
 
-const Navbar = ({ navbar }) => {
+const Navbar = ({ className = "", navbar }) => {
+  const [isScrolling, setIsScrolling] = useState(false);
+
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
+
+  useEffect(() => {
+    document.body.addEventListener("scroll", () => {
+      if (document.body.scrollTop >= 74) {
+        setIsScrolling(true);
+      } else {
+        setIsScrolling(false);
+      }
+    });
+    return () => setIsScrolling(false);
+  }, []);
 
   return (
     <>
-      <nav className="py-6 sm:py-2 sticky">
+      <nav
+        className={classNames(className, {
+          "bg-darkGrey sticky top-0 z-10 py-2 md:py-6": isScrolling,
+          "py-6": !isScrolling,
+        })}
+      >
         <div className="container flex flex-row items-center justify-between">
-          {/* Navbar items */}
           <div className="flex flex-row items-center">
-            <CustomLink link={{ url: "/" }}>
-              <Image img={navbar.logo} style={{ width: 186, height: 58 }} />
+            <CustomLink link={{ url: "/" }} style={{ width: 186, height: 58 }}>
+              <Image img={navbar.logo} />
             </CustomLink>
+
             <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
-              {navbar.links.map((navLink, index) => (
+              {navbar.links.map((navLink: any, index: number) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
                     <Text
@@ -51,10 +64,10 @@ const Navbar = ({ navbar }) => {
             onClick={() => setMobileMenuIsShown(true)}
             className="p-1 block xl:hidden"
           >
-            <MdMenu className="h-8 w-auto" style={{ color: "white" }} />
+            <MdMenu className="h-8 w-auto" color="#fff" />
           </button>
 
-          {/* CTA button on desktop */}
+          {/* CTA button on large screens */}
           {navbar.button && (
             <div className="hidden xl:block">
               <Button button={navbar.button} isLink />
@@ -72,14 +85,6 @@ const Navbar = ({ navbar }) => {
       )}
     </>
   );
-};
-
-Navbar.propTypes = {
-  navbar: PropTypes.shape({
-    logo: mediaPropTypes,
-    links: PropTypes.arrayOf(linkPropTypes),
-    button: buttonLinkPropTypes,
-  }),
 };
 
 export default Navbar;

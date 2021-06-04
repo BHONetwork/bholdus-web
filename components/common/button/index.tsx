@@ -1,8 +1,8 @@
-import classnames from "classnames";
+import classNames from "classnames";
 import React from "react";
 import { styled } from "../../../assets/css/stitches.config";
 
-import CustomLink from "../../elements/custom-link";
+import CustomLink from "../../common/custom-link";
 import Loader from "../../elements/loader";
 
 const ButtonComponent = styled("button", {
@@ -62,7 +62,7 @@ const Button = (props: ButtonProps) => {
 
   const Component = ({ as = "button" }) => (
     <ButtonComponent
-      className={classnames({
+      className={classNames({
         "flex flex-row items-center justify-center": loading,
       })}
       as={as}

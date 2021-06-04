@@ -4,6 +4,7 @@ import UsecaseCard from "./usecase-card";
 const UsecaseSection = ({ data }) => {
   return (
     <Section
+      id="usecases"
       className="mt-20 lg:mt-80"
       smallTitle={data.smallTitle}
       title={data.title}

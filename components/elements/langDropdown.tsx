@@ -21,10 +21,7 @@ export default function Example() {
   const { pathname, asPath, locale } = router;
 
   return (
-    <Menu
-      as="div"
-      className="relative inline-block text-left bg-transparent ml-4"
-    >
+    <Menu as="div" className="relative inline-block text-left ml-4">
       {({ open }) => (
         <>
           <div>
@@ -47,7 +44,7 @@ export default function Example() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="origin-top-right absolute right-0 mt-2 bg-darkGrey rounded-md focus:outline-none">
+            <Menu.Items className="absolute mt-2 bg-darkGrey rounded-md focus:outline-none z-20">
               <div className="px-4 py-2">
                 <Menu.Item>
                   {({ active }) => (

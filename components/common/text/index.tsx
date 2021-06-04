@@ -1,6 +1,5 @@
-import { Enum } from "@martin_hotell/rex-tils";
-import { CSSProperties } from "react";
 import { styled } from "../../../assets/css/stitches.config";
+import { TextProps } from "./types";
 
 const TextComponent = styled("p", {
   fontFamily: "$default",
@@ -57,25 +56,15 @@ const TextComponent = styled("p", {
       },
     },
     type: {
-      p: {
-        color: "$white",
-        fontSize: "$normal",
-        fontWeight: "$normal",
-      },
       div: {
         color: "$white",
         fontSize: "$normal",
         fontWeight: "$normal",
       },
-      label: {
+      p: {
         color: "$white",
         fontSize: "$normal",
-        fontWeight: "$bold",
-      },
-      title: {
-        color: "$white",
-        fontSize: "$xMedium",
-        fontWeight: "$bold",
+        fontWeight: "$normal",
       },
       h1: {
         color: "$white",
@@ -115,28 +104,6 @@ const TextComponent = styled("p", {
     size: "normal",
   },
 });
-
-export const TextTypes = Enum(
-  "h1",
-  "h2",
-  "h3",
-  "h4",
-  "h5",
-  "h6",
-  "div",
-  "p",
-  "label",
-  "title"
-);
-export type TextTypes = Enum<typeof TextTypes>;
-
-export type TextProps = {
-  type?: TextTypes;
-  uppercase?: boolean;
-  children: React.ReactText;
-  style?: CSSProperties;
-  [other: string]: any;
-};
 
 const Text = (props: TextProps) => {
   const { children, type = "div", ...restProps } = props;

@@ -1,11 +1,11 @@
-import classnames from "classnames";
+import classNames from "classnames";
 import { styled } from "../../assets/css/stitches.config";
 import Text from "../common/text";
 
 const PlayButton = ({ className = "", style = {} }) => {
   return (
     <div
-      className={classnames("relative", className)}
+      className={classNames("relative", className)}
       style={{ width: 205, height: 205, ...style }}
     >
       <img

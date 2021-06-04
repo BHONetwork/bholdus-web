@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI } from "../../utils/api";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
 import Button from "../common/button";
@@ -43,7 +43,7 @@ const GetInTouchForm = () => {
         <>
           <Form className="flex flex-col lg:gap-6">
             <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-1"
+              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="text"
               name="name"
               placeholder="Name"

@@ -1,16 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@font-face {
-  font-family: "Titillium Web";
-  src: local("Titillium Web"),
-    url(../fonts//TitilliumWeb.ttf) format("truetype");
-}
-
 html {
   font-size: 13px;
   @apply text-gray-900;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+}
+
+body {
+  -webkit-overflow-scrolling: initial;
 }
 
 @media screen and (min-width: 320px) {
@@ -59,13 +60,6 @@ html {
 
 .rich-text-hero a {
   @apply text-blue-600 underline;
-}
-
-.rich-text-banner {
-  @apply whitespace-pre-line;
-  a {
-    @apply underline;
-  }
 }
 
 .title {

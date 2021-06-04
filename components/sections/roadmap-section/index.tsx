@@ -4,6 +4,7 @@ import RoadmapItem from "./roadmap-item";
 const RoadmapSection = ({ data }) => {
   return (
     <Section
+      id="roadmap"
       className="mt-20 lg:mt-80 items-center"
       smallTitle={data.smallTitle}
       title={data.title}

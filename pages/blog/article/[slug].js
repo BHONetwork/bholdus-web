@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import ErrorPage from "../../404";
 
 import Layout from "../../../components/layout";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero.tsx";
@@ -6,7 +7,7 @@ import BlogDetailHero from "../../../components/sections/blog-detail-hero.tsx";
 import Image from "../../../components/common/image";
 import Text from "../../../components/common/text";
 
-import { fetchAPI, getLocale } from "../../../lib/api";
+import { fetchAPI, getLocale } from "../../../utils/api";
 import ssgPopularLocales from "../../../i18n/supportedPopularLocales.json";
 import { isArray } from "lodash";
 
@@ -85,6 +86,14 @@ const LocalArticleDetail = ({ article }) => {
 };
 
 const Article = ({ article, global }) => {
+  if (!article) {
+    return (
+      <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
+        <ErrorPage statusCode={404} />
+      </Layout>
+    );
+  }
+
   const Hero = () => <BlogDetailHero article={article} />;
 
   return (
@@ -98,16 +107,18 @@ export async function getStaticPaths() {
   const articles = await fetchAPI("/articles?status=published");
 
   return {
-    paths: articles.reduce((acc, article) => {
-      return acc.concat(
-        ssgPopularLocales.map((locale) => ({
-          params: {
-            slug: article.slug,
-          },
-          locale,
-        }))
-      );
-    }, []),
+    paths: articles
+      ? articles.reduce((acc, article) => {
+          return acc.concat(
+            ssgPopularLocales.map((locale) => ({
+              params: {
+                slug: article.slug,
+              },
+              locale,
+            }))
+          );
+        }, [])
+      : [],
     fallback: true,
   };
 }
