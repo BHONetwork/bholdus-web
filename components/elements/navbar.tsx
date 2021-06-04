@@ -16,7 +16,7 @@ const Navbar = ({ className = "", navbar }) => {
 
   useEffect(() => {
     document.body.addEventListener("scroll", () => {
-      if (document.body.scrollTop >= 74) {
+      if (document.body.scrollTop >= 10) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
@@ -28,10 +28,12 @@ const Navbar = ({ className = "", navbar }) => {
   return (
     <>
       <nav
-        className={classNames(className, {
-          "bg-darkGrey sticky top-0 z-10 py-2 md:py-6": isScrolling,
-          "py-6": !isScrolling,
-        })}
+        className={classNames(
+          "absolute top-0 left-0 w-full z-10 h-24 flex justify-between items-center p-2.5 border-b-0 border-solid border-transparent transition-colors duration-300",
+          {
+            sticky: isScrolling,
+          }
+        )}
       >
         <div className="container flex flex-row items-center justify-between">
           <div className="flex flex-row items-center">
@@ -77,12 +79,11 @@ const Navbar = ({ className = "", navbar }) => {
       </nav>
 
       {/* Mobile menu */}
-      {mobileMenuIsShown && (
-        <MobileNavMenu
-          navbar={navbar}
-          closeSelf={() => setMobileMenuIsShown(false)}
-        />
-      )}
+      <MobileNavMenu
+        navbar={navbar}
+        closeSelf={() => setMobileMenuIsShown(false)}
+        mobileMenuIsShown={mobileMenuIsShown}
+      />
     </>
   );
 };

@@ -18,17 +18,6 @@ const Layout = ({
   const { navbar, footer, notificationBanner } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
-  const [isScrolling, setIsScrolling] = useState(false);
-  useEffect(() => {
-    document.body.addEventListener("scroll", () => {
-      if (document.body.scrollTop >= 74) {
-        setIsScrolling(true);
-      } else {
-        setIsScrolling(false);
-      }
-    });
-    return () => setIsScrolling(false);
-  }, []);
 
   return (
     <div
@@ -36,25 +25,14 @@ const Layout = ({
         "bg-default md:bg-cover bg-contain": displayPageBackground,
       })}
     >
-      <Navbar
-        className={classNames({
-          hidden: !isScrolling,
-        })}
-        navbar={navbar}
-      />
-      <div className="flex-1 bg-hero bg-cover min-h-screen">
+      <Navbar navbar={navbar} />
+      <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">
         {notificationBanner && notificationBanner.enable && bannerIsShown && (
           <NotificationBanner
             data={notificationBanner}
             closeSelf={() => setBannerIsShown(false)}
           />
         )}
-        <Navbar
-          className={classNames({
-            "opacity-0": isScrolling,
-          })}
-          navbar={navbar}
-        />
         <Hero />
       </div>
       <div className={classNames("container", className)}>{children}</div>

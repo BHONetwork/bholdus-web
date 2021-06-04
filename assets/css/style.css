@@ -12,6 +12,7 @@ body {
 
 body {
   -webkit-overflow-scrolling: initial;
+  font-family: "Titillium Web", sans-serif;
 }
 
 @media screen and (min-width: 320px) {
