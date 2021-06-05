@@ -2,24 +2,10 @@ import classNames from "classnames";
 import { styled } from "../../assets/css/stitches.config";
 import Text from "../common/text";
 
-const PlayButton = ({ className = "", style = {} }) => {
+const PlayButton = () => {
   return (
-    <div
-      className={classNames("relative", className)}
-      style={{ width: 205, height: 205, ...style }}
-    >
-      <img
-        className="absolute inset-1/3"
-        src="../../images/play_btn.png"
-        alt=""
-        style={{ width: 69, height: 69 }}
-      ></img>
-      <img
-        className="absolute"
-        src="../../images/play_btn_bg.png"
-        alt=""
-        style={{ width: 205, height: 205 }}
-      ></img>
+    <div className="play-button">
+      <img src="../../images/play_btn.png" alt="play-button" />
     </div>
   );
 };
@@ -30,8 +16,13 @@ const GreenBackground = styled("div", {
 
 const Introduction = ({ data }) => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-end">
-      <PlayButton className="self-start play-button" />
+    <section className="flex flex-col lg:flex-row justify-end flex-shrink">
+      <div
+        className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-20 z-10"
+        style={{ maxHeight: 205 }}
+      >
+        <PlayButton />
+      </div>
       <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
         <div className="flex flex-row items-center mb-12">
           <div
@@ -59,7 +50,7 @@ const Introduction = ({ data }) => {
           ))}
         </ul>
       </GreenBackground>
-    </div>
+    </section>
   );
 };
 

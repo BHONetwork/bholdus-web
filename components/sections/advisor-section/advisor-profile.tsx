@@ -7,8 +7,8 @@ const BoardProfile = ({ data }) => {
   const socials = getSocials(data);
 
   return (
-    <div key={data.id} className="flex lg:flex-row flex-col">
-      <Image img={data.avatar} />
+    <div key={data.id} className="flex md:flex-row flex-col">
+      <Image className="md:w-2/5" img={data.avatar} />
       <div
         className="flex flex-col text-left lg:p-10 p-4"
         style={{

@@ -10,6 +10,7 @@ import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
 
 import "../assets/css/tailwind.css";
+import "../assets/css/github-markdown.css";
 import "../assets/css/style.css";
 
 const handExitComplete = (): void => {

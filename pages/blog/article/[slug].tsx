@@ -1,20 +1,20 @@
-import ReactMarkdown from "react-markdown";
-import ErrorPage from "../../404";
+import { isArray } from "lodash";
 
 import Layout from "../../../components/layout";
-import BlogDetailHero from "../../../components/sections/blog-detail-hero.tsx";
+import BlogDetailHero from "../../../components/sections/blog-detail-hero";
+import ErrorPage from "../../404";
 
 import Image from "../../../components/common/image";
 import Text from "../../../components/common/text";
+import RichText from "../../../components/common/rich-text";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import ssgPopularLocales from "../../../i18n/supportedPopularLocales.json";
-import { isArray } from "lodash";
 
 const LocalArticle = ({ article }) => {
   const { title, image } = article;
   return (
-    <div className="flex flex-col text-left">
+    <div key={article.id} className="flex flex-col text-left">
       <Image className="mb-3" img={image} style={{ maxHeight: 300 }} />
       <Text className="mb-3" color="black" weight="bold">
         {title}
@@ -29,11 +29,7 @@ const LocalArticleDetail = ({ article }) => {
     <div className="flex flex-col">
       <div className="flex flex-col items-center mb-16">
         <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
-        <ReactMarkdown
-          className="article-content"
-          source={content}
-          escapeHtml={false}
-        />
+        <RichText children={content} />
       </div>
 
       <div className="flex flex-row gap-1 mb-16">
@@ -56,8 +52,9 @@ const LocalArticleDetail = ({ article }) => {
           Tagged Topics
         </Text>
         <div className="flex flex-row flex-wrap">
-          {topics.map((topic) => (
+          {topics.map((topic: any) => (
             <div
+              key={topic.id}
               className="py-4 px-14 mr-2 mb-2"
               style={{ border: "1px solid #000000", borderRadius: "2px" }}
             >
@@ -75,8 +72,8 @@ const LocalArticleDetail = ({ article }) => {
             More stories
           </Text>
           <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
-            {relatedArticles.articles.map((article) => (
-              <LocalArticle article={article} />
+            {relatedArticles.articles.map((article: any) => (
+              <LocalArticle key={article.id} article={article} />
             ))}
           </div>
         </div>
@@ -89,7 +86,7 @@ const Article = ({ article, global }) => {
   if (!article) {
     return (
       <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
-        <ErrorPage statusCode={404} />
+        <ErrorPage />
       </Layout>
     );
   }
@@ -132,7 +129,7 @@ export async function getStaticProps(ctx) {
 
   return {
     props: { article },
-    revalidate: 60, // redo SSG in the background
+    revalidate: 1, // redo SSG in the background
   };
 }
 

@@ -19,43 +19,53 @@ const BlogHero = ({ pageData, article }) => {
 
       {article && (
         <div className="container md:mt-48 mt-16">
-          <div className="flex flex-row">
-            <GreenBackground className="min-w-3 p-10 md:pt-12 md:pb-14 md:pr-9 md:pl-20">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
-                <div className="flex flex-row items-center">
-                  <div
-                    className="hidden md:block mr-2"
-                    style={{ backgroundColor: "white", width: 40, height: 1 }}
-                  />
-                  <Text
-                    className="mb-1 md:mb-0"
-                    size="small"
-                    weight="bold"
-                    uppercase
-                  >
-                    {article.topics[0].topic}
-                  </Text>
-                </div>
-                <div className="flex flex-row items-center">
+          <div className="flex flex-row justify-center">
+            <GreenBackground className="flex flex-col justify-between p-10 lg:pt-12 lg:pb-14 lg:pr-9 lg:pl-20 w-full md:w-8/12 lg:w-2/5">
+              <div>
+                <div className="flex lg:flex-row lg:justify-between items-center flex-col mb-8">
+                  <div className="flex lg:flex-row flex-col-reverse items-center">
+                    <div
+                      className="block lg:mr-2 lg:mb-0 mb-4"
+                      style={{
+                        backgroundColor: "white",
+                        width: 40,
+                        height: 1,
+                      }}
+                    />
+                    <Text
+                      className="mb-2 lg:mb-0"
+                      size="small"
+                      weight="bold"
+                      uppercase
+                    >
+                      {article.topics[0].topic}
+                    </Text>
+                  </div>
                   <Text weight="bold" style={{ fontSize: 14 }}>
                     {article.publishedAt}
                   </Text>
                 </div>
+                <Text
+                  className="mb-5 oneline-text multiline-ellipsi text-center lg:text-left"
+                  color="white"
+                  weight="bold"
+                  style={{ fontSize: 30 }}
+                >
+                  {article.title}
+                </Text>
+                <Text
+                  className="mb-9 h-20 threeline-text multiline-ellipsi text-center lg:text-left"
+                  type="p"
+                >
+                  {article.description}
+                </Text>
               </div>
-              <Text
-                className="mb-5"
-                color="white"
-                weight="bold"
-                style={{ fontFamily: "Playfair Display", fontSize: 30 }}
-              >
-                {article.title}
-              </Text>
-              <Text className="mb-9" type="p">
-                {article.description}
-              </Text>
               <Button
                 isLink
-                button={{ url: `/blog/article/${article.slug}`, newTab: false }}
+                button={{
+                  url: `/blog/article/${article.slug}`,
+                  newTab: false,
+                }}
                 buttonType="secondary"
                 border="rounded"
               >
@@ -63,7 +73,7 @@ const BlogHero = ({ pageData, article }) => {
               </Button>
             </GreenBackground>
             <Image
-              className="hidden md:block"
+              className="hidden lg:block w-3/5"
               img={article.image}
               alt="article"
               style={{ maxHeight: 400 }}
