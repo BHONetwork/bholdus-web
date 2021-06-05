@@ -2,6 +2,7 @@ import App from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
+import { AnimatePresence } from "framer-motion";
 
 import Layout from "../components/layout";
 
@@ -10,6 +11,27 @@ import { fetchAPI, getLocale } from "../utils/api";
 
 import "../assets/css/tailwind.css";
 import "../assets/css/style.css";
+
+const handExitComplete = (): void => {
+  if (typeof window !== "undefined") {
+    const hashId = window.location.hash;
+
+    console.log({ location: window.location, hashId });
+
+    if (hashId) {
+      const element = document.querySelector(hashId);
+      console.log({ element });
+
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+      }
+    }
+  }
+};
 
 const MyApp = ({ Component, pageProps }) => {
   // Prevent Next.js behavior when it tries to render the [[...slug]] route
@@ -60,9 +82,11 @@ const MyApp = ({ Component, pageProps }) => {
       {router.pathname !== "/404" ? (
         <Component {...pageProps} />
       ) : (
-        <Layout Hero={() => null} global={global}>
-          <Component {...pageProps} />
-        </Layout>
+        <AnimatePresence exitBeforeEnter onExitComplete={handExitComplete}>
+          <Layout Hero={() => null} global={global}>
+            <Component {...pageProps} />
+          </Layout>
+        </AnimatePresence>
       )}
     </>
   );

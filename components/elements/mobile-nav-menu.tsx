@@ -1,7 +1,6 @@
 import { MdClose, MdChevronRight } from "react-icons/md";
 import classNames from "classnames";
 
-import { useLockBodyScroll } from "../../utils/hooks";
 import CustomLink from "../common/custom-link";
 import Button from "../common/button";
 import Text from "../common/text";
@@ -39,6 +38,7 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
                 <CustomLink
                   link={navLink}
                   className="transition-all duration-200"
+                  onClick={closeSelf}
                 >
                   <div className="hover:text-gray-900 py-6 flex flex-row justify-between items-center">
                     <Text>{navLink.text}</Text>
