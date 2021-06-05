@@ -3,23 +3,36 @@ on:
   push:
     branches:
       - main
-
-env:
-  NODE_VERSION: '10.x'                # set this to the node version to use
-
 jobs:
-  build-and-deploy:
-    name: Build and Deploy
+  build:
+    name: 'Tests'
     runs-on: ubuntu-latest
-    environment: production
+    strategy:
+      matrix:
+        node: [ '12.16' ]
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ env.NODE_VERSION }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-    - name: yarn install, build, and lint
-      run: |
-        yarn
-        yanr build --if-present
-        yarn lint
+      - uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node }}
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - run: rm -f .yarnclean
+      - run: yarn --frozen-lockfile
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+          HUSKY_SKIP_INSTALL: true
+
+      - run: yarn
+      - run: yarn lint
+      - run: yarn build
