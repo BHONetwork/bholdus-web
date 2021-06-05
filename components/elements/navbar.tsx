@@ -15,8 +15,9 @@ const Navbar = ({ className = "", navbar }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
 
   useEffect(() => {
-    document.body.addEventListener("scroll", () => {
-      if (document.body.scrollTop >= 10) {
+    window.addEventListener("scroll", () => {
+      const windowsScrollTop = window.pageYOffset;
+      if (windowsScrollTop >= 60) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
@@ -79,11 +80,11 @@ const Navbar = ({ className = "", navbar }) => {
       </nav>
 
       {/* Mobile menu */}
-      {/* <MobileNavMenu
+      <MobileNavMenu
         navbar={navbar}
         closeSelf={() => setMobileMenuIsShown(false)}
         mobileMenuIsShown={mobileMenuIsShown}
-      /> */}
+      />
     </>
   );
 };

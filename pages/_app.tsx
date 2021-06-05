@@ -8,10 +8,9 @@ import Layout from "../components/layout";
 
 import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
-
+import "aos/dist/aos.css";
 import "../assets/css/tailwind.css";
 import "../assets/css/style.css";
-import "aos/dist/aos.css";
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {

@@ -6,8 +6,8 @@ const ServiceCard = ({ data, background, index }) => {
     <div className="flex mb-5 justify-center lg:md-0">
       <div
         className="service-card flex items-center flex-col pt-16 pb-9 rounded w-56 h-64 lg:w-40 lg:h-56 xl:w-56 xl:h-64 relative"
-        // data-aos="fade-up"
-        // data-aos-delay={index * 200}
+        data-aos="fade-up"
+        data-aos-delay={index * 200}
       >
         <div
           className="service-carg-bg absolute top-1/2 left-1/2 w-full h-full"
