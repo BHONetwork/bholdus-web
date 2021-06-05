@@ -6,7 +6,7 @@ const LandingPageHero = ({ data }) => {
   return (
     <main className="container flex flex-col md:flex-row justify-between xl:items-center landing-page-hero">
       {/* Left column for content */}
-      <div className="flex-1 sm:pr-8 pt-2 md:pt-16" data-aos="fade-right">
+      <div className="flex-1 sm:pr-8" data-aos="fade-right">
         <Text className="lg:mt-32 mb-2 xl:max-w-lg" type="h1">
           {data.title}
         </Text>

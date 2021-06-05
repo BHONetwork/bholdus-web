@@ -9,7 +9,7 @@ const TeamProfile = ({ data, index }) => {
   return (
     <div
       className="flex flex-row"
-      data-aos={index % 2 == 0 ? "fade-left" : "fade-right"}
+      data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
       data-aos-delay={index * 100}
     >
       <Image

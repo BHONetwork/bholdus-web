@@ -57,8 +57,7 @@ const ButtonComponent = styled("button", {
 export type ButtonProps = any;
 
 const Button = (props: ButtonProps) => {
-  const { button, icon, buttonType, isLink, loading, children, ...restProps } =
-    props;
+  const { button, icon, isLink, loading, children, ...restProps } = props;
 
   const Component = ({ as = "button" }) => (
     <ButtonComponent

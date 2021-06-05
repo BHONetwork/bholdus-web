@@ -5,9 +5,9 @@ const RoadmapItem = ({ data, isLastItem }) => {
   return (
     <div
       className={classNames("road__item", {
-        "road__item-active": data.status == "current",
-        "road__item-finish": data.status == "finished",
-        "road__item-next": data.status == "pending",
+        "road__item-active": data.status === "current",
+        "road__item-finish": data.status === "finished",
+        "road__item-next": data.status === "pending",
       })}
       key={data.id}
     >

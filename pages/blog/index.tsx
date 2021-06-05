@@ -21,12 +21,7 @@ const LocalArticle = ({ article }) => {
       <Text className="mb-3" color="black">
         {description}
       </Text>
-      <Text
-        color="lightGrey"
-        color="black"
-        weight="bold"
-        style={{ fontSize: 14 }}
-      >
+      <Text color="black" weight="bold" style={{ fontSize: 14 }}>
         {publishedAt}
       </Text>
     </div>
@@ -46,9 +41,12 @@ const LocalArticles = ({ topic, articles, className }) => {
         </Text>
       </div>
 
-      <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-16">
-        {articles.map((article) => (
-          <CustomLink link={{ url: `/blog/article/${article.slug}` }}>
+      <div className="md:grid lg:grid-cols-3 md:grid-cols-2 lg:gap-6 md:gap-4 flex flex-col md:space-y-0 space-y-16">
+        {articles.map((article: any) => (
+          <CustomLink
+            key={article.id}
+            link={{ url: `/blog/article/${article.slug}` }}
+          >
             <LocalArticle article={article} />
           </CustomLink>
         ))}
@@ -62,9 +60,10 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
   return (
     <Layout className="mt-20" Hero={Hero} global={global}>
       {articlesByTopic ? (
-        Object.keys(articlesByTopic).map((topic) => {
+        Object.keys(articlesByTopic).map((topic: any, index: number) => {
           return (
             <LocalArticles
+              key={index}
               className="md:mb-20 mb-10"
               topic={topic}
               articles={articlesByTopic[topic]}
@@ -83,7 +82,7 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
   );
 };
 
-export async function getStaticProps(ctx) {
+export async function getStaticProps(ctx: any) {
   const locale = getLocale(ctx);
   const [topics, featuredArticles, pageData] = await Promise.all([
     fetchAPI(`/topics`),

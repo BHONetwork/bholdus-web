@@ -9,7 +9,7 @@ import Button from "../common/button";
 import Image from "../common/image";
 import LangDropdown from "./langDropdown";
 
-const Navbar = ({ className = "", navbar }) => {
+const Navbar = ({ navbar }) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -17,7 +17,13 @@ const Navbar = ({ className = "", navbar }) => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const windowsScrollTop = window.pageYOffset;
-      if (windowsScrollTop >= 10) {
+      let offsetFromOtherElement = 0;
+      if (document.getElementById("notification-banner")) {
+        offsetFromOtherElement = document.getElementById(
+          "notification-banner"
+        ).clientHeight;
+      }
+      if (windowsScrollTop >= offsetFromOtherElement + 10) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);

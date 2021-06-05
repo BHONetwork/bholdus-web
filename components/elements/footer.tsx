@@ -21,18 +21,19 @@ const Footer = ({
           <Image img={footer.logo} style={{ width: 186, height: 58 }} />
 
           <div className="flex flex-row items-center gap-1 ml-0 lg:ml-24 lg:space-x-0 space-x-2">
-            <Image
-              img={{ url: "../../images/facebook_grey.svg" }}
-              style={{ width: 28, height: 28 }}
-            />
-            <Image
-              img={{ url: "../../images/instagram_grey.svg" }}
-              style={{ width: 28, height: 28 }}
-            />
-            <Image
-              img={{ url: "../../images/telegram_grey.svg" }}
-              style={{ width: 28, height: 28 }}
-            />
+            {footer.socials.map((social: any) => (
+              <a
+                key={social.id}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+              >
+                <Image
+                  img={{ url: `../../images/${social.type}_grey.svg` }}
+                  style={{ width: 28, height: 28 }}
+                />
+              </a>
+            ))}
           </div>
           <Text size="medium">{footer.smallText}</Text>
         </div>

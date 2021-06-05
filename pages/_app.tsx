@@ -10,6 +10,7 @@ import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
 import "aos/dist/aos.css";
 import "../assets/css/tailwind.css";
+import "../assets/css/github-markdown.css";
 import "../assets/css/style.css";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -37,7 +38,7 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"

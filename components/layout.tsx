@@ -28,17 +28,24 @@ const Layout = ({
         }
       )}
     >
-      <Navbar navbar={navbar} />
-      <div className="relative z-2 pt-20 bg-hero bg-cover min-h-screen">
+      <div className="flex flex-col">
         {notificationBanner && notificationBanner.enable && bannerIsShown && (
           <NotificationBanner
             data={notificationBanner}
             closeSelf={() => setBannerIsShown(false)}
           />
         )}
+        <div className="relative">
+          <Navbar navbar={navbar} />
+        </div>
+      </div>
+
+      <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">
         <Hero />
       </div>
+
       <div className={classNames("container", className)}>{children}</div>
+
       <Footer footer={footer} displayBackground={displayFooterBackground}>
         {/* ***********
         ****************

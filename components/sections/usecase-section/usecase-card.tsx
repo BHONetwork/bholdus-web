@@ -2,7 +2,7 @@ import Image from "../../common/image";
 import Text from "../../common/text";
 
 const UsecaseCard = ({ data, index }) => {
-  const data_aos = index % 2 == 0 ? "fade-right" : "fade-left";
+  const data_aos = index % 2 === 0 ? "fade-right" : "fade-left";
   return (
     <div
       key={data.id}
