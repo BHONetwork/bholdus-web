@@ -5,11 +5,12 @@ on:
       - main
 jobs:
   build:
-    name: 'Tests'
+    name: "Tests"
     runs-on: ubuntu-latest
+    environment: production
     strategy:
       matrix:
-        node: [ '12.16' ]
+        node: ["12.16"]
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node ${{ matrix.node }}
@@ -27,12 +28,11 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - run: rm -f .yarnclean
-      - run: yarn --frozen-lockfile
+      - name: Lint & Build
         env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
-          HUSKY_SKIP_INSTALL: true
-
-      - run: yarn
-      - run: yarn lint
-      - run: yarn build
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+        run: |
+          rm -f .yarnclean
+          yarn --frozen-lockfile
+          yarn lint
+          yarn build
