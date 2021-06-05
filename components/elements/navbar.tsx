@@ -15,14 +15,15 @@ const Navbar = ({ navbar }) => {
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
 
   useEffect(() => {
-    document.body.addEventListener("scroll", () => {
+    window.addEventListener("scroll", () => {
+      const windowsScrollTop = window.pageYOffset;
       let offsetFromOtherElement = 0;
       if (document.getElementById("notification-banner")) {
         offsetFromOtherElement = document.getElementById(
           "notification-banner"
         ).clientHeight;
       }
-      if (document.body.scrollTop >= offsetFromOtherElement + 10) {
+      if (windowsScrollTop >= offsetFromOtherElement + 10) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);

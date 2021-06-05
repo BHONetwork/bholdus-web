@@ -3,11 +3,15 @@ import Text from "../../common/text";
 
 import { getSocials } from "../../../utils/api";
 
-const TeamProfile = ({ data }) => {
+const TeamProfile = ({ data, index }) => {
   const socials = getSocials(data);
 
   return (
-    <div className="flex flex-row">
+    <div
+      className="flex flex-row"
+      data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+      data-aos-delay={index * 100}
+    >
       <Image
         img={data.avatar}
         className="mr-9"

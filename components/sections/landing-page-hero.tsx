@@ -6,7 +6,7 @@ const LandingPageHero = ({ data }) => {
   return (
     <main className="container flex flex-col md:flex-row justify-between xl:items-center landing-page-hero">
       {/* Left column for content */}
-      <div className="flex-1 sm:pr-8">
+      <div className="flex-1 sm:pr-8" data-aos="fade-right">
         <Text className="lg:mt-32 mb-2 xl:max-w-lg" type="h1">
           {data.title}
         </Text>
@@ -33,7 +33,10 @@ const LandingPageHero = ({ data }) => {
       </div>
 
       {/* Right column for the image */}
-      <div className="hidden md:flex flex-col justify-center md:pt-32 mr-0 xl:mr-60">
+      <div
+        className="hidden md:flex flex-col justify-center md:pt-32 mr-0 xl:mr-60"
+        data-aos="fade-up"
+      >
         <Image img={data.image} className="w-40 h-40" />
       </div>
     </main>

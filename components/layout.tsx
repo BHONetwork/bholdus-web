@@ -21,9 +21,12 @@ const Layout = ({
 
   return (
     <div
-      className={classNames("flex flex-col justify-between min-h-screen", {
-        "bg-default md:bg-cover bg-contain": displayPageBackground,
-      })}
+      className={classNames(
+        "flex flex-col justify-between min-h-screen overflow-hidden",
+        {
+          "bg-default md:bg-cover bg-contain": displayPageBackground,
+        }
+      )}
     >
       <div className="flex flex-col">
         {notificationBanner && notificationBanner.enable && bannerIsShown && (

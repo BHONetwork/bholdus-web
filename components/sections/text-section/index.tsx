@@ -5,7 +5,7 @@ const TextSection = ({ data }) => {
   return (
     <Section
       id="about"
-      className="mt-20 lg:mt-48"
+      className="mt-20 lg:mt-48 scroll-margin-top"
       smallTitle={data.smallTitle}
       title={data.title}
     >

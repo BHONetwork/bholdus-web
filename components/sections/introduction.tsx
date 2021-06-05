@@ -18,7 +18,7 @@ const Introduction = ({ data }) => {
   return (
     <section className="flex flex-col lg:flex-row justify-end flex-shrink">
       <div
-        className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-20 z-10"
+        className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
         style={{ maxHeight: 205 }}
       >
         <PlayButton />
