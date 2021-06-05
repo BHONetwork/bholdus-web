@@ -30,7 +30,7 @@ const Navbar = ({ className = "", navbar }) => {
     <>
       <nav
         className={classNames(
-          "absolute top-0 left-0 w-full z-10 h-24 flex justify-between items-center p-2.5 border-b-0 border-solid border-transparent transition-colors duration-300",
+          "absolute top-0 left-0 w-full z-10 h-16 md:h-24 flex justify-between items-center p-2.5 border-b-0 border-solid border-transparent transition-colors duration-300",
           {
             sticky: isScrolling,
           }

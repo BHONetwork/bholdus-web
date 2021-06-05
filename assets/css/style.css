@@ -98,7 +98,7 @@ body {
   border: 2px solid #fff;
 }
 .road__item-title {
-  font-size: 14px;
+  font-size: 16px;
   color: #fff;
   font-weight: 700;
   margin-bottom: 10px;
@@ -107,7 +107,6 @@ body {
 .road p {
   line-height: 25px;
   color: #ffffff;
-  font-size: 16px;
   margin: 0;
   padding: 0;
 }
@@ -135,6 +134,10 @@ body {
   .play-button {
     right: -45px;
     top: 60px;
+  }
+  .road {
+    margin-left: 5%;
+    margin-right: 5%;
   }
   .road p {
     text-align: justify;
