@@ -3,11 +3,16 @@ import Text from "../../common/text";
 
 import { getSocials } from "../../../utils/api";
 
-const BoardProfile = ({ data }) => {
+const BoardProfile = ({ data, index }) => {
   const socials = getSocials(data);
 
   return (
-    <div key={data.id} className="flex lg:flex-row flex-col">
+    <div
+      key={data.id}
+      className="flex lg:flex-row flex-col"
+      data-aos={index % 2 == 0 ? "fade-left" : "fade-right"}
+      data-aos-delay={index * 200}
+    >
       <Image img={data.avatar} />
       <div
         className="flex flex-col text-left lg:p-10 p-4"

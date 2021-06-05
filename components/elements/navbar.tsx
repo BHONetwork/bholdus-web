@@ -79,11 +79,11 @@ const Navbar = ({ className = "", navbar }) => {
       </nav>
 
       {/* Mobile menu */}
-      <MobileNavMenu
+      {/* <MobileNavMenu
         navbar={navbar}
         closeSelf={() => setMobileMenuIsShown(false)}
         mobileMenuIsShown={mobileMenuIsShown}
-      />
+      /> */}
     </>
   );
 };

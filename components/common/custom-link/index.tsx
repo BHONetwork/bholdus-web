@@ -13,7 +13,12 @@ const CustomLink = (props: CustomLinkProps) => {
 
   if (isInternalLink) {
     return (
-      <Link href={link.url} as={link.asPath || link.url} locale={locale}>
+      <Link
+        href={link.url}
+        as={link.asPath || link.url}
+        locale={locale}
+        smooth={true}
+      >
         <a style={{ textDecoration: "none" }} {...restProps}>
           {children}
         </a>

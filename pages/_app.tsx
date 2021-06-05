@@ -1,9 +1,9 @@
 import App from "next/app";
 import Head from "next/head";
+import AOS from "aos";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
-
+import { useEffect } from "react";
 import Layout from "../components/layout";
 
 import { getMediaUrl } from "../utils/media";
@@ -11,29 +11,16 @@ import { fetchAPI, getLocale } from "../utils/api";
 
 import "../assets/css/tailwind.css";
 import "../assets/css/style.css";
-
-const handExitComplete = (): void => {
-  if (typeof window !== "undefined") {
-    const hashId = window.location.hash;
-
-    console.log({ location: window.location, hashId });
-
-    if (hashId) {
-      const element = document.querySelector(hashId);
-      console.log({ element });
-
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest",
-        });
-      }
-    }
-  }
-};
+import "aos/dist/aos.css";
 
 const MyApp = ({ Component, pageProps }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
+
   // Prevent Next.js behavior when it tries to render the [[...slug]] route
   const router = useRouter();
   if (router.asPath === "/[[...slug]]") {
@@ -51,6 +38,12 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
         <link rel="shortcut icon" href={getMediaUrl(global.favicon.url)} />
         <link
           rel="stylesheet"
@@ -82,11 +75,9 @@ const MyApp = ({ Component, pageProps }) => {
       {router.pathname !== "/404" ? (
         <Component {...pageProps} />
       ) : (
-        <AnimatePresence exitBeforeEnter onExitComplete={handExitComplete}>
-          <Layout Hero={() => null} global={global}>
-            <Component {...pageProps} />
-          </Layout>
-        </AnimatePresence>
+        <Layout Hero={() => null} global={global}>
+          <Component {...pageProps} />
+        </Layout>
       )}
     </>
   );

@@ -5,13 +5,13 @@ const UsecaseSection = ({ data }) => {
   return (
     <Section
       id="usecases"
-      className="mt-20 lg:mt-80"
+      className="mt-20 lg:mt-80 scroll-margin-top"
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <div className="lg:grid lg:grid-cols-2 lg:gap-6 flex flex-col lg:space-y-0 space-y-10">
-        {data.useCases.map((usecase: any) => (
-          <UsecaseCard key={usecase.id} data={usecase} />
+      <div className="md:grid md:grid-cols-2 md:gap-6 flex flex-col md:space-y-0 space-y-10">
+        {data.useCases.map((usecase: any, index: number) => (
+          <UsecaseCard key={usecase.id} data={usecase} index={index} />
         ))}
       </div>
     </Section>
