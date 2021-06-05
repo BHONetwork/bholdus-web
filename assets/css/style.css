@@ -1,10 +1,15 @@
 html {
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
-
+body,
+html {
+  height: 100%;
+}
 body {
   font-size: 13px;
-  -webkit-overflow-scrolling: initial;
+  position: relative;
+  /* -webkit-overflow-scrolling: initial; */
   font-family: "Titillium Web", sans-serif;
   @apply text-gray-900;
 }
@@ -132,7 +137,7 @@ body {
     top: 60px;
   }
   .road p {
-    text-align: center;
+    text-align: justify;
   }
 }
 

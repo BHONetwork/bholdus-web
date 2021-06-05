@@ -21,12 +21,15 @@ const Layout = ({
 
   return (
     <div
-      className={classNames("flex flex-col justify-between min-h-screen", {
-        "bg-default md:bg-cover bg-contain": displayPageBackground,
-      })}
+      className={classNames(
+        "flex flex-col justify-between min-h-screen overflow-hidden",
+        {
+          "bg-default md:bg-cover bg-contain": displayPageBackground,
+        }
+      )}
     >
       <Navbar navbar={navbar} />
-      <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">
+      <div className="relative z-2 pt-20 bg-hero bg-cover min-h-screen">
         {notificationBanner && notificationBanner.enable && bannerIsShown && (
           <NotificationBanner
             data={notificationBanner}

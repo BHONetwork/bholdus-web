@@ -17,7 +17,7 @@ const Navbar = ({ className = "", navbar }) => {
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const windowsScrollTop = window.pageYOffset;
-      if (windowsScrollTop >= 60) {
+      if (windowsScrollTop >= 10) {
         setIsScrolling(true);
       } else {
         setIsScrolling(false);
