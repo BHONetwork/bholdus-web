@@ -128,10 +128,6 @@ body {
 }
 
 @media screen and (min-width: 320px) {
-  .landing-page-hero {
-    margin-top: 100px;
-    margin-bottom: 20px;
-  }
   .play-button {
     display: flex;
     justify-content: center;
@@ -164,10 +160,6 @@ body {
 @media screen and (min-width: 640px) {
   html {
     font-size: 14px;
-  }
-  .landing-page-hero {
-    margin-top: 0;
-    margin-bottom: 0;
   }
 }
 
@@ -225,13 +217,6 @@ body {
   .road__item:after {
     height: -webkit-calc(100% + 50px);
     height: calc(100% + 50px);
-  }
-}
-
-@media screen and (min-width: 1520px) {
-  .landing-page-hero {
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
 

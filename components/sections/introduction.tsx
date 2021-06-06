@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { styled } from "../../assets/css/stitches.config";
 import Text from "../common/text";
 
