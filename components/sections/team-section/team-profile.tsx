@@ -18,9 +18,8 @@ const TeamProfile = ({ data, index }) => {
         <div className="team-member__name">{data.name}</div>
         <div className="team-member__post">{data.title}</div>
         <ul className="team-member__social">
-          {socials.map(({ type, url }, index) => (
-            // eslint-disable-next-line
-            <li>
+          {socials.map(({ type, url }, index: number) => (
+            <li key={index}>
               <a
                 key={index}
                 href={url}

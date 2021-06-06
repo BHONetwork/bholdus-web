@@ -1,5 +1,6 @@
 import { useState } from "react";
 import classNames from "classnames";
+import useTranslation from "next-translate/useTranslation";
 
 import Navbar from "./elements/navbar";
 import Footer from "./elements/footer";
@@ -15,9 +16,11 @@ const Layout = ({
   displayPageBackground = false,
   displayFooterBackground = true,
 }) => {
-  const { navbar, footer, notificationBanner } = global;
+  const { navbar, footer, notificationBanner, supportedLocales } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
+
+  const { t } = useTranslation();
 
   return (
     <div
@@ -36,11 +39,11 @@ const Layout = ({
           />
         )}
         <div className="relative">
-          <Navbar navbar={navbar} />
+          <Navbar navbar={navbar} supportedLocales={supportedLocales} />
         </div>
       </div>
 
-      <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">
+      <div className="relative z-2 pt-40 bg-hero bg-cover xl:bg-contain xl:bg-repeat-round min-h-screen">
         <Hero />
       </div>
 
@@ -61,8 +64,8 @@ const Layout = ({
         <Section
           id="contact"
           className="mt-20 lg:mt-80 items-center"
-          smallTitle="Contact us"
-          title="Get In Touch"
+          smallTitle={t("common:contactUs")}
+          title={t("common:getInTouch")}
         >
           <div
             className="w-full"

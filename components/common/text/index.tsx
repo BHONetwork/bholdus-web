@@ -10,6 +10,11 @@ const TextComponent = styled("p", {
         textTransform: "uppercase",
       },
     },
+    capitalized: {
+      true: {
+        textTransform: "capitalize",
+      },
+    },
     color: {
       white: {
         color: "$white",

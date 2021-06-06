@@ -1,4 +1,5 @@
 import { isArray } from "lodash";
+import useTranslation from "next-translate/useTranslation";
 
 import Layout from "../../../components/layout";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
@@ -23,7 +24,7 @@ const LocalArticle = ({ article }) => {
   );
 };
 
-const LocalArticleDetail = ({ article }) => {
+const LocalArticleDetail = ({ article, t }) => {
   const { content, image, topics, relatedArticles } = article;
   return (
     <div className="flex flex-col">
@@ -49,7 +50,7 @@ const LocalArticleDetail = ({ article }) => {
 
       <div className="flex flex-col mb-20">
         <Text className="mb-6" size="medium" weight="bold" color="black">
-          Tagged Topics
+          {t("common:articleTopics")}
         </Text>
         <div className="flex flex-row flex-wrap">
           {topics.map((topic: any) => (
@@ -69,7 +70,7 @@ const LocalArticleDetail = ({ article }) => {
       {relatedArticles && isArray(relatedArticles.articles) && (
         <div className="flex flex-col">
           <Text className="mb-6" size="medium" weight="bold" color="black">
-            More stories
+            {t("common:articleRelated")}
           </Text>
           <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
             {relatedArticles.articles.map((article: any) => (
@@ -83,6 +84,8 @@ const LocalArticleDetail = ({ article }) => {
 };
 
 const Article = ({ article, global }) => {
+  const { t } = useTranslation();
+
   if (!article) {
     return (
       <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
@@ -95,7 +98,7 @@ const Article = ({ article, global }) => {
 
   return (
     <Layout className="mt-14 mb-14" Hero={Hero} global={global}>
-      <LocalArticleDetail article={article} />
+      <LocalArticleDetail article={article} t={t} />
     </Layout>
   );
 };
