@@ -47,8 +47,8 @@ const LanguageSelection = ({ languages }) => {
           >
             <Menu.Items className="absolute mt-2 pr-2 bg-darkGrey rounded-md focus:outline-none z-20">
               <div className="px-4 py-2">
-                {languages.map((language: any) => (
-                  <Menu.Item>
+                {languages.map((language: any, index: number) => (
+                  <Menu.Item key={index}>
                     {() => (
                       <NextLink
                         className="flex flex-row items-center"
