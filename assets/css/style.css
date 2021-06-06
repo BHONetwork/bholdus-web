@@ -596,18 +596,8 @@ img:hover {
   background-image: url("../../public/images/play_btn_bg.png");
 }
 
-.play-button img {
+.play-button img:hover {
   border-radius: 50%;
-  animation: play-button-glow 1s infinite alternate;
-}
-
-@keyframes play-button-glow {
-  from {
-    -webkit-box-shadow: 0 0 0 rgba(0, 214, 229, 0.79);
-    box-shadow: 0 0 0 rgba(0, 214, 229, 0.79);
-  }
-  to {
-    -webkit-box-shadow: 0 0 21px rgba(0, 214, 229, 0.79);
-    box-shadow: 0 0 21px rgba(0, 214, 229, 0.79);
-  }
+  -webkit-box-shadow: 0 0 21px rgba(0, 214, 229, 0.79);
+  box-shadow: 0 0 21px rgba(0, 214, 229, 0.79);
 }
