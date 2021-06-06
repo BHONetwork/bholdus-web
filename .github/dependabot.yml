@@ -1,10 +1,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: "yarn" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "yarn"
+    directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "react*"
-        versions: ["17.x"]
