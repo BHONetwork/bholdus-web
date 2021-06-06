@@ -35,7 +35,9 @@ const Layout = ({
             closeSelf={() => setBannerIsShown(false)}
           />
         )}
-        <Navbar navbar={navbar} />
+        <div className="relative">
+          <Navbar navbar={navbar} />
+        </div>
       </div>
 
       <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">

@@ -43,11 +43,12 @@ const Navbar = ({ navbar }) => {
         )}
       >
         <div className="container flex flex-row items-center justify-between">
-          <div className="flex flex-row items-center">
+          <div className="flex items-center justify-start">
             <CustomLink link={{ url: "/" }} style={{ width: 186, height: 58 }}>
               <Image img={navbar.logo} />
             </CustomLink>
-
+          </div>
+          <div className="flex flex-row items-center justify-end">
             <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
               {navbar.links.map((navLink: any, index: number) => (
                 <li key={navLink.id}>
@@ -66,22 +67,21 @@ const Navbar = ({ navbar }) => {
             </ul>
 
             <LangDropdown />
+            {/* Hamburger menu on small screens */}
+            <button
+              onClick={() => setMobileMenuIsShown(true)}
+              className="p-1 block xl:hidden"
+            >
+              <MdMenu className="h-8 w-auto" color="#fff" />
+            </button>
+
+            {/* CTA button on large screens */}
+            {navbar.button && (
+              <div className="hidden xl:block">
+                <Button button={navbar.button} isLink />
+              </div>
+            )}
           </div>
-
-          {/* Hamburger menu on small screens */}
-          <button
-            onClick={() => setMobileMenuIsShown(true)}
-            className="p-1 block xl:hidden"
-          >
-            <MdMenu className="h-8 w-auto" color="#fff" />
-          </button>
-
-          {/* CTA button on large screens */}
-          {navbar.button && (
-            <div className="hidden xl:block">
-              <Button button={navbar.button} isLink />
-            </div>
-          )}
         </div>
       </nav>
 

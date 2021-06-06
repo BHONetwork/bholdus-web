@@ -10,7 +10,7 @@ const TeamProfile = ({ data, index }) => {
       className="team-member"
       data-aos="fade-zoom-in"
       data-aos-easing="ease-in-back"
-      data-aos-delay={index * 300}
+      data-aos-delay={index * 200}
       data-aos-offset="0"
     >
       <Image className="team-member__avatar" img={data.avatar} />
