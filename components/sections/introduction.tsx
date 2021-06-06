@@ -1,25 +1,17 @@
-import classnames from "classnames";
-import { styled } from "../../assets/css/stitches.config";
-import Text from "../common/text";
+import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
-const PlayButton = ({ className = "", style = {} }) => {
+import { styled } from "../../assets/css/stitches.config";
+
+import Text from "../common/text";
+import VideoModal from "../elements/video-modal";
+
+const PlayButton = ({ onClick }) => {
   return (
-    <div
-      className={classnames("relative", className)}
-      style={{ width: 205, height: 205, ...style }}
-    >
-      <img
-        className="absolute inset-1/3"
-        src="../../images/play_btn.png"
-        alt=""
-        style={{ width: 69, height: 69 }}
-      ></img>
-      <img
-        className="absolute"
-        src="../../images/play_btn_bg.png"
-        alt=""
-        style={{ width: 205, height: 205 }}
-      ></img>
+    <div className="play-button">
+      <button onClick={onClick}>
+        <img src="../../images/play_btn.png" alt="play-button" />
+      </button>
     </div>
   );
 };
@@ -29,17 +21,32 @@ const GreenBackground = styled("div", {
 });
 
 const Introduction = ({ data }) => {
+  const [displayIntroductionVideo, setDisplayIntroductionVideo] =
+    useState(false);
+
+  const { t } = useTranslation();
+
   return (
-    <div className="flex flex-col md:flex-row items-center justify-end">
-      <PlayButton className="self-start play-button" />
+    <section
+      className="flex flex-col lg:flex-row justify-end flex-shrink mt-40 md:mt-0"
+      data-aos="zoom-in-left"
+    >
+      <div
+        className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
+        style={{ maxHeight: 205 }}
+      >
+        {data.introductionVideoLink && (
+          <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
+        )}
+      </div>
       <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
         <div className="flex flex-row items-center mb-12">
           <div
             className="mr-2"
             style={{ backgroundColor: "white", width: 40, height: 1 }}
           />
-          <Text size="small" weight="bold">
-            INTRODUCTION
+          <Text size="small" weight="bold" uppercase>
+            {t("common:introduction")}
           </Text>
         </div>
         <Text className="mb-10" type="h2">
@@ -59,7 +66,14 @@ const Introduction = ({ data }) => {
           ))}
         </ul>
       </GreenBackground>
-    </div>
+      {data.introductionVideoLink && (
+        <VideoModal
+          isShown={displayIntroductionVideo}
+          closeSelf={() => setDisplayIntroductionVideo(false)}
+          src={data.introductionVideoLink}
+        />
+      )}
+    </section>
   );
 };
 

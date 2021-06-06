@@ -1,14 +1,26 @@
 import App from "next/app";
 import Head from "next/head";
+import AOS from "aos";
 import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
+import Layout from "../components/layout";
 
-import { getMediaUrl } from "../lib/media";
-import { fetchAPI, getLocale } from "../lib/api";
-
+import { getMediaUrl } from "../utils/media";
+import { fetchAPI, getLocale } from "../utils/api";
+import "aos/dist/aos.css";
+import "../assets/css/tailwind.css";
+import "../assets/css/github-markdown.css";
 import "../assets/css/style.css";
 
 const MyApp = ({ Component, pageProps }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
   // Prevent Next.js behavior when it tries to render the [[...slug]] route
   const router = useRouter();
   if (router.asPath === "/[[...slug]]") {
@@ -26,6 +38,12 @@ const MyApp = ({ Component, pageProps }) => {
     <>
       {/* Favicon */}
       <Head>
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
         <link rel="shortcut icon" href={getMediaUrl(global.favicon.url)} />
         <link
           rel="stylesheet"
@@ -54,7 +72,13 @@ const MyApp = ({ Component, pageProps }) => {
           }),
         }}
       />
-      <Component {...pageProps} />
+      {router.pathname !== "/404" ? (
+        <Component {...pageProps} />
+      ) : (
+        <Layout Hero={() => null} global={global}>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </>
   );
 };

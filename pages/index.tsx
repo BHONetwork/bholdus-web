@@ -1,17 +1,17 @@
 import { GetStaticProps } from "next";
 import ErrorPage from "next/error";
 
-import Layout from "../components/layout.js";
+import Layout from "../components/layout";
 import LandingPageHero from "../components/sections/landing-page-hero";
 import Introduction from "../components/sections/introduction";
-import TextSection from "../components/sections/text";
+import TextSection from "../components/sections/text-section";
 import ServiceSection from "../components/sections/service-section";
 import RoadmapSection from "../components/sections/roadmap-section";
 import UsecaseSection from "../components/sections/usecase-section";
 import AdvisorSection from "../components/sections/advisor-section";
 import TeamSection from "../components/sections/team-section";
 
-import { fetchAPI, getLocale } from "../lib/api";
+import { fetchAPI, getLocale } from "../utils/api";
 import LatestNewsSection from "../components/sections/latest-news-section";
 
 const mapSections = {

@@ -6,6 +6,7 @@ export const { styled, css, global, keyframes, getCssString, theme } =
     theme: {
       colors: {
         white: "#FFFFFF",
+        grey: "#aab2cd",
         black: "#000000",
         darkGrey: "#252d4b",
         lightGrey: "#545C79",

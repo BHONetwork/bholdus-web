@@ -1,12 +1,18 @@
 import { useState } from "react";
-import { fetchAPI } from "../../lib/api";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
+import { MdDone } from "react-icons/md";
+import useTranslation from "next-translate/useTranslation";
+
 import Button from "../common/button";
 import Text from "../common/text";
 
+import { fetchAPI } from "../../utils/api";
+
 const GetInTouchForm = () => {
   const [loading, setLoading] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(false);
+  const { t } = useTranslation();
 
   const FormSchema = yup.object().shape({
     name: yup.string().required(),
@@ -31,6 +37,10 @@ const GetInTouchForm = () => {
               message: values.message,
             }),
           });
+          setIsSuccessful(true);
+          setTimeout(() => {
+            setIsSuccessful(false);
+          }, 3000);
         } catch (err) {
           setErrors({ api: err.message });
         }
@@ -43,10 +53,10 @@ const GetInTouchForm = () => {
         <>
           <Form className="flex flex-col lg:gap-6">
             <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-1"
+              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={t("common:getInTouchFormName")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.name && touched.name && errors.name}
@@ -55,7 +65,7 @@ const GetInTouchForm = () => {
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t("common:getInTouchFormEmail")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.email && touched.email && errors.email}
@@ -66,17 +76,30 @@ const GetInTouchForm = () => {
               style={{ height: 190, resize: "none" }}
               type="text"
               name="message"
-              placeholder="Message"
+              placeholder={t("common:getInTouchFormMessage")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.message && touched.message && errors.message}
             </Text>
             <Button
               type="submit"
-              button={{ text: "Send Message" }}
-              disabled={isSubmitting}
+              disabled={isSubmitting || isSuccessful}
               loading={loading}
-            />
+              color={isSuccessful ? "purple" : "green"}
+            >
+              {isSuccessful ? (
+                <div className="flex flex-row items-center justify-center text-left">
+                  <MdDone
+                    className="mr-2 flex-shrink-0"
+                    color="#fff"
+                    size={20}
+                  />
+                  <Text>{t("common:getInTouchFormThankYou")}</Text>
+                </div>
+              ) : (
+                <Text>{t("common:getInTouchFormSendMessage")}</Text>
+              )}
+            </Button>
           </Form>
         </>
       )}

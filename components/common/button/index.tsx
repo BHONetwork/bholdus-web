@@ -1,9 +1,11 @@
-import classnames from "classnames";
+import classNames from "classnames";
 import React from "react";
 import { styled } from "../../../assets/css/stitches.config";
 
-import CustomLink from "../../elements/custom-link";
+import CustomLink from "../../common/custom-link";
 import Loader from "../../elements/loader";
+
+import { ButtonProps } from "./types";
 
 const ButtonComponent = styled("button", {
   padding: "1rem 2.8rem",
@@ -54,19 +56,22 @@ const ButtonComponent = styled("button", {
   },
 });
 
-export type ButtonProps = any;
-
 const Button = (props: ButtonProps) => {
-  const { button, icon, buttonType, isLink, loading, children, ...restProps } =
-    props;
+  const {
+    button,
+    isLink = false,
+    loading = false,
+    children,
+    ...restProps
+  } = props;
 
-  const Component = ({ as = "button" }) => (
+  const Component = (componentProps: any) => (
     <ButtonComponent
-      className={classnames({
+      className={classNames({
         "flex flex-row items-center justify-center": loading,
       })}
-      as={as}
       {...restProps}
+      {...componentProps}
     >
       {loading && <Loader />}
       {React.isValidElement(children) ? (

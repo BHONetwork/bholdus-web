@@ -1,7 +1,8 @@
-import classnames from "classnames";
+import classNames from "classnames";
 import Text from "../common/text";
 
 const Section = ({
+  id = "",
   smallTitle,
   title,
   children,
@@ -9,8 +10,9 @@ const Section = ({
   style = {},
 }) => {
   return (
-    <div
-      className={classnames(
+    <section
+      id={id}
+      className={classNames(
         "flex flex-col justify-center text-center",
         className
       )}
@@ -24,14 +26,23 @@ const Section = ({
           fontSize: "$small",
         }}
         uppercase
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="500"
       >
         {smallTitle}
       </Text>
-      <Text className="mb-8 lg:mb-16" type="h2">
+      <Text
+        className="mb-8 lg:mb-16"
+        type="h2"
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="500"
+      >
         {title}
       </Text>
       {children}
-    </div>
+    </section>
   );
 };
 
