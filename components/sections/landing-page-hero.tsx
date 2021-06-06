@@ -1,15 +1,20 @@
-import Lottie from "react-lottie";
+import { useEffect } from "react";
+import lottie from "lottie-web";
 import Button from "../common/button";
 import Text from "../common/text";
-import Bh from "../../assets/bh-symbol.json";
-
-const defaultOptions = {
-  loop: true,
-  autoplay: true,
-  animationData: Bh,
-};
 
 const LandingPageHero = ({ data }) => {
+  useEffect(() => {
+    const blackhole = lottie.loadAnimation({
+      container: document.getElementById("blackhole"),
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path: "../../images/bh-symbol.json",
+    });
+    return () => blackhole.destroy();
+  }, []);
+
   return (
     <section className="container flex flex-col-reverse md:flex-row justify-center landing-page-hero relative">
       {/* Left column for content */}
@@ -30,9 +35,10 @@ const LandingPageHero = ({ data }) => {
         </Text>
 
         {/* Buttons row */}
-        <div className="flex flex-row flex-wrap gap-4">
+        <div className="flex flex-row flex-wrap">
           {data.actions.map((button: any) => (
             <Button
+              className="mr-2 mb-2"
               isLink
               key={button.id}
               buttonType={button.type}
@@ -43,9 +49,11 @@ const LandingPageHero = ({ data }) => {
       </div>
 
       {/* Right column for the image */}
-      <div className="flex flex-1 flex-row items-center" data-aos="fade-out">
-        <Lottie options={defaultOptions} height={400} width={400} />
-      </div>
+      <div
+        id="blackhole"
+        className="flex flex-1 flex-row items-center"
+        data-aos="fade-out"
+      />
     </section>
   );
 };

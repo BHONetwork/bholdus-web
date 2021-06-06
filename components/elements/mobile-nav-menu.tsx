@@ -12,7 +12,7 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
       className={classNames(
         "w-screen h-screen fixed top-0 left-0 bg-darkGrey z-30 p-2.5 transition-all duration-400",
         {
-          " overflow-y-scroll overflow-hidden   visible opacity-100 block ":
+          "overflow-y-scroll overflow-hidden visible opacity-100 block":
             mobileMenuIsShown,
           "invisible opacity-0": !mobileMenuIsShown,
         }
