@@ -3,10 +3,10 @@ import Text from "../../common/text";
 const Article = ({ data, index }) => {
   return (
     <div
-      key={data.id}
+      key={index}
       className="flex flex-col text-left p-10"
       style={{ background: "#252D4B" }}
-      data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+      data-aos={"fade-left"}
       data-aos-delay={index * 200}
     >
       <Text className="mb-3" style={{ fontSize: 14 }}>

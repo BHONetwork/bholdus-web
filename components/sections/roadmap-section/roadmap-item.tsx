@@ -10,6 +10,9 @@ const RoadmapItem = ({ data, isLastItem }) => {
         "road__item-next": data.status === "pending",
       })}
       key={data.id}
+      data-aos="fade-up"
+      data-aos-easing="linear"
+      data-aos-duration="1500"
     >
       <div className="road__item-metka"></div>
       <div className="road__item-content">

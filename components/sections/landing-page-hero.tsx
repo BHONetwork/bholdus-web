@@ -1,12 +1,22 @@
+import Lottie from "react-lottie";
 import Button from "../common/button";
-import Image from "../common/image";
 import Text from "../common/text";
+import Bh from "../../assets/bh-symbol.json";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: Bh,
+};
 
 const LandingPageHero = ({ data }) => {
   return (
-    <main className="container flex flex-col md:flex-row justify-between xl:items-center landing-page-hero">
+    <section className="container flex flex-col-reverse md:flex-row justify-center landing-page-hero relative">
       {/* Left column for content */}
-      <div className="flex-1 sm:pr-8" data-aos="fade-right">
+      <div
+        className="flex flex-col justify-center items-start lg:ml-10"
+        data-aos="fade-right"
+      >
         <Text className="lg:mt-32 mb-2 xl:max-w-lg" type="h1">
           {data.title}
         </Text>
@@ -33,13 +43,10 @@ const LandingPageHero = ({ data }) => {
       </div>
 
       {/* Right column for the image */}
-      <div
-        className="hidden md:flex flex-col justify-center md:pt-32 mr-0 xl:mr-60"
-        data-aos="fade-up"
-      >
-        <Image img={data.image} className="w-40 h-40" />
+      <div className="flex flex-1 flex-row items-center" data-aos="fade-out">
+        <Lottie options={defaultOptions} height={400} width={400} />
       </div>
-    </main>
+    </section>
   );
 };
 

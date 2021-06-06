@@ -9,6 +9,7 @@ const UsecaseCard = ({ data, index }) => {
       className="flex flex-col lg:flex-row items-center md:items-start  lg:items-center pb-8 pt-8"
       data-aos={data_aos}
       data-aos-delay={400}
+      data-aos-easing="ease-in-sine"
     >
       <Image
         img={data.image}

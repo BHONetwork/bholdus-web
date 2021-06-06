@@ -9,7 +9,9 @@ const TextSection = ({ data }) => {
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <Text type="p">{data.description}</Text>
+      <Text type="p" data-aos="fade">
+        {data.description}
+      </Text>
     </Section>
   );
 };

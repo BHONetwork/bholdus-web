@@ -36,6 +36,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-icons": "^4.2.0",
+    "react-lottie": "^1.2.3",
     "react-markdown": "6.0.2",
     "react-moment": "1.1.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",

@@ -48,9 +48,12 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
               </li>
             ))}
           </ul>
-
-          {navbar.button && <Button button={navbar.button} isLink />}
         </div>
+        {navbar.button && (
+          <div className="flex justify-center">
+            <Button button={navbar.button} isLink />
+          </div>
+        )}
       </div>
     </div>
   );

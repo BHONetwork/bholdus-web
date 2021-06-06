@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import { styled } from "../../assets/css/stitches.config";
 import Text from "../common/text";
 
@@ -16,7 +15,10 @@ const GreenBackground = styled("div", {
 
 const Introduction = ({ data }) => {
   return (
-    <section className="flex flex-col lg:flex-row justify-end flex-shrink">
+    <section
+      className="flex flex-col lg:flex-row justify-end flex-shrink"
+      data-aos="zoom-in-left"
+    >
       <div
         className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
         style={{ maxHeight: 205 }}

@@ -14,6 +14,9 @@ const TextComponent = styled("p", {
       white: {
         color: "$white",
       },
+      grey: {
+        color: "$grey",
+      },
       lightGrey: {
         color: "$lightGrey",
       },

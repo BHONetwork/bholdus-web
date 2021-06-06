@@ -35,9 +35,7 @@ const Layout = ({
             closeSelf={() => setBannerIsShown(false)}
           />
         )}
-        <div className="relative">
-          <Navbar navbar={navbar} />
-        </div>
+        <Navbar navbar={navbar} />
       </div>
 
       <div className="relative z-2 pt-40 bg-hero bg-cover min-h-screen">
@@ -64,7 +62,12 @@ const Layout = ({
           smallTitle="Contact us"
           title="Get In Touch"
         >
-          <div className="w-full" style={{ maxWidth: 540 }}>
+          <div
+            className="w-full"
+            style={{ maxWidth: 540 }}
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
             <GetInTouchForm />
           </div>
         </Section>

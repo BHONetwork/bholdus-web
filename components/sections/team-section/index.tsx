@@ -8,7 +8,7 @@ const TeamSection = ({ data }) => {
       smallTitle={data.smallTitle}
       title={data.title}
     >
-      <div className="md:grid lg:grid-cols-3  md:grid-cols-2 lg:gap-6 md:gap-4 flex flex-col md:space-y-0 space-y-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:gril-cols-6">
         {data.persons.map((person: any, index: number) => (
           <TeamProfile key={person.id} data={person} index={index} />
         ))}
