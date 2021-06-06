@@ -63,7 +63,7 @@ const Layout = ({
         */}
         <Section
           id="contact"
-          className="mt-20 lg:mt-80 items-center"
+          className="mt-20 lg:mt-40 items-center"
           smallTitle={t("common:contactUs")}
           title={t("common:getInTouch")}
         >

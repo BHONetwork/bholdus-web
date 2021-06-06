@@ -15,8 +15,8 @@
     "@headlessui/react": "^1.2.0",
     "@martin_hotell/rex-tils": "^2.1.1",
     "@stitches/react": "^0.1.9",
-    "@types/react": "17.0.9",
     "@tailwindcss/typography": "^0.4.1",
+    "@types/react": "17.0.9",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.2.6",
     "classnames": "^2.2.6",
@@ -27,6 +27,12 @@
     "next": "^10.2.2",
     "next-seo": "^4.24.0",
     "next-translate": "^1.0.7",
+    "postcss": "^8.3.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "^5.3.0",
+    "postcss-nested": "5.0.5",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-purgecss": "^2.0.3",
     "qs": "^6.10.1",
     "react": "16.14.0",
     "react-dom": "16.14.0",
@@ -50,15 +56,9 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
-    "postcss": "^8.3.0",
-    "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^5.3.0",
-    "postcss-nested": "5.0.5",
-    "postcss-preset-env": "^6.7.0",
-    "postcss-purgecss": "^2.0.3",
     "prettier": "^2.3.1"
   },
   "peerDependencies": {
-    "postcss": "^8.0.0"
+    "postcss": "^8.3.0"
   }
 }

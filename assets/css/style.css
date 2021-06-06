@@ -274,6 +274,10 @@ body {
   height: 23px;
 }
 
+.scroll-margin-top {
+  scroll-margin-top: 50px;
+}
+
 @media screen and (min-width: 320px) {
   .landing-page-hero {
     /* margin-top: 100px; */
@@ -305,6 +309,9 @@ body {
 }
 
 @media (min-width: 576px) {
+  .scroll-margin-top {
+    scroll-margin-top: 10px;
+  }
   .road__item-title {
     position: absolute;
     left: -220px;
@@ -340,6 +347,10 @@ body {
   }
 }
 @media screen and (min-width: 640px) {
+  .scroll-margin-top {
+    scroll-margin-top: 50px;
+  }
+
   html {
     font-size: 14px;
   }
@@ -354,6 +365,9 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  .scroll-margin-top {
+    scroll-margin-top: 140px;
+  }
   html {
     font-size: 15px;
   }
@@ -397,6 +411,9 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
+  .scroll-margin-top {
+    scroll-margin-top: 150px;
+  }
   .play-button {
     position: absolute;
     width: 205px;
