@@ -13,7 +13,7 @@ const ServiceSection = ({ data }) => {
   return (
     <Section
       id="services"
-      className="mt-20 lg:mt-80 scroll-margin-top"
+      className="mt-20 lg:mt-40 scroll-margin-top"
       smallTitle={data.smallTitle}
       title={data.title}
     >

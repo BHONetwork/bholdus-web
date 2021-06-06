@@ -5,7 +5,7 @@ const RoadmapSection = ({ data }) => {
   return (
     <Section
       id="roadmap"
-      className="mt-20 lg:mt-80 items-center scroll-margin-top"
+      className="mt-20 lg:mt-40 items-center scroll-margin-top"
       smallTitle={data.smallTitle}
       title={data.title}
     >

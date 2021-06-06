@@ -29,7 +29,7 @@ const Introduction = ({ data }) => {
   return (
     <>
       <section
-        className="flex flex-col lg:flex-row justify-end flex-shrink mt-40 md:mt-0"
+        className="flex flex-col lg:flex-row justify-end flex-shrink mt-20 md:mt-0"
         data-aos="zoom-in-left"
       >
         <div
