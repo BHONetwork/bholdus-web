@@ -2,11 +2,14 @@ import { useState } from "react";
 import { fetchAPI } from "../../utils/api";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
+import { MdDone } from "react-icons/md";
+
 import Button from "../common/button";
 import Text from "../common/text";
 
 const GetInTouchForm = () => {
   const [loading, setLoading] = useState(false);
+  const [isSuccessful, setIsSuccessful] = useState(false);
 
   const FormSchema = yup.object().shape({
     name: yup.string().required(),
@@ -31,6 +34,10 @@ const GetInTouchForm = () => {
               message: values.message,
             }),
           });
+          setIsSuccessful(true);
+          setTimeout(() => {
+            setIsSuccessful(false);
+          }, 3000);
         } catch (err) {
           setErrors({ api: err.message });
         }
@@ -73,10 +80,25 @@ const GetInTouchForm = () => {
             </Text>
             <Button
               type="submit"
-              button={{ text: "Send Message" }}
-              disabled={isSubmitting}
+              disabled={isSubmitting || isSuccessful}
               loading={loading}
-            />
+              color={isSuccessful ? "purple" : "green"}
+            >
+              {isSuccessful ? (
+                <div className="flex flex-row items-center justify-center text-left">
+                  <MdDone
+                    className="mr-2 flex-shrink-0"
+                    color="#fff"
+                    size={20}
+                  />
+                  <Text>
+                    Thanks for your interest. We will contact you soon!
+                  </Text>
+                </div>
+              ) : (
+                <Text>Send Message</Text>
+              )}
+            </Button>
           </Form>
         </>
       )}
