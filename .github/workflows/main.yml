@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   build:
-    name: "Tests"
+    name: "Build & Lint"
     runs-on: ubuntu-latest
     environment: production
     strategy:
