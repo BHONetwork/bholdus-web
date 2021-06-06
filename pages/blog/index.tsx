@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { MdFilterDrama } from "react-icons/md";
+import useTranslation from "next-translate/useTranslation";
 
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
@@ -9,8 +10,10 @@ import Image from "../../components/common/image";
 import CustomLink from "../../components/common/custom-link";
 
 import { fetchAPI, getLocale } from "../../utils/api";
+import { formatDate } from "../../utils/datetime";
 
-const LocalArticle = ({ article }) => {
+const LocalArticle = ({ article, translation }) => {
+  const { lang } = translation;
   const { title, description, image, publishedAt } = article;
   return (
     <div className="flex flex-col text-left">
@@ -21,14 +24,14 @@ const LocalArticle = ({ article }) => {
       <Text className="mb-3" color="black">
         {description}
       </Text>
-      <Text color="black" weight="bold" style={{ fontSize: 14 }}>
-        {publishedAt}
+      <Text color="black" weight="bold" style={{ fontSize: 14 }} capitalized>
+        {formatDate(lang, publishedAt)}
       </Text>
     </div>
   );
 };
 
-const LocalArticles = ({ topic, articles, className }) => {
+const LocalArticles = ({ topic, articles, className, translation }) => {
   return (
     <div className={classNames("flex flex-col", className)}>
       <div className="flex flex-row items-center mb-7">
@@ -47,7 +50,7 @@ const LocalArticles = ({ topic, articles, className }) => {
             key={article.id}
             link={{ url: `/blog/article/${article.slug}` }}
           >
-            <LocalArticle article={article} />
+            <LocalArticle article={article} translation={translation} />
           </CustomLink>
         ))}
       </div>
@@ -56,7 +59,11 @@ const LocalArticles = ({ topic, articles, className }) => {
 };
 
 const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
+  const translation = useTranslation();
+  const { t } = translation;
+
   const Hero = () => <BlogHero pageData={pageData} article={featuredArticle} />;
+
   return (
     <Layout className="mt-20" Hero={Hero} global={global}>
       {articlesByTopic ? (
@@ -67,6 +74,7 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
               className="md:mb-20 mb-10"
               topic={topic}
               articles={articlesByTopic[topic]}
+              translation={translation}
             />
           );
         })
@@ -74,7 +82,7 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
         <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
           <MdFilterDrama size={200} />
           <Text size="medium" color="black">
-            No articles yet! Please comeback later.
+            {t("common:noArticles")}
           </Text>
         </div>
       )}

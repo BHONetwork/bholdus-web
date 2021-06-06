@@ -1,9 +1,10 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowDown, MdCheck } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 import Text from "../common/text";
 
 const NextLink = ({ pathname, asPath, locale, children, ...restProps }) => {
@@ -16,7 +17,7 @@ const NextLink = ({ pathname, asPath, locale, children, ...restProps }) => {
   );
 };
 
-export default function Example() {
+const LanguageSelection = ({ languages }) => {
   const router = useRouter();
   const { pathname, asPath, locale } = router;
 
@@ -44,26 +45,31 @@ export default function Example() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="absolute mt-2 bg-darkGrey rounded-md focus:outline-none z-20">
+            <Menu.Items className="absolute mt-2 pr-2 bg-darkGrey rounded-md focus:outline-none z-20">
               <div className="px-4 py-2">
-                <Menu.Item>
-                  {({ active }) => (
-                    <NextLink pathname={pathname} asPath={asPath} locale="en">
-                      <Text size="normal" className="whitespace-nowrap">
-                        en (English)
-                      </Text>
-                    </NextLink>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <NextLink pathname={pathname} asPath={asPath} locale="vi">
-                      <Text size="normal" className="whitespace-nowrap">
-                        vi (Tiếng Việt)
-                      </Text>
-                    </NextLink>
-                  )}
-                </Menu.Item>
+                {languages.map((language: any) => (
+                  <Menu.Item>
+                    {() => (
+                      <NextLink
+                        className="flex flex-row items-center"
+                        pathname={pathname}
+                        asPath={asPath}
+                        locale={language.code}
+                      >
+                        <Text size="normal" className="whitespace-nowrap mr-2">
+                          {language.name}
+                        </Text>
+                        {locale === language.code && (
+                          <MdCheck
+                            className="flex-shrink-0"
+                            color="#fff"
+                            size={15}
+                          />
+                        )}
+                      </NextLink>
+                    )}
+                  </Menu.Item>
+                ))}
               </div>
             </Menu.Items>
           </Transition>
@@ -71,4 +77,6 @@ export default function Example() {
       )}
     </Menu>
   );
-}
+};
+
+export default LanguageSelection;

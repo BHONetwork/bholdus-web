@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { fetchAPI } from "../../utils/api";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { MdDone } from "react-icons/md";
+import useTranslation from "next-translate/useTranslation";
 
 import Button from "../common/button";
 import Text from "../common/text";
 
+import { fetchAPI } from "../../utils/api";
+
 const GetInTouchForm = () => {
   const [loading, setLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
+  const { t } = useTranslation();
 
   const FormSchema = yup.object().shape({
     name: yup.string().required(),
@@ -53,7 +56,7 @@ const GetInTouchForm = () => {
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="text"
               name="name"
-              placeholder="Name"
+              placeholder={t("common:getInTouchFormName")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.name && touched.name && errors.name}
@@ -62,7 +65,7 @@ const GetInTouchForm = () => {
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t("common:getInTouchFormEmail")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.email && touched.email && errors.email}
@@ -73,7 +76,7 @@ const GetInTouchForm = () => {
               style={{ height: 190, resize: "none" }}
               type="text"
               name="message"
-              placeholder="Message"
+              placeholder={t("common:getInTouchFormMessage")}
             />
             <Text className="text-left" type="div" uppercase>
               {errors.message && touched.message && errors.message}
@@ -91,12 +94,10 @@ const GetInTouchForm = () => {
                     color="#fff"
                     size={20}
                   />
-                  <Text>
-                    Thanks for your interest. We will contact you soon!
-                  </Text>
+                  <Text>{t("common:getInTouchFormThankYou")}</Text>
                 </div>
               ) : (
-                <Text>Send Message</Text>
+                <Text>{t("common:getInTouchFormSendMessage")}</Text>
               )}
             </Button>
           </Form>

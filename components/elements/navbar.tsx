@@ -7,9 +7,9 @@ import CustomLink from "../common/custom-link";
 import Text from "../common/text";
 import Button from "../common/button";
 import Image from "../common/image";
-import LangDropdown from "./langDropdown";
+import LanguageSelection from "./language-selection";
 
-const Navbar = ({ navbar }) => {
+const Navbar = ({ navbar, supportedLocales }) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -65,7 +65,9 @@ const Navbar = ({ navbar }) => {
               ))}
             </ul>
 
-            <LangDropdown />
+            {supportedLocales && supportedLocales.length > 0 && (
+              <LanguageSelection languages={supportedLocales} />
+            )}
           </div>
 
           {/* Hamburger menu on small screens */}

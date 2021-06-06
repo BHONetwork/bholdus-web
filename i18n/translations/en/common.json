@@ -1,5 +1,16 @@
 {
-  "countdownAt": "at",
-  "countdownEnd": "End",
-  "byAuthor": "By"
+  "introduction": "Introduction",
+  "contactUs": "Contact us",
+  "getInTouch": "Get In Touch",
+  "getInTouchFormName": "Your name",
+  "getInTouchFormEmail": "Your email",
+  "getInTouchFormMessage": "Message",
+  "getInTouchFormSendMessage": "Send message",
+  "getInTouchFormThankYou": "Thanks for your interest. We will contact you soon!",
+  "readMore": "Read more",
+  "blogNoArticles": "No articles yet! Please comeback later",
+  "articleByAuthor": "By",
+  "articleOnDatePublished": "on",
+  "articleTopics": "Tagged topics",
+  "articleRelated": "More stories"
 }

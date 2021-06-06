@@ -1,4 +1,7 @@
+import useTranslation from "next-translate/useTranslation";
+
 import { styled } from "../../assets/css/stitches.config";
+import { formatDate } from "../../utils/datetime";
 
 import Button from "../common/button";
 import Image from "../common/image";
@@ -9,6 +12,8 @@ const GreenBackground = styled("div", {
 });
 
 const BlogHero = ({ pageData, article }) => {
+  const { t, lang } = useTranslation();
+
   return (
     <>
       <div className="container flex flex-row justify-center md:mt-40 mt-16">
@@ -41,8 +46,8 @@ const BlogHero = ({ pageData, article }) => {
                       {article.topics[0].topic}
                     </Text>
                   </div>
-                  <Text weight="bold" style={{ fontSize: 14 }}>
-                    {article.publishedAt}
+                  <Text weight="bold" style={{ fontSize: 14 }} capitalized>
+                    {formatDate(lang, article.publishedAt)}
                   </Text>
                 </div>
                 <Text
@@ -69,7 +74,7 @@ const BlogHero = ({ pageData, article }) => {
                 buttonType="secondary"
                 border="rounded"
               >
-                <Text color="green">Read more</Text>
+                <Text color="green">{t("common:readMore")}</Text>
               </Button>
             </GreenBackground>
             <Image

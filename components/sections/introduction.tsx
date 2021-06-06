@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useTranslation from "next-translate/useTranslation";
 
 import { styled } from "../../assets/css/stitches.config";
 
@@ -23,6 +24,8 @@ const Introduction = ({ data }) => {
   const [displayIntroductionVideo, setDisplayIntroductionVideo] =
     useState(false);
 
+  const { t } = useTranslation();
+
   return (
     <section
       className="flex flex-col lg:flex-row justify-end flex-shrink mt-40 md:mt-0"
@@ -42,8 +45,8 @@ const Introduction = ({ data }) => {
             className="mr-2"
             style={{ backgroundColor: "white", width: 40, height: 1 }}
           />
-          <Text size="small" weight="bold">
-            INTRODUCTION
+          <Text size="small" weight="bold" uppercase>
+            {t("common:introduction")}
           </Text>
         </div>
         <Text className="mb-10" type="h2">

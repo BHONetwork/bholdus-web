@@ -16,6 +16,7 @@ export const TextWeight = Enum("normal", "semiBold", "bold");
 export type TextProps = {
   type?: Enum<typeof TextTypes>;
   uppercase?: boolean;
+  capitalized?: boolean;
   color?: Enum<typeof TextColor>;
   size?: Enum<typeof TextSize>;
   weight?: Enum<typeof TextWeight>;
