@@ -12,7 +12,7 @@ const RoadmapItem = ({ data, isLastItem }) => {
       key={data.id}
       data-aos="fade-up"
       data-aos-easing="linear"
-      data-aos-duration="1500"
+      data-aos-duration="1000"
     >
       <div className="road__item-metka"></div>
       <div className="road__item-content">
