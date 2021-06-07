@@ -17,7 +17,7 @@ const PlayButton = ({ onClick }) => {
 };
 
 const GreenBackground = styled("div", {
-  background: "$green",
+  background: "$darkGrey",
 });
 
 const Introduction = ({ data }) => {
