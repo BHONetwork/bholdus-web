@@ -2,7 +2,7 @@ import Button from "../common/button";
 import Text from "../common/text";
 import Image from "../common/image";
 const LandingPageHero = ({ data }) => {
-  const background = data.videoBackground.Enable ? (
+  const background = data.videoBackground.enable ? (
     <div className="bg-hero-video">
       <video
         src={data.videoBackground.video_url.url}
