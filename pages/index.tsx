@@ -46,7 +46,11 @@ const Home = ({ pageData, latestNews, global }) => {
 
       {pageData.sections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
-        if (__component in mapSections) {
+        if (
+          __component in mapSections &&
+          section.enable !== undefined &&
+          section.enable
+        ) {
           const Section = mapSections[__component];
 
           return <Section key={index} data={rest} />;
