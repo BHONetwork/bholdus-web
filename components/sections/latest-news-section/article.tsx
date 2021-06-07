@@ -1,6 +1,10 @@
 import Text from "../../common/text";
 
-const Article = ({ data, index }) => {
+import { formatDate } from "../../../utils/datetime";
+
+const Article = ({ data, index, translation }) => {
+  const { lang } = translation;
+
   return (
     <div
       key={index}
@@ -18,8 +22,8 @@ const Article = ({ data, index }) => {
       <Text className="mb-5" type="div">
         {data.description}
       </Text>
-      <Text color="lightGrey" style={{ fontSize: 14 }}>
-        {data.publishedAt}
+      <Text color="lightGrey" style={{ fontSize: 14 }} capitalized>
+        {formatDate(lang, data.publishedAt)}
       </Text>
     </div>
   );
