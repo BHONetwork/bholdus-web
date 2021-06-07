@@ -17,7 +17,7 @@ const BoardProfile = ({ data, index }) => {
         <div className="advisor__sn">
           {socials.map(({ type, url }, index: number) => (
             <a key={index} href={url} target="_blank" rel="nofollow noreferrer">
-              <Image img={{ url: `../../images/${type}.svg`, alt: type }} />
+              <Image img={{ url: `/images/${type}.svg`, alt: type }} />
             </a>
           ))}
         </div>

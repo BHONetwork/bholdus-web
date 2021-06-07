@@ -10,7 +10,7 @@ const LandingPageHero = ({ data }) => {
       renderer: "svg",
       loop: true,
       autoplay: true,
-      path: "../../images/bh-symbol.json",
+      path: "/images/bh-symbol.json",
     });
     return () => blackhole.destroy();
   }, []);

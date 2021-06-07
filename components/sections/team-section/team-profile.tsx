@@ -26,7 +26,7 @@ const TeamProfile = ({ data, index }) => {
                 target="_blank"
                 rel="nofollow noreferrer"
               >
-                <Image img={{ url: `../../images/${type}.svg`, alt: type }} />
+                <Image img={{ url: `/images/${type}.svg`, alt: type }} />
               </a>
             </li>
           ))}
