@@ -11,14 +11,14 @@ const GreenBackground = styled("div", {
   background: "$green",
 });
 
-const BlogHero = ({ pageData, article }) => {
+const BlogHero = ({ page, article }) => {
   const { t, lang } = useTranslation();
 
   return (
     <>
       <div className="container flex flex-row justify-center md:mt-40 mt-16">
         <Text type="h1" style={{ fontSize: "30px" }}>
-          {pageData.title}
+          {page.title}
         </Text>
       </div>
 

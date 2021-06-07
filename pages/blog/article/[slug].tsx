@@ -1,21 +1,24 @@
 import { isArray } from "lodash";
 import useTranslation from "next-translate/useTranslation";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import Layout from "../../../components/layout";
+import NotFoundPage from "../../404";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
-import ErrorPage from "../../404";
 
 import Image from "../../../components/common/image";
 import Text from "../../../components/common/text";
 import RichText from "../../../components/common/rich-text";
+import CustomLink from "../../../components/common/custom-link";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import ssgPopularLocales from "../../../i18n/supportedPopularLocales.json";
+import ShareSocials from "../../../components/sections/share-socials";
 
 const LocalArticle = ({ article }) => {
   const { title, image } = article;
   return (
-    <div key={article.id} className="flex flex-col text-left">
+    <div className="flex flex-col text-left">
       <Image className="mb-3" img={image} style={{ maxHeight: 300 }} />
       <Text className="mb-3" color="black" weight="bold">
         {title}
@@ -26,6 +29,7 @@ const LocalArticle = ({ article }) => {
 
 const LocalArticleDetail = ({ article, t }) => {
   const { content, image, topics, relatedArticles } = article;
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-col items-center mb-16">
@@ -33,20 +37,7 @@ const LocalArticleDetail = ({ article, t }) => {
         <RichText children={content} />
       </div>
 
-      <div className="flex flex-row gap-1 mb-16">
-        <Image
-          img={{ url: "../../images/facebook_black.svg" }}
-          style={{ width: 28, height: 28 }}
-        />
-        <Image
-          img={{ url: "../../images/instagram_black.svg" }}
-          style={{ width: 28, height: 28 }}
-        />
-        <Image
-          img={{ url: "../../images/telegram_black.svg" }}
-          style={{ width: 28, height: 28 }}
-        />
-      </div>
+      <ShareSocials types={["facebook", "telegram"]} />
 
       <div className="flex flex-col mb-20">
         <Text className="mb-6" size="medium" weight="bold" color="black">
@@ -74,7 +65,12 @@ const LocalArticleDetail = ({ article, t }) => {
           </Text>
           <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
             {relatedArticles.articles.map((article: any) => (
-              <LocalArticle key={article.id} article={article} />
+              <CustomLink
+                key={article.id}
+                link={{ url: `/blog/article/${article.slug}` }}
+              >
+                <LocalArticle article={article} />
+              </CustomLink>
             ))}
           </div>
         </div>
@@ -89,7 +85,7 @@ const Article = ({ article, global }) => {
   if (!article) {
     return (
       <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
-        <ErrorPage />
+        <NotFoundPage />
       </Layout>
     );
   }
@@ -103,12 +99,12 @@ const Article = ({ article, global }) => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await fetchAPI("/articles?status=published");
 
   return {
     paths: articles
-      ? articles.reduce((acc, article) => {
+      ? articles.reduce((acc: any, article: any) => {
           return acc.concat(
             ssgPopularLocales.map((locale) => ({
               params: {
@@ -121,9 +117,9 @@ export async function getStaticPaths() {
       : [],
     fallback: true,
   };
-}
+};
 
-export async function getStaticProps(ctx) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
   const locale = getLocale(ctx);
   const article = await fetchAPI(
@@ -134,6 +130,6 @@ export async function getStaticProps(ctx) {
     props: { article },
     revalidate: 1, // redo SSG in the background
   };
-}
+};
 
 export default Article;

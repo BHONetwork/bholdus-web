@@ -602,7 +602,7 @@ img:hover {
 
 .play-button {
   background-size: cover;
-  background-image: url("../../public/images/play_btn_bg.png");
+  background-image: url("/images/play_btn_bg.png");
 }
 
 .play-button img:hover {
