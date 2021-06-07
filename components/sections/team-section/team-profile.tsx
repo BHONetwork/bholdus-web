@@ -10,7 +10,7 @@ const TeamProfile = ({ data, index }) => {
       className="team-member"
       data-aos="fade-zoom-in"
       data-aos-easing="ease-in-back"
-      data-aos-delay={index * 200}
+      data-aos-delay={200}
       data-aos-offset="0"
     >
       <Image className="team-member__avatar" img={data.avatar} />
@@ -18,18 +18,22 @@ const TeamProfile = ({ data, index }) => {
         <div className="team-member__name">{data.name}</div>
         <div className="team-member__post">{data.title}</div>
         <ul className="team-member__social">
-          {socials.map(({ type, url }, index: number) => (
-            <li key={index}>
-              <a
-                key={index}
-                href={url}
-                target="_blank"
-                rel="nofollow noreferrer"
-              >
-                <Image img={{ url: `/images/${type}.svg`, alt: type }} />
-              </a>
-            </li>
-          ))}
+          {socials.map(({ type, url }, index: number) => {
+            if (url !== null)
+              return (
+                <li key={index}>
+                  <a
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="nofollow noreferrer"
+                  >
+                    <Image img={{ url: `/images/${type}.svg`, alt: type }} />
+                  </a>
+                </li>
+              );
+            return null;
+          })}
         </ul>
       </div>
     </div>
