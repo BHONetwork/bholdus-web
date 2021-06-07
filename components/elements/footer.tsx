@@ -35,7 +35,9 @@ const Footer = ({
               </a>
             ))}
           </div>
-          <Text size="medium">{footer.smallText}</Text>
+          <Text className="text-center" size="medium">
+            {footer.smallText}
+          </Text>
         </div>
       </div>
     </footer>
