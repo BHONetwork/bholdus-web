@@ -5,11 +5,14 @@ const LandingPageHero = ({ data }) => {
   const background = data.videoBackground.enable ? (
     <div className="bg-hero-video">
       <video
-        src={data.videoBackground.video_url.url}
+        preload={"yes"}
         autoPlay={true}
         muted={true}
         loop={true}
-      />
+        playsInline={true}
+      >
+        <source src={data.videoBackground.video_url.url} type="video/mp4" />
+      </video>
     </div>
   ) : (
     <div className="bg-hero-image">
