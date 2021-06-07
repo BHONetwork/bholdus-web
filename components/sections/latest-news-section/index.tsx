@@ -11,7 +11,7 @@ const LatestNewsSection = ({ articles }) => {
   if (articles.length > 0) {
     return (
       <Section
-        className="mt-20 lg:mt-80 scroll-margin-top"
+        className="mt-20 lg:mt-40 scroll-margin-top"
         smallTitle={t("common:news")}
         title={t("common:latestNews")}
       >

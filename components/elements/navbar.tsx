@@ -49,7 +49,7 @@ const Navbar = ({ navbar, supportedLocales }) => {
             </CustomLink>
           </div>
           <div className="flex flex-row items-center justify-end">
-            <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
+            <ul className="hidden list-none lg:flex flex-row gap-4 items-baseline ml-10">
               {navbar.links.map((navLink: any, index: number) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
@@ -65,20 +65,20 @@ const Navbar = ({ navbar, supportedLocales }) => {
                 </li>
               ))}
             </ul>
-
-            {/* Hamburger menu on small screens */}
-            <button
-              onClick={() => setMobileMenuIsShown(true)}
-              className="p-1 block xl:hidden"
-            >
-              <MdMenu className="h-8 w-auto" color="#fff" />
-            </button>
             {supportedLocales && supportedLocales.length > 0 && (
               <LanguageSelection languages={supportedLocales} />
             )}
+            {/* Hamburger menu on small screens */}
+            <button
+              onClick={() => setMobileMenuIsShown(true)}
+              className="p-1 block lg:hidden"
+            >
+              <MdMenu className="h-8 w-auto" color="#fff" />
+            </button>
+
             {/* CTA button on large screens */}
             {navbar.button && (
-              <div className="hidden xl:block">
+              <div className="hidden lg:block">
                 <Button button={navbar.button} isLink />
               </div>
             )}

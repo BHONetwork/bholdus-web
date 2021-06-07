@@ -5,7 +5,7 @@ const AdvisorSection = ({ data }) => {
   return (
     <Section
       id="team"
-      className="mt-20 lg:mt-80 scroll-margin-top"
+      className="mt-20 lg:mt-40 scroll-margin-top"
       smallTitle={data.smallTitle}
       title={data.title}
     >
