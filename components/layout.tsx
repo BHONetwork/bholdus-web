@@ -43,9 +43,7 @@ const Layout = ({
         </div>
       </div>
 
-      <div className="relative z-2 pt-40 bg-hero bg-cover xl:bg-contain xl:bg-repeat-round min-h-screen">
-        <Hero />
-      </div>
+      <Hero />
 
       <div className={classNames("container", className)}>{children}</div>
 

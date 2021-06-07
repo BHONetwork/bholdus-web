@@ -19,12 +19,19 @@ const mapSections = {
   "sections.services-section": ServiceSection,
   "sections.roadmap-section": RoadmapSection,
   "sections.use-cases-section": UsecaseSection,
+  "sections.advisor-section": AdvisorSection,
+  "sections.team-section": TeamSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
   if (!pageData) {
     return <ErrorPage statusCode={404} />;
   }
+  const enableLatestNews =
+    pageData.latestNewsSection !== undefined &&
+    pageData.latestNewsSection.enable
+      ? true
+      : false;
 
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
@@ -39,16 +46,19 @@ const Home = ({ pageData, latestNews, global }) => {
 
       {pageData.sections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
-        const Section = mapSections[__component];
+        if (
+          __component in mapSections &&
+          section.enable !== undefined &&
+          section.enable
+        ) {
+          const Section = mapSections[__component];
 
-        return <Section key={index} data={rest} />;
+          return <Section key={index} data={rest} />;
+        }
+        return null;
       })}
 
-      <AdvisorSection data={pageData.advisorsSection} />
-
-      <TeamSection data={pageData.teamSection} />
-
-      <LatestNewsSection articles={latestNews} />
+      {enableLatestNews ? <LatestNewsSection articles={latestNews} /> : null}
     </Layout>
   );
 };

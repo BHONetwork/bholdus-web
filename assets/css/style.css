@@ -17,7 +17,95 @@ body {
 .scroll-margin-top {
   scroll-margin-top: 150px;
 }
+/* Hero */
+.bg-hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
 
+.bg-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bg-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg-hero-video video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.video-container:after {
+  content: "";
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+}
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.hero-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero img {
+  width: 280px;
+  height: 280px;
+}
+.hero .hero-title {
+  text-align: center;
+}
+
+.hero .hero-description {
+  text-align: justify;
+}
+.hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: rgba(37, 45, 75, 0.7);
+  padding: 20px;
+  max-width: 640px;
+}
 /* Road Map*/
 
 .road__item {
@@ -151,6 +239,7 @@ body {
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s;
+  width: 100%;
 }
 .advisor__img img:hover {
   transform: scale(0.95);
@@ -201,9 +290,12 @@ body {
 }
 
 /* Team */
-.team {
-  padding-bottom: 30px;
+.team-container {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .team__bg {
@@ -222,6 +314,9 @@ body {
 .team-member {
   margin-bottom: 30px;
   text-align: center;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
 }
 
 .team-member__avatar {
@@ -277,8 +372,51 @@ body {
 .scroll-margin-top {
   scroll-margin-top: 50px;
 }
+@media screen and (max-height: 568px) {
+  .hero .hero-content .hero-description {
+    display: none;
+  }
+  .hero-content {
+    margin-top: 350px;
+  }
+}
 
+@media screen and (min-height: 569px) and (max-height: 680px) {
+  .hero-content {
+    margin-top: 450px;
+  }
+  .hero-content h1 {
+    font-size: 30px;
+  }
+  .hero-content .hero-description {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-height: 680px) {
+  .hero-content {
+    margin-top: 600px;
+    margin-bottom: 20px;
+  }
+  .hero-content h1 {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  .hero-content .hero-description {
+    font-size: 15px;
+  }
+}
 @media screen and (min-width: 320px) {
+  .hero-logo img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .team-member,
+  .team-member__content {
+    min-width: 140px;
+  }
+
   .landing-page-hero {
     /* margin-top: 100px; */
     margin-bottom: 20px;
@@ -324,14 +462,11 @@ body {
     text-align: justify;
   }
 
-  .team {
-    padding-bottom: 10px;
-  }
-
   .team-member {
     display: flex;
     text-align: left;
     margin-bottom: 50px;
+    min-width: 210px;
   }
 
   .team-member__avatar {
@@ -339,7 +474,8 @@ body {
   }
 
   .team-member__content {
-    padding-left: 22px;
+    padding-left: 10px;
+    min-width: 100px;
   }
 
   .team-member__social {
@@ -347,6 +483,13 @@ body {
   }
 }
 @media screen and (min-width: 640px) {
+  .hero-content h1 {
+    margin-bottom: 30px;
+    font-size: 45px;
+  }
+  .hero-content .hero-description {
+    font-size: 16px;
+  }
   .scroll-margin-top {
     scroll-margin-top: 50px;
   }
@@ -387,8 +530,13 @@ body {
   .advisor__title {
     margin-bottom: 15px;
   }
-  .team {
-    padding-bottom: 50px;
+  .team-member {
+    min-width: 300px;
+  }
+
+  .team-member__content {
+    padding-left: 20px;
+    min-width: 200px;
   }
 }
 
@@ -403,10 +551,6 @@ body {
 
   .advisor__post {
     margin-bottom: 20px;
-  }
-
-  .team {
-    padding-bottom: 100px;
   }
 }
 
@@ -431,6 +575,7 @@ body {
     right: 0px;
     margin: auto;
   }
+
   .road__item {
     padding-left: 80px;
   }
@@ -473,11 +618,7 @@ body {
     right: -100%;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(
-      100.94deg,
-      #16b04b 22.46%,
-      #39b54a 131.92%
-    );
+    background-color: #252d4b;
   }
   .advisor__content {
     display: flex;
@@ -497,11 +638,6 @@ body {
     right: -140%;
     width: 140%;
     height: 100%;
-    background-image: linear-gradient(
-      100.94deg,
-      #16b04b 22.46%,
-      #39b54a 131.92%
-    );
   }
 }
 @media screen and (min-width: 1520px) {
@@ -610,7 +746,7 @@ img:hover {
 
 .play-button {
   background-size: cover;
-  background-image: url("../../public/images/play_btn_bg.png");
+  background-image: url("/images/play_btn_bg.png");
 }
 
 .play-button img:hover {

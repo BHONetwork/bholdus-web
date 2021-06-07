@@ -10,14 +10,14 @@ const PlayButton = ({ onClick }) => {
   return (
     <div className="play-button">
       <button onClick={onClick}>
-        <img src="../../images/play_btn.png" alt="play-button" />
+        <img src="/images/play_btn.png" alt="play-button" />
       </button>
     </div>
   );
 };
 
 const GreenBackground = styled("div", {
-  background: "$green",
+  background: "$darkGrey",
 });
 
 const Introduction = ({ data }) => {

@@ -2,6 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { MdFilterDrama } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
+import { GetStaticProps } from "next";
 
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
@@ -58,11 +59,11 @@ const LocalArticles = ({ topic, articles, className, translation }) => {
   );
 };
 
-const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
+const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
   const translation = useTranslation();
   const { t } = translation;
 
-  const Hero = () => <BlogHero pageData={pageData} article={featuredArticle} />;
+  const Hero = () => <BlogHero page={page} article={featuredArticle} />;
 
   return (
     <Layout className="mt-20" Hero={Hero} global={global}>
@@ -90,9 +91,9 @@ const Blog = ({ articlesByTopic, featuredArticle, pageData, global }) => {
   );
 };
 
-export async function getStaticProps(ctx: any) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const locale = getLocale(ctx);
-  const [topics, featuredArticles, pageData] = await Promise.all([
+  const [topics, featuredArticles, pages] = await Promise.all([
     fetchAPI(`/topics`),
     fetchAPI(
       `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=1`
@@ -118,9 +119,9 @@ export async function getStaticProps(ctx: any) {
   }
 
   return {
-    props: { articlesByTopic, featuredArticle, pageData: pageData[0] || null },
+    props: { articlesByTopic, featuredArticle, page: pages[0] || null },
     revalidate: 1, // redo SSG in the background
   };
-}
+};
 
 export default Blog;

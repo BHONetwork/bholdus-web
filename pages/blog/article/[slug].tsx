@@ -1,9 +1,10 @@
 import { isArray } from "lodash";
 import useTranslation from "next-translate/useTranslation";
+import { GetStaticPaths, GetStaticProps } from "next";
 
 import Layout from "../../../components/layout";
+import NotFoundPage from "../../404";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
-import ErrorPage from "../../404";
 
 import Image from "../../../components/common/image";
 import Text from "../../../components/common/text";
@@ -84,7 +85,7 @@ const Article = ({ article, global }) => {
   if (!article) {
     return (
       <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
-        <ErrorPage />
+        <NotFoundPage />
       </Layout>
     );
   }
@@ -98,7 +99,7 @@ const Article = ({ article, global }) => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const articles = await fetchAPI("/articles?status=published");
 
   return {
@@ -116,9 +117,9 @@ export async function getStaticPaths() {
       : [],
     fallback: true,
   };
-}
+};
 
-export async function getStaticProps(ctx: any) {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
   const locale = getLocale(ctx);
   const article = await fetchAPI(
@@ -129,6 +130,6 @@ export async function getStaticProps(ctx: any) {
     props: { article },
     revalidate: 1, // redo SSG in the background
   };
-}
+};
 
 export default Article;
