@@ -22,3 +22,22 @@
   src: local("Titillium Web"),
     url(../fonts//TitilliumWeb.ttf) format("truetype");
 }
+@font-face {
+  font-family: "Titillium Web";
+  src: local("Titillium Web"),
+    url(../fonts//TitilliumWeb-Bold.ttf) format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: local("Titillium Web"),
+    url(../fonts//TitilliumWeb-Italic.ttf) format("truetype");
+  font-style: italic;
+}
+@font-face {
+  font-family: "Titillium Web";
+  src: local("Titillium Web"),
+    url(../fonts//TitilliumWeb-BoldItalic.ttf) format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}

@@ -9,7 +9,7 @@ import Button from "../common/button";
 import Image from "../common/image";
 import LanguageSelection from "./language-selection";
 
-const Navbar = ({ navbar, supportedLocales }) => {
+const Navbar = ({ navbar, supportedLocales, transparent }) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -36,9 +36,13 @@ const Navbar = ({ navbar, supportedLocales }) => {
     <>
       <nav
         className={classNames(
-          "absolute top-3 md:top-0 left-0 w-full z-20 h-16 md:h-24 flex justify-between items-center border-b-0 border-solid border-transparent transition-colors duration-300",
+          "absolute left-0 w-full z-20 h-16 md:h-24 flex justify-between items-center rounded-b-sm border-b-0 border-solid border-transparent transition-colors duration-300",
           {
             sticky: isScrolling,
+          },
+          {
+            "bg-darkGrey2 top-0 md:py-0 py-10": !transparent,
+            "top-3 md:top-0": transparent,
           }
         )}
       >
@@ -49,7 +53,7 @@ const Navbar = ({ navbar, supportedLocales }) => {
             </CustomLink>
           </div>
           <div className="flex flex-row items-center justify-end">
-            <ul className="hidden list-none lg:flex flex-row gap-4 items-baseline ml-10">
+            <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
               {navbar.links.map((navLink: any, index: number) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
@@ -71,14 +75,14 @@ const Navbar = ({ navbar, supportedLocales }) => {
             {/* Hamburger menu on small screens */}
             <button
               onClick={() => setMobileMenuIsShown(true)}
-              className="p-1 block lg:hidden"
+              className="p-1 block xl:hidden"
             >
               <MdMenu className="h-8 w-auto" color="#fff" />
             </button>
 
             {/* CTA button on large screens */}
             {navbar.button && (
-              <div className="hidden lg:block">
+              <div className="hidden xl:block">
                 <Button button={navbar.button} isLink />
               </div>
             )}

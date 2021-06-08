@@ -1,9 +1,11 @@
+import useTranslation from "next-translate/useTranslation";
+
 import Text from "../../common/text";
 
 import { formatDate } from "../../../utils/datetime";
 
-const Article = ({ data, index, translation }) => {
-  const { lang } = translation;
+const Article = ({ data, index }) => {
+  const { lang } = useTranslation();
 
   return (
     <div

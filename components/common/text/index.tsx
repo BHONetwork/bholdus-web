@@ -31,6 +31,9 @@ const TextComponent = styled("p", {
       green: {
         color: "$green2",
       },
+      red: {
+        color: "$brightRed",
+      },
     },
     size: {
       small: {
@@ -65,42 +68,34 @@ const TextComponent = styled("p", {
     },
     type: {
       div: {
-        color: "$white",
         fontSize: "$normal",
         fontWeight: "$normal",
       },
       p: {
-        color: "$white",
         fontSize: "$normal",
         fontWeight: "$normal",
       },
       h1: {
-        color: "$white",
         fontSize: "$xLarge",
         fontWeight: "$bold",
       },
       h2: {
-        color: "$white",
         fontSize: "$large",
         fontWeight: "$bold",
       },
       h3: {
-        color: "$white",
         fontSize: "$large",
         fontWeight: "$bold",
       },
       h4: {
-        color: "$white",
         fontSize: "$xMedium",
         fontWeight: "$bold",
       },
       h5: {
-        color: "$lightGrey",
         fontSize: "$medium",
         fontWeight: "$normal",
       },
       h6: {
-        color: "$white",
         fontSize: "$normal",
         fontWeight: "$normal",
       },

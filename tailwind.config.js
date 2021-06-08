@@ -5,7 +5,9 @@ module.exports = {
       colors: {
         white: "#FFFFFF",
         black: "#000000",
+        grey: "#aab2cd",
         darkGrey: "#252d4b",
+        darkGrey2: "#1f2641",
         lightGrey: "#545C79",
         green: "linear-gradient(100.94deg, #16B04B 22.46%, #39B54A 131.92%)",
         green2: "#00B871",
@@ -13,6 +15,7 @@ module.exports = {
         orange: "linear-gradient(90deg, #FFC062 0%, #FF9F0E 100%)",
         purple: "linear-gradient(90deg, #D150FF 0%, #BD00FF 100%)",
         lightBlue: "linear-gradient(90deg, #73DDFF 0%, #00C2FF 100%)",
+        brightRed: "#FF0000",
       },
 
       container: {
@@ -29,7 +32,6 @@ module.exports = {
 
       backgroundImage: () => ({
         default: "url('../images/default_bg.png')",
-        hero: "url('../images/hero_bg.png')",
         footer: "url('../images/footer_bg.png')",
       }),
 
@@ -44,6 +46,11 @@ module.exports = {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
+    },
+  },
+  variants: {
+    extend: {
+      margin: ["last"],
     },
   },
 

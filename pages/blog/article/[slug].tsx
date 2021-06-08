@@ -39,7 +39,7 @@ const LocalArticleDetail = ({ article, t }) => {
 
       <ShareSocials types={["facebook", "telegram"]} />
 
-      <div className="flex flex-col mb-20">
+      <div className="flex flex-col">
         <Text className="mb-6" size="medium" weight="bold" color="black">
           {t("common:articleTopics")}
         </Text>
@@ -59,7 +59,7 @@ const LocalArticleDetail = ({ article, t }) => {
       </div>
 
       {relatedArticles && isArray(relatedArticles.articles) && (
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-20">
           <Text className="mb-6" size="medium" weight="bold" color="black">
             {t("common:articleRelated")}
           </Text>
@@ -84,7 +84,7 @@ const Article = ({ article, global }) => {
 
   if (!article) {
     return (
-      <Layout className="mt-14 mb-14" Hero={() => null} global={global}>
+      <Layout className="md:mt-52 mt-32" Hero={() => null} global={global}>
         <NotFoundPage />
       </Layout>
     );
@@ -93,7 +93,7 @@ const Article = ({ article, global }) => {
   const Hero = () => <BlogDetailHero article={article} />;
 
   return (
-    <Layout className="mt-14 mb-14" Hero={Hero} global={global}>
+    <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
       <LocalArticleDetail article={article} t={t} />
     </Layout>
   );
@@ -115,7 +115,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
           );
         }, [])
       : [],
-    fallback: true,
+    fallback: "blocking",
   };
 };
 

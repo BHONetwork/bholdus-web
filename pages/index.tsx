@@ -10,9 +10,9 @@ import RoadmapSection from "../components/sections/roadmap-section";
 import UsecaseSection from "../components/sections/usecase-section";
 import AdvisorSection from "../components/sections/advisor-section";
 import TeamSection from "../components/sections/team-section";
+import LatestNewsSection from "../components/sections/latest-news-section";
 
 import { fetchAPI, getLocale } from "../utils/api";
-import LatestNewsSection from "../components/sections/latest-news-section";
 
 const mapSections = {
   "sections.text-section": TextSection,
@@ -27,11 +27,6 @@ const Home = ({ pageData, latestNews, global }) => {
   if (!pageData) {
     return <ErrorPage statusCode={404} />;
   }
-  const enableLatestNews =
-    pageData.latestNewsSection !== undefined &&
-    pageData.latestNewsSection.enable
-      ? true
-      : false;
 
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
@@ -39,18 +34,17 @@ const Home = ({ pageData, latestNews, global }) => {
     <Layout
       Hero={Hero}
       global={global}
+      transparentNavbar={true}
       displayPageBackground={true}
       displayFooterBackground={false}
     >
-      <Introduction data={pageData.introduction} />
+      {pageData.introduction && pageData.introduction.enable && (
+        <Introduction data={pageData.introduction} />
+      )}
 
       {pageData.sections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
-        if (
-          __component in mapSections &&
-          section.enable !== undefined &&
-          section.enable
-        ) {
+        if (__component in mapSections && section.enable) {
           const Section = mapSections[__component];
 
           return <Section key={index} data={rest} />;
@@ -58,7 +52,12 @@ const Home = ({ pageData, latestNews, global }) => {
         return null;
       })}
 
-      {enableLatestNews ? <LatestNewsSection articles={latestNews} /> : null}
+      {pageData.latestNewsSection && pageData.latestNewsSection.enable && (
+        <LatestNewsSection
+          page={pageData.latestNewsSection}
+          articles={latestNews}
+        />
+      )}
     </Layout>
   );
 };
