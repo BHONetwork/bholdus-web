@@ -35,11 +35,12 @@
     "postcss-purgecss": "^2.0.3",
     "qs": "^6.10.1",
     "react": "16.14.0",
+    "react-collapsible": "^2.8.3",
     "react-dom": "16.14.0",
     "react-icons": "^4.2.0",
     "react-markdown": "6.0.2",
-    "tailwindcss": "^2.1.4",
     "react-share": "^4.4.0",
+    "tailwindcss": "^2.1.4",
     "typescript": "^4.3.2",
     "yup": "^0.32.9"
   },

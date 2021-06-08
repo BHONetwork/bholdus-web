@@ -32,7 +32,7 @@ const LocalArticle = ({ article, translation }) => {
   );
 };
 
-const LocalArticles = ({ topic, articles, className, translation }) => {
+const LocalArticles = ({ topic, articles, className = "", translation }) => {
   return (
     <div className={classNames("flex flex-col", className)}>
       <div className="flex flex-row items-center mb-7">
@@ -45,7 +45,7 @@ const LocalArticles = ({ topic, articles, className, translation }) => {
         </Text>
       </div>
 
-      <div className="md:grid lg:grid-cols-3 md:grid-cols-2 lg:gap-6 md:gap-4 flex flex-col md:space-y-0 space-y-16">
+      <div className="md:grid lg:grid-cols-3 md:grid-cols-2 lg:gap-6 md:gap-4 flex flex-col md:space-y-0 space-y-10">
         {articles.map((article: any) => (
           <CustomLink
             key={article.id}
@@ -59,20 +59,20 @@ const LocalArticles = ({ topic, articles, className, translation }) => {
   );
 };
 
-const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
+const Blog = ({ articlesByTopic, featuredArticle, global }) => {
   const translation = useTranslation();
   const { t } = translation;
 
-  const Hero = () => <BlogHero page={page} article={featuredArticle} />;
+  const Hero = () => <BlogHero article={featuredArticle} />;
 
   return (
-    <Layout className="mt-20" Hero={Hero} global={global}>
+    <Layout className="md:mt-20 mt-10" Hero={Hero} global={global}>
       {articlesByTopic ? (
         Object.keys(articlesByTopic).map((topic: any, index: number) => {
           return (
             <LocalArticles
               key={index}
-              className="md:mb-20 mb-10"
+              className="md:mb-20 mb-10 last:mb-0"
               topic={topic}
               articles={articlesByTopic[topic]}
               translation={translation}

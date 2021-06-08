@@ -1,31 +1,40 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import ErrorPage from "next/error";
+import NotFoundPage from "./404";
 
 import Layout from "../components/layout";
 import PageHero from "../components/sections/page-hero";
 import RichTextSection from "../components/sections/rich-text-section";
+import ContentCollapsibleSection from "../components/sections/content-collapsible-section";
 
 import { fetchAPI, getLocale } from "../utils/api";
 import ssgPopularLocales from "../i18n/supportedPopularLocales.json";
 
 const mapSections = {
   "sections.rich-text-section": RichTextSection,
+  "sections.collapsible-items-section": ContentCollapsibleSection,
 };
 
 const Page = ({ page, global }) => {
   if (!page) {
-    return <ErrorPage statusCode={404} />;
+    return (
+      <Layout className="md:mt-52 mt-32" Hero={() => null} global={global}>
+        <NotFoundPage />
+      </Layout>
+    );
   }
 
   const Hero = () => <PageHero page={page} />;
 
   return (
-    <Layout className="mt-14 mb-14" Hero={Hero} global={global}>
+    <Layout className="md:mt-14 mt-8" Hero={Hero} global={global}>
       {page.sections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
-        const Section = mapSections[__component];
+        if (__component in mapSections && section.enable) {
+          const Section = mapSections[__component];
 
-        return <Section key={index} data={rest} />;
+          return <Section key={index} data={rest} />;
+        }
+        return null;
       })}
     </Layout>
   );

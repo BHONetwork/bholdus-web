@@ -13,6 +13,7 @@ const Layout = ({
   children,
   global,
   className = "",
+  transparentNavbar = false,
   displayPageBackground = false,
   displayFooterBackground = true,
 }) => {
@@ -39,15 +40,25 @@ const Layout = ({
           />
         )}
         <div className="relative">
-          <Navbar navbar={navbar} supportedLocales={supportedLocales} />
+          <Navbar
+            navbar={navbar}
+            supportedLocales={supportedLocales}
+            transparent={transparentNavbar}
+          />
         </div>
       </div>
 
-      <Hero />
+      <div className="page-min-h">
+        <Hero />
 
-      <div className={classNames("container", className)}>{children}</div>
+        <div className={classNames("container", className)}>{children}</div>
+      </div>
 
-      <Footer footer={footer} displayBackground={displayFooterBackground}>
+      <Footer
+        className="md:mt-20 mt-16"
+        footer={footer}
+        displayBackground={displayFooterBackground}
+      >
         {/* ***********
         ****************
         ****************
