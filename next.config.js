@@ -1,5 +1,4 @@
-import path from "path";
-
+const path = require("path");
 const nextTranslate = require("next-translate");
 
 module.exports = nextTranslate({
