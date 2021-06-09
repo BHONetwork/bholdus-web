@@ -152,19 +152,27 @@
             text-align: left;
         }
     }
+    &__item-description{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        li {
+            line-height: 25px;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            list-style-type: square;
 
-    p {
-        line-height: 25px;
-        color: #ffffff;
-        margin: 0;
-        padding: 0;
-
-        @include mobile-portrait {
-            text-align: left;
-        }
-
-        @include mobile-landscape {
-            text-align: left;
+            @include mobile-portrait {
+                text-align: left;
+            }
+    
+            @include mobile-landscape {
+                text-align: left;
+            }
         }
     }
+
+    
 }
