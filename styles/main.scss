@@ -1,0 +1,14 @@
+@import "vars";
+@import "mixin";
+@import "sections/hero";
+@import "sections/advisor";
+@import "sections/team";
+@import "sections/road";
+
+body{
+    h2 {
+        @include mobile-only {
+            font-size: 30px !important;
+        }
+    }
+}

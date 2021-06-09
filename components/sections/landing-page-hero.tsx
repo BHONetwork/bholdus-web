@@ -22,7 +22,7 @@ const LandingPageHero = ({ data }) => {
   return (
     <section className="relative z-2 min-h-screen flex-col flex">
       {background}
-      <div className="container hero">
+      <div id="hero" className="container">
         <div className="hero-logo">
           <Image img={data.image} data-aos="fade" />
         </div>
@@ -41,7 +41,7 @@ const LandingPageHero = ({ data }) => {
           </Text>
 
           {/* Buttons row */}
-          <div className="flex flex-row flex-wrap">
+          <div className="hero-button">
             {data.actions.map((button: any) => (
               <Button
                 className="mr-2 mb-2"
