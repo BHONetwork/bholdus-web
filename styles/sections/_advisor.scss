@@ -1,10 +1,12 @@
-section[id^="advisor-"]{
+section[id^="advisor-"] {
     margin-top: 80px;
     scroll-margin-top: 150px;
+
     @include not-tablet {
         margin-top: 160px;
     }
 }
+
 .advisor-container {
     position: relative;
     display: flex;
@@ -24,24 +26,29 @@ section[id^="advisor-"]{
 
         &:hover {
             .advisor__content .advisor__text {
-                display: flex;
+                visibility: visible;
+                opacity: 1;
             }
 
             @include mobile-only {
                 .advisor {
                     &__title {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: visibility 0s, opacity 0.5s linear;
                     }
 
                     &__post {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: visibility 0s, opacity 0.5s linear;
                     }
                 }
 
             }
         }
 
- 
+
 
         @include mobile-only {
             flex-direction: column;
@@ -95,6 +102,7 @@ section[id^="advisor-"]{
             align-items: center;
             justify-content: center;
             z-index: 20;
+
             &:hover {
                 transform: scale(1.1);
             }
@@ -116,6 +124,7 @@ section[id^="advisor-"]{
             background-color: $bg-light-blue;
             text-align: left;
             width: 100%;
+
             @include mobile-only {
                 background-color: transparent;
                 text-align: center;
@@ -124,6 +133,8 @@ section[id^="advisor-"]{
         }
 
         &__title {
+            visibility: visible;
+            opacity: 1;
             font-size: 20px;
             font-weight: 700;
             color: #ffffff;
@@ -131,6 +142,8 @@ section[id^="advisor-"]{
         }
 
         &__post {
+            visibility: visible;
+            opacity: 1;
             margin-top: 20px;
             font-size: 16px;
             color: $subtilte-color;
@@ -138,7 +151,10 @@ section[id^="advisor-"]{
         }
 
         &__text {
-            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s linear;
+            display: flex;
             color: rgba(255, 255, 255, 0.8);
             position: absolute;
             top: 0;
