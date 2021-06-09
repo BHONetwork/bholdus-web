@@ -160,11 +160,11 @@
         padding: 0;
 
         @include mobile-portrait {
-            text-align: justify;
+            text-align: left;
         }
 
         @include mobile-landscape {
-            text-align: justify;
+            text-align: left;
         }
     }
 }
