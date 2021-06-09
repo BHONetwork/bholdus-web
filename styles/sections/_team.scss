@@ -1,10 +1,12 @@
-section[id^="team-"]{
+section[id^="team-"] {
     margin-top: 80px;
     scroll-margin-top: 150px;
+
     @include not-tablet {
         margin-top: 160px;
     }
 }
+
 .team-container {
     position: relative;
     display: flex;
@@ -28,27 +30,50 @@ section[id^="team-"]{
             .team-member {
                 &__text {
                     display: flex;
+                    visibility: visible;
+                    opacity: 1;
                 }
 
                 &__avatar {
                     img {
+                        -webkit-transition: 1s ease-in;
+                        -moz-transition: 1s ease-in;
+                        -o-transition: 1s ease-in;
+                        transition: 1s ease-in;
                         transform: scale(0.8);
                     }
+                }
+
+                &__social {
+                    -webkit-transition: 1s ease-in-out;
+                    -moz-transition: 1s ease-in-out;
+                    -o-transition: 1s ease-in-out;
+                    transition: 1s ease-in-out;
+                    transform: translate(-85px, 20px) scale(1.2);
                 }
             }
 
             @include mobile-only {
                 .team-member {
                     &__name {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: visibility 0s, opacity 0.5s linear;
                     }
 
                     &__post {
-                        display: none;
+                        visibility: hidden;
+                        opacity: 0;
+                        transition: visibility 0s, opacity 0.5s linear;
+
                     }
 
                     &__social {
-                        display: none;
+                        -webkit-transition: 1s ease-in-out;
+                        -moz-transition: 1s ease-in-out;
+                        -o-transition: 1s ease-in-out;
+                        transition: 1s ease-in-out;
+                        transform: translate(0, -90px) scale(1.2);
                     }
                 }
 
@@ -113,6 +138,8 @@ section[id^="team-"]{
         }
 
         &__name {
+            visibility: visible;
+            opacity: 1;
             color: #ffffff;
             margin-bottom: 10px;
             line-height: 1;
@@ -120,6 +147,8 @@ section[id^="team-"]{
         }
 
         &__post {
+            visibility: visible;
+            opacity: 1;
             color: #545c79;
             font-size: 16px;
             margin-bottom: 17px;
@@ -129,7 +158,7 @@ section[id^="team-"]{
         &__social {
             display: flex;
             justify-content: start;
-            z-index: 9;
+            z-index: 12;
 
             @include mobile-only {
                 justify-content: space-around;
@@ -160,7 +189,9 @@ section[id^="team-"]{
         }
 
         &__text {
-            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s linear;
             color: rgba(255, 255, 255, 0.8);
             position: absolute;
             top: 0;
