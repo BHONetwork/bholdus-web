@@ -32,7 +32,7 @@ const Layout = ({
         }
       )}
     >
-      <div className="flex flex-col">
+      <header className="flex flex-col">
         {notificationBanner && notificationBanner.enable && bannerIsShown && (
           <NotificationBanner
             data={notificationBanner}
@@ -46,13 +46,13 @@ const Layout = ({
             transparent={transparentNavbar}
           />
         </div>
-      </div>
+      </header>
 
-      <div className="page-min-h">
+      <main className="page-min-h">
         <Hero />
 
         <div className={classNames("container", className)}>{children}</div>
-      </div>
+      </main>
 
       <Footer
         className="md:mt-20 mt-16"

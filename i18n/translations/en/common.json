@@ -14,5 +14,7 @@
   "articleByAuthor": "By",
   "articleOnDatePublished": "on",
   "articleTopics": "Tagged topics",
-  "articleRelated": "More stories"
+  "articleRelated": "More stories",
+  "thePageCannotBeFound": "The page cannot be found",
+  "goBackToHomepage": "Go back to Homepage"
 }

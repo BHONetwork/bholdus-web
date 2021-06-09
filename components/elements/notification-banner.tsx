@@ -20,7 +20,11 @@ const NotificationBanner = ({ data, closeSelf }) => {
           children={data.text}
           skipHtml={true}
         />
-        <button onClick={closeSelf} className="flex-shrink-0">
+        <button
+          onClick={closeSelf}
+          className="flex-shrink-0"
+          aria-label="close"
+        >
           <MdClose className="h-6 w-auto" color="#fff" />
         </button>
       </div>
