@@ -1,3 +1,5 @@
+import path from "path";
+
 const nextTranslate = require("next-translate");
 
 module.exports = nextTranslate({

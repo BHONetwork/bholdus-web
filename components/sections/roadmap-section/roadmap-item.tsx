@@ -2,9 +2,9 @@ import Text from "../../common/text";
 import classNames from "classnames";
 
 const RoadmapItem = ({ data, isLastItem }) => {
-  console.log(data);
-  let content = data.content.split("\n").map((line) => <p>{line}</p>);
-  console.log(content);
+  let content = data.content
+    .split("\n")
+    .map((line) => <Text type="p">{line}</Text>);
   return (
     <div
       className={classNames("road__item", {
@@ -20,7 +20,7 @@ const RoadmapItem = ({ data, isLastItem }) => {
       <div className="road__item-metka"></div>
       <div className="road__item-content">
         <div className="road__item-title">{data.date}</div>
-        {content}
+        <div className="road__item-description">{content}</div>
       </div>
     </div>
   );
