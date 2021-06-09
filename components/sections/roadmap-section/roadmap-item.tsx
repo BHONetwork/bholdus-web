@@ -2,6 +2,11 @@ import Text from "../../common/text";
 import classNames from "classnames";
 
 const RoadmapItem = ({ data, isLastItem }) => {
+  let content = data.content.split("\n").map((line) => (
+    <li>
+      <Text type="p">{line}</Text>
+    </li>
+  ));
   return (
     <div
       className={classNames("road__item", {
@@ -17,7 +22,7 @@ const RoadmapItem = ({ data, isLastItem }) => {
       <div className="road__item-metka"></div>
       <div className="road__item-content">
         <div className="road__item-title">{data.date}</div>
-        <Text type="p">{data.content}</Text>
+        <ul className="road__item-description">{content}</ul>
       </div>
     </div>
   );

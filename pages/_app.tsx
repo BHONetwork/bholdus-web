@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 import "../assets/css/tailwind.css";
 import "../assets/css/github-markdown.css";
 import "../assets/css/style.css";
+import "../styles/main.scss";
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
