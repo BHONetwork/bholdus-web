@@ -3,12 +3,7 @@ import RoadmapItem from "./roadmap-item";
 
 const RoadmapSection = ({ data }) => {
   return (
-    <Section
-      id="roadmap"
-      className="mt-20 lg:mt-40 items-center scroll-margin-top"
-      smallTitle={data.smallTitle}
-      title={data.title}
-    >
+    <Section id="roadmap" smallTitle={data.smallTitle} title={data.title}>
       <div className="road">
         {data.roadMapItems.map((item: any, index: number) => (
           <RoadmapItem
