@@ -20,7 +20,7 @@ export const { styled, css, global, keyframes, getCssString, theme } =
         brightRed: "#FF0000",
       },
       fonts: {
-        default: "Titillium Web",
+        default: "Titillium Web, sans-serif",
       },
       fontSizes: {
         small: "12px",

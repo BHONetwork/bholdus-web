@@ -19,7 +19,7 @@ const BlogHero = ({ article }) => {
   }
 
   return (
-    <div className="container md:mt-36 mt-24">
+    <section className="container md:mt-36 mt-24">
       <div className="flex flex-row justify-center">
         <GreenBackground className="flex flex-col justify-between p-10 lg:pt-12 lg:pb-14 lg:pr-9 lg:pl-20 w-full md:w-8/12 lg:w-2/5">
           <div>
@@ -80,7 +80,7 @@ const BlogHero = ({ article }) => {
           style={{ maxHeight: 400 }}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

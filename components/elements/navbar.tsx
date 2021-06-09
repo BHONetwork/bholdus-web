@@ -76,6 +76,7 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
             <button
               onClick={() => setMobileMenuIsShown(true)}
               className="p-1 block xl:hidden"
+              aria-label="hamburger-menu"
             >
               <MdMenu className="h-8 w-auto" color="#fff" />
             </button>

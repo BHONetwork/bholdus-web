@@ -20,9 +20,9 @@ const LandingPageHero = ({ data }) => {
     </div>
   );
   return (
-    <div className="relative z-2 min-h-screen flex-col flex">
+    <section className="relative z-2 min-h-screen flex-col flex">
       {background}
-      <section className="container hero">
+      <div className="container hero">
         <div className="hero-logo">
           <Image img={data.image} data-aos="fade" />
         </div>
@@ -53,8 +53,8 @@ const LandingPageHero = ({ data }) => {
             ))}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

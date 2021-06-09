@@ -11,7 +11,7 @@ const GreenBackground = styled("div", {
 const ArticleHero = ({ article }) => {
   const { t, lang } = useTranslation();
   return (
-    <div className="container md:mt-36 mt-24">
+    <section className="container md:mt-36 mt-24">
       <div className="flex flex-row">
         <GreenBackground className="flex flex-col items-center text-center p-10 md:pt-7 md:pb-5 md:pr-56 md:pl-56 w-full min-w-3">
           <Text className="mb-3" size="small" weight="bold" uppercase>
@@ -34,7 +34,7 @@ const ArticleHero = ({ article }) => {
           </Text>
         </GreenBackground>
       </div>
-    </div>
+    </section>
   );
 };
 

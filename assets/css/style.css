@@ -9,7 +9,6 @@ html {
 body {
   font-size: 13px;
   position: relative;
-  /* -webkit-overflow-scrolling: initial; */
   font-family: "Titillium Web", sans-serif;
   @apply text-gray-900;
 }
@@ -653,7 +652,7 @@ img:hover {
 }
 
 .form-field {
-  font-family: Titillium Web;
+  font-family: inherit;
   font-size: 14px;
   color: #fff;
   background: #252d4b;
