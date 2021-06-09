@@ -2,8 +2,8 @@ import Text from "../../common/text";
 import classNames from "classnames";
 
 const RoadmapItem = ({ data, isLastItem }) => {
-  let content = data.content.split("\n").map((line) => (
-    <li>
+  let content = data.content.split("\n").map((line, index) => (
+    <li key={index}>
       <Text type="p">{line}</Text>
     </li>
   ));
