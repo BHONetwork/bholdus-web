@@ -49,7 +49,7 @@ section[id^="team-"] {
                     -moz-transition: 1s ease-in-out;
                     -o-transition: 1s ease-in-out;
                     transition: 1s ease-in-out;
-                    transform: translate(-85px, 20px) scale(1.2);
+                    transform: translate(-85px, 15px) scale(1.2);
                 }
             }
 
@@ -73,7 +73,7 @@ section[id^="team-"] {
                         -moz-transition: 1s ease-in-out;
                         -o-transition: 1s ease-in-out;
                         transition: 1s ease-in-out;
-                        transform: translate(0, -90px) scale(1.2);
+                        transform: translate(0, -95px) scale(1.2);
                     }
                 }
 
@@ -131,6 +131,8 @@ section[id^="team-"] {
             padding: 20px;
             z-index: 2;
             width: 100%;
+            height: 100%;
+            justify-content: flex-start;
 
             @include mobile-only {
                 text-align: center;
@@ -151,17 +153,19 @@ section[id^="team-"] {
             opacity: 1;
             color: #545c79;
             font-size: 16px;
-            margin-bottom: 17px;
             line-height: 1;
         }
 
         &__social {
             display: flex;
             justify-content: start;
+            flex: 1;
+            align-items: flex-end;
             z-index: 12;
 
             @include mobile-only {
-                justify-content: space-around;
+                justify-content: space-evenly;
+                margin-bottom: 40px;
             }
 
             li {
@@ -189,6 +193,7 @@ section[id^="team-"] {
         }
 
         &__text {
+            display: none;
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.5s linear;
