@@ -7,7 +7,7 @@ import RichTextSection from "../components/sections/rich-text-section";
 import ContentCollapsibleSection from "../components/sections/content-collapsible-section";
 
 import { fetchAPI, getLocale } from "../utils/api";
-import ssgPopularLocales from "../i18n/supportedPopularLocales.json";
+import popularLocales from "../i18n/popularLocales.json";
 
 const mapSections = {
   "sections.rich-text-section": RichTextSection,
@@ -47,7 +47,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .filter((page: any) => page.slug !== "blog")
     .reduce((acc: any, page: any) => {
       return acc.concat(
-        ssgPopularLocales.map((locale) => ({
+        popularLocales.map((locale) => ({
           params: { slug: [page.slug] },
           locale,
         }))

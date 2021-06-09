@@ -29,7 +29,10 @@ const Footer = ({
                 rel="noopener noreferrer nofollow"
               >
                 <Image
-                  img={{ url: `/images/${social.type}_grey.svg` }}
+                  img={{
+                    url: `/images/${social.type}_grey.svg`,
+                    alternativeText: social.type,
+                  }}
                   style={{ width: 28, height: 28 }}
                 />
               </a>

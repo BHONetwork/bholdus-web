@@ -69,14 +69,16 @@ export function getSocials(socials) {
   const socialObject = pick(socials, [
     "facebook",
     "linkedin",
-    // "twitter",
+    "twitter",
     "telegram",
     "instagram",
     "discord",
     "whatsapp",
   ]);
-  return Object.keys(socialObject).map((type) => ({
-    type,
-    url: socials[type],
-  }));
+  return Object.keys(socialObject)
+    .map((type) => ({
+      type,
+      url: socials[type],
+    }))
+    .filter(({ url }) => url && url !== "");
 }

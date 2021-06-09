@@ -12,7 +12,7 @@ import RichText from "../../../components/common/rich-text";
 import CustomLink from "../../../components/common/custom-link";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
-import ssgPopularLocales from "../../../i18n/supportedPopularLocales.json";
+import popularLocales from "../../../i18n/popularLocales.json";
 import ShareSocials from "../../../components/sections/share-socials";
 
 const LocalArticle = ({ article }) => {
@@ -106,7 +106,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: articles
       ? articles.reduce((acc: any, article: any) => {
           return acc.concat(
-            ssgPopularLocales.map((locale) => ({
+            popularLocales.map((locale) => ({
               params: {
                 slug: article.slug,
               },

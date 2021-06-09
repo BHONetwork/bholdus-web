@@ -1,7 +1,7 @@
-const supportedLocales = require("./supportedLocales.json");
+const locales = require("./locales.json");
 
 module.exports = {
-  locales: supportedLocales,
+  locales,
   defaultLocale: "en",
   localeDetection: false,
   pages: {

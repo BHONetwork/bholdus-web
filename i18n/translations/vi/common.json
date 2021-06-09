@@ -14,5 +14,7 @@
   "articleByAuthor": "Viết bởi",
   "articleOnDatePublished": "vào",
   "articleTopics": "Chủ đề",
-  "articleRelated": "Bài viết liên quan"
+  "articleRelated": "Bài viết liên quan",
+  "thePageCannotBeFound": "Không tìm thấy trang",
+  "goBackToHomepage": "Quay về Trang chủ"
 }
