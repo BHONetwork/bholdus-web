@@ -4,6 +4,7 @@ import { MdFilterDrama } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticProps } from "next";
 
+import Seo from "../../components/elements/seo";
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
 import Text from "../../components/common/text";
@@ -59,35 +60,38 @@ const LocalArticles = ({ topic, articles, className = "", translation }) => {
   );
 };
 
-const Blog = ({ articlesByTopic, featuredArticle, global }) => {
+const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
   const translation = useTranslation();
   const { t } = translation;
 
   const Hero = () => <BlogHero article={featuredArticle} />;
 
   return (
-    <Layout className="md:mt-20 mt-10" Hero={Hero} global={global}>
-      {articlesByTopic ? (
-        Object.keys(articlesByTopic).map((topic: any, index: number) => {
-          return (
-            <LocalArticles
-              key={index}
-              className="md:mb-20 mb-10 last:mb-0"
-              topic={topic}
-              articles={articlesByTopic[topic]}
-              translation={translation}
-            />
-          );
-        })
-      ) : (
-        <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
-          <MdFilterDrama size={200} />
-          <Text size="medium" color="black">
-            {t("common:noArticles")}
-          </Text>
-        </div>
-      )}
-    </Layout>
+    <>
+      <Seo metadata={page.seo} />
+      <Layout className="md:mt-20 mt-10" Hero={Hero} global={global}>
+        {articlesByTopic ? (
+          Object.keys(articlesByTopic).map((topic: any, index: number) => {
+            return (
+              <LocalArticles
+                key={index}
+                className="md:mb-20 mb-10 last:mb-0"
+                topic={topic}
+                articles={articlesByTopic[topic]}
+                translation={translation}
+              />
+            );
+          })
+        ) : (
+          <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
+            <MdFilterDrama size={200} />
+            <Text size="medium" color="black">
+              {t("common:noArticles")}
+            </Text>
+          </div>
+        )}
+      </Layout>
+    </>
   );
 };
 
