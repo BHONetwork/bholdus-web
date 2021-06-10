@@ -7,7 +7,7 @@ const defaultTitleTemplate = "%s | Real World DeFi";
 const defaultDescription =
   "A blockchain dedicated to DeFi apps and NFTs with unprecedented transaction throughput and security";
 
-const MyDefaultSeo = ({ defaultSeo, locale }) => {
+const MyDefaultSeo = ({ defaultSeo, host, locale }) => {
   return (
     <DefaultSeo
       titleTemplate={defaultSeo?.metaTitleTemplate || defaultTitleTemplate}
@@ -15,6 +15,7 @@ const MyDefaultSeo = ({ defaultSeo, locale }) => {
       defaultTitle={defaultTitle}
       description={defaultSeo.metaDescription || defaultDescription}
       openGraph={{
+        url: locale === "en" ? host : `${host}/${locale}`,
         type: "website",
         site_name: defaultSeo.metaTitle || defaultTitle,
         locale: locale || "en",

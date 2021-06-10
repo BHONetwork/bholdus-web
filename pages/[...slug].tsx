@@ -29,7 +29,7 @@ const Page = ({ page, global }) => {
 
   return (
     <>
-      <Seo metadata={page.seo} seoData={getSeoData(page)} />
+      <Seo metadata={page.seo} seoData={getSeoData(page)} host={global.host} />
       <Layout className="md:mt-14 mt-8" Hero={Hero} global={global}>
         {page.sections.map((section: any, index: number) => {
           const { __component, ...rest } = section;
