@@ -3,11 +3,11 @@ import { MdMenu } from "react-icons/md";
 import classNames from "classnames";
 
 import MobileNavMenu from "./mobile-nav-menu";
-import CustomLink from "../common/custom-link";
-import Text from "../common/text";
-import Button from "../common/button";
-import Image from "../common/image";
-import LanguageSelection from "./language-selection";
+import CustomLink from "../../common/custom-link";
+import Text from "../../common/text";
+import Button from "../../common/button";
+import Image from "../../common/image";
+import LanguageSelection from "../language-selection";
 
 const Navbar = ({ navbar, supportedLocales, transparent }) => {
   const [isScrolling, setIsScrolling] = useState(false);

@@ -1,13 +1,15 @@
 import App from "next/app";
 import Head from "next/head";
 import AOS from "aos";
-import { DefaultSeo } from "next-seo";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+
 import Layout from "../components/layout";
+import DefaultSeo from "../components/elements/seo/default-seo";
 
 import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
+
 import "aos/dist/aos.css";
 import "../assets/css/tailwind.css";
 import "../assets/css/github-markdown.css";
@@ -33,35 +35,26 @@ const MyApp = ({ Component, pageProps }) => {
     return null;
   }
 
-  const seoShareImageFormats = global.defaultSeo?.shareImage?.formats || {};
-
   return (
     <>
-      {/* Favicon */}
+      {/* Head */}
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-
+        {/* Favicon */}
         <link rel="shortcut icon" href={getMediaUrl(global.favicon.url)} />
       </Head>
-      {/* Global site metadata */}
+
+      {/* Global site metadata. Acts as default SEO, can be overriden on a page by page basis if needed */}
       <DefaultSeo
-        titleTemplate={`%s | ${global.defaultSeo.metaTitle}`}
-        title={global.defaultSeo.metaTitle}
-        description={global.defaultSeo.metaDescription}
-        openGraph={{
-          images: Object.values(seoShareImageFormats).map((image: any) => {
-            return {
-              url: getMediaUrl(image.url),
-              width: image.width,
-              height: image.height,
-            };
-          }),
-        }}
+        defaultSeo={global?.defaultSeo || {}}
+        locale={router.locale}
       />
+
+      {/* Render the actual page */}
       {router.pathname !== "/404" ? (
         <Component {...pageProps} />
       ) : (
@@ -73,16 +66,14 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-MyApp.getInitialProps = async (ctx) => {
-  // Calls page's `getInitialProps` and fills `appProps.pageProps`
+MyApp.getInitialProps = async (ctx: any) => {
   const appProps = await App.getInitialProps(ctx);
-  // Fetch global site settings from Strapi
+
+  // Fetch global settings & supported languages
   const locale = getLocale(ctx?.ctx || {});
   const global = await fetchAPI(`/global?_locale=${locale}`);
-
   const supportedLocales = await fetchAPI("/i18n/locales");
 
-  // Pass the data to our page via props
   return {
     ...appProps,
     pageProps: { global: { ...global, supportedLocales } },

@@ -1,10 +1,10 @@
 import { MdClose, MdChevronRight } from "react-icons/md";
 import classNames from "classnames";
 
-import CustomLink from "../common/custom-link";
-import Button from "../common/button";
-import Text from "../common/text";
-import Image from "../common/image";
+import CustomLink from "../../common/custom-link";
+import Button from "../../common/button";
+import Text from "../../common/text";
+import Image from "../../common/image";
 
 const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
   return (
