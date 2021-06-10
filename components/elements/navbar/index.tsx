@@ -3,11 +3,11 @@ import { MdMenu } from "react-icons/md";
 import classNames from "classnames";
 
 import MobileNavMenu from "./mobile-nav-menu";
-import CustomLink from "../common/custom-link";
-import Text from "../common/text";
-import Button from "../common/button";
-import Image from "../common/image";
-import LanguageSelection from "./language-selection";
+import CustomLink from "../../common/custom-link";
+import Text from "../../common/text";
+import Button from "../../common/button";
+import Image from "../../common/image";
+import LanguageSelection from "../language-selection";
 
 const Navbar = ({ navbar, supportedLocales, transparent }) => {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -48,8 +48,8 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
       >
         <div className="container flex flex-row items-center justify-between pt-1.5">
           <div className="flex justify-startitems-center">
-            <CustomLink link={{ url: "/" }} style={{ width: 186, height: 58 }}>
-              <Image img={navbar.logo} />
+            <CustomLink link={{ url: "/" }}>
+              <Image img={navbar.logo} style={{ width: "auto", height: 50 }} />
             </CustomLink>
           </div>
           <div className="flex flex-row items-center justify-end">

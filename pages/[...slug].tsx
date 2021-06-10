@@ -1,12 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import NotFoundPage from "./404";
 
+import Seo from "../components/elements/seo";
 import Layout from "../components/layout";
 import PageHero from "../components/sections/page-hero";
 import RichTextSection from "../components/sections/rich-text-section";
 import ContentCollapsibleSection from "../components/sections/content-collapsible-section";
 
 import { fetchAPI, getLocale } from "../utils/api";
+import { getSeoData } from "../components/elements/seo/utils";
 import popularLocales from "../i18n/popularLocales.json";
 
 const mapSections = {
@@ -26,17 +28,20 @@ const Page = ({ page, global }) => {
   const Hero = () => <PageHero page={page} />;
 
   return (
-    <Layout className="md:mt-14 mt-8" Hero={Hero} global={global}>
-      {page.sections.map((section: any, index: number) => {
-        const { __component, ...rest } = section;
-        if (__component in mapSections && section.enable) {
-          const Section = mapSections[__component];
+    <>
+      <Seo metadata={page.seo} seoData={getSeoData(page)} host={global.host} />
+      <Layout className="md:mt-14 mt-8" Hero={Hero} global={global}>
+        {page.sections.map((section: any, index: number) => {
+          const { __component, ...rest } = section;
+          if (__component in mapSections && section.enable) {
+            const Section = mapSections[__component];
 
-          return <Section key={index} data={rest} />;
-        }
-        return null;
-      })}
-    </Layout>
+            return <Section key={index} data={rest} />;
+          }
+          return null;
+        })}
+      </Layout>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import { isArray } from "lodash";
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticPaths, GetStaticProps } from "next";
 
+import Seo from "../../../components/elements/seo";
 import Layout from "../../../components/layout";
 import NotFoundPage from "../../404";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
@@ -79,7 +80,7 @@ const LocalArticleDetail = ({ article, t }) => {
   );
 };
 
-const Article = ({ article, global }) => {
+const Article = ({ article, metadata, global }) => {
   const { t } = useTranslation();
 
   if (!article) {
@@ -93,9 +94,16 @@ const Article = ({ article, global }) => {
   const Hero = () => <BlogDetailHero article={article} />;
 
   return (
-    <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
-      <LocalArticleDetail article={article} t={t} />
-    </Layout>
+    <>
+      <Seo
+        metadata={metadata}
+        seoData={{ type: "blog", data: article }}
+        host={global.host}
+      />
+      <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
+        <LocalArticleDetail article={article} t={t} />
+      </Layout>
+    </>
   );
 };
 
@@ -122,12 +130,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
   const locale = getLocale(ctx);
-  const article = await fetchAPI(
-    `/articles/${params.slug}?status=published&_locale=${locale}`
-  );
+  const [article, page] = await Promise.all([
+    fetchAPI(`/articles/${params.slug}?status=published&_locale=${locale}`),
+    fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
+  ]);
+  const metadata = article
+    ? article?.metadata
+      ? {
+          ...article.metadata,
+          metaTitleTemplate: page?.seo?.metaTitleTemplate || "%s",
+        }
+      : {
+          metaTitle: article?.title || "",
+          metaDescription: article?.description || "",
+          metaTitleTemplate: page?.seo?.metaTitleTemplate || "%s",
+          sharedImage: article?.image || {},
+        }
+    : null;
 
   return {
-    props: { article },
+    props: { article, metadata },
     revalidate: 1, // redo SSG in the background
   };
 };

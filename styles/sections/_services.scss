@@ -37,6 +37,12 @@
 
         @include mobile-only {
             margin-bottom: 40px;
+           
+        }
+
+        @include not-mobile {
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
         &:hover {

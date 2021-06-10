@@ -32,14 +32,14 @@ const Introduction = ({ data }) => {
         className="flex flex-col lg:flex-row justify-end flex-shrink mt-20"
         data-aos="zoom-in-left"
       >
-        <div
-          className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
-          style={{ maxHeight: 205 }}
-        >
-          {data.introductionVideoLink && (
+        {data.introductionVideoLink && (
+          <div
+            className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
+            style={{ maxHeight: 205 }}
+          >
             <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
-          )}
-        </div>
+          </div>
+        )}
         <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
           <div className="flex flex-row items-center mb-12">
             <div
