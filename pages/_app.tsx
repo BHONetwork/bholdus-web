@@ -51,6 +51,7 @@ const MyApp = ({ Component, pageProps }) => {
       {/* Global site metadata. Acts as default SEO, can be overriden on a page by page basis if needed */}
       <DefaultSeo
         defaultSeo={global?.defaultSeo || {}}
+        host={global.host}
         locale={router.locale}
       />
 
@@ -71,12 +72,14 @@ MyApp.getInitialProps = async (ctx: any) => {
 
   // Fetch global settings & supported languages
   const locale = getLocale(ctx?.ctx || {});
+  const reqHost = ctx?.ctx?.req?.headers?.host || "";
+  const host = `${reqHost ? `https://${reqHost}` : process.env.HOST}`;
   const global = await fetchAPI(`/global?_locale=${locale}`);
   const supportedLocales = await fetchAPI("/i18n/locales");
 
   return {
     ...appProps,
-    pageProps: { global: { ...global, supportedLocales } },
+    pageProps: { global: { ...global, supportedLocales, host } },
   };
 };
 

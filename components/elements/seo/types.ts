@@ -25,4 +25,5 @@ export type SeoData = {
 export type SeoProps = {
   metadata: Metadata;
   seoData?: SeoData;
+  host?: string;
 };

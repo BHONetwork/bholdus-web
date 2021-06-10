@@ -2,14 +2,10 @@ import { BlogJsonLd, FAQPageJsonLd } from "next-seo";
 
 import { getMediaUrl } from "../../../utils/media";
 
-const BlogJsonLD = ({ data, locale }) => {
+const BlogJsonLD = ({ data, url }) => {
   return (
     <BlogJsonLd
-      url={
-        locale === "en"
-          ? `${process.env.HOST}/blog/article/${data.slug}`
-          : `${process.env.HOST}/${locale}/blog/article/${data.slug}`
-      }
+      url={url}
       title={data.title}
       images={Object.values(data.image.formats).map((image: any) =>
         getMediaUrl(image.url)
@@ -33,11 +29,11 @@ const FAQPageJsonLD = ({ data }) => {
   );
 };
 
-const JsonLD = ({ seoData, locale }) => {
+const JsonLD = ({ seoData, url }) => {
   const { type = "", data } = seoData;
   switch (type) {
     case "blog":
-      return <BlogJsonLD data={data} locale={locale} />;
+      return <BlogJsonLD data={data} url={url} />;
     case "faq":
       return <FAQPageJsonLD data={data} />;
     default:

@@ -18,11 +18,7 @@ const constructDefaultOpenGraph = (metadata: Metadata) => {
   };
 };
 
-export const constructOpenGraph = (
-  metadata: Metadata,
-  seoData: SeoData,
-  locale: string
-) => {
+export const constructOpenGraph = (metadata: Metadata, seoData: SeoData) => {
   const { type = "" } = seoData;
 
   const defaultOpenGraph = constructDefaultOpenGraph(metadata);
@@ -32,7 +28,10 @@ export const constructOpenGraph = (
     default:
       openGraphData = {};
   }
-  return { ...defaultOpenGraph, ...openGraphData, locale: locale || "en" };
+  return {
+    ...defaultOpenGraph,
+    ...openGraphData,
+  };
 };
 
 export const getSeoData = (page: any): any => {

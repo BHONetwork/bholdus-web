@@ -15,7 +15,10 @@ const CollapsibleAccordion = ({
   return (
     <div className="space-y-3">
       {accordions.map((accordion: any) => (
-        <Collapsible trigger={<TriggerComponent accordion={accordion} />}>
+        <Collapsible
+          key={accordion.id}
+          trigger={<TriggerComponent accordion={accordion} />}
+        >
           <div className="mt-2 px-7">
             <ContentComponent accordion={accordion} />
           </div>
