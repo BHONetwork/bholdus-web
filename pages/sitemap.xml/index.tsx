@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import dayjs from "dayjs";
 
-import sitemapConfig, { Page } from "../../sitemap.config";
+import sitemapConfig, { Page } from "../../constants/sitemap.config";
 
 import { fetchAPI, getLocale } from "../../utils/api";
 import supportedLocales from "../../i18n/locales.json";
