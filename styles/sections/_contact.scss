@@ -1,0 +1,15 @@
+#contact {
+    margin-top: 40px;
+    scroll-margin-top: 150px;
+    display: flex;
+    align-items: center;
+    @include not-tablet {
+        margin-top: 80px;
+    }
+}
+.contact {
+    &-form{
+        max-width: 540px;
+        width: 100%;
+    }
+}

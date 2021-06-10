@@ -51,7 +51,11 @@ const GetInTouchForm = () => {
     >
       {({ errors, touched, isSubmitting }) => (
         <>
-          <Form className="flex flex-col lg:gap-6">
+          <Form
+            className="contact-form flex flex-col lg:gap-6"
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+          >
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="text"

@@ -1,9 +1,9 @@
 section[id^="advisor-"] {
-    margin-top: 80px;
+    margin-top: 40px;
     scroll-margin-top: 150px;
 
     @include not-tablet {
-        margin-top: 160px;
+        margin-top: 80px;
     }
 }
 

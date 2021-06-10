@@ -23,7 +23,7 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
           <Image
             img={navbar.logo}
             className="object-contain"
-            style={{ width: 186, height: 58 }}
+            style={{ width: "auto", height: 50 }}
           />
 
           <button onClick={closeSelf}>
