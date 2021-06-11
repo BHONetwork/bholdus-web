@@ -7,8 +7,6 @@ import { SeoData, Metadata } from "./types";
 
 const constructDefaultOpenGraph = (metadata: Metadata) => {
   return {
-    title: metadata.metaTitle,
-    description: metadata.metaDescription,
     ...(metadata.sharedImage && {
       images: [
         {
