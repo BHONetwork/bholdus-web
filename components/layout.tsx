@@ -54,7 +54,7 @@ const Layout = ({
         <div className={classNames("container", className)}>{children}</div>
       </main>
 
-      <Footer footer={footer}>
+      <Footer displayBackground={displayFooterBackground} footer={footer}>
         {/* ***********
         ****************
         ****************
