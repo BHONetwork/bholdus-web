@@ -16,9 +16,11 @@ const MyDefaultSeo = ({ defaultSeo, locale }) => {
       defaultTitle={defaultTitle}
       description={defaultSeo.metaDescription || defaultDescription}
       openGraph={{
+        site_name: defaultSeo.metaTitle || defaultTitle,
+
+        // Will be possibly overridden on a page by page basis if needed
         url: locale === "en" ? DEFAULT_HOST : `${DEFAULT_HOST}/${locale}`,
         type: "website",
-        site_name: defaultSeo.metaTitle || defaultTitle,
         locale: locale || "en",
         ...(defaultSeo?.sharedImage && {
           images: [
