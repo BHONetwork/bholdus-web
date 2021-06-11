@@ -1,63 +1,64 @@
 .footer {
-    &-wrap {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex: 1
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-top: 20px;
+  }
+  &-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: space-between;
+    margin-top: 80px;
+    margin-bottom: 40px;
+
+    @include mobile-only {
+      flex-direction: column;
+      height: 80px;
     }
-    &-container{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        // justify-content: space-between;
-        margin-top: 80px;
-        margin-bottom: 40px;
-        
-        @include mobile-only{
-            flex-direction: column;
-            height: 80px;
-        }
+  }
+  &-logo {
+    img {
+      height: auto;
+      height: 50px;
     }
-    &-logo{
-        img {
-            height: auto;
-            height: 50px;
-        }
-        
-        @include mobile-only {
-            display: none;
-        }
-        display: flex;
-        flex-direction: row;
-        justify-self: flex-start;
-        flex:1;
+
+    @include mobile-only {
+      display: none;
     }
-    &-social{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        a{
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-        // img{
-        //     &:hover {
-        //         background-color: rgba(255,255,255,0.8);
-        //         fill: $color-darkGrey2;
-        //     }
-        // }
-        // flex flex-row items-center gap-1 ml-0 lg:ml-24 lg:space-x-0 space-x-2
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+    flex: 1;
+  }
+  &-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    a {
+      margin-left: 5px;
+      margin-right: 5px;
     }
-    &-copyright {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        font-size: $font-size-normal;
-        flex:1;
-        @include mobile-only {
-            flex-direction: column;
-            justify-content: center;
-        }
+    // img{
+    //     &:hover {
+    //         background-color: rgba(255,255,255,0.8);
+    //         fill: $color-darkGrey2;
+    //     }
+    // }
+    // flex flex-row items-center gap-1 ml-0 lg:ml-24 lg:space-x-0 space-x-2
+  }
+  &-copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: $font-size-normal;
+    flex: 1;
+    @include mobile-only {
+      flex-direction: column;
+      justify-content: center;
     }
+  }
 }
