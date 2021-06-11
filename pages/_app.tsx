@@ -9,18 +9,14 @@ import DefaultSeo from "../components/elements/seo/default-seo";
 
 import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
-
-import "aos/dist/aos.css";
 import "../assets/css/tailwind.css";
-import "../assets/css/github-markdown.css";
-import "../assets/css/style.css";
 import "../styles/main.scss";
 
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: false,
+      once: true,
     });
   }, []);
 

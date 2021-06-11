@@ -54,11 +54,7 @@ const Layout = ({
         <div className={classNames("container", className)}>{children}</div>
       </main>
 
-      <Footer
-        className="md:mt-20 mt-16"
-        footer={footer}
-        displayBackground={displayFooterBackground}
-      >
+      <Footer footer={footer}>
         {/* ***********
         ****************
         ****************
@@ -72,18 +68,10 @@ const Layout = ({
         */}
         <Section
           id="contact"
-          className="mt-20 lg:mt-40 items-center"
           smallTitle={t("common:contactUs")}
           title={t("common:getInTouch")}
         >
-          <div
-            className="w-full"
-            style={{ maxWidth: 540 }}
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
-          >
-            <GetInTouchForm />
-          </div>
+          <GetInTouchForm />
         </Section>
       </Footer>
     </div>

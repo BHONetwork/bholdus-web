@@ -11,13 +11,8 @@ const backgrounds = [
 
 const ServiceSection = ({ data }) => {
   return (
-    <Section
-      id="services"
-      className="mt-20 lg:mt-40 scroll-margin-top"
-      smallTitle={data.smallTitle}
-      title={data.title}
-    >
-      <div className="flex md:justify-between flex-col lg:flex-row">
+    <Section id="services" smallTitle={data.smallTitle} title={data.title}>
+      <div className="services-container">
         {data.services.map((service: any, index: number) => (
           <ServiceCard
             key={service.id}
