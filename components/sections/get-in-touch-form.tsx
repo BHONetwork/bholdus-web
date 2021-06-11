@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
 import { MdDone } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 import Button from "../common/button";
 import Text from "../common/text";
@@ -10,46 +11,34 @@ import Text from "../common/text";
 import { fetchAPI } from "../../utils/api";
 
 const GetInTouchForm = () => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
   const { t } = useTranslation();
+  const hCaptchaRef = useRef(null);
 
   const FormSchema = yup.object().shape({
     name: yup.string().required(),
     email: yup.string().email().required(),
     message: yup.string().required(),
+    api: yup.string(),
   });
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", message: "" }}
+      initialValues={{ name: "", email: "", message: "", api: "" }}
       validationSchema={FormSchema}
-      onSubmit={async (values, { setSubmitting, setErrors }) => {
-        setLoading(true);
-
-        try {
-          setErrors({ api: null });
-          await fetchAPI("/lead-form-submissions", {
-            method: "POST",
-            body: JSON.stringify({
-              name: values.name,
-              email: values.email,
-              message: values.message,
-            }),
-          });
-          setIsSuccessful(true);
-          setTimeout(() => {
-            setIsSuccessful(false);
-          }, 3000);
-        } catch (err) {
-          setErrors({ api: err.message });
-        }
-
-        setLoading(false);
-        setSubmitting(false);
+      onSubmit={async () => {
+        hCaptchaRef.current.execute();
       }}
     >
-      {({ errors, touched, isSubmitting }) => (
+      {({
+        errors,
+        touched,
+        isSubmitting,
+        setErrors,
+        setSubmitting,
+        values,
+      }) => (
         <>
           <Form
             className="contact-form flex flex-col lg:gap-6"
@@ -87,8 +76,8 @@ const GetInTouchForm = () => {
             </Text>
             <Button
               type="submit"
-              disabled={isSubmitting || isSuccessful}
-              loading={loading}
+              disabled={isSubmitting || isSuccessful || isLoading}
+              loading={isLoading}
               color={isSuccessful ? "purple" : "green"}
             >
               {isSuccessful ? (
@@ -104,6 +93,44 @@ const GetInTouchForm = () => {
                 <Text>{t("common:getInTouchFormSendMessage")}</Text>
               )}
             </Button>
+            <Text className="text-left" type="div" uppercase>
+              {errors.api && errors.api}
+            </Text>
+            <HCaptcha
+              sitekey={process.env.HCAPTCHA_SITEKEY}
+              ref={hCaptchaRef}
+              theme="dark"
+              size="invisible"
+              tabIndex={10}
+              onError={() => {
+                setErrors({ api: "Server Error" });
+              }}
+              onVerify={async () => {
+                setIsLoading(true);
+                try {
+                  setErrors({ api: "" });
+
+                  await fetchAPI("/lead-form-submissions", {
+                    method: "POST",
+                    body: JSON.stringify({
+                      name: values.name,
+                      email: values.email,
+                      message: values.message,
+                    }),
+                  });
+
+                  setIsSuccessful(true);
+                  setTimeout(() => {
+                    setIsSuccessful(false);
+                  }, 3000);
+                } catch (err) {
+                  setErrors({ api: err.message });
+                }
+                hCaptchaRef.current.resetCaptcha();
+                setIsLoading(false);
+                setSubmitting(false);
+              }}
+            />
           </Form>
         </>
       )}
