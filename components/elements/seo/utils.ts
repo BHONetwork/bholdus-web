@@ -1,19 +1,22 @@
 import { getMediaUrl } from "../../../utils/media";
 import { SeoData, Metadata } from "./types";
 
+/**
+ * OG data
+ */
+
 const constructDefaultOpenGraph = (metadata: Metadata) => {
   return {
     title: metadata.metaTitle,
     description: metadata.metaDescription,
     ...(metadata.sharedImage && {
-      images: Object.values(metadata.sharedImage.formats).map((image) => {
-        return {
-          url: getMediaUrl(image.url),
-          width: image.width,
-          height: image.height,
-          alt: metadata.sharedImage.alternativeText,
-        };
-      }),
+      images: [
+        {
+          url: getMediaUrl(metadata.sharedImage.url),
+          width: metadata.sharedImage.width,
+          height: metadata.sharedImage.height,
+        },
+      ],
     }),
   };
 };
@@ -33,6 +36,10 @@ export const constructOpenGraph = (metadata: Metadata, seoData: SeoData) => {
     ...openGraphData,
   };
 };
+
+/**
+ * Seo data
+ */
 
 export const getSeoData = (page: any): any => {
   if (page.slug === "faq") {

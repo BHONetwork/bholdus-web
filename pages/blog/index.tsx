@@ -68,7 +68,7 @@ const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
 
   return (
     <>
-      <Seo metadata={page.seo} host={global.host} />
+      <Seo metadata={page.seo} seoData={{ type: "blog", data: page }} />
       <Layout className="md:mt-20 mt-10" Hero={Hero} global={global}>
         {articlesByTopic ? (
           Object.keys(articlesByTopic).map((topic: any, index: number) => {

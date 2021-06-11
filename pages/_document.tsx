@@ -17,6 +17,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            name="keywords"
+            content="Blockchain, DeFi, Real World DeFi, NFT, DApps, DeFi DApps, BHO, BHO token, BHO price, Crosschain, Digital Assets, DEX, Decentralized Exchange, Bholdus"
+          />
           <link
             rel="preload"
             href="/fonts/TitilliumWeb.ttf"

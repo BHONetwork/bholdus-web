@@ -1,4 +1,5 @@
 import { DefaultSeo } from "next-seo";
+import { DEFAULT_HOST } from "../../../constants/common";
 
 import { getMediaUrl } from "../../../utils/media";
 
@@ -7,7 +8,7 @@ const defaultTitleTemplate = "%s | Real World DeFi";
 const defaultDescription =
   "A blockchain dedicated to DeFi apps and NFTs with unprecedented transaction throughput and security";
 
-const MyDefaultSeo = ({ defaultSeo, host, locale }) => {
+const MyDefaultSeo = ({ defaultSeo, locale }) => {
   return (
     <DefaultSeo
       titleTemplate={defaultSeo?.metaTitleTemplate || defaultTitleTemplate}
@@ -15,21 +16,18 @@ const MyDefaultSeo = ({ defaultSeo, host, locale }) => {
       defaultTitle={defaultTitle}
       description={defaultSeo.metaDescription || defaultDescription}
       openGraph={{
-        url: locale === "en" ? host : `${host}/${locale}`,
+        url: locale === "en" ? DEFAULT_HOST : `${DEFAULT_HOST}/${locale}`,
         type: "website",
         site_name: defaultSeo.metaTitle || defaultTitle,
         locale: locale || "en",
         ...(defaultSeo?.sharedImage && {
-          images: Object.values(defaultSeo.sharedImage.formats || {}).map(
-            (image: any) => {
-              return {
-                url: getMediaUrl(image.url),
-                width: image.width,
-                height: image.height,
-                alt: defaultSeo?.sharedImage?.alternativeText,
-              };
-            }
-          ),
+          images: [
+            {
+              url: getMediaUrl(defaultSeo.sharedImage.url),
+              width: defaultSeo.sharedImage.width,
+              height: defaultSeo.sharedImage.height,
+            },
+          ],
         }),
       }}
     />
