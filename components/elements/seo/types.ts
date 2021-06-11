@@ -13,10 +13,13 @@ export type Metadata = {
         height: number;
       };
     };
+    url: string;
+    width: number;
+    height: number;
   };
 };
 
-export const SeoDataType = Enum("blog", "faq");
+export const SeoDataType = Enum("blog", "blog-post", "faq");
 export type SeoData = {
   type?: Enum<typeof SeoDataType>;
   data?: any;
@@ -25,5 +28,5 @@ export type SeoData = {
 export type SeoProps = {
   metadata: Metadata;
   seoData?: SeoData;
-  host?: string;
+  globalSeoData?: any;
 };

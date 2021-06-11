@@ -1,7 +1,6 @@
 import { GetStaticProps } from "next";
 import ErrorPage from "next/error";
 
-import Seo from "../components/elements/seo";
 import Layout from "../components/layout";
 import LandingPageHero from "../components/sections/landing-page-hero";
 import Introduction from "../components/sections/introduction";
@@ -32,37 +31,34 @@ const Home = ({ pageData, latestNews, global }) => {
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
   return (
-    <>
-      <Seo metadata={global.defaultSeo} host={global.host} />
-      <Layout
-        Hero={Hero}
-        global={global}
-        transparentNavbar={true}
-        displayPageBackground={true}
-        displayFooterBackground={false}
-      >
-        {pageData.introduction && pageData.introduction.enable && (
-          <Introduction data={pageData.introduction} />
-        )}
+    <Layout
+      Hero={Hero}
+      global={global}
+      transparentNavbar={true}
+      displayPageBackground={true}
+      displayFooterBackground={false}
+    >
+      {pageData.introduction && pageData.introduction.enable && (
+        <Introduction data={pageData.introduction} />
+      )}
 
-        {pageData.sections.map((section: any, index: number) => {
-          const { __component, ...rest } = section;
-          if (__component in mapSections && section.enable) {
-            const Section = mapSections[__component];
+      {pageData.sections.map((section: any, index: number) => {
+        const { __component, ...rest } = section;
+        if (__component in mapSections && section.enable) {
+          const Section = mapSections[__component];
 
-            return <Section key={index} data={rest} />;
-          }
-          return null;
-        })}
+          return <Section key={index} data={rest} />;
+        }
+        return null;
+      })}
 
-        {pageData.latestNewsSection && pageData.latestNewsSection.enable && (
-          <LatestNewsSection
-            page={pageData.latestNewsSection}
-            articles={latestNews}
-          />
-        )}
-      </Layout>
-    </>
+      {pageData.latestNewsSection && pageData.latestNewsSection.enable && (
+        <LatestNewsSection
+          page={pageData.latestNewsSection}
+          articles={latestNews}
+        />
+      )}
+    </Layout>
   );
 };
 

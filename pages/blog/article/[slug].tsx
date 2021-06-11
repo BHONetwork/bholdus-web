@@ -97,8 +97,8 @@ const Article = ({ article, metadata, global }) => {
     <>
       <Seo
         metadata={metadata}
-        seoData={{ type: "blog", data: article }}
-        host={global.host}
+        seoData={{ type: "blog-post", data: article }}
+        globalSeoData={global.defaultSeo}
       />
       <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
         <LocalArticleDetail article={article} t={t} />
