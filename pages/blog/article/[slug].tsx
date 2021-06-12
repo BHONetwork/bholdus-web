@@ -1,4 +1,3 @@
-import { isArray } from "lodash";
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticPaths, GetStaticProps } from "next";
 
@@ -11,10 +10,10 @@ import Image from "../../../components/common/image";
 import Text from "../../../components/common/text";
 import RichText from "../../../components/common/rich-text";
 import CustomLink from "../../../components/common/custom-link";
+import ShareSocials from "../../../components/sections/share-socials";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
-import ShareSocials from "../../../components/sections/share-socials";
 
 const LocalArticle = ({ article }) => {
   const { title, image } = article;
@@ -28,8 +27,8 @@ const LocalArticle = ({ article }) => {
   );
 };
 
-const LocalArticleDetail = ({ article, t }) => {
-  const { content, image, topics, relatedArticles } = article;
+const LocalArticleDetail = ({ article, relatedArticles, t }) => {
+  const { content, image, topics } = article;
 
   return (
     <div className="flex flex-col">
@@ -59,13 +58,13 @@ const LocalArticleDetail = ({ article, t }) => {
         </div>
       </div>
 
-      {relatedArticles && isArray(relatedArticles.articles) && (
+      {relatedArticles && relatedArticles.length > 0 && (
         <div className="flex flex-col mt-20">
           <Text className="mb-6" size="medium" weight="bold" color="black">
             {t("common:articleRelated")}
           </Text>
           <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
-            {relatedArticles.articles.map((article: any) => (
+            {relatedArticles.map((article: any) => (
               <CustomLink
                 key={article.id}
                 link={{ url: `/blog/article/${article.slug}` }}
@@ -80,7 +79,7 @@ const LocalArticleDetail = ({ article, t }) => {
   );
 };
 
-const Article = ({ article, metadata, global }) => {
+const Article = ({ article, relatedArticles, metadata, global }) => {
   const { t } = useTranslation();
 
   if (!article) {
@@ -101,7 +100,11 @@ const Article = ({ article, metadata, global }) => {
         globalSeoData={global.defaultSeo}
       />
       <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
-        <LocalArticleDetail article={article} t={t} />
+        <LocalArticleDetail
+          article={article}
+          relatedArticles={relatedArticles}
+          t={t}
+        />
       </Layout>
     </>
   );
@@ -148,8 +151,22 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         }
     : null;
 
+  let relatedArticles = [];
+
+  if (
+    article &&
+    article.relatedArticles &&
+    article.relatedArticles.random === false
+  ) {
+    relatedArticles = article.relatedArticles.articles;
+  } else {
+    relatedArticles = await fetchAPI(
+      `/articles?id_nin=${article.id}&status=published&_locale=${locale}&_limit=3`
+    );
+  }
+
   return {
-    props: { article, metadata },
+    props: { article, relatedArticles, metadata },
     revalidate: 1, // redo SSG in the background
   };
 };

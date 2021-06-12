@@ -30,7 +30,7 @@ html {
         height: 100%;
         font-size: 13px;
         position: relative;
-        font-family: 'Titillium Web', sans-serif;
+        font-family: "Titillium Web", sans-serif;
         display: block;
         margin: 0px;
         padding: 0px;
@@ -72,6 +72,7 @@ html {
                 }
             }
         }
+
 
         h2 {
             @include mobile-only {
@@ -158,6 +159,18 @@ html {
             color: #fff;
         }
 
+        .notification-banner-content h1:last-child,
+        .notification-banner-content h2:last-child,
+        .notification-banner-content h3:last-child,
+        .notification-banner-content h4:last-child,
+        .notification-banner-content h5:last-child,
+        .notification-banner-content h6:last-child,
+        .notification-banner-content a:last-child,
+        .notification-banner-content div:last-child,
+        .notification-banner-content p:last-child {
+            margin-bottom: 0;
+        }
+
         .notification-banner-content a {
             text-decoration: underline;
         }
@@ -212,6 +225,10 @@ html {
             transition: 0.4s ease;
         }
 
+        .bg-default {
+            background-color: $bg-color;
+        }
+
         .Collapsible__trigger.is-open .trigger-icon {
             transform: rotate(90deg);
         }
@@ -219,10 +236,5 @@ html {
         .page-min-h {
             min-height: calc(100vh - 150px);
         }
-
-        .bg-default {
-            background-color: $bg-color;
-        }
-
     }
 }
