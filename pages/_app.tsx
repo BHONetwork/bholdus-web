@@ -1,6 +1,7 @@
 import App from "next/app";
 import Head from "next/head";
 import AOS from "aos";
+import "intl-pluralrules";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -15,8 +16,8 @@ import "../styles/main.scss";
 const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration: 600,
+      once: false,
     });
   }, []);
 

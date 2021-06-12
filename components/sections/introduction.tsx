@@ -30,7 +30,8 @@ const Introduction = ({ data }) => {
     <>
       <section
         className="flex flex-col lg:flex-row justify-end flex-shrink mt-20"
-        data-aos="zoom-in-left"
+        data-aos="fade-up"
+        data-aos-delay={400}
       >
         {data.introductionVideoLink && (
           <div

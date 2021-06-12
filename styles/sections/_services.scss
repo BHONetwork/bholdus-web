@@ -7,18 +7,14 @@
 }
 .services-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    @include not-mobile {
-        justify-content: space-between;
-    }
     @include not-tablet {
-        flex-direction: row;
         margin-top: 0;
     }
-
 
     .service-card {
         display: flex;
@@ -30,14 +26,16 @@
         padding-top: 64px;
         padding-bottom: 36px;
         border-radius: 4px;
-        width: 224px;
-        height: 256px;
+        width: 200px;
+        height: 210px;
         margin-left: 15px;
         margin-right: 15px;
 
         @include mobile-only {
             margin-bottom: 40px;
-           
+            width: 110px;
+            height: 140px;
+            padding: 10px;
         }
 
         @include not-mobile {
@@ -72,11 +70,19 @@
         img {
             margin-bottom: 20px;
             z-index: 10;
+            @include mobile-only {
+                margin-bottom: 5px;
+                width: 50px;
+            }
         }
         &-text{
             z-index: 10;
             font-weight: $font-weights-bold;
             font-size: $font-size-normal;
+            @include mobile-only {
+                font-size: 13px;
+                font-weight: $font-weights-normal;
+            }
         }
     }
 }

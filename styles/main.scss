@@ -9,12 +9,13 @@
 @import "sections/footer";
 @import "markdown";
 @import "aos/dist/aos.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
     height: 100%;
-
-
 
     @include mobile-only {
         scroll-margin-top: 10px;
@@ -29,7 +30,12 @@ html {
         height: 100%;
         font-size: 13px;
         position: relative;
-        font-family: "Titillium Web", sans-serif;
+        font-family: 'Titillium Web', sans-serif;
+        display: block;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+        width: 100%;
 
         @media screen and (min-width: 320px) {
             .play-button {
@@ -69,7 +75,8 @@ html {
 
         h2 {
             @include mobile-only {
-                font-size: 30px !important;
+                font-size: 28px !important;
+                font-weight: $font-weights-normal;
             }
         }
 
@@ -213,6 +220,9 @@ html {
             min-height: calc(100vh - 150px);
         }
 
+        .bg-default {
+            background-color: $bg-color;
+        }
 
     }
 }
