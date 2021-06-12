@@ -27,6 +27,7 @@
         margin-right: 10%;
     }
 
+    
 
     &__item {
         position: relative;
@@ -35,6 +36,12 @@
 
         @include desktop {
             margin-bottom: 50px;
+        }
+
+        &:first-child{
+            .road__item-metka{
+                top:2px;
+            }
         }
 
         &:after {
@@ -65,7 +72,7 @@
             @include not-mobile {
                 content: "";
                 position: absolute;
-                top: 11px;
+                top: 12px;
                 left: 30px;
                 width: 40px;
                 border-bottom: 1px solid #495170;
@@ -123,7 +130,7 @@
         border-radius: 50%;
         background-color: #1f2641;
         position: absolute;
-        top: 6px;
+        top: 5px;
         left: 0;
         z-index: 1;
     }
@@ -156,7 +163,7 @@
     &__item-description{
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
         justify-content: center;
         li {
             line-height: 25px;

@@ -81,8 +81,8 @@ section[id^="team-"] {
 
         @include mobile-only {
             flex-direction: column;
-            width: 200px;
-            height: 300px;
+            width: 120px;
+            height: 290px;
             margin-bottom: 10px;
         }
 
@@ -118,6 +118,11 @@ section[id^="team-"] {
                 height: 100%;
             }
 
+            @include mobile-only {
+                width: 100px;
+                height: 100px;
+            }
+
 
         }
 
@@ -135,6 +140,8 @@ section[id^="team-"] {
 
             @include mobile-only {
                 text-align: center;
+                padding: 0;
+                padding-top: 20px;
             }
         }
 
@@ -145,6 +152,9 @@ section[id^="team-"] {
             margin-bottom: 10px;
             line-height: 1;
             font-size: 18px;
+            @include mobile-only {
+                font-size: $font-size-normal;
+            }
         }
 
         &__post {
@@ -153,18 +163,21 @@ section[id^="team-"] {
             color: #545c79;
             font-size: 16px;
             line-height: 1;
+            @include mobile-only {
+                font-size: 14px;
+            }
         }
 
         &__social {
             display: flex;
-            justify-content: start;
+            justify-content: flex-start;
             flex: 1;
             align-items: flex-end;
             z-index: 12;
 
             @include mobile-only {
                 justify-content: space-evenly;
-                margin-bottom: 40px;
+                margin-bottom: 80px;
             }
 
             li {
@@ -211,7 +224,9 @@ section[id^="team-"] {
             @include mobile-only {
                 background-color: transparent;
                 justify-content: flex-start;
-                padding: 20px;
+                padding: 0;
+                padding-top: 20px;
+                font-size: $font-size-small;
             }
         }
 

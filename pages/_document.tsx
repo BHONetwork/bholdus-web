@@ -21,33 +21,6 @@ class MyDocument extends Document {
             name="keywords"
             content="Blockchain, DeFi, Real World DeFi, NFT, DApps, DeFi DApps, BHO, BHO token, BHO price, Crosschain, Digital Assets, DEX, Decentralized Exchange, Bholdus"
           />
-          <link
-            rel="preload"
-            href="/fonts/TitilliumWeb.ttf"
-            as="font"
-            type="font/ttf"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/TitilliumWeb-Bold.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/TitilliumWeb-Italic.ttf"
-            as="font"
-            type="font/ttf"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/TitilliumWeb-BoldItalic.ttf"
-            as="font"
-            type="font/ttf"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <Main />

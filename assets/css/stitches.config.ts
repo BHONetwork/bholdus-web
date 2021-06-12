@@ -31,7 +31,7 @@ export const { styled, css, global, keyframes, getCssString, theme } =
         xLarge: "45px",
       },
       fontWeights: {
-        normal: 400,
+        normal: 300,
         semiBold: 600,
         bold: 700,
       },

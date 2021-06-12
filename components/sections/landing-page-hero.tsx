@@ -5,6 +5,7 @@ const LandingPageHero = ({ data }) => {
   const background = data.videoBackground.enable ? (
     <div className="bg-hero-video">
       <video
+        className="lazy"
         preload={"yes"}
         autoPlay={true}
         muted={true}
