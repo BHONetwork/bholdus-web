@@ -13,7 +13,7 @@ const NotificationBanner = ({ data, closeSelf }) => {
         "bg-red-600": data.type === "alert",
       })}
     >
-      <div className="container flex flex-row flex-1 justify-between items-center">
+      <div className="container flex flex-row justify-between items-center">
         <div />
         <RichText
           className="notification-banner-content"

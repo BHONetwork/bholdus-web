@@ -17,7 +17,7 @@ const ServiceSection = ({ data }) => {
           <ServiceCard
             key={service.id}
             data={service}
-            background={backgrounds[index]}
+            background={backgrounds[index % 5]}
             index={index}
           />
         ))}

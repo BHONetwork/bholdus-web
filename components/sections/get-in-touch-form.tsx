@@ -105,27 +105,34 @@ const GetInTouchForm = () => {
               onError={() => {
                 setErrors({ api: "Server Error" });
               }}
-              onVerify={async () => {
+              onVerify={async (token) => {
                 setIsLoading(true);
+
                 try {
                   setErrors({ api: "" });
 
-                  await fetchAPI("/lead-form-submissions", {
+                  const response = await fetchAPI("/lead-form-submissions", {
                     method: "POST",
                     body: JSON.stringify({
                       name: values.name,
                       email: values.email,
                       message: values.message,
+                      captchaToken: token,
                     }),
                   });
 
-                  setIsSuccessful(true);
-                  setTimeout(() => {
-                    setIsSuccessful(false);
-                  }, 3000);
+                  if (response) {
+                    setIsSuccessful(true);
+                    setTimeout(() => {
+                      setIsSuccessful(false);
+                    }, 3000);
+                  } else {
+                    throw Error("Server Error");
+                  }
                 } catch (err) {
                   setErrors({ api: err.message });
                 }
+
                 hCaptchaRef.current.resetCaptcha();
                 setIsLoading(false);
                 setSubmitting(false);
