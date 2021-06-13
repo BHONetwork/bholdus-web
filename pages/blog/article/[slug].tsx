@@ -31,7 +31,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
   const { content, image, topics } = article;
 
   return (
-    <div className="flex flex-col">
+    <div className="container flex flex-col">
       <div className="flex flex-col items-center mb-16">
         <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
         <RichText children={content} />
@@ -84,7 +84,7 @@ const Article = ({ article, relatedArticles, metadata, global }) => {
 
   if (!article) {
     return (
-      <Layout className="md:mt-52 mt-32" Hero={() => null} global={global}>
+      <Layout Hero={() => null} global={global}>
         <NotFoundPage />
       </Layout>
     );
@@ -99,7 +99,7 @@ const Article = ({ article, relatedArticles, metadata, global }) => {
         seoData={{ type: "blog-post", data: article }}
         globalSeoData={global.defaultSeo}
       />
-      <Layout className="md:mt-14 mt-10" Hero={Hero} global={global}>
+      <Layout Hero={Hero} global={global} mainClass="bg-white">
         <LocalArticleDetail
           article={article}
           relatedArticles={relatedArticles}

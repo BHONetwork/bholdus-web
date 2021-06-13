@@ -1,23 +1,8 @@
-import classNames from "classnames";
 import Text from "../common/text";
 
-const Section = ({
-  id = "",
-  smallTitle,
-  title,
-  children,
-  className = {},
-  style = {},
-}) => {
+const Section = ({ id = "", smallTitle, title, children, style = {} }) => {
   return (
-    <section
-      id={id}
-      className={classNames(
-        "flex flex-col justify-center text-center",
-        className
-      )}
-      style={{ ...style }}
-    >
+    <section id={id} style={{ ...style }}>
       <Text
         type="h3"
         css={{

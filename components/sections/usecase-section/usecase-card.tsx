@@ -6,18 +6,18 @@ const UsecaseCard = ({ data, index }) => {
   return (
     <div
       key={data.id}
-      className="flex flex-col lg:flex-row items-center md:items-start  lg:items-center pb-8 pt-8"
+      className="usecases-card"
       data-aos={data_aos}
       data-aos-delay={200}
       data-aos-easing="ease-in-sine"
     >
       <Image
         img={data.image}
-        className="mr-0 md:mr-7"
+        className="usecases-icon"
         style={{ width: 150, height: 150 }}
       />
-      <div className="flex flex-col items-center  md:items-start  text-justify w-full h-full">
-        <Text className="mb-4" type="h4">
+      <div className="usecases-content">
+        <Text className="usecases-title" type="h4">
           {data.title}
         </Text>
         <Text type="p">{data.description}</Text>

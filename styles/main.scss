@@ -1,9 +1,13 @@
 @import "vars";
 @import "mixin";
 @import "sections/hero";
+@import "sections/introduction";
+@import "sections/about";
 @import "sections/advisor";
+@import "sections/usecases";
 @import "sections/team";
 @import "sections/road";
+@import "sections/news";
 @import "sections/services";
 @import "sections/contact";
 @import "sections/footer";
@@ -73,6 +77,29 @@ html {
             }
         }
 
+        .bg-default {
+            background-color: $bg-color;
+        }
+        .bg-white {
+            background-color: $bg-white;
+        }
+
+        .main-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .container {
+            @include mobile-only {
+                max-width: 100%;
+            }
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
 
         h2 {
             @include mobile-only {

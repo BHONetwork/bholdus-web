@@ -1,14 +1,11 @@
-#contact {
+#news {
     padding-top: 40px;
-    scroll-margin-top: 150px;
-    display: flex;
-    align-items: center;
     position: relative;
     @include not-tablet {
         padding-top: 80px;
     }
 }
-.contact {
+.news{
     &-bg{
         position: absolute;
         top: 0;
@@ -17,9 +14,18 @@
         z-index: 0;
         object-fit: cover;
     }
-    &-form{
-        max-width: 540px;
-        width: 100%;
+
+    &-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        align-items: flex-start;
         z-index: 1;
+        .article{
+            margin: 10px;
+            flex: 1;
+            min-width: 300px;
+        }
     }
 }

@@ -11,6 +11,7 @@ import UsecaseSection from "../components/sections/usecase-section";
 import AdvisorSection from "../components/sections/advisor-section";
 import TeamSection from "../components/sections/team-section";
 import LatestNewsSection from "../components/sections/latest-news-section";
+import ContactSection from "../components/sections/contact-section";
 
 import { fetchAPI, getLocale } from "../utils/api";
 
@@ -21,23 +22,18 @@ const mapSections = {
   "sections.use-cases-section": UsecaseSection,
   "sections.advisor-section": AdvisorSection,
   "sections.team-section": TeamSection,
+  "sections.contact-section": ContactSection,
+  "sections.last-news": LatestNewsSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
   if (!pageData) {
     return <ErrorPage statusCode={404} />;
   }
-
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
   return (
-    <Layout
-      Hero={Hero}
-      global={global}
-      transparentNavbar={true}
-      displayPageBackground={true}
-      displayFooterBackground={false}
-    >
+    <Layout Hero={Hero} global={global} transparentNavbar={true}>
       {pageData.introduction && pageData.introduction.enable && (
         <Introduction data={pageData.introduction} />
       )}
@@ -46,18 +42,12 @@ const Home = ({ pageData, latestNews, global }) => {
         const { __component, ...rest } = section;
         if (__component in mapSections && section.enable) {
           const Section = mapSections[__component];
-
+          if (__component === "sections.last-news")
+            return <Section key={index} data={rest} articles={latestNews} />;
           return <Section key={index} data={rest} />;
         }
         return null;
       })}
-
-      {pageData.latestNewsSection && pageData.latestNewsSection.enable && (
-        <LatestNewsSection
-          page={pageData.latestNewsSection}
-          articles={latestNews}
-        />
-      )}
     </Layout>
   );
 };

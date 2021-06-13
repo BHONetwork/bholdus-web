@@ -1,19 +1,22 @@
 import Section from "../sections";
 import UsecaseCard from "./usecase-card";
+import Image from "../../common/image";
 
 const UsecaseSection = ({ data }) => {
   return (
-    <Section
-      id="usecases"
-      className="mt-20 lg:mt-40 scroll-margin-top"
-      smallTitle={data.smallTitle}
-      title={data.title}
-    >
-      <div className="md:grid md:grid-cols-2 md:gap-6 flex flex-col md:space-y-0 space-y-10">
+    <Section id="usecases" smallTitle={data.smallTitle} title={data.title}>
+      <div className="container usecases-container">
         {data.useCases.map((usecase: any, index: number) => (
           <UsecaseCard key={usecase.id} data={usecase} index={index} />
         ))}
       </div>
+      {data.imageBackground ? (
+        <Image img={data.imageBackground} className="usecases-bg" />
+      ) : null}
+      <Image
+        img={{ url: "/images/cases-imgs-min.png" }}
+        className="usecases-element"
+      />
     </Section>
   );
 };

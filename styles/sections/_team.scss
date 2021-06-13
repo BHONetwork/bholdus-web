@@ -1,9 +1,23 @@
 section[id^="team-"] {
-    margin-top: 40px;
+    padding-top: 40px;
     scroll-margin-top: 150px;
+    position: relative;
     @include not-tablet {
-        margin-top: 80px;
+        padding-top: 80px;
     }
+    .team-bg {
+        position: absolute;
+        display: block;
+        top: 180px;
+        left: 0;
+        width: 100%;
+        min-width: 1680px;
+        min-height: 590px;
+        object-fit: cover;
+        z-index: 0;
+        transform: translate3d(0px, -150px, 0px);
+    }
+   
 }
 
 .team-container {
@@ -12,7 +26,7 @@ section[id^="team-"] {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-
+    z-index: 1;
     .team-member {
         display: flex;
         flex-direction: row;

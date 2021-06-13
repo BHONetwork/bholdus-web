@@ -1,7 +1,12 @@
 import CollapsibleAccordion from "../../elements/collapsible";
 
 const ContentCollapsibleSection = ({ data }) => {
-  return <CollapsibleAccordion accordions={data.collapsibleItems} />;
+  return (
+    <CollapsibleAccordion
+      className="container"
+      accordions={data.collapsibleItems}
+    />
+  );
 };
 
 export default ContentCollapsibleSection;

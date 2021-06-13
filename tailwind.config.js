@@ -30,11 +30,6 @@ module.exports = {
         ...theme("colors"),
       }),
 
-      backgroundImage: () => ({
-        default: "url('../images/default_bg.png')",
-        footer: "url('../images/footer_bg.png')",
-      }),
-
       minWidth: {
         45: "45%",
       },

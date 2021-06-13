@@ -1,35 +1,28 @@
 import { useState } from "react";
 import classNames from "classnames";
-import useTranslation from "next-translate/useTranslation";
 
 import Navbar from "./elements/navbar";
 import Footer from "./elements/footer";
 import NotificationBanner from "./elements/notification-banner";
-import GetInTouchForm from "./sections/get-in-touch-form";
-import Section from "./sections/sections";
 
 const Layout = ({
   Hero,
   children,
   global,
-  className = "",
+  containerClass = "bg-default",
+  mainClass = "",
+  sectionClass = "",
   transparentNavbar = false,
-  displayPageBackground = false,
-  displayFooterBackground = true,
 }) => {
   const { navbar, footer, notificationBanner, supportedLocales } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
 
-  const { t } = useTranslation();
-
   return (
     <div
       className={classNames(
         "flex flex-col justify-between min-h-screen overflow-hidden",
-        {
-          "bg-default md:bg-cover bg-contain": displayPageBackground,
-        }
+        containerClass
       )}
     >
       <header className="flex flex-col">
@@ -48,32 +41,15 @@ const Layout = ({
         </div>
       </header>
 
-      <main className="page-min-h">
+      <main className={classNames("page-min-h", mainClass)}>
         <Hero />
 
-        <div className={classNames("container", className)}>{children}</div>
+        <div className={classNames("main-container", sectionClass)}>
+          {children}
+        </div>
       </main>
 
-      <Footer displayBackground={displayFooterBackground} footer={footer}>
-        {/* ***********
-        ****************
-        ****************
-        ****************
-        ****************
-          Get in touch
-        ****************
-        ****************
-        ****************
-        ****************
-        */}
-        <Section
-          id="contact"
-          smallTitle={t("common:contactUs")}
-          title={t("common:getInTouch")}
-        >
-          <GetInTouchForm />
-        </Section>
-      </Footer>
+      <Footer footer={footer} />
     </div>
   );
 };

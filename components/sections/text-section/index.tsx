@@ -3,15 +3,12 @@ import Section from "../sections";
 
 const TextSection = ({ data }) => {
   return (
-    <Section
-      id="about"
-      className="mt-20 lg:mt-48 scroll-margin-top"
-      smallTitle={data.smallTitle}
-      title={data.title}
-    >
-      <Text type="p" data-aos="fade">
-        {data.description}
-      </Text>
+    <Section id="about" smallTitle={data.smallTitle} title={data.title}>
+      <div className="container">
+        <Text type="p" data-aos="fade">
+          {data.description}
+        </Text>
+      </div>
     </Section>
   );
 };

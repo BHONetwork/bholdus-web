@@ -1,8 +1,7 @@
 import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
-
+import Image from "../common/image";
 import { styled } from "../../assets/css/stitches.config";
-
 import Text from "../common/text";
 import VideoModal from "../elements/video-modal";
 
@@ -28,46 +27,47 @@ const Introduction = ({ data }) => {
 
   return (
     <>
-      <section
-        className="flex flex-col lg:flex-row justify-end flex-shrink mt-20"
-        data-aos="fade-up"
-        data-aos-delay={400}
-      >
-        {data.introductionVideoLink && (
-          <div
-            className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
-            style={{ maxHeight: 205 }}
-          >
-            <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
-          </div>
-        )}
-        <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
-          <div className="flex flex-row items-center mb-12">
+      <section id="introduction" data-aos="fade-up" data-aos-delay={400}>
+        <div className="introduction-container container">
+          {data.introductionVideoLink && (
             <div
-              className="mr-2"
-              style={{ backgroundColor: "white", width: 40, height: 1 }}
-            />
-            <Text size="small" weight="bold" uppercase>
-              {t("common:introduction")}
+              className="lg:relative flex justify-center items-center max-h-min lg:mb-0 -mb-16 z-10"
+              style={{ maxHeight: 205 }}
+            >
+              <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
+            </div>
+          )}
+          <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
+            <div className="flex flex-row items-center mb-12">
+              <div
+                className="mr-2"
+                style={{ backgroundColor: "white", width: 40, height: 1 }}
+              />
+              <Text size="small" weight="bold" uppercase>
+                {t("common:introduction")}
+              </Text>
+            </div>
+            <Text className="mb-10" type="h2">
+              {data.title}
             </Text>
-          </div>
-          <Text className="mb-10" type="h2">
-            {data.title}
-          </Text>
-          <Text className="mb-10" type="p">
-            {data.description}
-          </Text>
-          <ul className="pl-6">
-            {data.featuredPoints.map((point: any) => (
-              <li className="flex flex-row" key={point.id}>
-                <div className="mr-2" style={{ color: "white" }}>
-                  •
-                </div>
-                <Text type="p">{point.content}</Text>
-              </li>
-            ))}
-          </ul>
-        </GreenBackground>
+            <Text className="mb-10" type="p">
+              {data.description}
+            </Text>
+            <ul className="pl-6">
+              {data.featuredPoints.map((point: any) => (
+                <li className="flex flex-row" key={point.id}>
+                  <div className="mr-2" style={{ color: "white" }}>
+                    •
+                  </div>
+                  <Text type="p">{point.content}</Text>
+                </li>
+              ))}
+            </ul>
+          </GreenBackground>
+        </div>
+        {data.imageBackground ? (
+          <Image img={data.imageBackground} className="introduction-bg" />
+        ) : null}
       </section>
       {data.introductionVideoLink && (
         <VideoModal
