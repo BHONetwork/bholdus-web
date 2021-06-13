@@ -1,7 +1,7 @@
 import Image from "../../common/image";
 import Text from "../../common/text";
 
-const ServiceCard = ({ data, background, index }) => {
+const ServiceCard = ({ data, background, shadow, index }) => {
   return (
     <div
       className="service-card"
@@ -12,6 +12,7 @@ const ServiceCard = ({ data, background, index }) => {
         className="service-card-bg"
         style={{
           background,
+          boxShadow: `${shadow}`,
         }}
       />
       <Image img={data.image} />

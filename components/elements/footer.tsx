@@ -3,15 +3,10 @@ import classNames from "classnames";
 import Image from "../common/image";
 import Text from "../common/text";
 
-const Footer = ({ displayBackground, footer, children }) => {
+const Footer = ({ footer }) => {
   return (
-    <footer
-      className={classNames("footer-wrap", {
-        "bg-footer bg-cover": displayBackground,
-      })}
-    >
+    <footer className={classNames("footer-wrap")}>
       <div className="container">
-        <div>{children}</div>
         <div className="footer-container">
           <div className="footer-logo">
             <Image img={footer.logo} />
@@ -27,7 +22,7 @@ const Footer = ({ displayBackground, footer, children }) => {
               >
                 <Image
                   img={{
-                    url: `/images/${social.type}_grey.svg`,
+                    url: `/images/f-${social.type}.svg`,
                     alternativeText: social.type,
                   }}
                   style={{ width: 28, height: 28 }}

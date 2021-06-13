@@ -1,9 +1,7 @@
 #roadmap {
     margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     scroll-margin-top: 150px;
+    position: relative;
     @include desktop {
         margin-top: 80px;
         margin-bottom: 160px;
@@ -12,20 +10,34 @@
 }
 
 .road {
-    @include mobile-portrait {
-        margin-left: 4%;
-        margin-right: 4%;
+    &-bg {
+        position: absolute;
+        top: 150px;
+        left: 50px;
+        opacity: .1;
+        transform: translate3d(0px, 81.6248px, 0px);
+
+        @include mobile-only {
+            display: none;
+        }
+    }
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 2;
+        @include mobile-portrait {
+            margin-left: 4%;
+            margin-right: 4%;
+        }
+    
+        @include mobile-landscape {
+            margin-left: 12%;
+            margin-right: 4%;
+        }
+      
     }
 
-    @include mobile-landscape {
-        margin-left: 12%;
-        margin-right: 4%;
-    }
-
-    @include not-mobile {
-        margin-left: 20%;
-        margin-right: 10%;
-    }
 
     
 

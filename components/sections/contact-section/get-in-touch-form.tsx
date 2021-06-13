@@ -4,13 +4,13 @@ import { Formik, Form, Field } from "formik";
 import { MdDone } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import classNames from "classnames";
+import Button from "../../common/button";
+import Text from "../../common/text";
 
-import Button from "../common/button";
-import Text from "../common/text";
+import { fetchAPI } from "../../../utils/api";
 
-import { fetchAPI } from "../../utils/api";
-
-const GetInTouchForm = () => {
+const GetInTouchForm = ({ className }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessful, setIsSuccessful] = useState(false);
   const { t } = useTranslation();
@@ -41,7 +41,10 @@ const GetInTouchForm = () => {
       }) => (
         <>
           <Form
-            className="contact-form flex flex-col lg:gap-6"
+            className={classNames(
+              "contact-form flex flex-col lg:gap-6",
+              className
+            )}
             data-aos="fade-up"
             data-aos-anchor-placement="bottom-bottom"
           >

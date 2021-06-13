@@ -19,7 +19,7 @@ const mapSections = {
 const Page = ({ page, global }) => {
   if (!page) {
     return (
-      <Layout className="md:mt-52 mt-32" Hero={() => null} global={global}>
+      <Layout Hero={() => null} global={global}>
         <NotFoundPage />
       </Layout>
     );
@@ -30,7 +30,7 @@ const Page = ({ page, global }) => {
   return (
     <>
       <Seo metadata={page.seo} seoData={getSeoData(page)} />
-      <Layout className="md:mt-14 mt-8" Hero={Hero} global={global}>
+      <Layout Hero={Hero} global={global} mainClass="bg-white">
         {page.sections.map((section: any, index: number) => {
           const { __component, ...rest } = section;
           if (__component in mapSections && section.enable) {

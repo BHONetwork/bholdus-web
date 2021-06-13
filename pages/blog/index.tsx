@@ -69,27 +69,29 @@ const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
   return (
     <>
       <Seo metadata={page.seo} seoData={{ type: "blog", data: page }} />
-      <Layout className="md:mt-20 mt-10" Hero={Hero} global={global}>
-        {articlesByTopic ? (
-          Object.keys(articlesByTopic).map((topic: any, index: number) => {
-            return (
-              <LocalArticles
-                key={index}
-                className="md:mb-20 mb-10 last:mb-0"
-                topic={topic}
-                articles={articlesByTopic[topic]}
-                translation={translation}
-              />
-            );
-          })
-        ) : (
-          <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
-            <MdFilterDrama size={200} />
-            <Text size="medium" color="black">
-              {t("common:noArticles")}
-            </Text>
-          </div>
-        )}
+      <Layout Hero={Hero} global={global} mainClass="bg-white">
+        <div className="container">
+          {articlesByTopic ? (
+            Object.keys(articlesByTopic).map((topic: any, index: number) => {
+              return (
+                <LocalArticles
+                  key={index}
+                  className="md:mb-20 mb-10 last:mb-0"
+                  topic={topic}
+                  articles={articlesByTopic[topic]}
+                  translation={translation}
+                />
+              );
+            })
+          ) : (
+            <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
+              <MdFilterDrama size={200} />
+              <Text size="medium" color="black">
+                {t("common:noArticles")}
+              </Text>
+            </div>
+          )}
+        </div>
       </Layout>
     </>
   );
