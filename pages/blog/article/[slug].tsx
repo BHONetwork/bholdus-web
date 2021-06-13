@@ -58,7 +58,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
         </div>
       </div>
 
-      {relatedArticles && relatedArticles.length > 0 && (
+      {relatedArticles?.length > 0 && (
         <div className="flex flex-col mt-20">
           <Text className="mb-6" size="medium" weight="bold" color="black">
             {t("common:articleRelated")}
@@ -138,7 +138,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
   ]);
   const metadata = article
-    ? article?.metadata
+    ? article.metadata
       ? {
           ...article.metadata,
           metaTitleTemplate: page?.seo?.metaTitleTemplate || "%s",
@@ -153,11 +153,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   let relatedArticles = [];
 
-  if (
-    article &&
-    article.relatedArticles &&
-    article.relatedArticles.random === false
-  ) {
+  if (article?.relatedArticles?.random === false) {
     relatedArticles = article.relatedArticles.articles;
   } else {
     relatedArticles = await fetchAPI(
