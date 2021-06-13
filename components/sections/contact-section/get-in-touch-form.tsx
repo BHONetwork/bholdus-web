@@ -57,6 +57,7 @@ const GetInTouchForm = ({ className }) => {
             <Text className="text-left" type="div" uppercase>
               {errors.name && touched.name && errors.name}
             </Text>
+
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               type="email"
@@ -66,6 +67,7 @@ const GetInTouchForm = ({ className }) => {
             <Text className="text-left" type="div" uppercase>
               {errors.email && touched.email && errors.email}
             </Text>
+
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
               component="textarea"
@@ -77,6 +79,7 @@ const GetInTouchForm = ({ className }) => {
             <Text className="text-left" type="div" uppercase>
               {errors.message && touched.message && errors.message}
             </Text>
+
             <Button
               type="submit"
               disabled={isSubmitting || isSuccessful || isLoading}
@@ -99,6 +102,7 @@ const GetInTouchForm = ({ className }) => {
             <Text className="text-left" type="div" uppercase>
               {errors.api && errors.api}
             </Text>
+
             <HCaptcha
               sitekey={process.env.HCAPTCHA_SITEKEY}
               ref={hCaptchaRef}

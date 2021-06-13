@@ -7,6 +7,7 @@ const TeamProfile = ({ data, index }) => {
 
   return (
     <div
+      key={index}
       className="team-member"
       data-aos="fade-zoom-in"
       data-aos-easing="ease-in-back"
@@ -22,7 +23,7 @@ const TeamProfile = ({ data, index }) => {
         <div className="team-member__text">{data.bio}</div>
         <ul className="team-member__social">
           {socials.map(({ type, url }, index: number) => {
-            if (url !== null)
+            if (url)
               return (
                 <li key={index}>
                   <a

@@ -26,7 +26,7 @@ const Layout = ({
       )}
     >
       <header className="flex flex-col">
-        {notificationBanner && notificationBanner.enable && bannerIsShown && (
+        {notificationBanner?.enable && bannerIsShown && (
           <NotificationBanner
             data={notificationBanner}
             closeSelf={() => setBannerIsShown(false)}

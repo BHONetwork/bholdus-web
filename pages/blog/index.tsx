@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     const fetchedArticles = await fetchAPI(
       `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&topics.id=${id}&_limit=3`
     );
-    if (fetchedArticles && fetchedArticles.length > 0) {
+    if (fetchedArticles?.length > 0) {
       if (!articlesByTopic) {
         articlesByTopic = {};
       }

@@ -10,6 +10,7 @@ const GreenBackground = styled("div", {
 
 const ArticleHero = ({ article }) => {
   const { t, lang } = useTranslation();
+
   return (
     <section className="container md:mt-36 mt-24">
       <div className="flex flex-row">
