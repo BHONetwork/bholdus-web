@@ -38,7 +38,7 @@ const Home = ({ pageData, latestNews, global }) => {
       displayPageBackground={true}
       displayFooterBackground={false}
     >
-      {pageData.introduction && pageData.introduction.enable && (
+      {pageData.introduction?.enable && (
         <Introduction data={pageData.introduction} />
       )}
 
@@ -52,7 +52,7 @@ const Home = ({ pageData, latestNews, global }) => {
         return null;
       })}
 
-      {pageData.latestNewsSection && pageData.latestNewsSection.enable && (
+      {pageData.latestNewsSection?.enable && (
         <LatestNewsSection
           page={pageData.latestNewsSection}
           articles={latestNews}

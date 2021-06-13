@@ -69,7 +69,7 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
                 </li>
               ))}
             </ul>
-            {supportedLocales && supportedLocales.length > 0 && (
+            {supportedLocales?.length > 0 && (
               <LanguageSelection languages={supportedLocales} />
             )}
             {/* Hamburger menu on small screens */}

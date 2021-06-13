@@ -9,7 +9,7 @@ const CustomLink = (props: CustomLinkProps) => {
   const router = useRouter();
   const { locale } = router;
 
-  const isInternalLink = link.url.startsWith("/");
+  const isInternalLink = link?.url?.startsWith("/");
 
   if (isInternalLink) {
     return (
