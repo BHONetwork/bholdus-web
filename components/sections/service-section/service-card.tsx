@@ -1,4 +1,4 @@
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 import Text from "../../common/text";
 
 const ServiceCard = ({ data, background, shadow, index }) => {
@@ -15,7 +15,14 @@ const ServiceCard = ({ data, background, shadow, index }) => {
           boxShadow: `${shadow}`,
         }}
       />
-      <Image img={data.image} />
+      <div className="service-card-img">
+        <OptimizedImage
+          img={data.image}
+          width={100}
+          height={100}
+          layout="intrinsic"
+        />
+      </div>
       <Text className="service-card-text">{data.title}</Text>
     </div>
   );

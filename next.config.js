@@ -10,4 +10,7 @@ module.exports = nextTranslate({
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+  images: {
+    domains: ["bholdus.s3.ap-southeast-1.amazonaws.com"],
+  },
 });

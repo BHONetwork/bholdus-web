@@ -1,19 +1,17 @@
 import { FacebookShareButton, TelegramShareButton } from "react-share";
 
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 import { ShareSocialsProps, SocialType, SocialTypes } from "./types";
 
-const Icon = ({ src }) => (
-  <Image img={{ url: src }} style={{ width: 28, height: 28 }} />
-);
+const Icon = ({ img }) => <OptimizedImage img={img} width={28} height={28} />;
 
 const socialTypes: SocialTypes = {
   [SocialType.facebook]: {
-    Icon: () => <Icon src="../../images/facebook_black.svg" />,
+    Icon: () => <Icon img={{ url: "/images/facebook_black.svg" }} />,
     ShareComponent: FacebookShareButton,
   },
   [SocialType.telegram]: {
-    Icon: () => <Icon src="../../images/telegram_black.svg" />,
+    Icon: () => <Icon img={{ url: "/images/telegram_black.svg" }} />,
     ShareComponent: TelegramShareButton,
   },
 };

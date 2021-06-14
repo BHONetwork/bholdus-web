@@ -1,6 +1,8 @@
 import Button from "../common/button";
 import Text from "../common/text";
 import Image from "../common/image";
+import OptimizedImage from "../common/optimized-image";
+
 const LandingPageHero = ({ data }) => {
   const background = data?.videoBackground?.enable ? (
     <div className="bg-hero-video">
@@ -20,12 +22,18 @@ const LandingPageHero = ({ data }) => {
       <Image img={data.imageBackground} />
     </div>
   );
+
   return (
     <section className="relative z-2 min-h-screen flex-col flex">
       {background}
       <div id="hero" className="container">
         <div className="hero-logo">
-          <Image img={data.image} data-aos="fade" />
+          <OptimizedImage
+            img={data.image}
+            data-aos="fade"
+            width={150}
+            height={150}
+          />
         </div>
 
         <div

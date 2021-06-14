@@ -4,7 +4,7 @@ import classNames from "classnames";
 import CustomLink from "../../common/custom-link";
 import Button from "../../common/button";
 import Text from "../../common/text";
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 
 const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
   return (
@@ -20,11 +20,7 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
     >
       <div className="container flex flex-col ">
         <div className="flex flex-row justify-between items-center md:my-1.5 sm:my-1">
-          <Image
-            img={navbar.logo}
-            className="object-contain"
-            style={{ width: "auto", height: 50 }}
-          />
+          <OptimizedImage img={navbar.logo} width={183} height={55} />
 
           <button onClick={closeSelf}>
             <MdClose className="h-14 w-auto" color="#fff" />

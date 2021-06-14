@@ -1,4 +1,4 @@
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 
 import { getSocials } from "../../../utils/api";
 
@@ -15,7 +15,7 @@ const TeamProfile = ({ data, index }) => {
       data-aos-offset="0"
     >
       <div className="team-member__avatar">
-        <Image img={data.avatar} />
+        <OptimizedImage img={data.avatar} layout="fill" />
       </div>
       <div className="team-member__content">
         <div className="team-member__name">{data.name}</div>
@@ -32,11 +32,13 @@ const TeamProfile = ({ data, index }) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <Image
+                    <OptimizedImage
                       img={{
                         url: `/images/${type}.svg`,
                         alternativeText: type,
                       }}
+                      width={28}
+                      height={28}
                     />
                   </a>
                 </li>

@@ -1,4 +1,5 @@
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
+
 import { getSocials } from "../../../utils/api";
 
 const BoardProfile = ({ data, index }) => {
@@ -13,12 +14,14 @@ const BoardProfile = ({ data, index }) => {
       data-aos-offset="0"
     >
       <div className="advisor__img">
-        <Image img={data.avatar} />
+        <OptimizedImage img={data.avatar} layout="fill" />
         <div className="advisor__sn">
           {socials.map(({ type, url }, index: number) => (
             <a key={index} href={url} target="_blank" rel="nofollow noreferrer">
-              <Image
+              <OptimizedImage
                 img={{ url: `/images/${type}.svg`, alternativeText: type }}
+                width={28}
+                height={28}
               />
             </a>
           ))}

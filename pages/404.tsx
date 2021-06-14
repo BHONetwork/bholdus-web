@@ -8,16 +8,12 @@ const NotFoundPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col items-center my-10 md:my-20 space-y-10">
-      <MdFilterDrama size={150} />
-      <Text type="h1" style={{ color: "#545C79" }}>
-        Oooooops.....
-      </Text>
-      <Text size="medium" color="black">
-        {t("common:thePageCannotBeFound")}
-      </Text>
+    <div className="flex flex-col items-center mt-32 md:mt-52 space-y-10">
+      <MdFilterDrama size={150} color="#fff" />
+      <Text type="h1">Oooooops.....</Text>
+      <Text size="medium">{t("common:thePageCannotBeFound")}</Text>
       <CustomLink link={{ url: "/" }}>
-        <Text size="medium" style={{ color: "#0000FF" }}>
+        <Text size="medium" style={{ textDecoration: "underline" }}>
           {t("common:goBackToHomepage")}
         </Text>
       </CustomLink>
