@@ -1,202 +1,196 @@
 #roadmap {
-    margin-top: 40px;
-    scroll-margin-top: 150px;
-    position: relative;
-    @include desktop {
-        margin-top: 80px;
-        margin-bottom: 160px;
-    }
-
+  margin-top: 40px;
+  scroll-margin-top: 150px;
+  position: relative;
+  @include desktop {
+    margin-top: 80px;
+    margin-bottom: 160px;
+  }
 }
 
 .road {
-    &-bg {
+  &-bg {
+    position: absolute;
+    top: 150px;
+    left: 50px;
+    opacity: 0.1;
+    transform: translate3d(0px, 81.6248px, 0px);
+
+    @include mobile-only {
+      display: none;
+    }
+  }
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+    @include mobile-portrait {
+      margin-left: 4%;
+      margin-right: 4%;
+    }
+
+    @include mobile-landscape {
+      margin-left: 12%;
+      margin-right: 4%;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 30px;
+
+    @include desktop {
+      margin-bottom: 50px;
+    }
+
+    &:first-child {
+      .road__item-metka {
+        top: 2px;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 8px;
+      width: 1px;
+      border-left: 1px solid #39b54a;
+      height: -webkit-calc(100% + 30px);
+      height: calc(100% + 35px);
+
+      @include desktop {
+        height: -webkit-calc(100% + 50px);
+        height: calc(100% + 50px);
+      }
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+
+      margin-bottom: 0;
+    }
+
+    &:before {
+      @include not-mobile {
+        content: "";
         position: absolute;
-        top: 150px;
-        left: 50px;
-        opacity: .1;
-        transform: translate3d(0px, 81.6248px, 0px);
-
-        @include mobile-only {
-            display: none;
-        }
-    }
-    &-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 2;
-        @include mobile-portrait {
-            margin-left: 4%;
-            margin-right: 4%;
-        }
-    
-        @include mobile-landscape {
-            margin-left: 12%;
-            margin-right: 4%;
-        }
-      
+        top: 12px;
+        left: 30px;
+        width: 40px;
+        border-bottom: 1px solid #495170;
+      }
     }
 
+    @include not-mobile {
+      padding-left: 80px;
+    }
+  }
 
-    
-
-    &__item {
-        position: relative;
-        padding-left: 40px;
-        margin-bottom: 30px;
-
-        @include desktop {
-            margin-bottom: 50px;
-        }
-
-        &:first-child{
-            .road__item-metka{
-                top:2px;
-            }
-        }
-
-        &:after {
-            content: "";
-            position: absolute;
-            top: 2px;
-            left: 8px;
-            width: 1px;
-            border-left: 1px solid #39b54a;
-            height: -webkit-calc(100% + 30px);
-            height: calc(100% + 35px);
-
-            @include desktop {
-                height: -webkit-calc(100% + 50px);
-                height: calc(100% + 50px);
-            }
-        }
-
-        &:last-child {
-            &:after {
-                display: none;
-            }
-
-            margin-bottom: 0;
-        }
-
-        &:before {
-            @include not-mobile {
-                content: "";
-                position: absolute;
-                top: 12px;
-                left: 30px;
-                width: 40px;
-                border-bottom: 1px solid #495170;
-            }
-        }
-
-        @include not-mobile {
-            padding-left: 80px;
-        }
+  &__item-active {
+    &:after {
+      border-left: 1px dashed #c6c6c6;
     }
 
-    &__item-active {
-        &:after {
-            border-left: 1px dashed #c6c6c6;
-        }
+    .road__item-metka {
+      width: 31px;
+      height: 31px;
+      border: 2px solid #39b54a;
+      position: absolute;
+      top: -5px;
+      left: -7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-        .road__item-metka {
-            width: 31px;
-            height: 31px;
-            border: 2px solid #39b54a;
-            position: absolute;
-            top: -5px;
-            left: -7px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &:after {
-                content: "";
-                display: block;
-                -webkit-border-radius: 50%;
-                border-radius: 50%;
-                width: 15px;
-                height: 15px;
-                background-color: #efb91c;
-            }
-        }
-    }
-
-    &__item-next {
-        &:after {
-            border-left: 1px dashed #c6c6c6;
-        }
-
-        .road__item-metka {
-            border: 2px solid #c6c6c6;
-        }
-    }
-
-    &__item-metka {
-        width: 17px;
-        height: 17px;
-        border: 2px solid #39b54a;
+      &:after {
+        content: "";
+        display: block;
         -webkit-border-radius: 50%;
         border-radius: 50%;
-        background-color: #1f2641;
-        position: absolute;
-        top: 5px;
-        left: 0;
-        z-index: 1;
+        width: 15px;
+        height: 15px;
+        background-color: #efb91c;
+      }
+    }
+  }
+
+  &__item-next {
+    &:after {
+      border-left: 1px dashed #c6c6c6;
     }
 
-    &__item-title {
-        color: #fff;
-        font-weight: 700;
-        margin-bottom: 10px;
-
-        @include mobile-portrait {
-            font-size: 20px;
-            text-align: left;
-        }
-
-        @include mobile-landscape {
-            position: absolute;
-            left: -220px;
-            text-align: right;
-            width: 200px;
-            top: -1px;
-            font-size: 16px;
-
-        }
-
-        @include not-mobile {
-            font-size: 20px;
-            text-align: left;
-        }
+    .road__item-metka {
+      border: 2px solid #c6c6c6;
     }
-    &__item-description{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        li {
-            line-height: 25px;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            list-style-type: square;
+  }
 
-            @include mobile-only {
-                list-style-type: none;
-            }
+  &__item-metka {
+    width: 17px;
+    height: 17px;
+    border: 2px solid #39b54a;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #1f2641;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    z-index: 1;
+  }
 
-            @include mobile-portrait {
-                text-align: left;
-            }
-    
-            @include mobile-landscape {
-                text-align: left;
-            }
-        }
+  &__item-title {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    @include mobile-portrait {
+      font-size: 20px;
+      text-align: left;
     }
 
-    
+    @include mobile-landscape {
+      position: absolute;
+      left: -220px;
+      text-align: right;
+      width: 200px;
+      top: -1px;
+      font-size: 16px;
+    }
+
+    @include not-mobile {
+      font-size: 20px;
+      text-align: left;
+    }
+  }
+  &__item-description {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    li {
+      line-height: 25px;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      list-style-type: square;
+
+      @include mobile-only {
+        list-style-type: none;
+      }
+
+      @include mobile-portrait {
+        text-align: left;
+      }
+
+      @include mobile-landscape {
+        text-align: left;
+      }
+    }
+  }
 }
