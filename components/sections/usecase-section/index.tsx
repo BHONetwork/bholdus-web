@@ -1,5 +1,6 @@
 import Section from "../sections";
 import UsecaseCard from "./usecase-card";
+import OptimizedImage from "../../common/optimized-image";
 import Image from "../../common/image";
 
 const UsecaseSection = ({ data }) => {
@@ -13,7 +14,7 @@ const UsecaseSection = ({ data }) => {
       {data.imageBackground ? (
         <Image img={data.imageBackground} className="usecases-bg" />
       ) : null}
-      <Image
+      <OptimizedImage
         img={{ url: "/images/cases-imgs-min.png" }}
         className="usecases-element"
       />

@@ -1,15 +1,21 @@
 import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
-import Image from "../common/image";
 import { styled } from "../../assets/css/stitches.config";
+
 import Text from "../common/text";
 import VideoModal from "../elements/video-modal";
+import OptimizedImage from "../common/optimized-image";
+import Image from "../common/image";
 
 const PlayButton = ({ onClick }) => {
   return (
     <div className="play-button">
       <button onClick={onClick}>
-        <img src="/images/play_btn.png" alt="play-button" />
+        <OptimizedImage
+          img={{ url: "/images/play_btn.png", alternativeText: "play-button" }}
+          width={69}
+          height={69}
+        />
       </button>
     </div>
   );

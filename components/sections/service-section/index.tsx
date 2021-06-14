@@ -1,6 +1,7 @@
 import Section from "../sections";
 import ServiceCard from "./service-card";
 import Image from "../../common/image";
+
 const backgrounds = [
   "linear-gradient(-234deg, #6ae472 0%, #4bc253 100%)",
   "linear-gradient(-234deg, #e0707e 0%, #e85f70 100%)",

@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import Image from "../common/image";
+import OptimizedImage from "../common/optimized-image";
 import Text from "../common/text";
 
 const Footer = ({ footer }) => {
@@ -9,7 +9,7 @@ const Footer = ({ footer }) => {
       <div className="container">
         <div className="footer-container">
           <div className="footer-logo">
-            <Image img={footer.logo} />
+            <OptimizedImage img={footer.logo} width={183} height={55} />
           </div>
 
           <div className="footer-social">
@@ -20,12 +20,13 @@ const Footer = ({ footer }) => {
                 target="_blank"
                 rel="noopener noreferrer nofollow"
               >
-                <Image
+                <OptimizedImage
                   img={{
                     url: `/images/f-${social.type}.svg`,
                     alternativeText: social.type,
                   }}
-                  style={{ width: 28, height: 28 }}
+                  width={28}
+                  height={28}
                 />
               </a>
             ))}

@@ -1,4 +1,4 @@
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 import Text from "../../common/text";
 
 const UsecaseCard = ({ data, index }) => {
@@ -11,10 +11,11 @@ const UsecaseCard = ({ data, index }) => {
       data-aos-delay={200}
       data-aos-easing="ease-in-sine"
     >
-      <Image
+      <OptimizedImage
         img={data.image}
         className="usecases-icon"
-        style={{ width: 150, height: 150 }}
+        width={150}
+        height={150}
       />
       <div className="usecases-content">
         <Text className="usecases-title" type="h4">
