@@ -9,7 +9,7 @@ const Footer = ({ footer }) => {
       <div className="container">
         <div className="footer-container">
           <div className="footer-logo">
-            <OptimizedImage img={footer.logo} width={183} height={55} />
+            <OptimizedImage img={footer.logo} width={183} height={50} />
           </div>
 
           <div className="footer-social">
