@@ -5,8 +5,8 @@ import Image from "../../common/image";
 const RoadmapSection = ({ data }) => {
   return (
     <Section id="roadmap" smallTitle={data.smallTitle} title={data.title}>
-      <div className="road-container container">
-        <div className="road">
+      <div className="road-container">
+        <div className="container">
           {data.roadMapItems.map((item: any, index: number) => (
             <RoadmapItem
               key={item.id}

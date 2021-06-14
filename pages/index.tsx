@@ -23,7 +23,7 @@ const mapSections = {
   "sections.advisor-section": AdvisorSection,
   "sections.team-section": TeamSection,
   "sections.contact-section": ContactSection,
-  "sections.last-news": LatestNewsSection,
+  "sections.latest-news": LatestNewsSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
@@ -42,7 +42,7 @@ const Home = ({ pageData, latestNews, global }) => {
         const { __component, ...rest } = section;
         if (__component in mapSections && section.enable) {
           const Section = mapSections[__component];
-          if (__component === "sections.last-news")
+          if (__component === "sections.latest-news")
             return <Section key={index} data={rest} articles={latestNews} />;
           return <Section key={index} data={rest} />;
         }
