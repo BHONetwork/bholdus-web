@@ -47,9 +47,9 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
         )}
       >
         <div className="container flex flex-row items-center justify-between pt-1.5">
-          <div className="flex justify-startitems-center">
+          <div className="flex justify-start items-center">
             <CustomLink link={{ url: "/" }}>
-              <OptimizedImage img={navbar.logo} width={183} height={55} />
+              <OptimizedImage img={navbar.logo} width={183} height={50} />
             </CustomLink>
           </div>
           <div className="flex flex-row items-center justify-end">
