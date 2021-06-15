@@ -39,6 +39,7 @@ const TeamProfile = ({ data, index }) => {
                       }}
                       width={28}
                       height={28}
+                      layout="intrinsic"
                     />
                   </a>
                 </li>

@@ -5,7 +5,6 @@ import "intl-pluralrules";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-import Layout from "../components/layout";
 import DefaultSeo from "../components/elements/seo/default-seo";
 
 import { getMediaUrl } from "../utils/media";
@@ -52,13 +51,7 @@ const MyApp = ({ Component, pageProps }) => {
       />
 
       {/* Render the actual page */}
-      {router.pathname !== "/404" ? (
-        <Component {...pageProps} />
-      ) : (
-        <Layout Hero={() => null} global={global}>
-          <Component {...pageProps} />
-        </Layout>
-      )}
+      <Component {...pageProps} />
     </>
   );
 };

@@ -19,7 +19,7 @@ const LandingPageHero = ({ data }) => {
     </div>
   ) : (
     <div className="bg-hero-image">
-      <Image img={data.imageBackground} />
+      <Image img={data.imageBackground} lazy={false} />
     </div>
   );
 

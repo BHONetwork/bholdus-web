@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
-import ErrorPage from "next/error";
 
+import NotFoundPage from "./404";
 import Layout from "../components/layout";
 import LandingPageHero from "../components/sections/landing-page-hero";
 import Introduction from "../components/sections/introduction";
@@ -28,8 +28,9 @@ const mapSections = {
 
 const Home = ({ pageData, latestNews, global }) => {
   if (!pageData) {
-    return <ErrorPage statusCode={404} />;
+    return <NotFoundPage global={global} />;
   }
+
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
   return (

@@ -21,7 +21,7 @@ const PlayButton = ({ onClick }) => {
   );
 };
 
-const GreenBackground = styled("div", {
+const Background = styled("div", {
   background: "$darkGrey",
 });
 
@@ -43,7 +43,7 @@ const Introduction = ({ data }) => {
               <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
             </div>
           )}
-          <GreenBackground className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
+          <Background className="max-w-4xl p-10 md:pt-20 md:pb-20 md:pr-24 md:pl-28">
             <div className="flex flex-row items-center mb-12">
               <div
                 className="mr-2"
@@ -69,7 +69,7 @@ const Introduction = ({ data }) => {
                 </li>
               ))}
             </ul>
-          </GreenBackground>
+          </Background>
         </div>
         {data.imageBackground ? (
           <Image img={data.imageBackground} className="introduction-bg" />

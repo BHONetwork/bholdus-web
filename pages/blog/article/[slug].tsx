@@ -34,7 +34,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
     <div className="container flex flex-col">
       <div className="flex flex-col items-center mb-16">
         <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
-        <RichText children={content} />
+        <RichText className="container" children={content} />
       </div>
 
       <ShareSocials types={["facebook", "telegram"]} />
@@ -83,11 +83,7 @@ const Article = ({ article, relatedArticles, metadata, global }) => {
   const { t } = useTranslation();
 
   if (!article) {
-    return (
-      <Layout Hero={() => null} global={global}>
-        <NotFoundPage />
-      </Layout>
-    );
+    return <NotFoundPage global={global} />;
   }
 
   const Hero = () => <BlogDetailHero article={article} />;
@@ -155,7 +151,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   if (article?.relatedArticles?.random === false) {
     relatedArticles = article.relatedArticles.articles;
-  } else {
+  } else if (article) {
     relatedArticles = await fetchAPI(
       `/articles?id_nin=${article.id}&status=published&_locale=${locale}&_limit=3`
     );
