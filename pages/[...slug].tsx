@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import NotFoundPage from "./404";
 
 import Seo from "../components/elements/seo";
 import Layout from "../components/layout";
+import NotFoundPage from "./404";
 import PageHero from "../components/sections/page-hero";
 import RichTextSection from "../components/sections/rich-text-section";
 import ContentCollapsibleSection from "../components/sections/content-collapsible-section";
@@ -18,11 +18,7 @@ const mapSections = {
 
 const Page = ({ page, global }) => {
   if (!page) {
-    return (
-      <Layout Hero={() => null} global={global}>
-        <NotFoundPage />
-      </Layout>
-    );
+    return <NotFoundPage global={global} />;
   }
 
   const Hero = () => <PageHero page={page} />;

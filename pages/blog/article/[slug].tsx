@@ -83,11 +83,7 @@ const Article = ({ article, relatedArticles, metadata, global }) => {
   const { t } = useTranslation();
 
   if (!article) {
-    return (
-      <Layout Hero={() => null} global={global}>
-        <NotFoundPage />
-      </Layout>
-    );
+    return <NotFoundPage global={global} />;
   }
 
   const Hero = () => <BlogDetailHero article={article} />;
@@ -155,7 +151,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   if (article?.relatedArticles?.random === false) {
     relatedArticles = article.relatedArticles.articles;
-  } else {
+  } else if (article) {
     relatedArticles = await fetchAPI(
       `/articles?id_nin=${article.id}&status=published&_locale=${locale}&_limit=3`
     );
