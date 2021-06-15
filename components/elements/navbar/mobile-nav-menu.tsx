@@ -20,7 +20,12 @@ const MobileNavMenu = ({ navbar, closeSelf, mobileMenuIsShown }) => {
     >
       <div className="container flex flex-col ">
         <div className="flex flex-row justify-between items-center md:my-1.5 sm:my-1">
-          <OptimizedImage img={navbar.logo} width={183} height={50} />
+          <OptimizedImage
+            img={navbar.logo}
+            width={183}
+            height={50}
+            loading="eager"
+          />
 
           <button onClick={closeSelf}>
             <MdClose className="h-14 w-auto" color="#fff" />
