@@ -11,17 +11,33 @@ import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
 import "../assets/css/tailwind.css";
 import "../styles/main.scss";
+import * as ga from "../utils/ga";
 
 const MyApp = ({ Component, pageProps }) => {
+  const router = useRouter();
+
   useEffect(() => {
     AOS.init({
       duration: 600,
       once: false,
     });
-  }, []);
+
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   // Prevent Next.js behavior when it tries to render the [[...slug]] route
-  const router = useRouter();
+
   if (router.asPath === "/[[...slug]]") {
     return null;
   }
