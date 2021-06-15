@@ -34,7 +34,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
     <div className="container flex flex-col">
       <div className="flex flex-col items-center mb-16">
         <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
-        <RichText children={content} />
+        <RichText className="container" children={content} />
       </div>
 
       <ShareSocials types={["facebook", "telegram"]} />

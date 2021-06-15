@@ -7,7 +7,7 @@ import Button from "../common/button";
 import Image from "../common/image";
 import Text from "../common/text";
 
-const GreenBackground = styled("div", {
+const Background = styled("div", {
   background: "$darkGrey2",
 });
 
@@ -21,7 +21,7 @@ const BlogHero = ({ article }) => {
   return (
     <section className="container md:mt-36 mt-24">
       <div className="flex flex-row justify-center">
-        <GreenBackground className="flex flex-col justify-between p-10 lg:pt-12 lg:pb-14 lg:pr-9 lg:pl-20 w-full md:w-8/12 lg:w-2/5">
+        <Background className="flex flex-col justify-between p-10 lg:pt-12 lg:pb-14 lg:pr-9 lg:pl-20 w-full md:w-8/12 lg:w-2/5">
           <div>
             <div className="flex lg:flex-row lg:justify-between items-center flex-col mb-8">
               <div className="flex lg:flex-row flex-col-reverse items-center">
@@ -72,12 +72,13 @@ const BlogHero = ({ article }) => {
           >
             <Text color="green">{t("common:readMore")}</Text>
           </Button>
-        </GreenBackground>
+        </Background>
         <Image
           className="hidden lg:block w-3/5"
           img={article.image}
           alt="article"
           style={{ maxHeight: 400 }}
+          lazy={false}
         />
       </div>
     </section>

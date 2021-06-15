@@ -4,7 +4,7 @@ import { styled } from "../../assets/css/stitches.config";
 import { formatDate } from "../../utils/datetime";
 import Text from "../common/text";
 
-const GreenBackground = styled("div", {
+const Background = styled("div", {
   background: "$darkGrey2",
 });
 
@@ -14,7 +14,7 @@ const ArticleHero = ({ article }) => {
   return (
     <section className="container md:mt-36 mt-24">
       <div className="flex flex-row">
-        <GreenBackground className="flex flex-col items-center text-center p-10 md:pt-7 md:pb-5 md:pr-56 md:pl-56 w-full min-w-3">
+        <Background className="flex flex-col items-center text-center p-10 md:pt-7 md:pb-5 md:pr-56 md:pl-56 w-full min-w-3">
           <Text className="mb-3" size="small" weight="bold" uppercase>
             {article.topics[0].topic}
           </Text>
@@ -33,7 +33,7 @@ const ArticleHero = ({ article }) => {
               "common:articleOnDatePublished"
             )} ${formatDate(lang, article.publishedAt)}`}
           </Text>
-        </GreenBackground>
+        </Background>
       </div>
     </section>
   );

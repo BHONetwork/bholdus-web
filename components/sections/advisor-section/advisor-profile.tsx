@@ -22,6 +22,7 @@ const BoardProfile = ({ data, index }) => {
                 img={{ url: `/images/${type}.svg`, alternativeText: type }}
                 width={28}
                 height={28}
+                layout="intrinsic"
               />
             </a>
           ))}
