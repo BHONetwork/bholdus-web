@@ -8,11 +8,10 @@ jobs:
   auto-merge:
     name: Dependabot Auto Merge
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
     steps:
       - name: 'Checkout repository'
         uses: actions/checkout@v2
       - name: 'Automerge dependency updates from Dependabot'
         uses: ahmadnassri/action-dependabot-auto-merge@v2.4.0
         with:
-          github-token: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
