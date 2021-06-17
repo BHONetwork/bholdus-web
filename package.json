@@ -15,7 +15,7 @@
     "@hcaptcha/react-hcaptcha": "^0.3.6",
     "@headlessui/react": "^1.2.0",
     "@martin_hotell/rex-tils": "^2.1.1",
-    "@stitches/react": "^0.2.1",
+    "@stitches/react": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "@types/react": "17.0.9",
     "aos": "^3.0.0-beta.6",
