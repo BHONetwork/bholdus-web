@@ -7,7 +7,6 @@ import { useEffect } from "react";
 
 import DefaultSeo from "../components/elements/seo/default-seo";
 
-import { getMediaUrl } from "../utils/media";
 import { fetchAPI, getLocale } from "../utils/api";
 import "../assets/css/tailwind.css";
 import "../styles/main.scss";
@@ -57,7 +56,24 @@ const MyApp = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
         {/* Favicon */}
-        <link rel="shortcut icon" href={getMediaUrl(global.favicon.url)} />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       {/* Global site metadata. Acts as default SEO, can be overriden on a page by page basis if needed */}
