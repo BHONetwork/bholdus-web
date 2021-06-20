@@ -62,12 +62,7 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
               {navbar.links.map((navLink: any, index: number) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
-                    <Text
-                      className={classNames("px-2 py-1", {
-                        underline: index === 0,
-                      })}
-                      type="div"
-                    >
+                    <Text className={classNames("px-2 py-1")} type="div">
                       {navLink.text}
                     </Text>
                   </CustomLink>
