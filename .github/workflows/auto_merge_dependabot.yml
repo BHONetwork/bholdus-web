@@ -13,18 +13,7 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@v2
       - name: automerge
-        uses: actions/github-script@0.2.0
+        uses: ahmadnassri/action-dependabot-auto-merge@v2.3.1
         with:
-          script: |
-            github.pullRequests.createReview({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number,
-              event: 'APPROVE'
-            })
-            github.pullRequests.merge({
-              owner: context.payload.repository.owner.login,
-              repo: context.payload.repository.name,
-              pull_number: context.payload.pull_request.number
-            })
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          target: minor
+          github-token: ${{ secrets.GITHUB_TOKEN }}
