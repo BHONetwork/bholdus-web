@@ -5,7 +5,6 @@ import CustomLink from "../common/custom-link";
 import Text from "../common/text";
 
 const Footer = ({ footer }) => {
-  console.log(footer);
   return (
     <footer className={classNames("footer-wrap")}>
       <div className="container">
@@ -37,20 +36,24 @@ const Footer = ({ footer }) => {
             <Text className="footer-copyright">{footer.smallText}</Text>
           </div>
           <div className="footer-right">
-            {footer.menu.map((menu: any, index: number) => (
-              <div className="menu" key={index}>
-                <div className="menu-title">{menu.title}</div>
-                <ul className="menu-links">
-                  {menu.Links.map((link: any, lindex: number) => (
-                    <li key={lindex}>
-                      <CustomLink link={link}>
-                        <Text type="div">{link.text}</Text>
-                      </CustomLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {footer.menu.map((menu: any, index: number) => {
+              if (menu.enable)
+                return (
+                  <div className="menu" key={index}>
+                    <div className="menu-title">{menu.title}</div>
+                    <ul className="menu-links">
+                      {menu.Links.map((link: any, lindex: number) => (
+                        <li key={lindex}>
+                          <CustomLink link={link}>
+                            <Text type="div">{link.text}</Text>
+                          </CustomLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              return null;
+            })}
           </div>
         </div>
       </div>
