@@ -27,7 +27,7 @@
     "lodash": "^4.17.21",
     "lottie-web": "^5.7.11",
     "next": "^10.2.2",
-    "next-seo": "^4.25.1",
+    "next-seo": "^4.26.0",
     "next-translate": "^1.0.7",
     "postcss": "^8.3.4",
     "postcss-flexbugs-fixes": "^5.0.2",
