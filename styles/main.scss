@@ -179,10 +179,8 @@ html {
         .notification-banner-content a,
         .notification-banner-content div,
         .notification-banner-content p {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            align-items: center;
+            display: inline-block;
+            text-align: center;
             color: #fff;
         }
 
