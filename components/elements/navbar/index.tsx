@@ -9,7 +9,9 @@ import Button from "../../common/button";
 import OptimizedImage from "../../common/optimized-image";
 import LanguageSelection from "../language-selection";
 
-const Navbar = ({ navbar, supportedLocales, transparent }) => {
+import supportedLocales from "../../../i18n/localesWithLabel.json";
+
+const Navbar = ({ navbar, transparent }) => {
   const [isScrolling, setIsScrolling] = useState(false);
 
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
@@ -59,7 +61,7 @@ const Navbar = ({ navbar, supportedLocales, transparent }) => {
           </div>
           <div className="flex flex-row items-center justify-end">
             <ul className="hidden list-none xl:flex flex-row gap-4 items-baseline ml-10">
-              {navbar.links.map((navLink: any, index: number) => (
+              {navbar.links.map((navLink: any) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
                     <Text className={classNames("px-2 py-1")} type="div">

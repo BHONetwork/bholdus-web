@@ -95,11 +95,10 @@ MyApp.getInitialProps = async (ctx: any) => {
   // Fetch global settings & supported languages
   const locale = getLocale(ctx?.ctx || {});
   const global = await fetchAPI(`/global?_locale=${locale}`);
-  const supportedLocales = await fetchAPI("/i18n/locales");
 
   return {
     ...appProps,
-    pageProps: { global: { ...global, supportedLocales } },
+    pageProps: { global },
   };
 };
 
