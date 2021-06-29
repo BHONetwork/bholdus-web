@@ -14,7 +14,7 @@ const Layout = ({
   sectionClass = "",
   transparentNavbar = false,
 }) => {
-  const { navbar, footer, notificationBanner, supportedLocales } = global;
+  const { navbar, footer, notificationBanner } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
 
@@ -33,11 +33,7 @@ const Layout = ({
           />
         )}
         <div className="relative">
-          <Navbar
-            navbar={navbar}
-            supportedLocales={supportedLocales}
-            transparent={transparentNavbar}
-          />
+          <Navbar navbar={navbar} transparent={transparentNavbar} />
         </div>
       </header>
 
