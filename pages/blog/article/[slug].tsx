@@ -39,24 +39,26 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
 
       <ShareSocials types={["facebook", "telegram"]} />
 
-      <div className="flex flex-col">
-        <Text className="mb-6" size="medium" weight="bold" color="black">
-          {t("common:articleTopics")}
-        </Text>
-        <div className="flex flex-row flex-wrap">
-          {topics.map((topic: any) => (
-            <div
-              key={topic.id}
-              className="py-4 px-14 mr-2 mb-2"
-              style={{ border: "1px solid #000000", borderRadius: "2px" }}
-            >
-              <Text size="medium" color="black" weight="semiBold">
-                {topic.topic}
-              </Text>
-            </div>
-          ))}
+      {topics?.length > 0 && (
+        <div className="flex flex-col">
+          <Text className="mb-6" size="medium" weight="bold" color="black">
+            {t("common:articleTopics")}
+          </Text>
+          <div className="flex flex-row flex-wrap">
+            {topics.map((topic: any) => (
+              <div
+                key={topic.id}
+                className="py-4 px-14 mr-2 mb-2"
+                style={{ border: "1px solid #000000", borderRadius: "2px" }}
+              >
+                <Text size="medium" color="black" weight="semiBold">
+                  {topic.topic}
+                </Text>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {relatedArticles?.length > 0 && (
         <div className="flex flex-col mt-20">

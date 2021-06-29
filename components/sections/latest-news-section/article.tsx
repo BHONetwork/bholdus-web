@@ -15,9 +15,11 @@ const Article = ({ data, index }) => {
       data-aos={"fade-left"}
       data-aos-delay={index * 200}
     >
-      <Text className="mb-3" style={{ fontSize: 14 }}>
-        {data.topics[0].topic}
-      </Text>
+      {data.topics?.length > 0 && (
+        <Text className="mb-3" style={{ fontSize: 14 }}>
+          {data.topics[0].topic}
+        </Text>
+      )}
       <Text className="mb-6" type="h4">
         {data.title}
       </Text>

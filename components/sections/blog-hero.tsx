@@ -33,14 +33,16 @@ const BlogHero = ({ article }) => {
                     height: 1,
                   }}
                 />
-                <Text
-                  className="mb-2 lg:mb-0"
-                  size="small"
-                  weight="bold"
-                  uppercase
-                >
-                  {article.topics[0].topic}
-                </Text>
+                {article.topics?.length > 0 && (
+                  <Text
+                    className="mb-2 lg:mb-0"
+                    size="small"
+                    weight="bold"
+                    uppercase
+                  >
+                    {article.topics[0].topic}
+                  </Text>
+                )}
               </div>
               <Text weight="bold" style={{ fontSize: 14 }} capitalized>
                 {formatDate(lang, article.publishedAt)}

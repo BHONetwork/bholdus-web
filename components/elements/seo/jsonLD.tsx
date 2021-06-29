@@ -28,7 +28,7 @@ const BlogPostJsonLD = ({ data, url, globalSeoData }) => {
       )}
       datePublished={data.publishedAt}
       dateModified={data.updated_at}
-      authorName={[data.author.name]}
+      authorName={[data.author?.name || ""]}
       publisherName={globalSeoData.metaTitleTemplate.replace(
         "%s",
         globalSeoData.metaTitle
