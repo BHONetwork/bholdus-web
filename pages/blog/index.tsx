@@ -100,7 +100,7 @@ const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const locale = getLocale(ctx);
   const [topics, featuredArticles, pages] = await Promise.all([
-    fetchAPI(`/topics`),
+    fetchAPI(`/topics?_locale=${locale}`),
     fetchAPI(
       `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=1`
     ),

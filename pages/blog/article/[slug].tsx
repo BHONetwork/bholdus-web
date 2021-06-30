@@ -1,5 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticPaths, GetStaticProps } from "next";
+import { stringify } from "qs";
 
 import Seo from "../../../components/elements/seo";
 import Layout from "../../../components/layout";
@@ -154,9 +155,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   if (article?.relatedArticles?.random === false) {
     relatedArticles = article.relatedArticles.articles;
   } else if (article) {
-    relatedArticles = await fetchAPI(
-      `/articles?id_nin=${article.id}&status=published&_locale=${locale}&_limit=3`
-    );
+    const query = stringify({
+      id_nin: article.id,
+      status: "published",
+      _locale: locale,
+      _limit: 3,
+      "topics.id_in": article.topics.map((topic: any) => topic.id),
+    });
+    relatedArticles = await fetchAPI(`/articles?${query}`);
   }
 
   return {
