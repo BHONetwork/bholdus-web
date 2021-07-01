@@ -1,6 +1,5 @@
 [
   { "code": "en", "name": "English (en)" },
   { "code": "vi", "name": "Tiếng Việt (vi)" },
-  { "code": "ko", "name": "Korean (ko)" },
-  { "code": "ja", "name": "Japanese (ja)" }
+  { "code": "ko", "name": "Korean (ko)" }
 ]
