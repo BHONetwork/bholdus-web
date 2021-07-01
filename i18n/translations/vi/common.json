@@ -1,16 +1,16 @@
 {
-  "introduction": "Về Bholdus",
+  "introduction": "Giới thiệu",
   "getInTouchFormName": "Tên của bạn",
   "getInTouchFormEmail": "Email của bạn",
-  "getInTouchFormMessage": "Tin nhắn",
-  "getInTouchFormSendMessage": "Gửi tin nhắn",
-  "getInTouchFormThankYou": "Cảm ơn vì đã quan tâm đến Bholdus. Chúng tôi sẽ liên hệ bạn sớm!",
-  "readMore": "Đọc bài viết",
-  "blogNoArticles": "Chưa có bài viết nào. Hãy quay lại sau nhé!",
+  "getInTouchFormMessage": "Lời nhắn",
+  "getInTouchFormSendMessage": "Gửi lời nhắn",
+  "getInTouchFormThankYou": "Cảm ơn vì sự quan tâm của bạn. Chúng tôi sẽ liên lạc với bạn sớm thôi!",
+  "readMore": "Đọc thêm",
+  "blogNoArticles": "Hiên chưa có bài viết nào cả! Xin hãy quay lại sau",
   "articleByAuthor": "Viết bởi",
-  "articleOnDatePublished": "vào",
-  "articleTopics": "Chủ đề",
+  "articleOnDatePublished": "vào ngày",
+  "articleTopics": "Chủ đề liên quan",
   "articleRelated": "Bài viết liên quan",
-  "thePageCannotBeFound": "Không tìm thấy trang",
-  "goBackToHomepage": "Quay về Trang chủ"
+  "thePageCannotBeFound": "Không tìm thấy trang này",
+  "goBackToHomepage": "Quay trở lại trang chủ"
 }
