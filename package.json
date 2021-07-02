@@ -31,7 +31,7 @@
     "next-translate": "^1.0.7",
     "postcss": "^8.3.4",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^6.1.0",
+    "postcss-loader": "^6.1.1",
     "postcss-nested": "5.0.5",
     "postcss-preset-env": "^6.7.0",
     "postcss-purgecss": "^2.0.3",
