@@ -1,5 +1,10 @@
 [
   { "code": "en", "name": "English (en)" },
-  { "code": "vi", "name": "Tiếng Việt (vi)" },
-  { "code": "ko", "name": "Korean (ko)" }
+  { "code": "vi", "name": "Tiếng Việt" },
+  { "code": "ko", "name": "Korean (ko)" },
+  { "code": "ja", "name": "Japanese" },
+  { "code": "id", "name": "Indonesian" },
+  { "code": "ml", "name": "Malayalam" },
+  { "code": "th", "name": "Thai" },
+  { "code": "zh-Hans-SG", "name": "Chinese (Simplified)" }
 ]

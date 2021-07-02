@@ -17,7 +17,7 @@
     "@martin_hotell/rex-tils": "^2.1.1",
     "@stitches/react": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
-    "@types/react": "17.0.9",
+    "@types/react": "17.0.13",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.2.6",
     "classnames": "^2.2.6",
@@ -31,7 +31,7 @@
     "next-translate": "^1.0.7",
     "postcss": "^8.3.4",
     "postcss-flexbugs-fixes": "^5.0.2",
-    "postcss-loader": "^6.1.0",
+    "postcss-loader": "^6.1.1",
     "postcss-nested": "5.0.5",
     "postcss-preset-env": "^6.7.0",
     "postcss-purgecss": "^2.0.3",
@@ -46,7 +46,7 @@
     "sass": "^1.35.1",
     "tailwindcss": "^2.2.4",
     "typescript": "^4.3.3",
-    "typescript": "^4.3.4",
+    "typescript": "^4.3.5",
     "yup": "^0.32.9"
   },
   "devDependencies": {

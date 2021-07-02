@@ -1,0 +1,16 @@
+{
+  "introduction": "介绍",
+  "getInTouchFormName": "你的名字",
+  "getInTouchFormEmail": "你的邮件",
+  "getInTouchFormMessage": "信息",
+  "getInTouchFormSendMessage": "发信息",
+  "getInTouchFormThankYou": "谢谢你的关注。 我们会尽快与您联系!",
+  "readMore": "阅读更多",
+  "blogNoArticles": "还没有文章！ 请稍后再回来",
+  "articleByAuthor": "经过",
+  "articleOnDatePublished": "上",
+  "articleTopics": "标记主题",
+  "articleRelated": "更多故事",
+  "thePageCannotBeFound": "找不到页面",
+  "goBackToHomepage": "返回首页"
+}
