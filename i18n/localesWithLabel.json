@@ -6,5 +6,6 @@
   { "code": "id", "name": "Indonesian" },
   { "code": "ml", "name": "Malayalam" },
   { "code": "th", "name": "Thai" },
-  { "code": "zh-Hans-SG", "name": "Chinese (Simplified)" }
+  { "code": "zh-Hans-SG", "name": "Chinese (Simplified)" },
+  { "code": "fil-PH", "name": "Filipino (Philippines)" }
 ]
