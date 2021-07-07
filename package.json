@@ -21,7 +21,7 @@
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.2.6",
     "classnames": "^2.2.6",
-    "dayjs": "^1.10.5",
+    "dayjs": "^1.10.6",
     "formik": "^2.2.6",
     "intl-pluralrules": "^1.2.2",
     "lodash": "^4.17.21",
