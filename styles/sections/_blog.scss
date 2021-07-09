@@ -1,0 +1,94 @@
+.blog-hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 96px;
+    &-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        width: 100%;
+        align-items: center;
+        @include not-tablet {
+            padding-top: 48px;
+            padding-bottom: 56px;
+            padding-left: 80px;
+            padding-right: 36px;
+        }
+
+        > a {
+            max-width: 300px;
+            width: 100%;
+        }
+    }
+    &-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 32px;
+        @include not-tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+    &-topic {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        @include not-tablet {
+            flex-direction: row;
+        }
+        &-text {
+            margin-bottom: 8px;
+            font-size: $font-size-small;
+            font-weight: $font-weights-bold;
+            text-transform: uppercase;
+            @include not-tablet {
+                margin-bottom: 0;
+            }
+        }
+        &-time {
+            font-weight: $font-weights-bold;
+            font-size: 14px;
+        }
+        &-title {
+            color: #fff;
+            font-weight: $font-weights-bold;
+            margin-bottom: 20px;
+            -webkit-line-clamp: 1;
+            text-align: center;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            @include not-tablet {
+                text-align: left;
+            }
+        }
+        &-description {
+            margin-bottom: 36px;
+            height: 80px;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            @include not-tablet {
+                text-align: left;
+            }
+        }
+    }
+    .line {
+        display: block;
+        margin-bottom: 16px;
+        background-color: #fff;
+        width: 40px;
+        height: 1px;
+        @include not-tablet {
+            margin-right: 8px;
+            margin-bottom: 0;
+        }
+    }
+}

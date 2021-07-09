@@ -19,70 +19,63 @@ const BlogHero = ({ article }) => {
   }
 
   return (
-    <section className="container md:mt-36 mt-24">
-      <div className="flex flex-row justify-center">
-        <Background className="flex flex-col justify-between p-10 lg:pt-12 lg:pb-14 lg:pr-9 lg:pl-20 w-full md:w-8/12 lg:w-2/5">
-          <div>
-            <div className="flex lg:flex-row lg:justify-between items-center flex-col mb-8">
-              <div className="flex lg:flex-row flex-col-reverse items-center">
-                <div
-                  className="block lg:mr-2 lg:mb-0 mb-4"
-                  style={{
-                    backgroundColor: "white",
-                    width: 40,
-                    height: 1,
-                  }}
-                />
-                {article.topics?.length > 0 && (
-                  <Text
-                    className="mb-2 lg:mb-0"
-                    size="small"
-                    weight="bold"
-                    uppercase
-                  >
-                    {article.topics[0].topic}
-                  </Text>
-                )}
-              </div>
-              <Text weight="bold" style={{ fontSize: 14 }} capitalized>
-                {formatDate(lang, article.publishedAt)}
-              </Text>
+    <section className="container blog-hero">
+      <Background className="blog-hero-left">
+        <div className="blog-hero-content">
+          <div className="blog-hero-header">
+            <div className="blog-hero-topic">
+              <div className="line" />
+              {article.topics?.length > 0 && (
+                <Text
+                  className="blog-hero-topic-text"
+                  size="small"
+                  weight="bold"
+                  uppercase
+                >
+                  {article.topics[0].topic}
+                </Text>
+              )}
             </div>
             <Text
-              className="mb-5 oneline-text multiline-ellipsi text-center lg:text-left"
-              color="white"
+              className="blog-hero-topic-time"
               weight="bold"
-              style={{ fontSize: 30 }}
+              style={{ fontSize: 14 }}
+              capitalized
             >
-              {article.title}
-            </Text>
-            <Text
-              className="mb-9 h-20 threeline-text multiline-ellipsi text-center lg:text-left"
-              type="p"
-            >
-              {article.description}
+              {formatDate(lang, article.publishedAt)}
             </Text>
           </div>
-          <Button
-            isLink
-            button={{
-              url: `/blog/article/${article.slug}`,
-              newTab: false,
-            }}
-            buttonType="secondary"
-            border="rounded"
+          <Text
+            className="blog-hero-topic-title"
+            color="white"
+            weight="bold"
+            style={{ fontSize: 30 }}
           >
-            <Text color="green">{t("common:readMore")}</Text>
-          </Button>
-        </Background>
-        <Image
-          className="hidden lg:block w-3/5"
-          img={article.image}
-          alt="article"
-          style={{ maxHeight: 400 }}
-          lazy={false}
-        />
-      </div>
+            {article.title}
+          </Text>
+          <Text className="blog-hero-topic-description" type="p">
+            {article.description}
+          </Text>
+        </div>
+        <Button
+          isLink
+          button={{
+            url: `/blog/article/${article.slug}`,
+            newTab: false,
+          }}
+          buttonType="secondary"
+          border="rounded"
+        >
+          <Text color="green">{t("common:readMore")}</Text>
+        </Button>
+      </Background>
+      <Image
+        className="hidden lg:block"
+        img={article.image}
+        alt="article"
+        style={{ maxHeight: 400 }}
+        lazy={false}
+      />
     </section>
   );
 };
