@@ -1,0 +1,16 @@
+{
+  "introduction": "Introduction",
+  "getInTouchFormName": "Votre nom",
+  "getInTouchFormEmail": "Votre email",
+  "getInTouchFormMessage": "Message",
+  "getInTouchFormSendMessage": "Envoyer un message",
+  "getInTouchFormThankYou": "Merci de votre intérêt. Nous vous contacterons bientôt!",
+  "readMore": "Savoir plus",
+  "blogNoArticles": "Aucun article pour le moment! Veuillez revenir plus tard",
+  "articleByAuthor": "Par",
+  "articleOnDatePublished": " ",
+  "articleTopics": "Thème lié",
+  "articleRelated": "Plus de nouvelles",
+  "thePageCannotBeFound": "Cette page est introuvable",
+  "goBackToHomepage": "Revenir à la page d’accueil"
+}
