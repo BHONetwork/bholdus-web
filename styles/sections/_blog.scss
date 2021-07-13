@@ -194,6 +194,9 @@
         flex-direction: row;
         align-items: flex-start;
         justify-content: flex-start;
+        @include mobile-only {
+            justify-content: center;
+        }
     }
 
     &-item {
@@ -201,25 +204,44 @@
         position: relative;
         flex-direction: column;
         text-align: left;
-        max-width: 320px;
+        max-width: 384px;
         margin: 10px;
         overflow: hidden;
-
         @include mobile-only {
             max-width: 220px;
+            margin: 5px;
+        }
+
+        @include tablet {
+            max-width: 220px;
+            margin: 5px;
+        }
+
+        @include desktop {
+            max-width: 300px;
         }
 
         &-cover {
-            height: 220px;
-            width: 320px;
+            height: 288px;
+            width: 384px;
             display: block;
             overflow: hidden;
             position: relative;
             margin-bottom: 12px;
 
             @include mobile-only {
-                height: 150px;
+                height: 165px;
                 width: 220px;
+            }
+
+            @include tablet {
+                height: 165px;
+                width: 220px;
+            }
+
+            @include desktop {
+                height: 200px;
+                max-width: 300px;
             }
         }
 
