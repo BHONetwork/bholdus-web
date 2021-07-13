@@ -12,36 +12,40 @@ const ArticleHero = ({ article }) => {
   const { t, lang } = useTranslation();
 
   return (
-    <section className="container md:mt-36 mt-24">
-      <div className="flex flex-row">
-        <Background className="flex flex-col items-center text-center p-10 md:pt-7 md:pb-5 md:pr-56 md:pl-56 w-full min-w-3">
-          {article.topics?.length > 0 && (
-            <Text className="mb-3" size="small" weight="bold" uppercase>
-              {article.topics[0].topic}
-            </Text>
-          )}
-          <Text className="md:mb-14 mb-4" type="h1">
-            {article.title}
+    <section className="container blog-hero-detail">
+      <Background className="blog-hero-detail-wrap">
+        {article.topics?.length > 0 && (
+          <Text
+            className="blog-hero-detail-topic"
+            size="small"
+            weight="bold"
+            uppercase
+          >
+            {article.topics[0].topic}
           </Text>
-          <Text className="md:mb-14 mb-8" type="p">
-            {article.description}
-          </Text>
-          <div
-            className="mb-10"
-            style={{ backgroundColor: "white", width: 40, height: 1 }}
-          />
-          <Text className="md:mb-5" type="p" capitalized={!article.author}>
-            {`${
-              article.author
-                ? `${t("common:articleByAuthor")} ${article.author.name} `
-                : ""
-            }${t("common:articleOnDatePublished")} ${formatDate(
-              lang,
-              article.publishedAt
-            )}`}
-          </Text>
-        </Background>
-      </div>
+        )}
+        <Text className="blog-hero-detail-title" type="h1">
+          {article.title}
+        </Text>
+        <Text className="blog-hero-detail-description" type="p">
+          {article.description}
+        </Text>
+        <div className="blog-hero-detail-line" />
+        <Text
+          className="blog-hero-detail-meta"
+          type="p"
+          capitalized={!article.author}
+        >
+          {`${
+            article.author
+              ? `${t("common:articleByAuthor")} ${article.author.name} `
+              : ""
+          }${t("common:articleOnDatePublished")} ${formatDate(
+            lang,
+            article.publishedAt
+          )}`}
+        </Text>
+      </Background>
     </section>
   );
 };
