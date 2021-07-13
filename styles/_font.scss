@@ -1,0 +1,74 @@
+  /* titillium-web-italic - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../assets/fonts/Titillium-RegularItalic.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/Titillium-RegularItalic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/Titillium-RegularItalic.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/Titillium-RegularItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/Titillium-RegularItalic.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }
+  /* titillium-web-regular - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../assets/fonts/Titillium-Regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/Titillium-Regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/Titillium-Regular.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/Titillium-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/Titillium-Regular.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }
+//   /* titillium-web-600 - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }
+  /* titillium-web-600italic - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 600;
+    src: url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/titillium-web-v10-latin-ext_latin-600italic.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }
+  /* titillium-web-700 - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/fonts/Titillium-Bold.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/Titillium-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/Titillium-Bold.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/Titillium-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/Titillium-Bold.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }
+  /* titillium-web-700italic - latin-ext_latin */
+  @font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 700;
+    src: url('../assets/fonts/Titillium-BoldItalic.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../assets/fonts/Titillium-BoldItalic.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../assets/fonts/Titillium-BoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('../assets/fonts/Titillium-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../assets/fonts/Titillium-BoldItalic.svg#TitilliumWeb') format('svg'); /* Legacy iOS */
+  }

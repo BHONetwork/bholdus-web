@@ -18,12 +18,15 @@ const LocalArticle = ({ article, translation }) => {
   const { lang } = translation;
   const { title, description, image, publishedAt } = article;
   return (
-    <div className="flex flex-col text-left">
-      <Image className="mb-3" img={image} style={{ maxHeight: 300 }} />
-      <Text className="mb-3" color="black" weight="bold">
+    <div className="blog-article-item">
+      <div className="blog-article-item-cover">
+        <Image className="blog-article-item-image" img={image} />
+      </div>
+
+      <Text className="blog-article-item-title" color="black" weight="bold">
         {title}
       </Text>
-      <Text className="mb-3" color="black">
+      <Text className="blog-article-item-description" color="black">
         {description}
       </Text>
       <Text color="black" weight="bold" style={{ fontSize: 14 }} capitalized>
@@ -35,18 +38,15 @@ const LocalArticle = ({ article, translation }) => {
 
 const LocalArticles = ({ topic, articles, className = "", translation }) => {
   return (
-    <div className={classNames("flex flex-col", className)}>
-      <div className="flex flex-row items-center mb-7">
-        <div
-          className="mr-2"
-          style={{ backgroundColor: "#00B871", width: 40, height: 1 }}
-        />
+    <div className={classNames("blog-article", className)}>
+      <div className="blog-article-category">
+        <div className="blog-article-line" />
         <Text size="small" weight="bold" uppercase color="green">
           {topic}
         </Text>
       </div>
 
-      <div className="md:grid lg:grid-cols-3 md:grid-cols-2 lg:gap-6 md:gap-4 flex flex-col md:space-y-0 space-y-10">
+      <div className="blog-article-items">
         {articles.map((article: any) => (
           <CustomLink
             key={article.id}
@@ -76,7 +76,6 @@ const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
               return (
                 <LocalArticles
                   key={index}
-                  className="md:mb-20 mb-10 last:mb-0"
                   topic={topic}
                   articles={articlesByTopic[topic]}
                   translation={translation}

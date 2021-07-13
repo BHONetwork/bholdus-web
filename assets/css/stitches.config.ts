@@ -32,7 +32,7 @@ export const { styled, css, global, keyframes, getCssString, theme } =
       },
       fontWeights: {
         normal: 300,
-        semiBold: 600,
+        semiBold: 700,
         bold: 700,
       },
       letterSpacings: {
