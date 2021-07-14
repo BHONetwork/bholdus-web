@@ -25,7 +25,7 @@
     "formik": "^2.2.6",
     "intl-pluralrules": "^1.2.2",
     "lodash": "^4.17.21",
-    "lottie-web": "^5.7.11",
+    "lottie-web": "^5.7.12",
     "next": "^11.0.1",
     "next-seo": "^4.26.0",
     "next-translate": "^1.0.7",
