@@ -1,0 +1,101 @@
+.navbar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    border-bottom-width: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom-right-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+
+    &-primary {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+        &-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 6px;
+        }
+    }
+    &-second {
+        height: 40px;
+        background-color: transparent;
+        border-bottom: 1px solid #333853;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mobile-only {
+            display: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        &-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &-left{
+            margin-left: -15px;
+        }
+
+        &-right {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &-links {
+            display: flex;
+            flex-direction: row;
+            margin-right: 10px;
+            > li {
+                margin: 0 5px;
+            }
+        }
+
+        &-link {
+            color: rgba(255,255,255, 1) !important;
+            font-weight: $font-weights-bold !important;
+        }
+        &-socials {
+            display: flex;
+            flex-direction: row;
+            > a {
+                margin: 0 5px;
+            }
+        }
+    }
+
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1f2641;
+    z-index: 21;
+    // border-bottom: 1px solid #333853;
+    transition-property: background-color, border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 400ms;
+
+}

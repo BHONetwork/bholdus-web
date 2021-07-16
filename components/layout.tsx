@@ -3,6 +3,8 @@ import classNames from "classnames";
 
 import Navbar from "./elements/navbar";
 import Footer from "./elements/footer";
+import Announcement from "./elements/announcement";
+
 import NotificationBanner from "./elements/notification-banner";
 
 const Layout = ({
@@ -14,14 +16,15 @@ const Layout = ({
   sectionClass = "",
   transparentNavbar = false,
 }) => {
-  const { navbar, footer, notificationBanner } = global;
+  console.log(global);
+  const { subnav, navbar, footer, notificationBanner, announcement } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
 
   return (
     <div
       className={classNames(
-        "flex flex-col justify-between min-h-screen overflow-hidden",
+        "flex flex-col justify-between min-h-screen overflow-hidden position-relative",
         containerClass
       )}
     >
@@ -33,7 +36,11 @@ const Layout = ({
           />
         )}
         <div className="relative">
-          <Navbar navbar={navbar} transparent={transparentNavbar} />
+          <Navbar
+            navbar={navbar}
+            subnav={subnav}
+            transparent={transparentNavbar}
+          />
         </div>
       </header>
 
@@ -46,6 +53,7 @@ const Layout = ({
       </main>
 
       <Footer footer={footer} />
+      <Announcement data={announcement} />
     </div>
   );
 };
