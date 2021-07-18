@@ -16,7 +16,6 @@ const Layout = ({
   sectionClass = "",
   transparentNavbar = false,
 }) => {
-  console.log(global);
   const { subnav, navbar, footer, notificationBanner, announcement } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);

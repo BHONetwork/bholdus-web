@@ -32,11 +32,11 @@
     &-second {
         height: 40px;
         background-color: transparent;
-        border-bottom: 1px solid #333853;
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
-
+        border: none;
         @include mobile-only {
             display: none;
         }
@@ -98,4 +98,7 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 400ms;
 
+    .navbar-second {
+        border-bottom: 1px solid #333853;
+    }
 }
