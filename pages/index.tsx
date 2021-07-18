@@ -12,7 +12,8 @@ import AdvisorSection from "../components/sections/advisor-section";
 import TeamSection from "../components/sections/team-section";
 import LatestNewsSection from "../components/sections/latest-news-section";
 import ContactSection from "../components/sections/contact-section";
-
+import PartnerSection from "../components/sections/partner-section";
+import PressSection from "../components/sections/press-section";
 import { fetchAPI, getLocale } from "../utils/api";
 
 const mapSections = {
@@ -24,13 +25,14 @@ const mapSections = {
   "sections.team-section": TeamSection,
   "sections.contact-section": ContactSection,
   "sections.latest-news": LatestNewsSection,
+  "sections.partner-section": PartnerSection,
+  "sections.press-section": PressSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
   if (!pageData) {
     return <NotFoundPage global={global} />;
   }
-
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
   return (
