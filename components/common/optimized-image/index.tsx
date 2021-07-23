@@ -11,30 +11,32 @@ const OptimizedImage = (props: ImageProps) => {
     height,
     ...restProps
   } = props;
+  if (img?.url) {
+    if (layout === "fill" || !width || !height) {
+      return (
+        <NextImage
+          className={classNames(className)}
+          src={img.url}
+          alt={img.alternativeText}
+          layout="fill"
+          {...restProps}
+        />
+      );
+    }
 
-  if (layout === "fill" || !width || !height) {
     return (
       <NextImage
         className={classNames(className)}
         src={img.url}
         alt={img.alternativeText}
-        layout="fill"
+        width={width}
+        height={height}
+        layout={layout}
         {...restProps}
       />
     );
   }
-
-  return (
-    <NextImage
-      className={classNames(className)}
-      src={img.url}
-      alt={img.alternativeText}
-      width={width}
-      height={height}
-      layout={layout}
-      {...restProps}
-    />
-  );
+  return null;
 };
 
 export default OptimizedImage;
