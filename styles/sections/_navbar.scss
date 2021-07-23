@@ -52,7 +52,7 @@
             justify-content: space-between;
         }
 
-        &-left{
+        &-left {
             margin-left: -15px;
         }
 
@@ -71,7 +71,7 @@
         }
 
         &-link {
-            color: rgba(255,255,255, 1) !important;
+            color: rgba(255, 255, 255, 1) !important;
             font-weight: $font-weights-bold !important;
         }
         &-socials {
@@ -83,7 +83,103 @@
         }
     }
 
+    &-mobile {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: $bg-color;
+        z-index: 300;
+        padding: 10px;
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 400ms;
 
+        &-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+            justify-content: space-between;
+        }
+        &-logo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 6px 0;
+            @include mobile-only {
+                margin: 4px 0;
+            }
+        }
+        &-close {
+            height: 50px;
+            width: auto;
+        }
+
+        &-menu {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px 40px 0 40px;
+            > ul {
+                display: flex;
+                flex-direction: column;
+                list-style-type: none;
+                align-items: baseline;
+                margin-bottom: 10px;
+                li {
+                    width: 100%;
+                }
+            }
+
+            &-item {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                &:hover {
+                    --tw-text-opacity: 1;
+                    color: rgba(17, 24, 39, var(--tw-text-opacity));
+                }
+                padding: 20px;
+                @include mobile-only {
+                    padding: 9% 0;
+                }
+                
+                
+            }
+        }
+        &-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar-second {
+            border: none !important;
+            @include mobile-only {
+                display: flex;
+            }
+            @include tablet {
+                display: flex;
+            }
+
+            .navbar-second-socials {
+                position: absolute;
+                bottom: 50px;
+                left: 0;
+                right: 0;
+                align-items: center;
+                justify-content: center;
+                a {
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
 }
 
 .sticky {
