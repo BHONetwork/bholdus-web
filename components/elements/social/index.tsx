@@ -15,7 +15,8 @@ const Social = ({ className, social }) => {
   if (social?.length === 0) return null;
   const groupSocial = groupByKey(social, "type");
   // eslint-disable-next-line array-callback-return
-  const socialRender = Object.entries(groupSocial).map(([key, group]) => {
+  const socialRender = Object.keys(groupSocial).map((key) => {
+    const group = groupSocial[key];
     if (group.length === 1) {
       return (
         <a
