@@ -55,7 +55,7 @@ const MobileNavMenu = ({ navbar, subnav, closeSelf, mobileMenuIsShown }) => {
           )}
         </div>
 
-        <SubNav subnav={subnav} />
+        <SubNav subnav={subnav} popoverPossition="top" />
       </div>
     </div>
   );

@@ -1,0 +1,16 @@
+
+.social-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    li {
+        width: 100%;
+    }
+}
+.social-popover {
+    &-content {
+        background-color:$bg-white;
+    }
+}

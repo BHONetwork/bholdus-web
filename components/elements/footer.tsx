@@ -3,6 +3,7 @@ import classNames from "classnames";
 import OptimizedImage from "../common/optimized-image";
 import CustomLink from "../common/custom-link";
 import Text from "../common/text";
+import Social from "./social";
 
 const Footer = ({ footer }) => {
   return (
@@ -13,26 +14,11 @@ const Footer = ({ footer }) => {
             <div className="footer-logo">
               <OptimizedImage img={footer.logo} width={183} height={50} />
             </div>
-
-            <div className="footer-social">
-              {footer.socials.map((social: any) => (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                >
-                  <OptimizedImage
-                    img={{
-                      url: `/images/f-${social.type}.svg`,
-                      alternativeText: social.type,
-                    }}
-                    width={28}
-                    height={28}
-                  />
-                </a>
-              ))}
-            </div>
+            <Social
+              className="footer-social"
+              social={footer.socials}
+              position="top"
+            />
             <Text className="footer-copyright">{footer.smallText}</Text>
           </div>
           <div className="footer-right">

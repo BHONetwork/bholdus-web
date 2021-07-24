@@ -1,0 +1,105 @@
+.popover-container {
+  position: relative;
+
+  .popover {
+    &-box {
+      position: absolute;
+      background-color: transparent;
+    }
+
+    &.right {
+      .popover {
+        &-box {
+          inset: 0px auto auto 0px;
+          transform: translate3d(28px, -23px, 0px);
+        }
+      }
+    }
+
+    &.left {
+      .popover {
+        &-box {
+          inset: 0px 0px auto auto;
+          transform: translate3d(-28px, -2px, 0px);
+        }
+      }
+    }
+   
+    &.top {
+      .popover {
+        &-box {
+          inset: auto auto 0px 0px;
+          transform: translate3d(-86px, -34px, 0px);
+        }
+        &-content {
+          margin-bottom: 12px;
+          &:after {
+            top: 100%;
+            left: 50%;
+            border-top-color: #fff;
+            margin-left: -10px;
+          }
+          &:before {
+            top: 100%;
+            left: 50%;
+            border-top-color: #fff;
+            margin-left: -11px;
+          }
+        }
+      }
+    }
+
+    &.bottom {
+      .popover {
+        &-box {
+          inset: 0px auto auto 0px;
+          transform: translate3d(-86px, 34px, 0px);
+        }
+        &-content {
+          margin-top: 12px;
+          &:after {
+            bottom: 100%;
+            left: 50%;
+            border-bottom-color: #fff;
+            margin-left: -10px;
+          }
+          &:before {
+            bottom: 100%;
+            left: 50%;
+            border-bottom-color: #fff;
+            margin-left: -11px;
+          }
+        }
+      }
+    }
+
+    &-content {
+      width: 200px;
+      position: relative;
+      border: 1px solid white;
+      background-color: white;
+      padding: 20px;
+      &:after {
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(136, 183, 213, 0);
+        border-width: 5px;
+      }
+
+      &:before {
+        border: solid transparent;
+        content: "";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(194, 225, 245, 0);
+        border-width: 11px;
+      }
+    }
+  }
+}

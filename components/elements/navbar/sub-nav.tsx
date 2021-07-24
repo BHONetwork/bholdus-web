@@ -5,8 +5,9 @@ import Text from "../../common/text";
 import LanguageSelection from "../language-selection";
 import supportedLocales from "../../../i18n/localesWithLabel.json";
 import OptimizedImage from "../../common/optimized-image";
+import Social from "../social";
 
-const renderSubNav = ({ subnav }) => {
+const renderSubNav = ({ subnav, popoverPossition = "bottom" }) => {
   if (subnav?.enable)
     return (
       <nav className="navbar-second">
@@ -31,25 +32,11 @@ const renderSubNav = ({ subnav }) => {
                 </li>
               ))}
             </ul>
-            <div className="navbar-second-socials">
-              {subnav.social.map((social: any) => (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer nofollow"
-                >
-                  <OptimizedImage
-                    img={{
-                      url: `/images/f-${social.type}.svg`,
-                      alternativeText: social.type,
-                    }}
-                    width={28}
-                    height={28}
-                  />
-                </a>
-              ))}
-            </div>
+            <Social
+              className="navbar-second-socials"
+              social={subnav.social}
+              position={popoverPossition}
+            />
           </div>
         </div>
       </nav>

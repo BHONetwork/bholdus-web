@@ -1,6 +1,8 @@
 @import "font";
 @import "vars";
 @import "mixin";
+@import "elements/popover";
+@import "elements/social";
 @import "sections/navbar";
 @import "sections/announcement";
 @import "sections/hero";
@@ -17,6 +19,7 @@
 @import "sections/partner";
 @import "sections/blog";
 @import "sections/footer";
+
 @import "markdown";
 @import "aos/dist/aos.css";
 
@@ -266,5 +269,6 @@ html {
         .page-min-h {
             min-height: calc(100vh - 150px);
         }
+        
     }
 }
