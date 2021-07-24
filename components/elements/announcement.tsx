@@ -4,7 +4,10 @@ import OptimizedImage from "../common/optimized-image";
 const Announcement = ({ data, show }) => {
   if (data?.enable && show)
     return (
-      <div className={classNames("announcement")}>
+      <div
+        className={classNames("announcement")}
+        style={{ marginLeft: -(data.width / 2) }}
+      >
         <div className="container">
           <div className="announcement-container">
             <div className="announcement-image">
