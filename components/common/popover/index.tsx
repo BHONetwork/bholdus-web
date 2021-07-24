@@ -8,6 +8,7 @@ const PopOver = ({ children, button }) => {
   const [popperElement, setPopperElement] = useState(null);
   const [arrowElement, setArrowElement] = useState(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
+    placement: "top",
     modifiers: [
       { name: "arrow", options: { element: arrowElement } },
       {
