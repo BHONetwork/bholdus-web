@@ -48,7 +48,7 @@ const Navbar = ({ navbar, subnav, transparent, showAnnouncement }) => {
         }
       )}
     >
-      <SubNav subnav={subnav} popoverPossition="bottom" />
+      <SubNav subnav={subnav} />
       <nav className={classNames("navbar-primary")}>
         <div className="container navbar-primary-container">
           <div className="flex justify-start items-center">

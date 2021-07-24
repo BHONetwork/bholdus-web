@@ -14,11 +14,7 @@ const Footer = ({ footer }) => {
             <div className="footer-logo">
               <OptimizedImage img={footer.logo} width={183} height={50} />
             </div>
-            <Social
-              className="footer-social"
-              social={footer.socials}
-              position="top"
-            />
+            <Social className="footer-social" social={footer.socials} />
             <Text className="footer-copyright">{footer.smallText}</Text>
           </div>
           <div className="footer-right">

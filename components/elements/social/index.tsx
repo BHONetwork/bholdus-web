@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { useEffect, useState } from "react";
 import OptimizedImage from "../../common/optimized-image";
 import PopOver from "../../common/popover";
 
@@ -12,7 +11,7 @@ const groupByKey = (list, key) =>
     {}
   );
 
-const Social = ({ className, social, position }) => {
+const Social = ({ className, social }) => {
   if (social?.length === 0) return null;
   const groupSocial = groupByKey(social, "type");
   // eslint-disable-next-line array-callback-return
@@ -47,17 +46,24 @@ const Social = ({ className, social, position }) => {
       />
     );
     return (
-      <PopOver key={key} button={buttonSocial} position={position}>
-        <ul className="">
+      <PopOver key={key} button={buttonSocial}>
+        <div className="social-urls">
           {group.map((social) => (
-            <li>{social.title}</li>
+            <a
+              key={key}
+              href={group[0].url}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
+              {social.title}
+            </a>
           ))}
-        </ul>
+        </div>
       </PopOver>
     );
   });
   return (
-    <ul className={classNames("social-list", className)}>{socialRender} </ul>
+    <div className={classNames("social-list", className)}>{socialRender} </div>
   );
 };
 

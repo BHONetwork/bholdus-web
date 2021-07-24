@@ -4,10 +4,9 @@ import CustomLink from "../../common/custom-link";
 import Text from "../../common/text";
 import LanguageSelection from "../language-selection";
 import supportedLocales from "../../../i18n/localesWithLabel.json";
-import OptimizedImage from "../../common/optimized-image";
 import Social from "../social";
 
-const renderSubNav = ({ subnav, popoverPossition = "bottom" }) => {
+const renderSubNav = ({ subnav }) => {
   if (subnav?.enable)
     return (
       <nav className="navbar-second">
@@ -32,11 +31,7 @@ const renderSubNav = ({ subnav, popoverPossition = "bottom" }) => {
                 </li>
               ))}
             </ul>
-            <Social
-              className="navbar-second-socials"
-              social={subnav.social}
-              position={popoverPossition}
-            />
+            <Social className="navbar-second-socials" social={subnav.social} />
           </div>
         </div>
       </nav>
