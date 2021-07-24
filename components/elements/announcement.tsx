@@ -1,8 +1,8 @@
 import classNames from "classnames";
 
 import OptimizedImage from "../common/optimized-image";
-const Announcement = ({ data }) => {
-  if (data?.enable)
+const Announcement = ({ data, show }) => {
+  if (data?.enable && show)
     return (
       <div className={classNames("announcement")}>
         <div className="container">

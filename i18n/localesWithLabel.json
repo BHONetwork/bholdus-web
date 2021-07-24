@@ -1,12 +1,12 @@
 [
-  { "code": "en", "name": "English (en)" },
+  { "code": "en", "name": "English" },
   { "code": "vi", "name": "Tiếng Việt" },
-  { "code": "fr-FR", "name": "French" },
-  { "code": "ko", "name": "Korean (ko)" },
-  { "code": "ja", "name": "Japanese" },
-  { "code": "id", "name": "Indonesian" },
-  { "code": "ml", "name": "Malayalam" },
-  { "code": "th", "name": "Thai" },
-  { "code": "zh-Hans-SG", "name": "Chinese (Simplified)" },
-  { "code": "fil-PH", "name": "Filipino (Philippines)" }
+  { "code": "fr-FR", "name": "Français" },
+  { "code": "ko", "name": "한국어" },
+  { "code": "ja", "name": "日本語" },
+  { "code": "id", "name": "Bahasa Indonesia" },
+  { "code": "ml", "name": "മലയാളം" },
+  { "code": "th", "name": "ไทย" },
+  { "code": "zh-Hans-SG", "name": "中国人" },
+  { "code": "fil-PH", "name": "Filipino" }
 ]

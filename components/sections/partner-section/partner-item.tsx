@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import OptimizedImage from "../../common/optimized-image";
 const PartnerItem = ({ data, index }) => {
   return (

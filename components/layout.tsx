@@ -19,7 +19,7 @@ const Layout = ({
   const { subnav, navbar, footer, notificationBanner, announcement } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
-
+  const [announcementIsShown, setAnnouncementIsShown] = useState(true);
   return (
     <div
       className={classNames(
@@ -39,6 +39,7 @@ const Layout = ({
             navbar={navbar}
             subnav={subnav}
             transparent={transparentNavbar}
+            showAnnouncement={(show) => setAnnouncementIsShown(show)}
           />
         </div>
       </header>
@@ -52,7 +53,7 @@ const Layout = ({
       </main>
 
       <Footer footer={footer} />
-      <Announcement data={announcement} />
+      <Announcement data={announcement} show={announcementIsShown} />
     </div>
   );
 };
