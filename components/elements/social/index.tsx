@@ -52,7 +52,7 @@ const Social = ({ className, social }) => {
           {group.map((social) => (
             <a
               key={key}
-              href={group[0].url}
+              href={social.url}
               target="_blank"
               rel="noopener noreferrer nofollow"
             >
