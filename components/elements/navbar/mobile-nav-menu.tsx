@@ -29,7 +29,7 @@ const MobileNavMenu = ({ navbar, subnav, closeSelf, mobileMenuIsShown }) => {
               <MdClose className="navbar-mobile-close" color="#fff" />
             </button>
           </div>
-
+          <SubNav subnav={subnav} />
           <div className="navbar-mobile-menu">
             <ul className="flex flex-col list-none items-baseline mb-10">
               {navbar.links.map((navLink: any) => (
@@ -54,8 +54,6 @@ const MobileNavMenu = ({ navbar, subnav, closeSelf, mobileMenuIsShown }) => {
             </div>
           )}
         </div>
-
-        <SubNav subnav={subnav} />
       </div>
     </div>
   );
