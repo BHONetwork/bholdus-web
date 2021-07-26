@@ -17,6 +17,16 @@ const Navbar = ({ navbar, subnav, transparent, showAnnouncement }) => {
 
   const [mobileMenuIsShown, setMobileMenuIsShown] = useState(false);
 
+  const showMobileMenu = (show) => {
+    if (show) {
+      document.querySelector("body").classList.add("overflow-hidden");
+    } else {
+      document.querySelector("body").classList.remove("overflow-hidden");
+    }
+    setMobileMenuIsShown(show);
+    showAnnouncement(!show);
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const windowsScrollTop = window.pageYOffset;
@@ -78,10 +88,7 @@ const Navbar = ({ navbar, subnav, transparent, showAnnouncement }) => {
             )}
             {/* Hamburger menu on small screens */}
             <button
-              onClick={() => {
-                setMobileMenuIsShown(true);
-                showAnnouncement(false);
-              }}
+              onClick={() => showMobileMenu(true)}
               className="p-1 block lg:hidden"
               aria-label="hamburger-menu"
             >
@@ -102,10 +109,7 @@ const Navbar = ({ navbar, subnav, transparent, showAnnouncement }) => {
       <MobileNavMenu
         navbar={navbar}
         subnav={subnav}
-        closeSelf={() => {
-          setMobileMenuIsShown(false);
-          showAnnouncement(true);
-        }}
+        closeSelf={() => showMobileMenu(false)}
         mobileMenuIsShown={mobileMenuIsShown}
       />
     </header>

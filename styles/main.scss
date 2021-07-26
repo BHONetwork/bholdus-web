@@ -48,7 +48,7 @@ html {
         padding: 0px;
         overflow-x: hidden;
         width: 100%;
-
+        background-color: $bg-color;
         @media screen and (min-width: 320px) {
             .play-button {
                 display: flex;
