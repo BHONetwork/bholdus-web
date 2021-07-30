@@ -19,9 +19,15 @@ import popularLocales from "../../../i18n/popularLocales.json";
 const LocalArticle = ({ article }) => {
   const { title, image } = article;
   return (
-    <div className="flex flex-col text-left">
-      <Image className="mb-3" img={image} style={{ maxHeight: 300 }} />
-      <Text className="mb-3" color="black" weight="bold">
+    <div className="blog-article-related-item">
+      <div className="blog-article-related-item-cover">
+        <Image className="blog-article-related-item-image" img={image} />
+      </div>
+      <Text
+        className="blog-article-related-item-title"
+        color="black"
+        weight="bold"
+      >
         {title}
       </Text>
     </div>
@@ -62,11 +68,16 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
       )}
 
       {relatedArticles?.length > 0 && (
-        <div className="flex flex-col mt-20">
-          <Text className="mb-6" size="medium" weight="bold" color="black">
+        <div className="blog-article-related">
+          <Text
+            className="blog-article-related-title"
+            size="medium"
+            weight="bold"
+            color="black"
+          >
             {t("common:articleRelated")}
           </Text>
-          <div className="lg:grid lg:grid-cols-3 lg:gap-4 flex flex-col lg:space-y-0 space-y-10">
+          <div className="blog-article-related-items">
             {relatedArticles.map((article: any) => (
               <CustomLink
                 key={article.id}

@@ -3,7 +3,11 @@
     flex-direction: row;
     justify-content: center;
     margin-top: 96px;
-
+    height: 400px;
+    img {
+        object-fit: fill;
+        height: 100%;
+    }
     &-left {
         display: flex;
         flex-direction: column;
@@ -20,7 +24,7 @@
             padding-right: 36px;
         }
 
-        >a {
+        > a {
             max-width: 300px;
             width: 100%;
         }
@@ -183,7 +187,7 @@
 
     &-line {
         margin-right: 8px;
-        background-color: #00B871;
+        background-color: #00b871;
         width: 40px;
         height: 1px;
     }
@@ -270,4 +274,91 @@
         }
     }
 
+    &-related {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5rem;
+        &-title {
+            margin-bottom: 1.5rem;
+            font-size: $font-size-medium;
+            font-weight: $font-weights-bold;
+            color: #000;
+        }
+
+        &-items {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            @include mobile-only {
+                justify-content: center;
+            }
+        }
+        &-item {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            text-align: left;
+            max-width: 384px;
+            margin: 10px;
+            overflow: hidden;
+            @include mobile-only {
+                max-width: 220px;
+                margin: 5px;
+            }
+
+            @include tablet {
+                max-width: 220px;
+                margin: 5px;
+            }
+
+            @include desktop {
+                max-width: 300px;
+            }
+
+            &-cover {
+                height: 288px;
+                width: 384px;
+                display: block;
+                overflow: hidden;
+                position: relative;
+                margin-bottom: 12px;
+
+                @include mobile-only {
+                    height: 165px;
+                    width: 220px;
+                }
+
+                @include tablet {
+                    height: 165px;
+                    width: 220px;
+                }
+
+                @include desktop {
+                    height: 200px;
+                    max-width: 300px;
+                }
+            }
+
+            .lazyload-wrapper {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            &-image {
+                object-fit: cover;
+                min-height: 100%;
+            }
+
+            &-title {
+                margin-bottom: 12px;
+                color: #000;
+                font-weight: $font-weights-bold;
+            }
+        }
+    }
 }
