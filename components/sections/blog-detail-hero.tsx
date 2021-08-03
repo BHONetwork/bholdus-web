@@ -24,7 +24,7 @@ const ArticleHero = ({ article }) => {
             {article.topics[0].topic}
           </Text>
         )}
-        <Text className="blog-hero-detail-title" type="h1">
+        <Text className="blog-hero-detail-title" type="h2">
           {article.title}
         </Text>
         <Text className="blog-hero-detail-description" type="p">

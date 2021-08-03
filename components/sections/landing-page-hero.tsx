@@ -4,24 +4,32 @@ import Image from "../common/image";
 import OptimizedImage from "../common/optimized-image";
 
 const LandingPageHero = ({ data }) => {
-  const background = data?.videoBackground?.enable ? (
-    <div className="bg-hero-video">
-      <video
-        className="lazy"
-        preload={"yes"}
-        autoPlay={true}
-        muted={true}
-        loop={true}
-        playsInline={true}
-      >
-        <source src={data.videoBackground.video_url.url} type="video/mp4" />
-      </video>
-    </div>
-  ) : (
-    <div className="bg-hero-image">
-      <Image img={data.imageBackground} lazy={false} />
-    </div>
-  );
+  const video_url = data.videoBackground?.video_url?.url
+    ? data.videoBackground.video_url.url.replace(
+        "bholdus.s3.ap-southeast-1.amazonaws.com",
+        "cdn.bholdus.com"
+      )
+    : null;
+
+  const background =
+    data?.videoBackground?.enable && video_url ? (
+      <div className="bg-hero-video">
+        <video
+          className="lazy"
+          preload={"yes"}
+          autoPlay={true}
+          muted={true}
+          loop={true}
+          playsInline={true}
+        >
+          <source src={video_url} type="video/mp4" />
+        </video>
+      </div>
+    ) : (
+      <div className="bg-hero-image">
+        <Image img={data.imageBackground} lazy={false} />
+      </div>
+    );
 
   return (
     <section className="relative z-2 min-h-screen flex-col flex">

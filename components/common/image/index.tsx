@@ -20,11 +20,18 @@ const Image = ({
   lazy = true,
   ...restProps
 }) => {
+  const url = img?.url
+    ? img.url.replace(
+        "bholdus.s3.ap-southeast-1.amazonaws.com",
+        "cdn.bholdus.com"
+      )
+    : null;
+  if (!url) return null;
   const Component = () => (
     <ImageComponent
       className={classNames(className)}
       style={{ ...style }}
-      src={img.url}
+      src={url}
       alt={img.alternativeText}
       {...restProps}
     />
