@@ -65,6 +65,7 @@ const Navbar = ({ navbar, subnav, transparent, showAnnouncement }) => {
             <CustomLink link={{ url: "/" }}>
               <OptimizedImage
                 img={navbar.logo}
+                className="navbar-primary-logo"
                 width={183}
                 height={50}
                 loading="eager"

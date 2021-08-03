@@ -28,6 +28,12 @@
             justify-content: space-between;
             padding-top: 6px;
         }
+
+        &-logo {
+            width: auto;
+            height: 53px;
+            object-fit: contain;
+        }
     }
     &-second {
         height: 40px;
