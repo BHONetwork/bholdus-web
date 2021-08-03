@@ -8,6 +8,11 @@
         object-fit: fill;
         height: 100%;
     }
+
+    @include not-tablet {
+        margin-top: 140px;
+    }
+
     &-left {
         display: flex;
         flex-direction: column;

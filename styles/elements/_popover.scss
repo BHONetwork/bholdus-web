@@ -1,5 +1,9 @@
 .popover-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   #arrow,
   #arrow::before {
     position: absolute;

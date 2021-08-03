@@ -1,6 +1,7 @@
 import classNames from "classnames";
-import NextImage from "next/image";
+// import NextImage from "next/image";
 import { ImageProps } from "./types";
+import Image from "../image";
 
 const OptimizedImage = (props: ImageProps) => {
   const {
@@ -14,27 +15,48 @@ const OptimizedImage = (props: ImageProps) => {
   if (img?.url) {
     if (layout === "fill" || !width || !height) {
       return (
-        <NextImage
-          className={classNames(className)}
-          src={img.url}
+        <Image
+          className={classNames(className, "image-fill")}
+          img={img}
           alt={img.alternativeText}
-          layout="fill"
           {...restProps}
         />
       );
     }
-
     return (
-      <NextImage
-        className={classNames(className)}
-        src={img.url}
+      <Image
+        className={classNames(className, "image-fill")}
+        img={img}
         alt={img.alternativeText}
         width={width}
         height={height}
-        layout={layout}
         {...restProps}
       />
     );
+
+    //   if (layout === "fill" || !width || !height) {
+    //     return (
+    //       <NextImage
+    //         className={classNames(className)}
+    //         src={img.url}
+    //         alt={img.alternativeText}
+    //         layout="fill"
+    //         {...restProps}
+    //       />
+    //     );
+    //   }
+
+    //   return (
+    //     <NextImage
+    //       className={classNames(className)}
+    //       src={img.url}
+    //       alt={img.alternativeText}
+    //       width={width}
+    //       height={height}
+    //       layout={layout}
+    //       {...restProps}
+    //     />
+    //   );
   }
   return null;
 };

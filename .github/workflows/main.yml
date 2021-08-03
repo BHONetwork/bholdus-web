@@ -7,7 +7,7 @@ jobs:
   build:
     name: "Build & Lint"
     runs-on: ubuntu-latest
-    if: ${{ github.actor !== 'dependabot[bot]' }}
+    if: ${{ github.actor != 'dependabot[bot]' }}
     environment: production
     strategy:
       matrix:
