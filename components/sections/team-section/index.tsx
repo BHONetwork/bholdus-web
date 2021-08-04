@@ -12,7 +12,7 @@ const TeamSection = ({ data }) => {
         ))}
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="team-bg" />
+        <Image img={data.imageBackground} classWrapName="team-bg" />
       ) : null}
     </Section>
   );

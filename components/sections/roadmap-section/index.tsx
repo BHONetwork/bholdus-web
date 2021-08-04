@@ -17,7 +17,7 @@ const RoadmapSection = ({ data }) => {
         </div>
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="road-bg" />
+        <Image img={data.imageBackground} classWrapName="road-bg" />
       ) : null}
     </Section>
   );

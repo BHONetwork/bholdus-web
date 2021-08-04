@@ -5,84 +5,84 @@
     @include not-tablet {
         padding-top: 80px;
     }
+    .usecases {
+        &-bg {
+            z-index: 0;
+            position: absolute;
+            top: 50px;
+            left: 55%;
+            transform: translateX(-50%);
+        }
+        &-element {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            @include mobile-only {
+                display: none;
+            }
+        }
+        &-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            align-items: flex-start;
+            z-index: 2;
+            @include tablet {
+                align-items: center;
+            }
+    
+            @include mobile-only {
+                justify-content: center;
+            }
+        }
+    
+        &-card {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            flex: 1;
+            min-width: 450px;
+            margin-left: 15px;
+            margin-right: 15px;
+    
+            @include mobile-only {
+                flex-direction: column;
+                align-items: center;
+                max-width: 450px;
+                min-width: 300px;
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+    
+            @include tablet {
+                flex-direction: column;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+        }
+    
+        &-content {
+            text-align: left;
+            margin-left: 20px;
+    
+            @include mobile-only {
+                text-align: center;
+                margin-left: auto;
+            }
+        }
+    
+        &-title {
+            margin-bottom: 10px;
+    
+            @include tablet {
+                margin-top: 10px;
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
 
-.usecases {
-    &-bg {
-        z-index: 0;
-        position: absolute;
-        top: 50px;
-        left: 55%;
-        transform: translateX(-50%);
-    }
-    &-element {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 1;
-        @include mobile-only {
-            display: none;
-        }
-    }
-    &-container {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        flex-grow: 1;
-        align-items: flex-start;
-        z-index: 2;
-        @include tablet {
-            align-items: center;
-        }
-
-        @include mobile-only {
-            justify-content: center;
-        }
-    }
-
-    &-card {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        flex: 1;
-        min-width: 450px;
-        margin-left: 15px;
-        margin-right: 15px;
-
-        @include mobile-only {
-            flex-direction: column;
-            align-items: center;
-            max-width: 450px;
-            min-width: 300px;
-            padding-right: 1rem;
-            padding-left: 1rem;
-        }
-
-        @include tablet {
-            flex-direction: column;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-    }
-
-    &-content {
-        text-align: left;
-        margin-left: 20px;
-
-        @include mobile-only {
-            text-align: center;
-            margin-left: auto;
-        }
-    }
-
-    &-title {
-        margin-bottom: 10px;
-
-        @include tablet {
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-    }
-}

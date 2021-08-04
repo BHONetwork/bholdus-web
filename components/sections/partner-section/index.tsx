@@ -11,7 +11,7 @@ const PartnerSection = ({ data }) => {
         ))}
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="partners-bg" />
+        <Image img={data.imageBackground} classWrapName="partners-bg" />
       ) : null}
     </Section>
   );

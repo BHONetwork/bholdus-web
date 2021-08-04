@@ -7,21 +7,21 @@
   @include not-tablet {
     margin-top: 80px;
   }
-}
-
-.contact {
-  &-bg {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-    object-fit: cover;
-  }
-
-  &-form {
-    max-width: 540px;
-    width: 100%;
-    z-index: 1;
+  .contact {
+    &-bg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+      img {
+        object-fit: cover;
+      }
+    }
+    &-form {
+      max-width: 540px;
+      width: 100%;
+      z-index: 1;
+    }
   }
 }

@@ -12,7 +12,7 @@ const AdvisorSection = ({ data }) => {
         ))}
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="advisor-bg" />
+        <Image img={data.imageBackground} classWrapName="advisor-bg" />
       ) : null}
     </Section>
   );

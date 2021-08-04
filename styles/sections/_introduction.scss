@@ -4,27 +4,29 @@
     @include not-tablet {
         padding-top: 80px;
     }
-}
 
-.introduction {
-    &-container{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        flex-shrink: 1;
-        text-align: left;
-        @include not-tablet {
-            flex-direction: row;
+    .introduction {
+        &-bg {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 100%;
+            min-width: 1680px;
+            z-index: 0;
+            height: 800px;
+            img {
+                object-fit: cover;
+            }
         }
-    }
-    &-bg {
-        position: absolute;
-        top: -60px;
-        left: 0;
-        width: 100%;
-        min-width: 1680px;
-        object-fit: cover;
-        z-index: 0;
-        height: 800px;
+        &-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex-shrink: 1;
+            text-align: left;
+            @include not-tablet {
+                flex-direction: row;
+            }
+        }
     }
 }
