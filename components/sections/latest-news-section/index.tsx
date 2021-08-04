@@ -20,7 +20,7 @@ const LatestNewsSection = ({ data, articles }) => {
           ))}
         </div>
         {data.imageBackground ? (
-          <Image img={data.imageBackground} className="news-bg" />
+          <Image img={data.imageBackground} classWrapName="news-bg" />
         ) : null}
       </Section>
     );

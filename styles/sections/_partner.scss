@@ -6,6 +6,23 @@
         padding-top: 80px;
     }
 
+    .partners {
+        &-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 1685px;
+            width: 100%;
+            z-index: 0;
+            transform: translate3d(0px, -150px, 0px);
+            @include tablet {
+              height: 220%;
+            }
+            img{
+                object-fit: cover;
+            }
+        }
+    }
 
     h3 {
         padding-left: 50px;
@@ -61,22 +78,6 @@
             }
         }
     }
-
-    &-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 1685px;
-        width: 100%;
-        object-fit: cover;
-        z-index: 0;
-        transform: translate3d(0px, -150px, 0px);
-        @include tablet {
-          height: 220%;
-        }
-    }
-    
-
 }
     
 

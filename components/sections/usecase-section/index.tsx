@@ -16,7 +16,7 @@ const UsecaseSection = ({ data }) => {
       ) : null}
       <OptimizedImage
         img={{ url: "/images/cases-imgs-min.png" }}
-        className="usecases-element"
+        classWrapName="usecases-element"
       />
     </Section>
   );

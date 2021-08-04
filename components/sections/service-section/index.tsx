@@ -33,7 +33,7 @@ const ServiceSection = ({ data }) => {
         ))}
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="services-bg" />
+        <Image img={data.imageBackground} classWrapName="services-bg" />
       ) : null}
     </Section>
   );

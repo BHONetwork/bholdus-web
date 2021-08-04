@@ -11,7 +11,7 @@ const PressSection = ({ data }) => {
         ))}
       </div>
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="press-bg" />
+        <Image img={data.imageBackground} classWrapName="press-bg" />
       ) : null}
     </Section>
   );

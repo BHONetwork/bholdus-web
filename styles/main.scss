@@ -23,7 +23,6 @@
 @import "markdown";
 @import "aos/dist/aos.css";
 
-
 html {
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -274,6 +273,13 @@ html {
         }
         .image-fill {
             object-fit: fill;
+        }
+
+        .lazyload-wrapper {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

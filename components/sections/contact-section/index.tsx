@@ -7,7 +7,7 @@ const ContactSection = ({ data }) => {
     <Section id="contact" smallTitle={data.smallTitle} title={data.title}>
       <ContactFrom className="container" />
       {data.imageBackground ? (
-        <Image img={data.imageBackground} className="contact-bg" />
+        <Image img={data.imageBackground} classWrapName="contact-bg" />
       ) : null}
     </Section>
   );

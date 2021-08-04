@@ -16,6 +16,7 @@ const ImageComponent = styled("img", {
 const Image = ({
   img,
   className = "",
+  classWrapName = "",
   style = {},
   lazy = true,
   ...restProps
@@ -38,7 +39,12 @@ const Image = ({
   );
   if (lazy) {
     return (
-      <LazyLoad height="100%" offset={200} once>
+      <LazyLoad
+        className={classNames(classWrapName)}
+        height="100%"
+        offset={200}
+        once
+      >
         <Component />
       </LazyLoad>
     );
