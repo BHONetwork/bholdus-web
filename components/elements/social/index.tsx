@@ -2,20 +2,13 @@ import classNames from "classnames";
 import OptimizedImage from "../../common/optimized-image";
 import PopOver from "../../common/popover";
 
-const groupByKey = (list, key) =>
-  list.reduce(
-    (hash, obj) => ({
-      ...hash,
-      [obj[key]]: (hash[obj[key]] || []).concat(obj),
-    }),
-    {}
-  );
+import { groupByKey } from "../../../utils/others";
 
 const Social = ({ className, social }) => {
   if (social?.length === 0) return null;
   const groupSocial = groupByKey(social, "type");
   // eslint-disable-next-line array-callback-return
-  const socialRender = Object.keys(groupSocial).map((key) => {
+  const socialRender = Object.keys(groupSocial).map((key, index) => {
     const group = groupSocial[key];
     if (group.length === 1) {
       return (
@@ -47,11 +40,11 @@ const Social = ({ className, social }) => {
       />
     );
     return (
-      <PopOver key={key} button={buttonSocial}>
+      <PopOver key={index} button={buttonSocial}>
         <div className="social-urls">
-          {group.map((social) => (
+          {group.map((social, idx) => (
             <a
-              key={key}
+              key={idx}
               href={social.url}
               target="_blank"
               rel="noopener noreferrer nofollow"
