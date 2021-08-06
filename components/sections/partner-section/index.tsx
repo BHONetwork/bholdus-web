@@ -1,15 +1,14 @@
 import Section from "../sections";
-import PartnerItem from "./partner-item";
+import GroupPartners from "./partner-group";
 import Image from "../../common/image";
+import { groupByKey } from "../../../utils/others";
 
 const PartnerSection = ({ data }) => {
+  const groupPartners = groupByKey(data.partners, "type");
+  console.log(groupPartners);
   return (
     <Section id="partners" smallTitle={data.smallTitle} title={data.title}>
-      <div className="partners-container container">
-        {data.partners.map((partner: any, index: number) => (
-          <PartnerItem key={partner.id} data={partner} index={index} />
-        ))}
-      </div>
+      <GroupPartners groupPartners={groupPartners} />
       {data.imageBackground ? (
         <Image img={data.imageBackground} classWrapName="partners-bg" />
       ) : null}
