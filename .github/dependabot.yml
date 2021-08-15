@@ -6,8 +6,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "rehype-highlight"
-      - dependency-name: "rehype-rehype"
-      - dependency-name: "remark-gfm"
-      - dependency-name: "remark-slug"
