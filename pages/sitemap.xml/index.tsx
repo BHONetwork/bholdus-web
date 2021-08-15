@@ -53,10 +53,10 @@ const getUrls = async (
         .map((item: any) => {
           const mainUrl =
             mainLocale === "en"
-              ? `https://${host}${url.replace("[slug]", item.slug)}`
+              ? `https://${host}${url.replace("[slug]", encodeURI(item.slug))}`
               : `https://${host}/${mainLocale}${url.replace(
                   "[slug]",
-                  item.slug
+                  encodeURI(item.slug)
                 )}`;
           return `
             <url>
@@ -67,7 +67,7 @@ const getUrls = async (
                     ? `<xhtml:link rel="alternate" hreflang="${locale}" href="${mainUrl}" />`
                     : `<xhtml:link rel="alternate" hreflang="${locale}" href="${`https://${host}/${locale}${url.replace(
                         "[slug]",
-                        item.slug
+                        encodeURI(item.slug)
                       )}`}" />`
                 )
                 .join("")}
@@ -104,7 +104,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { req, res } = ctx;
   const locale = getLocale(ctx);
   const host = req?.headers?.host || process.env.HOST;
-
   const urls = await Promise.all(
     sitemapConfig.map(async (page) => {
       return await getUrls(host, locale, supportedLocales, page);
