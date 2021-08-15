@@ -6,8 +6,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    ignore:
-      - dependency-name: "react"
-        versions: ["17.x"]
-      - dependency-name: "react-dom"
-        versions: ["17.x"]
