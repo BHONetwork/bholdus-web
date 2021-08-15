@@ -1,3 +1,3 @@
-import { ReactMarkdownOptions } from "react-markdown";
+import { Options } from "react-markdown";
 
-export type RichTextProps = ReactMarkdownOptions;
+export type RichTextProps = Options;
