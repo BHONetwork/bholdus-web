@@ -11,4 +11,3 @@ updates:
       - dependency-name: "rehype-rehype"
       - dependency-name: "remark-gfm"
       - dependency-name: "remark-slug"
-      - dependency-name: "remark-slug"
