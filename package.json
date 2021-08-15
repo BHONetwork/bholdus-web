@@ -46,7 +46,7 @@
     "react-share": "^4.4.0",
     "rehype-highlight": "4.1.0",
     "remark-gfm": "1.0.0",
-    "remark-rehype": "8.1.0",
+    "remark-rehype": "9.0.0",
     "remark-slug": "6.0.0",
     "sass": "^1.37.5",
     "tailwindcss": "^2.2.7",
