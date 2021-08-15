@@ -7,7 +7,8 @@ updates:
     schedule:
       interval: "daily"
     ignore:
-      - dependency-name: "react"
-        versions: ["17.x"]
-      - dependency-name: "react-dom"
-        versions: ["17.x"]
+      - dependency-name: "rehype-highlight"
+      - dependency-name: "rehype-rehype"
+      - dependency-name: "remark-gfm"
+      - dependency-name: "remark-slug"
+      - dependency-name: "remark-slug"

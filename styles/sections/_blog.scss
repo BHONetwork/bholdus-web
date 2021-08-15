@@ -1,18 +1,22 @@
+.blog-container{
+    padding-top: 96px;
+    @include not-tablet {
+        padding-top: 140px;
+    }
+
+}
 .blog-hero {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-top: 96px;
+    
     height: 400px;
     img {
         object-fit: fill;
         height: 100%;
     }
 
-    @include not-tablet {
-        margin-top: 140px;
-    }
-
+   
     &-left {
         display: flex;
         flex-direction: column;
