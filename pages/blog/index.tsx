@@ -69,7 +69,7 @@ const Blog = ({ articlesByTopic, featuredArticle, page, global }) => {
   return (
     <>
       <Seo metadata={page.seo} seoData={{ type: "blog", data: page }} />
-      <Layout Hero={Hero} global={global} mainClass="bg-white">
+      <Layout Hero={Hero} global={global} mainClass="bg-white blog-container">
         <div className="container">
           {articlesByTopic ? (
             Object.keys(articlesByTopic).map((topic: any, index: number) => {
