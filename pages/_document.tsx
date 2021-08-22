@@ -21,6 +21,10 @@ class MyDocument extends Document {
             name="keywords"
             content="Blockchain, DeFi, Real World DeFi, NFTs, DApps, DeFi DApps, BHO, BHO token, BHO price, Crosschain, Digital Assets, DEX, Decentralized Exchange, Bholdus"
           />
+          <meta
+            name="facebook-domain-verification"
+            content="fsziqyuede69feaju8ag82bg45qa55"
+          />
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
