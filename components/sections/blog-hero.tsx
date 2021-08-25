@@ -63,15 +63,15 @@ const BlogHero = ({ article }) => {
             url: `/blog/article/${article.slug}`,
             newTab: false,
           }}
-          buttonType="secondary"
+          buttonType="primary"
           border="rounded"
         >
-          <Text color="green">{t("common:readMore")}</Text>
+          <Text>{t("common:readMore")}</Text>
         </Button>
       </Background>
       <Image
         className="hidden lg:block"
-        img={article.image}
+        img={article.thumbnail ? article.thumbnail : article.image}
         alt="article"
         style={{ maxHeight: 400 }}
         lazy={false}
