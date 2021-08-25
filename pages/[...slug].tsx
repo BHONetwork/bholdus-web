@@ -59,6 +59,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
+  if (params && params.slug && params.slug[0] === "blog") {
+    return {
+      redirect: { destination: "/blog/1", permanent: false },
+    };
+  }
+
   const locale = getLocale(ctx);
   const page = await fetchAPI(
     `/pages/${params.slug}?status=published&_locale=${locale}`

@@ -14,5 +14,9 @@
   "thePageCannotBeFound": "The page cannot be found",
   "goBackToHomepage": "Go back to Homepage",
   "partner-strategy": "Strategic Partners",
-  "partner-media": "Media Partners"
+  "partner-media": "Media Partners",
+  "blog": "Blog",
+  "searchResult": "Search result with keyword",
+  "articles": "articles",
+  "all": "All"
 }
