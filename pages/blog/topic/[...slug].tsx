@@ -119,8 +119,8 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       _sort: "publishedAt:desc",
       _locale: locale,
       "topics.slug": topicSlug,
-      _limit: PAGE_SIZE,
-      _start: (pageNumber - 1) * PAGE_SIZE + (isCount ? 0 : 1),
+      _limit: isCount ? undefined : PAGE_SIZE,
+      _start: isCount ? undefined : (pageNumber - 1) * PAGE_SIZE + 1,
     });
 
   const featuredArticleQuery = stringify({
