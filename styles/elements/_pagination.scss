@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .paginate-icon,
+  .page-num {
+    padding: 10px;
+    line-height: 1;
+  }
+
+  .page-num {
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: $font-size-normal;
+    color: $bg-color;
+
+    &.active {
+      background-color: $bg-color;
+      color: $bg-white;
+    }
+  }
+}

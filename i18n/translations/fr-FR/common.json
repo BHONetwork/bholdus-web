@@ -14,5 +14,9 @@
   "thePageCannotBeFound": "Cette page est introuvable",
   "goBackToHomepage": "Revenir à la page d’accueil",
   "partner-strategy": "Partenaires stratégiques",
-  "partner-media": "Partenaires médias"
+  "partner-media": "Partenaires médias",
+  "blog": "Blog",
+  "searchResult": "Résultat de la recherche avec mot-clé",
+  "articles": "articles",
+  "all": "Tous"
 }
