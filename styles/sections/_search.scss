@@ -1,0 +1,108 @@
+.search-container {
+  padding-top: 96px;
+
+  .search-result-text {
+    color: $color-green2;
+    font-size: $font-size-normal;
+  }
+
+  .searched-article-list {
+    &:after {
+      content: " ";
+      margin: 2.5px;
+      flex: auto;
+
+      @include mobile-portrait {
+        max-width: 140px;
+        min-width: 140px;
+      }
+    }
+
+    @include mobile-portrait {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .blog-article-item {
+      &.searched {
+        max-width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        border-bottom: 1px solid #000;
+
+        @include mobile-portrait {
+          max-width: 140px;
+
+          padding-top: 24px;
+          padding-bottom: 24px;
+          margin: 2.5px;
+          border-bottom: none;
+
+          align-items: flex-start;
+          flex-direction: column;
+
+          .blog-article-item-read-action {
+            display: none;
+          }
+        }
+
+        @include tablet {
+          padding-top: 24px;
+          padding-bottom: 24px;
+        }
+
+        @include desktop {
+          padding-top: 36px;
+          padding-bottom: 36px;
+        }
+
+        // TODO: border-bottom on CustomLink
+        // &:last-child {
+        //   border-bottom: none;
+        // }
+
+        .text-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+
+          max-width: 480px;
+        }
+
+        .blog-article-item-cover {
+          height: 184px;
+          width: 350px;
+          margin-left: 12px;
+
+          @include mobile-only {
+            margin-left: 0;
+
+            height: 105px;
+            width: 200px;
+          }
+
+          @include mobile-portrait {
+            height: 120px;
+            width: 140px;
+          }
+
+          @include tablet {
+            height: 105px;
+            width: 200px;
+          }
+
+          @include desktop {
+            height: 145px;
+            max-width: 274px;
+          }
+        }
+      }
+    }
+  }
+}
