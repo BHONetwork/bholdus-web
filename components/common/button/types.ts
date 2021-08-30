@@ -2,7 +2,7 @@ import { Enum } from "@martin_hotell/rex-tils";
 import React, { CSSProperties } from "react";
 
 export const ButtonColor = Enum("green", "pink", "orange", "purple");
-export const ButtonType = Enum("primary", "secondary", "disabled");
+export const ButtonType = Enum("primary", "secondary", "darkBlue", "disabled");
 export const ButtonBorder = Enum("rounded", "roundedMd");
 
 type Button = {

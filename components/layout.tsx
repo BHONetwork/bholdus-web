@@ -6,7 +6,6 @@ import Footer from "./elements/footer";
 import Announcement from "./elements/announcement";
 
 import NotificationBanner from "./elements/notification-banner";
-import { TopicList } from "../pages/blog/[page]";
 
 const Layout = ({
   Hero,
@@ -41,14 +40,13 @@ const Layout = ({
             navbar={navbar}
             subnav={subnav}
             transparent={transparentNavbar}
+            topicInfos={topicInfos}
             showAnnouncement={(show) => setAnnouncementIsShown(show)}
           />
         </div>
       </header>
 
       <main className={classNames("page-min-h", mainClass)}>
-        {/* NOTE: temporary put TopicList into layout */}
-        <TopicList topicInfos={topicInfos} />
         <Hero />
 
         <div className={classNames("main-container", sectionClass)}>

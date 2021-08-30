@@ -2,3 +2,4 @@ export const DEFAULT_HOST = process.env.HOST || "https://bholdus.com"; // Use th
 export const PAGE_SIZE = 12;
 export const ARTICLE_TYPE_BLOG = "ARTICLE_TYPE_BLOG";
 export const ARTICLE_TYPE_SEARCH = "ARTICLE_TYPE_SEARCH";
+export const TABLET_WIDTH = 768;

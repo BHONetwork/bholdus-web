@@ -1,7 +1,6 @@
 import React from "react";
 import classNames from "classnames";
 import { stringify } from "qs";
-import { MdFilterDrama } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
@@ -12,15 +11,33 @@ import BlogHero from "../../components/sections/blog-hero";
 import Text from "../../components/common/text";
 import Image from "../../components/common/image";
 import CustomLink from "../../components/common/custom-link";
-import Pagination from "../../components/elements/pagination";
 import OptimizedImage from "../../components/common/optimized-image";
+import ArticleList from "./ArticleList";
 
 import { fetchAPI, getLocale } from "../../utils/api";
 import { formatDate } from "../../utils/datetime";
-import { ARTICLE_TYPE_SEARCH, PAGE_SIZE } from "../../constants/common";
 
-export const LocalArticle = (props) => {
-  const { article, translation, articleType } = props;
+import {
+  ARTICLE_TYPE_BLOG,
+  ARTICLE_TYPE_SEARCH,
+  PAGE_SIZE,
+} from "../../constants/common";
+
+const articlesQuery = ({ isCount, locale, pageNumber }) =>
+  stringify({
+    status: "published",
+    _sort: "publishedAt:desc",
+    _locale: locale,
+    _limit: isCount ? undefined : PAGE_SIZE,
+    _start: isCount ? undefined : (pageNumber - 1) * PAGE_SIZE + 1,
+  });
+
+export const LocalArticle = ({
+  article,
+  translation,
+  articleType = ARTICLE_TYPE_BLOG,
+  isMobile = false,
+}) => {
   const { lang } = translation;
   const { title, description, image, publishedAt, slug } = article;
 
@@ -51,7 +68,7 @@ export const LocalArticle = (props) => {
         <Text color="black" weight="bold" style={{ fontSize: 14 }} capitalized>
           {formatDate(lang, publishedAt)}
         </Text>
-        {articleType === ARTICLE_TYPE_SEARCH && (
+        {articleType === ARTICLE_TYPE_SEARCH && !isMobile && (
           <CustomLink link={{ url: `/blog/article/${slug}` }}>
             <div className="blog-article-item-read-action">
               <Text color="green">Read this article </Text>
@@ -96,7 +113,11 @@ export const LocalArticle = (props) => {
 //   );
 // };
 
-export const TopicList = ({ topicInfos }) => {
+export const TopicList = ({
+  className = "",
+  topicInfos,
+  setMobileBlogMenuIsShown,
+}) => {
   const translation = useTranslation();
 
   if (topicInfos) {
@@ -105,26 +126,32 @@ export const TopicList = ({ topicInfos }) => {
       const { t } = translation;
 
       return (
-        <div className="topic-list flex flex-row flex-wrap justify-center gap-x-12 gap-y-4 pb-6 bg-white">
+        <div
+          className={classNames(
+            "topic-list flex flex-row flex-wrap justify-center gap-x-12 gap-y-4 pb-3 sm:pd-3 md:pd-6 bg-white",
+            className
+          )}
+        >
           <CustomLink link={{ url: "/blog" }}>
             <Text
               className={classNames(
-                currentTopic === t("common:all")
+                currentTopic === t("common:blog")
                   ? ["border-b-2", "border-black"]
                   : null
               )}
-              weight={currentTopic === t("common:all") ? "bold" : "normal"}
+              weight={currentTopic === t("common:blog") ? "bold" : "normal"}
               color="black"
             >
-              {t("common:all")}
+              {t("common:blog")}
             </Text>
           </CustomLink>
 
-          {topics.map((topic: any) => {
+          {topics.map((topic: any, index: number) => {
             return (
               <CustomLink
-                key={`topic-navigate-${topic.slug}`}
+                key={`topic-navigate-${topic.slug}-${index}`}
                 link={{ url: `/blog/topic/${topic.slug}/1` }}
+                onClick={() => setMobileBlogMenuIsShown(false)}
               >
                 <Text
                   className={classNames(
@@ -157,7 +184,7 @@ const Blog = ({
   global,
 }) => {
   const router = useRouter();
-  const pageNumber = parseInt(router.query.page as string, 10);
+  const { query, locale } = router;
 
   const translation = useTranslation();
   const { t } = translation;
@@ -170,52 +197,31 @@ const Blog = ({
       <Layout
         Hero={Hero}
         global={global}
-        topicInfos={{ topics, currentTopic: t("common:all") }}
+        topicInfos={{ topics, currentTopic: t("common:blog") }}
         mainClass="bg-white blog-container"
       >
         <div className="container">
-          {articles ? (
-            <div className="blog-article-items gap-8 sm:gap-y-8 sm:gap-x-8 md:gap-x-4 md:gap-y-6 lg:gap-6 xl:gap-x-20 xl:gap-y-12">
-              {articles.map((article: any) => (
-                <CustomLink
-                  key={article.id}
-                  link={{ url: `/blog/article/${article.slug}` }}
-                >
-                  <LocalArticle article={article} translation={translation} />
-                </CustomLink>
-              ))}
-            </div>
-          ) : (
-            <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
-              <MdFilterDrama size={200} />
-              <Text size="medium" color="black">
-                {t("common:blogNoArticles")}
-              </Text>
-            </div>
-          )}
-
-          <div className="pagination-wrapper md:mt-16">
-            <Pagination
-              // NOTE: -1 featuredArticle
-              totalPage={Math.ceil((articlesCount - 1) / PAGE_SIZE)}
-              currentPage={pageNumber}
-              numOfPageDisplay={5}
-              generateNavigateLink={(page: number) => `/blog/${page}`}
-            />
-          </div>
+          <ArticleList
+            articles={articles}
+            articlesCount={articlesCount}
+            articleType={ARTICLE_TYPE_BLOG}
+            pageNumberQuery={parseInt(query.page as string, 10)}
+            articleListClassName="blog-article-items gap-8 sm:gap-y-8 sm:gap-x-8 md:gap-x-4 md:gap-y-6 lg:gap-6 xl:gap-x-20 xl:gap-y-12"
+            isfeaturedArticleAppear={!!featuredArticle}
+            apiLoadMorePathFunc={({ nextPage }) =>
+              `/articles?${articlesQuery({
+                isCount: false,
+                locale,
+                pageNumber: nextPage,
+              })}`
+            }
+            navigateLink="/blog/"
+          />
         </div>
       </Layout>
     </>
   );
 };
-const articlesQuery = ({ isCount, locale, pageNumber }) =>
-  stringify({
-    status: "published",
-    _sort: "publishedAt:desc",
-    _locale: locale,
-    _limit: isCount ? undefined : PAGE_SIZE,
-    _start: isCount ? undefined : (pageNumber - 1) * PAGE_SIZE + 1,
-  });
 
 // TODO: getStaticPaths
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -260,11 +266,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
         `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=1`
       ),
       fetchAPI(
-        `/articles?${articlesQuery({
-          isCount: false,
-          locale,
-          pageNumber,
-        })}`
+        `/articles?${articlesQuery({ isCount: false, locale, pageNumber })}`
       ),
       fetchAPI(
         `/articles/count?${articlesQuery({
