@@ -55,17 +55,6 @@ const TextComponent = styled("p", {
         fontSize: "$xLarge",
       },
     },
-    weight: {
-      normal: {
-        fontWeight: "$normal",
-      },
-      semiBold: {
-        fontWeight: "$semiBold",
-      },
-      bold: {
-        fontWeight: "$bold",
-      },
-    },
     type: {
       div: {
         fontSize: "$normal",
@@ -98,6 +87,17 @@ const TextComponent = styled("p", {
       h6: {
         fontSize: "$normal",
         fontWeight: "$normal",
+      },
+    },
+    weight: {
+      normal: {
+        fontWeight: "$normal",
+      },
+      semiBold: {
+        fontWeight: "$semiBold",
+      },
+      bold: {
+        fontWeight: "$bold",
       },
     },
   },

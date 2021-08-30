@@ -6,3 +6,10 @@ export const groupByKey = (list, key) =>
     }),
     {}
   );
+
+export const isUAMobileMatch = (userAgent) =>
+  Boolean(
+    userAgent.match(
+      /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
+    )
+  );

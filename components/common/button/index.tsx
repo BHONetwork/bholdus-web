@@ -36,6 +36,10 @@ const ButtonComponent = styled("button", {
         background: "$white",
         color: "$green2",
       },
+      darkBlue: {
+        background: "$darkGrey2",
+        color: "$white",
+      },
       disabled: {
         background: "$darkGrey",
         color: "$white",
