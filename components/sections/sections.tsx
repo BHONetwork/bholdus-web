@@ -12,18 +12,26 @@ const Section = ({ id = "", smallTitle, title, children, style = {} }) => {
             fontSize: "$small",
           }}
           uppercase
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="500"
+          {...(id !== "contact"
+            ? {
+                "data-aos": "fade-down",
+                "data-aos-easing": "linear",
+                "data-aos-duration": "500",
+              }
+            : {})}
         >
           {smallTitle}
         </Text>
         <Text
           className="mb-8 lg:mb-16"
           type="h2"
-          data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="500"
+          {...(id !== "contact"
+            ? {
+                "data-aos": "fade-down",
+                "data-aos-easing": "linear",
+                "data-aos-duration": "500",
+              }
+            : {})}
         >
           {title}
         </Text>

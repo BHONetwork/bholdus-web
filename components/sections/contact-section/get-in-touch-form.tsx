@@ -45,8 +45,6 @@ const GetInTouchForm = ({ className }) => {
               "contact-form flex flex-col lg:gap-6",
               className
             )}
-            data-aos="fade-up"
-            data-aos-anchor-placement="bottom-bottom"
           >
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
