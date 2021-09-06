@@ -16,7 +16,7 @@
     "@headlessui/react": "^1.4.1",
     "@martin_hotell/rex-tils": "^2.1.1",
     "@popperjs/core": "^2.9.3",
-    "@stitches/react": "^0.2.5",
+    "@stitches/react": "^1.0.0",
     "@tailwindcss/typography": "^0.4.1",
     "@types/react": "17.0.20",
     "aos": "^3.0.0-beta.6",
