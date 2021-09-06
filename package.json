@@ -18,7 +18,7 @@
     "@popperjs/core": "^2.9.3",
     "@stitches/react": "^0.2.5",
     "@tailwindcss/typography": "^0.4.1",
-    "@types/react": "17.0.19",
+    "@types/react": "17.0.20",
     "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.3.4",
     "classnames": "^2.2.6",
