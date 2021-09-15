@@ -15,7 +15,7 @@
     "@hcaptcha/react-hcaptcha": "^0.3.7",
     "@headlessui/react": "^1.4.1",
     "@martin_hotell/rex-tils": "^2.1.1",
-    "@popperjs/core": "^2.9.3",
+    "@popperjs/core": "^2.10.1",
     "@stitches/react": "^0.2.5",
     "@tailwindcss/typography": "^0.4.1",
     "@types/react": "17.0.21",
