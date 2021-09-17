@@ -244,7 +244,7 @@
     &-cover {
       //   height: 288px;
       //   width: 384px;
-      height: 184px;
+      height: 234px;
       width: 350px;
       display: block;
       overflow: hidden;
@@ -252,12 +252,12 @@
       margin-bottom: 12px;
 
       @include mobile-only {
-        height: 165px;
+        height: 146px;
         width: 220px;
       }
 
       @include tablet {
-        height: 165px;
+        height: 146px;
         width: 220px;
       }
 
@@ -351,7 +351,7 @@
       }
 
       &-cover {
-        height: 288px;
+        height: 256px;
         width: 384px;
         display: block;
         overflow: hidden;
@@ -359,12 +359,12 @@
         margin-bottom: 12px;
 
         @include mobile-only {
-          height: 165px;
+          height: 146px;
           width: 220px;
         }
 
         @include tablet {
-          height: 165px;
+          height: 146px;
           width: 220px;
         }
 
