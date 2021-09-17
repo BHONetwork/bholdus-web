@@ -2,13 +2,12 @@ import { GetStaticPaths, GetStaticProps } from "next";
 
 import Seo from "../components/elements/seo";
 import Layout from "../components/layout";
-import NotFoundPage from "./404";
 import PageHero from "../components/sections/page-hero";
 import RichTextSection from "../components/sections/rich-text-section";
 import ContentCollapsibleSection from "../components/sections/content-collapsible-section";
+import { getSeoData } from "../components/elements/seo/utils";
 
 import { fetchAPI, getLocale } from "../utils/api";
-import { getSeoData } from "../components/elements/seo/utils";
 import popularLocales from "../i18n/popularLocales.json";
 
 const mapSections = {
@@ -17,10 +16,6 @@ const mapSections = {
 };
 
 const Page = ({ page, global }) => {
-  if (!page) {
-    return <NotFoundPage global={global} />;
-  }
-
   const Hero = () => <PageHero page={page} />;
 
   return (
@@ -69,6 +64,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const page = await fetchAPI(
     `/pages/${params.slug}?status=published&_locale=${locale}`
   );
+
+  if (!page) {
+    return { notFound: true };
+  }
 
   return {
     props: { page },
