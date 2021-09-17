@@ -4,7 +4,6 @@ import { stringify } from "qs";
 
 import Seo from "../../../components/elements/seo";
 import Layout from "../../../components/layout";
-import NotFoundPage from "../../404";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
 
 import Image from "../../../components/common/image";
@@ -102,10 +101,6 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
 const Article = ({ article, relatedArticles, metadata, global }) => {
   const { t } = useTranslation();
 
-  if (!article) {
-    return <NotFoundPage global={global} />;
-  }
-
   const Hero = () => <BlogDetailHero article={article} />;
 
   return (
@@ -153,6 +148,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     fetchAPI(`/articles/${params.slug}?status=published&_locale=${locale}`),
     fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
   ]);
+
+  if (!article) {
+    return { notFound: true };
+  }
+
   const metadata = article
     ? article.metadata
       ? {

@@ -96,10 +96,9 @@ MyApp.getInitialProps = async (ctx: any) => {
   const locale = getLocale(ctx?.ctx || {});
   const global = await fetchAPI(`/global?_locale=${locale}`);
 
-  return {
-    ...appProps,
-    pageProps: { global },
-  };
+  appProps.pageProps = { ...appProps.pageProps, global };
+
+  return appProps;
 };
 
 export default MyApp;

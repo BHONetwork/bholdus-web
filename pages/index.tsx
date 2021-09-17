@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 
-import NotFoundPage from "./404";
 import Layout from "../components/layout";
 import LandingPageHero from "../components/sections/landing-page-hero";
 import Introduction from "../components/sections/introduction";
@@ -30,9 +29,6 @@ const mapSections = {
 };
 
 const Home = ({ pageData, latestNews, global }) => {
-  if (!pageData) {
-    return <NotFoundPage global={global} />;
-  }
   const Hero = () => <LandingPageHero data={pageData.hero} />;
 
   return (
@@ -64,9 +60,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
   );
 
   if (pageData == null) {
-    // Giving the page no props will trigger a 404 page
-    return { props: {} };
+    return { notFound: true };
   }
+
   return {
     props: {
       pageData,
