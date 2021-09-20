@@ -3,14 +3,12 @@
   display: flex;
   flex-direction: column;
   z-index: 10;
-  align-items: center;
   flex: 1;
-  justify-content: center;
 
   .hero {
     &-title {
-      text-align: center;
-      font-weight: normal;
+      text-align: left;
+      font-weight: bold;
 
       @include mobile-only {
         font-size: 30px;
@@ -19,24 +17,71 @@
 
     &-content {
       width: 100%;
-      position: absolute;
-      top: 50vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-content: center;
-      background-color: rgba(37, 45, 75, 0.7);
       padding: 20px;
       max-width: 640px;
-      margin-top: 200px;
+      margin-top: 150px;
 
       @include mobile-only {
         max-width: 100%;
         margin-top: 120px;
       }
+
+      .count-down-wrapper {
+        margin-top: 44px;
+        margin-bottom: 58px;
+
+        .count-down-title {
+          display: block;
+          text-align: left;
+        }
+
+        .count-down-blocks {
+          margin-top: 12px;
+          display: flex;
+          flex-wrap: wrap;
+
+          margin-left: -24px;
+          margin-bottom: -24px;
+
+          .count-down-block {
+            margin-left: 24px;
+            margin-bottom: 24px;
+
+            .count-down-number-group {
+              display: flex;
+
+              .count-down-number-item {
+                padding: 4px 10px;
+                padding-bottom: 0px;
+                background-color: $bg-white;
+                border-radius: 5px;
+                font-size: 30px;
+                // line-height: 1;
+                font-weight: bold;
+
+                margin-left: 8px;
+
+                &:first-child {
+                  margin-left: 0;
+                }
+              }
+            }
+
+            .count-down-group-label {
+              margin-top: 14px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
     }
 
     &-description {
+      margin-top: 14px;
       text-align: justify;
 
       @include mobile-only {
@@ -72,6 +117,19 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+
+      margin-left: -54px;
+      margin-bottom: -24px;
+
+      .button {
+        margin-left: 54px;
+        margin-bottom: 24px;
+
+        &.button-special {
+          background: linear-gradient(270deg, #ff1f00 0%, #ff9900 100%);
+          color: $bg-white;
+        }
+      }
     }
   }
 }

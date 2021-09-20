@@ -220,7 +220,7 @@ const Navbar = ({
 
               {/* CTA button on large screens */}
               {navbar.button && (
-                <div className="hidden lg:block">
+                <div className="hidden lg:block ml-6">
                   <Button button={navbar.button} isLink />
                 </div>
               )}
