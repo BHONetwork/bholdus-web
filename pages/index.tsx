@@ -13,6 +13,14 @@ import LatestNewsSection from "../components/sections/latest-news-section";
 import ContactSection from "../components/sections/contact-section";
 import PartnerSection from "../components/sections/partner-section";
 import PressSection from "../components/sections/press-section";
+import AboutTokenSection from "../components/sections/about-token";
+import TokenDistributionSection from "../components/sections/token-distribution";
+import {
+  ABOUT_TOKEN_SECTION_DATA,
+  ABOUT_TOKEN_SECTION_KEY,
+  ABOUT_DISTRIBUTION_SECTION_KEY,
+  ABOUT_DISTRIBUTION_SECTION_DATA,
+} from "../constants/extraSections";
 import { fetchAPI, getLocale } from "../utils/api";
 
 const mapSections = {
@@ -26,10 +34,19 @@ const mapSections = {
   "sections.latest-news": LatestNewsSection,
   "sections.partner-section": PartnerSection,
   "sections.press-section": PressSection,
+  [ABOUT_TOKEN_SECTION_KEY]: AboutTokenSection,
+  [ABOUT_DISTRIBUTION_SECTION_KEY]: TokenDistributionSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
   const Hero = () => <LandingPageHero data={pageData.hero} />;
+  const extraPageDataSections = [...pageData.sections];
+  extraPageDataSections.splice(
+    3,
+    0,
+    ABOUT_TOKEN_SECTION_DATA,
+    ABOUT_DISTRIBUTION_SECTION_DATA
+  );
 
   return (
     <Layout Hero={Hero} global={global} transparentNavbar={true}>
@@ -37,7 +54,7 @@ const Home = ({ pageData, latestNews, global }) => {
         <Introduction data={pageData.introduction} />
       )}
 
-      {pageData.sections.map((section: any, index: number) => {
+      {extraPageDataSections.map((section: any, index: number) => {
         const { __component, ...rest } = section;
         if (__component in mapSections && section.enable) {
           const Section = mapSections[__component];
