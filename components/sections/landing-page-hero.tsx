@@ -159,10 +159,10 @@ const LandingPageHero = ({ data }) => {
           <div className="hero-button">
             {displayButtonActions.map((button: any) => (
               <Button
-                className={`button${button.type ? "" : " button-special"}`}
+                className="button"
                 isLink
                 key={button.id}
-                buttonType={button.type}
+                buttonType={button.type || "orange"}
                 button={button}
               />
             ))}

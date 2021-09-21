@@ -1,5 +1,6 @@
 import Section from "../sections";
 import OptimizedImage from "../../common/optimized-image";
+import Button from "../../common/button";
 
 const AboutTokenSection = ({ data }) => {
   if (data.imageBackground) {
@@ -17,6 +18,16 @@ const AboutTokenSection = ({ data }) => {
             img={data.imageBackground}
             height={data.imageBackground.height}
             width={data.imageBackground.width}
+          />
+          <Button
+            className="mt-12 inline-block"
+            isLink
+            buttonType="orange"
+            button={{
+              text: "Buy Tokens",
+              url: "https://sale.bholdus.com/",
+              newTab: true,
+            }}
           />
         </div>
       </Section>

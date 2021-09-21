@@ -44,6 +44,10 @@ const ButtonComponent = styled("button", {
         background: "$darkGrey",
         color: "$white",
       },
+      orange: {
+        background: "linear-gradient(270deg, #ff1f00 0%, #ff9900 100%)",
+        color: "$white",
+      },
     },
     border: {
       rounded: {
