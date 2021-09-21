@@ -10,7 +10,9 @@ const TokenDistributionSection = ({ data }) => {
         title={data.title}
         style={{ marginTop: "120px" }}
       >
-        <Image img={data.imageBackground} />
+        <div className="token-distribution-container container">
+          <Image img={data.imageBackground} />
+        </div>
       </Section>
     );
   }

@@ -10,7 +10,9 @@ const AboutTokenSection = ({ data }) => {
         title={data.title}
         style={{ marginTop: "120px" }}
       >
-        <Image img={data.imageBackground} />
+        <div className="about-token-container container">
+          <Image img={data.imageBackground} />
+        </div>
       </Section>
     );
   }
