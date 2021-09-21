@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Button from "../common/button";
 import Text from "../common/text";
@@ -7,18 +7,24 @@ import OptimizedImage from "../common/optimized-image";
 
 import { useInterval } from "../../utils/hooks";
 import { catZeroCharString, convertTimeToDHMS } from "../../utils/others";
+import classNames from "classnames";
 
-const CountDownPublicListing = () => {
+const TARGET_DATE = "2021-09-25T03:50:00.000Z";
+
+const CountDownPublicListing = (props) => {
   // NOTE: time to target countdown to seconds
   const [timeToTarget, setTimeToTarget] = useState(
-    (new Date("09/25/2021").getTime() - new Date().getTime()) / 1000
+    (new Date(TARGET_DATE).getTime() - new Date().getTime()) / 1000
   );
 
   useInterval(
     () => {
+      if (timeToTarget < 1) {
+        props.onCountCompleted();
+      }
       setTimeToTarget(timeToTarget - 1);
     },
-    timeToTarget > 0 ? 1000 : null
+    timeToTarget >= 0 ? 1000 : null
   );
 
   const renderBlocks = () => {
@@ -48,16 +54,52 @@ const CountDownPublicListing = () => {
   };
 
   return (
-    <div className="count-down-wrapper">
-      <Text className="count-down-title" type="p" size="small">
-        {timeToTarget > 0 ? "Public Listing in" : "Open for Public Listing"}
-      </Text>
-      <div className="count-down-blocks">{renderBlocks()}</div>
+    <div
+      className={classNames([
+        "count-down-wrapper",
+        timeToTarget > 0 ? "" : "done",
+      ])}
+    >
+      {timeToTarget > 0 ? (
+        <Text className="count-down-title" type="p" size="small">
+          Public Listing in
+        </Text>
+      ) : (
+        <Text className="count-down-done-text" type="p">
+          The wait is over, BHO is listing on Pancakeswap!
+        </Text>
+      )}
+      {timeToTarget > 0 && (
+        <div className="count-down-blocks">{renderBlocks()}</div>
+      )}
     </div>
   );
 };
 
 const LandingPageHero = ({ data }) => {
+  const [displayButtonActions, setDisplayButtonActions] = useState(
+    data.actions && data.actions.length > 0 ? data.actions : []
+  );
+
+  const replaceFirstButtonWhenCountDownComplete = () => {
+    const buyBHONow = {
+      id: 9,
+      url: "https://sale.bholdus.com/",
+      newTab: true,
+      text: "BUY BHO NOW",
+      type: null,
+    };
+    const cloneDisplayButton = [...displayButtonActions];
+    cloneDisplayButton[0] = buyBHONow;
+    setDisplayButtonActions(cloneDisplayButton);
+  };
+
+  useEffect(() => {
+    if (new Date(TARGET_DATE).getTime() - new Date().getTime() < 0) {
+      replaceFirstButtonWhenCountDownComplete();
+    }
+  }, []);
+
   const video_url = data.videoBackground?.video_url?.url
     ? data.videoBackground.video_url.url.replace(
         "bholdus.s3.ap-southeast-1.amazonaws.com",
@@ -109,11 +151,13 @@ const LandingPageHero = ({ data }) => {
             {data.description}
           </Text>
 
-          <CountDownPublicListing />
+          <CountDownPublicListing
+            onCountCompleted={replaceFirstButtonWhenCountDownComplete}
+          />
 
           {/* Buttons row */}
           <div className="hero-button">
-            {data.actions.map((button: any) => (
+            {displayButtonActions.map((button: any) => (
               <Button
                 className={`button${button.type ? "" : " button-special"}`}
                 isLink
