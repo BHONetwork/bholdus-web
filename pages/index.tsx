@@ -15,11 +15,14 @@ import PartnerSection from "../components/sections/partner-section";
 import PressSection from "../components/sections/press-section";
 import AboutTokenSection from "../components/sections/about-token";
 import TokenDistributionSection from "../components/sections/token-distribution";
+import FAQSection from "../components/sections/faq-section";
 import {
   ABOUT_TOKEN_SECTION_DATA,
   ABOUT_TOKEN_SECTION_KEY,
   ABOUT_DISTRIBUTION_SECTION_KEY,
   ABOUT_DISTRIBUTION_SECTION_DATA,
+  ABOUT_FAQ_SECTION_KEY,
+  ABOUT_FAQ_SECTION_DATA,
 } from "../constants/extraSections";
 import { fetchAPI, getLocale } from "../utils/api";
 
@@ -36,6 +39,7 @@ const mapSections = {
   "sections.press-section": PressSection,
   [ABOUT_TOKEN_SECTION_KEY]: AboutTokenSection,
   [ABOUT_DISTRIBUTION_SECTION_KEY]: TokenDistributionSection,
+  [ABOUT_FAQ_SECTION_KEY]: FAQSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
@@ -45,7 +49,8 @@ const Home = ({ pageData, latestNews, global }) => {
     3,
     0,
     ABOUT_TOKEN_SECTION_DATA,
-    ABOUT_DISTRIBUTION_SECTION_DATA
+    ABOUT_DISTRIBUTION_SECTION_DATA,
+    ABOUT_FAQ_SECTION_DATA
   );
 
   return (
