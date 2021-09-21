@@ -5,7 +5,6 @@ import { groupByKey } from "../../../utils/others";
 
 const PartnerSection = ({ data }) => {
   const groupPartners = groupByKey(data.partners, "type");
-  console.log(groupPartners);
   return (
     <Section id="partners" smallTitle={data.smallTitle} title={data.title}>
       <GroupPartners groupPartners={groupPartners} />

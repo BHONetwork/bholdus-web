@@ -7,10 +7,15 @@ import Text from "../../common/text";
 
 const FAQItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { id, question, answers } = props.questionInfo;
+  const { questionInfo, index } = props;
+  const { id, question, answers } = questionInfo;
 
   return (
-    <div className="faq-item">
+    <div
+      className="faq-item"
+      data-aos="fade-up"
+      data-aos-delay={(index + 1) * 400}
+    >
       <div
         className="faq-header"
         role="button"
@@ -51,9 +56,10 @@ const FAQSection = ({ data }) => {
       style={{ marginTop: "120px" }}
     >
       <div className="faq-container container">
-        {data.questions.map((questionInfo) => (
+        {data.questions.map((questionInfo, index) => (
           <FAQItem
             key={`faq-item-${questionInfo.id}`}
+            index={index}
             questionInfo={questionInfo}
           />
         ))}

@@ -1,5 +1,5 @@
 import Section from "../sections";
-import Image from "../../common/image";
+import OptimizedImage from "../../common/optimized-image";
 
 const AboutTokenSection = ({ data }) => {
   if (data.imageBackground) {
@@ -11,7 +11,13 @@ const AboutTokenSection = ({ data }) => {
         style={{ marginTop: "120px" }}
       >
         <div className="about-token-container container">
-          <Image img={data.imageBackground} />
+          <OptimizedImage
+            data-aos="fade-up"
+            data-aos-delay={400}
+            img={data.imageBackground}
+            height={data.imageBackground.height}
+            width={data.imageBackground.width}
+          />
         </div>
       </Section>
     );

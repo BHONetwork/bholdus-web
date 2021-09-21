@@ -1,3 +1,25 @@
+export const ABOUT_NOTABLE_STATISTICS_SECTION_KEY =
+  "sections.notable-statistics";
+export const ABOUT_NOTABLE_STATISTICS_SECTION_DATA = {
+  id: 12348,
+  __component: ABOUT_NOTABLE_STATISTICS_SECTION_KEY,
+  imageBackground: {
+    id: 123481,
+    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/notable_statistic_bg_025ef9093b.png",
+    alternativeText: "notable-statistics-bg",
+    width: 1680,
+    height: 725,
+  },
+  imageContent: {
+    id: 123482,
+    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/notable_statistic_content_464f9965e1.png",
+    alternativeText: "notable-statistics-content",
+    width: 1680,
+    height: 725,
+  },
+  enable: true,
+};
+
 export const ABOUT_TOKEN_SECTION_KEY = "sections.about-token";
 export const ABOUT_TOKEN_SECTION_DATA = {
   id: 12345,
@@ -5,7 +27,7 @@ export const ABOUT_TOKEN_SECTION_DATA = {
   imageBackground: {
     id: 12345,
     url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/about_token_0352f98613.png",
-    alt: "about-token-bg",
+    alternativeText: "about-token-bg",
     width: 1044,
     height: 692,
   },
@@ -21,7 +43,7 @@ export const ABOUT_DISTRIBUTION_SECTION_DATA = {
   imageBackground: {
     id: 12346,
     url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/token_distribution_be944c01f7.png",
-    alt: "about-distribution-bg",
+    alternativeText: "about-distribution-bg",
     width: 821,
     height: 723,
   },

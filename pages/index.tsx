@@ -13,10 +13,13 @@ import LatestNewsSection from "../components/sections/latest-news-section";
 import ContactSection from "../components/sections/contact-section";
 import PartnerSection from "../components/sections/partner-section";
 import PressSection from "../components/sections/press-section";
+import NotableStatisticsSection from "../components/sections/notable-statistics";
 import AboutTokenSection from "../components/sections/about-token";
 import TokenDistributionSection from "../components/sections/token-distribution";
 import FAQSection from "../components/sections/faq-section";
 import {
+  ABOUT_NOTABLE_STATISTICS_SECTION_DATA,
+  ABOUT_NOTABLE_STATISTICS_SECTION_KEY,
   ABOUT_TOKEN_SECTION_DATA,
   ABOUT_TOKEN_SECTION_KEY,
   ABOUT_DISTRIBUTION_SECTION_KEY,
@@ -40,6 +43,7 @@ const mapSections = {
   [ABOUT_TOKEN_SECTION_KEY]: AboutTokenSection,
   [ABOUT_DISTRIBUTION_SECTION_KEY]: TokenDistributionSection,
   [ABOUT_FAQ_SECTION_KEY]: FAQSection,
+  [ABOUT_NOTABLE_STATISTICS_SECTION_KEY]: NotableStatisticsSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
@@ -48,6 +52,7 @@ const Home = ({ pageData, latestNews, global }) => {
   extraPageDataSections.splice(
     3,
     0,
+    ABOUT_NOTABLE_STATISTICS_SECTION_DATA,
     ABOUT_TOKEN_SECTION_DATA,
     ABOUT_DISTRIBUTION_SECTION_DATA,
     ABOUT_FAQ_SECTION_DATA

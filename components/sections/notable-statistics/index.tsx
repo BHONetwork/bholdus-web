@@ -1,22 +1,23 @@
 import Section from "../sections";
+import Image from "../../common/image";
 import OptimizedImage from "../../common/optimized-image";
 
-const TokenDistributionSection = ({ data }) => {
+const NotableStatisticsSection = ({ data }) => {
   if (data.imageBackground) {
     return (
       <Section
-        id="token-distribution"
+        id="notable-statistics"
         smallTitle={data.smallTitle}
         title={data.title}
         style={{ marginTop: "120px" }}
       >
-        <div className="token-distribution-container container">
+        <Image className="image-bg" img={data.imageBackground} />
+        <div className="notable-statistic-container container">
           <OptimizedImage
+            className="image-content"
             data-aos="fade-up"
             data-aos-delay={400}
-            img={data.imageBackground}
-            height={data.imageBackground.height}
-            width={data.imageBackground.width}
+            img={data.imageContent}
           />
         </div>
       </Section>
@@ -26,4 +27,4 @@ const TokenDistributionSection = ({ data }) => {
   return null;
 };
 
-export default TokenDistributionSection;
+export default NotableStatisticsSection;

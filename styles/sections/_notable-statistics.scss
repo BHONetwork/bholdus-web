@@ -1,0 +1,17 @@
+#notable-statistics {
+  .lazyload-wrapper {
+    .image-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .image-content {
+      position: relative;
+      margin-top: 40px;
+      z-index: 2;
+    }
+  }
+}
