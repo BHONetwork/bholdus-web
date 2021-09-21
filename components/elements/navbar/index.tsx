@@ -178,7 +178,7 @@ const Navbar = ({
             </>
           )}
           <div className="logo-wrapper flex justify-start items-center">
-            <CustomLink link={{ url: "/" }}>
+            <CustomLink link={{ url: "/#" }}>
               <OptimizedImage
                 img={isBlogPage ? navbar.logo_blue : navbar.logo}
                 className="navbar-primary-logo"
