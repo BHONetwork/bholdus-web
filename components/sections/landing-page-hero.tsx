@@ -9,7 +9,7 @@ import { useInterval } from "../../utils/hooks";
 import { catZeroCharString, convertTimeToDHMS } from "../../utils/others";
 import classNames from "classnames";
 
-const TARGET_DATE = "2021-09-25T03:50:00.000Z";
+const TARGET_DATE = "2021-09-25T04:00:00.000Z";
 
 const CountDownPublicListing = (props) => {
   // NOTE: time to target countdown to seconds
