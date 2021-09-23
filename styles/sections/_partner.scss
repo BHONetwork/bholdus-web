@@ -74,6 +74,7 @@
           margin: 20px;
           opacity: 0.9;
           transition: opacity 0.2s;
+          flex-basis: 21%;
           &:hover {
             opacity: 1;
           }
@@ -81,10 +82,20 @@
             object-fit: scale-down;
             filter: grayscale(100%);
           }
+
+          @include tablet {
+            flex-basis: 24%;
+          }
+
           @include mobile-only {
             margin: 20px 10px;
             width: 120px;
             height: 90px;
+            flex-basis: 25%;
+          }
+
+          @include mobile-portrait {
+            flex-basis: 40%;
           }
         }
       }
