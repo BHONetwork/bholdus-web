@@ -12,7 +12,7 @@ export const ABOUT_NOTABLE_STATISTICS_SECTION_DATA = {
   },
   imageContent: {
     id: 123482,
-    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/notable_statistic_content_464f9965e1.png",
+    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/notable_statistic_2_min_e6537adacd.png",
     alternativeText: "notable-statistics-content",
     width: 1680,
     height: 725,
