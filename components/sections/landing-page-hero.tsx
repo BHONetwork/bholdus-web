@@ -84,7 +84,7 @@ const LandingPageHero = ({ data }) => {
   const replaceFirstButtonWhenCountDownComplete = () => {
     const buyBHONow = {
       id: 9,
-      url: "https://sale.bholdus.com/",
+      url: "https://pancakeswap.finance/swap?outputCurrency=0x8717e80eff08f53a45b4a925009957e14860a8a8",
       newTab: true,
       text: "BUY BHO NOW",
       type: null,
