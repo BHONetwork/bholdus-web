@@ -26,7 +26,7 @@ export const ABOUT_TOKEN_SECTION_DATA = {
   __component: ABOUT_TOKEN_SECTION_KEY,
   imageBackground: {
     id: 12345,
-    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/about_token_0352f98613.png",
+    url: "https://bholdus.s3.ap-southeast-1.amazonaws.com/bholdus-web/about_token_min_c09a404a6c.png",
     alternativeText: "about-token-bg",
     width: 1044,
     height: 692,
@@ -60,7 +60,7 @@ export const ABOUT_FAQ_SECTION_DATA = {
   questions: [
     {
       id: 123471,
-      question: "What is BHOLDUS, BHOLDUS Multi-chain Network, BHO?",
+      question: "What is BHOLDUS/BHOLDUS Multi-chain Network/BHO?",
       answers: [
         `BHOLDUS multi-chain is an interoperable blockchain network where we can issue the 1:1 synthetic assets on different chains such as BHOLDUS itself and Binance Smart Chain, Ethereum, etc… BHOLDUS multi-chain network also acts as a hybrid model to accelerate open finance, allowing its users to record their digital assets on-chain with NFT. The BHOLDUS Multi-chain network features its native token (BHO), Black Hole Pools, BHoldus hot wallet and other partnership projects building on top.   BHO is a native token of Bholdus chain, which is issued on different platforms such as Binance Smart Chain, Ethereum, etc.. BHO acts as a digital asset that stores values, generates yield (interest) and provides access to an open lending network. In addition, it represents its owner’s voting rights over economic factors (i.e. inflation and deflation rates)`,
       ],
@@ -70,8 +70,8 @@ export const ABOUT_FAQ_SECTION_DATA = {
       question:
         "What is an interoperable blockchain network? How BHOLDUS can be “interoperable” with Bitcoin, Ethereum, Polkadot?",
       answers: [
-        `Through the Bholdus staking algorithm, investors will have the privilege and priority in capturing attractive yields and participate in the BHoldus ecosystem, which interconnects with other blockchain networks in the market such as Binance, Ethereum, Bitcoin, Polkadot, amongst others.`,
-        `There is a decentralised wallet where users will keep their own private keys having access, check balance and exchange and do other token services in Bholdus Wallet.  									`,
+        `Through the Bholdus staking algorithm, investors will have the privilege and priority in capturing attractive yields and participate into the BHoldus ecosystem, which interconnects with other blockchain networks in the market such as Binance, Ethereum, Bitcoin, Polkadot, amongst and others.`,
+        `There is a decentralised wallet where users will keep their own private key which permit access, check balance and exchange and do other token services in Bholdus Wallet.  									`,
       ],
     },
     {
@@ -87,21 +87,21 @@ export const ABOUT_FAQ_SECTION_DATA = {
     },
     {
       id: 123474,
-      question: "How NFTs works on BHOLDUS Network? ",
+      question: "How NFTs work on BHOLDUS Network? ",
       answers: [
         `Bholdus uses NFTs to represent real-world, digital assets and evidence for creditworthiness, including but not limited to artworks, real estate, audited financial statements, invoices or audited mortgages, property rights, etc.`,
-        `Bholdus can help issue different digital assets which are NFTs in Bholdus chain. Each NFTs token will be a unique identity.`,
+        `Bholdus can help SMEs in issuing different digital assets which are NFTs on Bholdus chain. Each NFT token will be a unique identity.`,
       ],
     },
     {
       id: 123475,
-      question: "How to tokenize my assets via BHOLDUS Network?",
+      question: "How to tokenize my assets with BHOLDUS Network?",
       answers: [
-        `As an asset originator, an user may lock an NFT representing a “Real World Asset” into a set of smart contracts as collateral. The NFT is minted based on audited documents created and shared via the BHO BHoldus blockchain network. Auditing providers will determine the structure of these financing offers through an on-chain “Pricing Oracles.” Upon repayment, the NFT is unlocked and transferred back into the Asset Originator’s wallet.`,
+        `As an asset originator, an user may lock an NFT, which representing a “Real World Asset” into a set of smart contracts as collateral. The NFT is minted based on audited documents created and shared over the BHO BHoldus Blockchain Network. Auditing providers will determine the structure of these financing offers through an on-chain “Pricing Oracles.” Upon repayment, the NFT is unlocked and transferred back into the Asset Originator’s wallet.`,
       ],
     },
   ],
   smallTitle: "FAQ",
-  title: "Frequency Asked Questions",
+  title: "Frequently Asked Questions",
   enable: true,
 };

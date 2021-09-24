@@ -19,6 +19,7 @@
       transform: translate3d(0px, -150px, 0px);
       img {
         object-fit: cover;
+        width: 100%;
       }
       @include tablet {
         height: 220%;

@@ -1,8 +1,11 @@
+import useTranslation from "next-translate/useTranslation";
 import Section from "../sections";
 import OptimizedImage from "../../common/optimized-image";
 import Button from "../../common/button";
 
 const AboutTokenSection = ({ data }) => {
+  const { t } = useTranslation();
+
   if (data.imageBackground) {
     return (
       <Section
@@ -20,12 +23,12 @@ const AboutTokenSection = ({ data }) => {
             width={data.imageBackground.width}
           />
           <Button
-            className="mt-12 inline-block"
+            className="mt-12 inline-block capitalize"
             isLink
             buttonType="orange"
             button={{
-              text: "Buy Tokens",
-              url: "https://sale.bholdus.com/",
+              text: `${t("common:buy")} Tokens`,
+              url: "https://pancakeswap.finance/swap?outputCurrency=0x8717e80eff08f53a45b4a925009957e14860a8a8",
               newTab: true,
             }}
           />

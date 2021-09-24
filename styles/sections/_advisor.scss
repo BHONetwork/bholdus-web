@@ -17,6 +17,7 @@ section[id^="advisor-"] {
       min-height: 832px;
       img {
         object-fit: cover;
+        width: 100%;
       }
       z-index: 0;
       transform: translate3d(0px, -150px, 0px);
