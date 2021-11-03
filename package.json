@@ -18,18 +18,18 @@
     "@popperjs/core": "^2.10.1",
     "@stitches/react": "^0.2.5",
     "@tailwindcss/typography": "^0.4.1",
-    "@types/react": "17.0.21",
+    "@types/react": "17.0.24",
     "aos": "^3.0.0-beta.6",
-    "autoprefixer": "^10.3.4",
+    "autoprefixer": "^10.3.6",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.7",
     "formik": "^2.2.6",
-    "intl-pluralrules": "^1.3.0",
+    "intl-pluralrules": "^1.3.1",
     "lodash": "^4.17.21",
     "next": "^11.1.2",
     "next-seo": "^4.26.0",
     "next-translate": "^1.0.7",
-    "postcss": "^8.3.6",
+    "postcss": "^8.3.8",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^6.1.1",
     "postcss-nested": "5.0.6",
@@ -48,16 +48,16 @@
     "remark-gfm": "2.0.0",
     "remark-rehype": "9.0.0",
     "remark-slug": "7.0.0",
-    "sass": "^1.41.0",
-    "tailwindcss": "^2.2.15",
+    "sass": "^1.41.1",
+    "tailwindcss": "^2.2.16",
     "typescript": "^4.4.3",
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.15.4",
+    "@babel/eslint-parser": "7.15.7",
     "@types/gtag.js": "^0.0.7",
-    "@typescript-eslint/eslint-plugin": "4.31.1",
-    "@typescript-eslint/parser": "4.31.1",
+    "@typescript-eslint/eslint-plugin": "4.31.2",
+    "@typescript-eslint/parser": "4.31.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
@@ -67,11 +67,11 @@
     "eslint-plugin-import": "2.24.2",
     "eslint-plugin-jsx-a11y": "6.x",
     "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-react": "7.25.1",
+    "eslint-plugin-react": "7.25.3",
     "eslint-plugin-react-hooks": "4.2.0",
     "prettier": "^2.4.0"
   },
   "peerDependencies": {
-    "postcss": "^8.3.6"
+    "postcss": "^8.3.8"
   }
 }
