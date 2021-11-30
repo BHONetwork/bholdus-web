@@ -9,7 +9,7 @@ import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
 import Image from "../../components/common/image";
 import ArticleList from "./ArticleList";
-import { FeatureArticle } from "./FeatureArticle";
+import FeatureArticle from "./FeatureArticle";
 import { fetchAPI, getLocale } from "../../utils/api";
 import { formatDate } from "../../utils/datetime";
 

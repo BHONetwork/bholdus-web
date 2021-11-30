@@ -12,7 +12,7 @@ import ArticleList from "../ArticleList";
 import { fetchAPI, getLocale } from "../../../utils/api";
 
 import { ARTICLE_TYPE_BLOG, PAGE_SIZE } from "../../../constants/common";
-import { FeatureArticle } from "../FeatureArticle";
+import FeatureArticle from "../FeatureArticle";
 
 const articlesOfTopicQuery = ({ isCount, locale, topicSlug, pageNumber }) =>
   stringify({

@@ -1,9 +1,10 @@
+import React from "react";
 import useTranslation from "next-translate/useTranslation";
 import OptimizedImage from "../../components/common/optimized-image";
 import { formatDate } from "../../utils/datetime";
 import Button from "../../components/common/button";
 
-export const FeatureArticle = ({ article }) => {
+const FeatureArticle = ({ article }) => {
   const { t, lang } = useTranslation();
   console.log(article);
   if (!article) return null;
@@ -36,3 +37,4 @@ export const FeatureArticle = ({ article }) => {
     </div>
   );
 };
+export default FeatureArticle;
