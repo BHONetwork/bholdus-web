@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import { stringify } from "qs";
 import useTranslation from "next-translate/useTranslation";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -9,8 +8,6 @@ import Seo from "../../components/elements/seo";
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
 import Image from "../../components/common/image";
-import CustomLink from "../../components/common/custom-link";
-import OptimizedImage from "../../components/common/optimized-image";
 import ArticleList from "./ArticleList";
 import { FeatureArticle } from "./FeatureArticle";
 import { fetchAPI, getLocale } from "../../utils/api";
@@ -21,9 +18,6 @@ import {
   ARTICLE_TYPE_SEARCH,
   PAGE_SIZE,
 } from "../../constants/common";
-import { locale } from "dayjs";
-import { redirect } from "next/dist/server/api-utils";
-import topics from "./topics";
 
 const articlesQuery = ({ isCount, locale, pageNumber }) =>
   stringify({
