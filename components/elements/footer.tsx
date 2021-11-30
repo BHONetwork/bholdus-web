@@ -1,6 +1,5 @@
 import OptimizedImage from "../common/optimized-image";
 import CustomLink from "../common/custom-link";
-import Text from "../common/text";
 import Social from "./social";
 
 const Footer = ({ footer }) => {
@@ -32,7 +31,7 @@ const Footer = ({ footer }) => {
                         {menu.Links.map((link: any, lindex: number) => (
                           <li className="item" key={lindex}>
                             <CustomLink link={link} className="link">
-                              <Text type="div">{link.text}</Text>
+                              <div>{link.text}</div>
                             </CustomLink>
                           </li>
                         ))}

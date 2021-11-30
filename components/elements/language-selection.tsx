@@ -26,7 +26,7 @@ const LanguageSelection = ({ languages }) => {
       {({ open }) => (
         <>
           <Menu.Button className="language-menu">
-            <Text type="div">{locale}</Text>
+            <div>{locale}</div>
             <MdKeyboardArrowDown style={{ color: "white" }} />
           </Menu.Button>
 
@@ -50,7 +50,7 @@ const LanguageSelection = ({ languages }) => {
                       asPath={asPath}
                       locale={language.code}
                     >
-                      <Text size="normal">{language.name}</Text>
+                      <p>{language.name}</p>
                       {locale === language.code && (
                         <MdCheck
                           className="flex-shrink-0"

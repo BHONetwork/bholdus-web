@@ -6,7 +6,6 @@ import useTranslation from "next-translate/useTranslation";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import classNames from "classnames";
 import Button from "../../common/button";
-import Text from "../../common/text";
 
 import { fetchAPI } from "../../../utils/api";
 
@@ -52,9 +51,9 @@ const GetInTouchForm = ({ className }) => {
               name="name"
               placeholder={t("common:getInTouchFormName")}
             />
-            <Text className="text-left" type="div" uppercase>
+            <div className="text-left">
               {errors.name && touched.name && errors.name}
-            </Text>
+            </div>
 
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
@@ -62,9 +61,9 @@ const GetInTouchForm = ({ className }) => {
               name="email"
               placeholder={t("common:getInTouchFormEmail")}
             />
-            <Text className="text-left" type="div" uppercase>
+            <div className="text-left">
               {errors.email && touched.email && errors.email}
-            </Text>
+            </div>
 
             <Field
               className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
@@ -74,9 +73,9 @@ const GetInTouchForm = ({ className }) => {
               name="message"
               placeholder={t("common:getInTouchFormMessage")}
             />
-            <Text className="text-left" type="div" uppercase>
+            <div className="text-left">
               {errors.message && touched.message && errors.message}
-            </Text>
+            </div>
 
             <Button
               type="submit"
@@ -91,15 +90,13 @@ const GetInTouchForm = ({ className }) => {
                     color="#fff"
                     size={20}
                   />
-                  <Text>{t("common:getInTouchFormThankYou")}</Text>
+                  <p>{t("common:getInTouchFormThankYou")}</p>
                 </div>
               ) : (
-                <Text>{t("common:getInTouchFormSendMessage")}</Text>
+                <p>{t("common:getInTouchFormSendMessage")}</p>
               )}
             </Button>
-            <Text className="text-left" type="div" uppercase>
-              {errors.api && errors.api}
-            </Text>
+            <div className="text-left">{errors.api && errors.api}</div>
 
             <HCaptcha
               sitekey={process.env.HCAPTCHA_SITEKEY}

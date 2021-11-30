@@ -1,5 +1,4 @@
 import OptimizedImage from "../../common/optimized-image";
-import Text from "../../common/text";
 
 const UsecaseCard = ({ data, index }) => {
   const data_aos = index % 2 === 0 ? "fade-right" : "fade-left";
@@ -18,10 +17,8 @@ const UsecaseCard = ({ data, index }) => {
         height={150}
       />
       <div className="usecases-content">
-        <Text className="usecases-title" type="h4">
-          {data.title}
-        </Text>
-        <Text type="p">{data.description}</Text>
+        <h4 className="usecases-title">{data.title}</h4>
+        <p>{data.description}</p>
       </div>
     </div>
   );

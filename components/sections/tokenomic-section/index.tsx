@@ -1,25 +1,6 @@
 import OptimizedImage from "../../common/optimized-image";
 import classNames from "classnames";
 const TokenomicSection = ({ data }) => {
-  const renderContainer = (container, position, className = "") => {
-    if (data?.services)
-      return data.services.map((item, idx) => {
-        if (item?.container === container)
-          if (item.position === position)
-            return (
-              <div className={classNames("item-info", className)} key={idx}>
-                <OptimizedImage
-                  img={item.image}
-                  width={56}
-                  height={56}
-                  layout="intrinsic"
-                />
-                <span className="text-info">{renderTitle(item.title)}</span>
-              </div>
-            );
-      });
-    return null;
-  };
   return (
     <section id="about-token" data-aos="fade-up" data-aos-delay={200}>
       <div className="container">
