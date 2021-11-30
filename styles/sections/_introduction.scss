@@ -1,32 +1,34 @@
-#introduction {
-    padding-top: 40px;
-    position: relative;
-    @include not-tablet {
-        padding-top: 80px;
+#intro {
+  margin-top: 60px;
+  .intro{
+    .media-intro {
+      .delay-2 {
+        animation-delay: -2s;
+      }
+      .delay-0 {
+        animation-delay: 0s;
+      }
+      button {
+        position: absolute;
+        top: calc(50% - 28px);
+        left: calc(50% - 20px);
+        z-index: 1;
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 54px;
+        width: 54p;
+      }
+      .play-button {
+        transform: rotate(-1deg);
+        width: 100%;
+        height: 100%;
+        max-width: 53px;
+        max-height: 53px;
+      }
     }
-
-    .introduction {
-        &-bg {
-            position: absolute;
-            top: -60px;
-            left: 0;
-            width: 100%;
-            min-width: 1680px;
-            z-index: 0;
-            height: 800px;
-            img {
-                object-fit: cover;
-            }
-        }
-        &-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            flex-shrink: 1;
-            text-align: left;
-            @include not-tablet {
-                flex-direction: row;
-            }
-        }
-    }
+  }
 }

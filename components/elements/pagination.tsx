@@ -54,44 +54,52 @@ const Pagination = ({
   if (totalPage > 1) {
     return (
       <div className="pagination">
-        {totalPage > numOfPageDisplay && (
-          <CustomLink
-            className="paginate-icon paginate-icon-first"
-            link={{
-              url: generateNavigateLink(1),
-            }}
-          >
-            «
-          </CustomLink>
-        )}
-        {new Array(endPaginateNumber - beginPaginateNumber + 1)
-          .fill(0)
-          .map((value, index) => {
-            const pageNumber = index + beginPaginateNumber;
-            return (
+        <ul className="list-page">
+          {totalPage > numOfPageDisplay && (
+            <li className="item-page">
               <CustomLink
-                key={`page-num-${pageNumber}`}
-                className={classNames("page-num", {
-                  active: currentPage === pageNumber,
-                })}
+                className="link-item link-prev"
                 link={{
-                  url: generateNavigateLink(pageNumber),
+                  url: generateNavigateLink(1),
                 }}
               >
-                {pageNumber}
+                «
               </CustomLink>
-            );
-          })}
-        {totalPage > numOfPageDisplay && (
-          <CustomLink
-            className="paginate-icon paginate-icon-last"
-            link={{
-              url: generateNavigateLink(totalPage),
-            }}
-          >
-            »
-          </CustomLink>
-        )}
+            </li>
+          )}
+          {new Array(endPaginateNumber - beginPaginateNumber + 1)
+            .fill(0)
+            .map((value, index) => {
+              const pageNumber = index + beginPaginateNumber;
+              return (
+                <li className="item-page">
+                  <CustomLink
+                    key={`page-num-${pageNumber}`}
+                    className={classNames("link-item", {
+                      "link-active": currentPage === pageNumber,
+                    })}
+                    link={{
+                      url: generateNavigateLink(pageNumber),
+                    }}
+                  >
+                    {pageNumber}
+                  </CustomLink>
+                </li>
+              );
+            })}
+          {totalPage > numOfPageDisplay && (
+            <li className="item-page">
+              <CustomLink
+                className="link-item link-next"
+                link={{
+                  url: generateNavigateLink(totalPage),
+                }}
+              >
+                »
+              </CustomLink>
+            </li>
+          )}
+        </ul>
       </div>
     );
   }

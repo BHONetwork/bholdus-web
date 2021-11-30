@@ -1,28 +1,23 @@
 import { MdFilterDrama } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
-
+import PageHero from "../components/sections/page-hero";
 import CustomLink from "../components/common/custom-link";
 import Text from "../components/common/text";
 import Layout from "../components/layout";
 
 const NotFoundPage = ({ global }) => {
   const { t } = useTranslation();
-
   return (
-    <Layout Hero={() => null} global={global} mainClass="bg-white">
-      <div className="flex flex-col items-center mt-32 md:mt-52 space-y-10">
-        <MdFilterDrama size={150} />
-        <Text type="h1" style={{ color: "#545C79" }}>
-          Oooooops.....
-        </Text>
-        <Text size="medium" color="black">
-          {t("common:thePageCannotBeFound")}
-        </Text>
-        <CustomLink link={{ url: "/" }}>
-          <Text size="medium" style={{ color: "#0000FF" }}>
+    <Layout Hero={() => null} global={global} mainClass="page-container">
+      <div className="page-404">
+        <div className="page-404-wrapper">
+          <MdFilterDrama size={150} />
+          <h1>Oooooops.....</h1>
+          <p>{t("common:thePageCannotBeFound")}</p>
+          <CustomLink link={{ url: "/" }}>
             {t("common:goBackToHomepage")}
-          </Text>
-        </CustomLink>
+          </CustomLink>
+        </div>
       </div>
     </Layout>
   );

@@ -1,21 +1,29 @@
 import OptimizedImage from "../../common/optimized-image";
 
 import { getSocials } from "../../../utils/api";
+import { data } from "autoprefixer";
 
 const BoardProfile = ({ data, index }) => {
   const socials = getSocials(data);
   return (
     <div
       key={index}
-      className="advisor"
+      className="item-our-board"
       data-aos="fade-zoom-in"
       data-aos-easing="ease-in-back"
       data-aos-delay={index * 200}
       data-aos-offset="0"
     >
-      <div className="advisor__img">
+      <div className="img-item">
         <OptimizedImage img={data.avatar} layout="fill" />
-        <div className="advisor__sn">
+      </div>
+      <div className="info-item">
+        <div className="wrap-info">
+          <p className="title-item">{data.name}</p>
+          <p className="position-item">{data.title}</p>
+          <p className="desc-item">{data.bio}</p>
+        </div>
+        <div className="social-item">
           {socials.map(({ type, url }, index: number) => (
             <a key={index} href={url} target="_blank" rel="nofollow noreferrer">
               <OptimizedImage
@@ -27,11 +35,6 @@ const BoardProfile = ({ data, index }) => {
             </a>
           ))}
         </div>
-      </div>
-      <div className="advisor__content">
-        <div className="advisor__title">{data.name}</div>
-        <div className="advisor__post">{data.title}</div>
-        <div className="advisor__text">{data.bio}</div>
       </div>
     </div>
   );

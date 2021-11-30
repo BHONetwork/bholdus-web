@@ -95,9 +95,9 @@ const ArticleList = ({
   };
 
   return (
-    <React.Fragment>
+    <div className="list-post-blog">
       {displayArticles && displayArticles.length ? (
-        <div className={articleListClassName}>
+        <ul className="list-post">
           {displayArticles.map((article: any, index: number) => (
             <LinkWrapper key={article.id} url={`/blog/article/${article.slug}`}>
               <LocalArticle
@@ -108,14 +108,12 @@ const ArticleList = ({
               />
             </LinkWrapper>
           ))}
-        </div>
+        </ul>
       ) : (
         !isfeaturedArticleAppear && (
-          <div className="flex flex-col flex-1 justify-center items-center md:mb-20 mb-10">
+          <div className="page-404">
             <MdFilterDrama size={200} />
-            <Text size="medium" color="black">
-              {t("common:blogNoArticles")}
-            </Text>
+            <p>{t("common:blogNoArticles")}</p>
           </div>
         )
       )}
@@ -124,8 +122,7 @@ const ArticleList = ({
         {isMobile ? (
           <Button
             button={{ text: "Load more" }}
-            buttonType="darkBlue"
-            color="purple"
+            className="loadmore"
             loading={isLoadingMore}
             onClick={onClickLoadMore}
           />
@@ -138,7 +135,7 @@ const ArticleList = ({
           />
         )}
       </PaginateWrapperNoSSR>
-    </React.Fragment>
+    </div>
   );
 };
 

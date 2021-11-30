@@ -13,6 +13,7 @@ import LatestNewsSection from "../components/sections/latest-news-section";
 import ContactSection from "../components/sections/contact-section";
 import PartnerSection from "../components/sections/partner-section";
 import PressSection from "../components/sections/press-section";
+import TokenomicSection from "../components/sections/tokenomic-section";
 import { fetchAPI, getLocale } from "../utils/api";
 
 const mapSections = {
@@ -26,13 +27,18 @@ const mapSections = {
   "sections.latest-news": LatestNewsSection,
   "sections.partner-section": PartnerSection,
   "sections.press-section": PressSection,
+  "sections.tokenomic-section": TokenomicSection,
 };
 
 const Home = ({ pageData, latestNews, global }) => {
   const Hero = () => <LandingPageHero data={pageData.hero} />;
-
   return (
-    <Layout Hero={Hero} global={global} transparentNavbar={true}>
+    <Layout
+      Hero={Hero}
+      global={global}
+      transparentNavbar={true}
+      containerClass="page-home"
+    >
       {pageData.introduction && pageData.introduction.enable && (
         <Introduction data={pageData.introduction} />
       )}

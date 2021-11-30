@@ -12,6 +12,7 @@ import ArticleList from "../ArticleList";
 import { fetchAPI, getLocale } from "../../../utils/api";
 
 import { ARTICLE_TYPE_BLOG, PAGE_SIZE } from "../../../constants/common";
+import { FeatureArticle } from "../FeatureArticle";
 
 const articlesOfTopicQuery = ({ isCount, locale, topicSlug, pageNumber }) =>
   stringify({
@@ -35,7 +36,9 @@ const TopicDetail = ({
   const { locale } = router;
   const topicSlug = router.query.slug[0];
 
-  const Hero = () => <BlogHero article={featuredArticle} />;
+  const Hero = () => (
+    <BlogHero topicInfos={{ topics, currentTopic: topicSlug }} />
+  );
 
   return (
     <>
@@ -45,26 +48,30 @@ const TopicDetail = ({
         Hero={Hero}
         global={global}
         topicInfos={{ topics, currentTopic: topicSlug }}
-        mainClass="bg-white blog-container"
+        mainClass=""
+        containerClass="page-blog"
       >
-        <div className="container">
-          <ArticleList
-            articles={articlesOfTopic}
-            articlesCount={articlesCount}
-            articleType={ARTICLE_TYPE_BLOG}
-            pageNumberQuery={parseInt(router.query.slug[1], 10)}
-            articleListClassName="blog-article-items gap-8 sm:gap-y-8 sm:gap-x-8 md:gap-x-4 md:gap-y-6 lg:gap-6 xl:gap-x-20 xl:gap-y-12"
-            isfeaturedArticleAppear={!!featuredArticle}
-            apiLoadMorePathFunc={({ nextPage }) =>
-              `/articles?${articlesOfTopicQuery({
-                isCount: false,
-                locale,
-                topicSlug,
-                pageNumber: nextPage,
-              })}`
-            }
-            navigateLink={`/blog/topic/${topicSlug}/`}
-          />
+        <div className="content-blog" id="content-blog">
+          <div className="container">
+            <FeatureArticle article={featuredArticle} />
+            <ArticleList
+              articles={articlesOfTopic}
+              articlesCount={articlesCount}
+              articleType={ARTICLE_TYPE_BLOG}
+              pageNumberQuery={parseInt(router.query.slug[1], 10)}
+              articleListClassName="blog-article-items gap-8 sm:gap-y-8 sm:gap-x-8 md:gap-x-4 md:gap-y-6 lg:gap-6 xl:gap-x-20 xl:gap-y-12"
+              isfeaturedArticleAppear={!!featuredArticle}
+              apiLoadMorePathFunc={({ nextPage }) =>
+                `/articles?${articlesOfTopicQuery({
+                  isCount: false,
+                  locale,
+                  topicSlug,
+                  pageNumber: nextPage,
+                })}`
+              }
+              navigateLink={`/blog/topic/${topicSlug}/`}
+            />
+          </div>
         </div>
       </Layout>
     </>

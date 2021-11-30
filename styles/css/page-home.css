@@ -1,0 +1,264 @@
+
+#page-home {
+  position: relative;
+  background: #011348;
+  overflow: hidden;
+}
+#page-home #main-background {
+  position: absolute;
+  width: 100%;
+  height: 1853px;
+  background: linear-gradient(
+    134.11deg,
+    #f255c9 -0.12%,
+    #633082 15.84%,
+    #402770 25.71%,
+    #111b59 37.37%,
+    #041752 47.62%,
+    #061853 55.57%,
+    #111b59 68.63%,
+    #221770 82.23%,
+    #3b1788 92.57%,
+    #3b1788 100%
+  );
+}
+#page-home #main-background .img-square {
+  position: absolute;
+  left: calc(50% - 549px);
+  width: 1269px;
+  height: 1338px;
+  background: url(https://cdn.bholdus.com/bholdus-web/bg-logo.svg);
+}
+#page-home #main-background .img-rotate .img-rotate-1 {
+  position: absolute;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-rotate.webp);
+  background-repeat: no-repeat;
+  width: 380px;
+  height: 380px;
+  top: calc(48.5% - 190px);
+  left: calc(50% - 190px);
+  background-size: cover;
+  transform-origin: 50% 50%;
+  mix-blend-mode: screen;
+}
+@keyframes rotate-2 {
+  0% {
+    transform: rotate(360deg);
+    transform-origin: 50% 50%;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: 50% 50%;
+  }
+}
+#page-home #main-background .img-rotate .img-rotate-2 {
+  position: absolute;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-main-bg.webp);
+  background-repeat: no-repeat;
+  width: 500px;
+  height: 500px;
+  top: calc(48.5% - 250px);
+  left: calc(50% - 250px);
+  background-size: cover;
+  transform-origin: 50% 50%;
+  mix-blend-mode: screen;
+}
+
+#page-home #main-background .gradient-bot {
+  position: absolute;
+  bottom: -1px;
+  width: 100%;
+  height: 551px;
+  background: linear-gradient(180deg, rgba(1, 19, 72, 0) 0%, #011348 100%);
+}
+#page-home #main-background .img-rotate {
+  position: absolute;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-main-bg.webp);
+  mix-blend-mode: lighten;
+  opacity: 0;
+  width: 928px;
+  height: 928px;
+  top: -44px;
+  left: calc(50% - 124px);
+  background-size: contain;
+}
+@keyframes xoay {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#page-home #main-background .img-rotate .logo-bholdus {
+  position: absolute;
+  top: 333px;
+  left: 393px;
+  width: 194px;
+  height: 194px;
+}
+#page-home #main-background .img-rotate .logo-bholdus svg {
+  width: 100%;
+  height: auto;
+}
+#page-home #background-2 {
+  position: absolute;
+  width: 100%;
+  height: 2412px;
+  top: 2269px;
+}
+#page-home #background-2 .gradient {
+  position: absolute;
+  width: 100%;
+  height: 2221px;
+  top: 190px;
+  background: linear-gradient(
+    143.01deg,
+    #f255c9 -2.79%,
+    #c048b0 3.51%,
+    #8e3b97 9.81%,
+    #633082 17.16%,
+    #402770 24.5%,
+    #252062 30.8%,
+    #111b59 38.15%,
+    #061853 45.5%,
+    #021751 52.85%,
+    #221770 80.14%,
+    #40178d 102.18%
+  );
+}
+#page-home #background-2 .img-bg {
+  position: absolute;
+  width: 100%;
+  height: 1556px;
+  top: 0;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-bg-2.webp) center center no-repeat;
+  background-size: 100% 1556px;
+}
+#page-home #background-2 .gradient-top {
+  position: absolute;
+  width: 100%;
+  height: 1295px;
+  top: 189px;
+  background: linear-gradient(180deg, rgba(1, 19, 72, 0) 0%, #011348 100%);
+  transform: rotate(-180deg);
+}
+#page-home #background-2 .gradient-bot {
+  position: absolute;
+  width: 100%;
+  height: 323px;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(3, 23, 82, 0) 0%, #011348 100%);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+#page-home #background-3 {
+  position: absolute;
+  width: 100%;
+  height: 1989px;
+  top: 4736px;
+}
+#page-home #background-3 .gradient {
+  position: absolute;
+  width: 100%;
+  height: 1980px;
+  top: 1px;
+  background: linear-gradient(
+    143.01deg,
+    #f255c9 -2.79%,
+    #c048b0 3.51%,
+    #8e3b97 9.81%,
+    #633082 17.16%,
+    #402770 24.5%,
+    #252062 30.8%,
+    #111b59 38.15%,
+    #061853 45.5%,
+    #021751 52.85%,
+    #221770 80.14%,
+    #40178d 102.18%
+  );
+}
+#page-home #background-3 .img-bg {
+  position: absolute;
+  width: 100%;
+  height: 1768px;
+  top: 0;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-bg-3.webp) center center no-repeat;
+  background-size: 100% 1768px;
+}
+#page-home #background-3 .gradient-top {
+  position: absolute;
+  width: 100%;
+  height: 505px;
+  top: 0;
+  background: linear-gradient(180deg, rgba(3, 23, 82, 0) 0%, #011348 100%);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+#page-home #background-3 .gradient-bot {
+  position: absolute;
+  width: 100%;
+  height: 346px;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(3, 23, 82, 0) 0%, #031752 100%);
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+#page-home #background-4 {
+  position: absolute;
+  width: 100%;
+  height: 1747px;
+  top: 6719px;
+}
+#page-home #background-4 .gradient {
+  position: absolute;
+  width: 100%;
+  height: 1741px;
+  bottom: 0;
+  background: linear-gradient(
+    208.67deg,
+    #f255c9 -21.16%,
+    #c048b0 -14.57%,
+    #8e3b97 -7.99%,
+    #633082 -0.3%,
+    #402770 7.38%,
+    #252062 23.73%,
+    #111b59 36.17%,
+    #061853 63.35%,
+    #021751 88.6%
+  );
+  mix-blend-mode: lighten;
+}
+@media (max-width: 1023px) {
+  #page-home #background-4 .gradient {
+    background: linear-gradient(
+      208.67deg,
+      #f255c9 -21.16%,
+      #c048b0 -14.57%,
+      #8e3b97 -7.99%,
+      #633082 -0.3%,
+      #402770 7.38%,
+      #252062 23.73%,
+      #111b59 36.17%,
+      #061853 63.35%,
+      #011348 80.6%
+    );
+  }
+}
+#page-home #background-4 .img-bg {
+  position: absolute;
+  width: 100%;
+  height: 975px;
+  top: 0;
+  background: url(https://cdn.bholdus.com/bholdus-web/img-bg-4.webp) center center no-repeat;
+  background-size: 100% 975px;
+  mix-blend-mode: darken;
+}
+#page-home #background-4 .gradient-top {
+  position: absolute;
+  width: 100%;
+  height: 197px;
+  top: 0;
+  background: linear-gradient(180deg, rgba(3, 23, 82, 0) 0%, #031752 100%);
+  transform: rotate(-180deg);
+}
+body {
+  overflow: hidden;
+}

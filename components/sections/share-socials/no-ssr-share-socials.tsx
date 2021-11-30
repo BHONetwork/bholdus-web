@@ -23,7 +23,7 @@ const socialTypes: SocialTypes = {
 const ShareSocials = (props: ShareSocialsProps) => {
   const { url, types, color } = props;
   return (
-    <div className="flex flex-row space-x-2">
+    <>
       {types.map((type, index: number) => {
         if (socialTypes[type]) {
           const { Icon, ShareComponent } = socialTypes[type];
@@ -35,7 +35,7 @@ const ShareSocials = (props: ShareSocialsProps) => {
         }
         return null;
       })}
-    </div>
+    </>
   );
 };
 

@@ -1,81 +1,73 @@
+import classNames from "classnames";
 import useTranslation from "next-translate/useTranslation";
+import React from "react";
+import CustomLink from "../common/custom-link";
 
-import { styled } from "../../assets/css/stitches.config";
-import { formatDate } from "../../utils/datetime";
+const TopicList = ({ topicInfos }) => {
+  const translation = useTranslation();
+  console.log(topicInfos);
+  if (topicInfos) {
+    const { topics, currentTopic } = topicInfos;
+    if (topics && topics.length) {
+      const { t } = translation;
 
-import Button from "../common/button";
-import Image from "../common/image";
-import Text from "../common/text";
+      return (
+        <div className="menu-banner">
+          <ul className="list-menu">
+            <li className="item-menu">
+              <CustomLink
+                link={{ url: "/blog" }}
+                className={classNames("link-item", {
+                  "link-blog": currentTopic === t("common:blog"),
+                })}
+              >
+                {t("common:blog")}
+              </CustomLink>
+            </li>
 
-const Background = styled("div", {
-  background: "$darkGrey2",
-});
-
-const BlogHero = ({ article }) => {
-  const { t, lang } = useTranslation();
-
-  if (!article) {
-    return null;
+            {topics.map((topic: any, index: number) => {
+              return (
+                <li className="item-menu">
+                  <CustomLink
+                    key={`topic-navigate-${topic.slug}-${index}`}
+                    link={{ url: `/blog/topic/${topic.slug}/1` }}
+                    className={classNames("link-item", {
+                      "link-blog": currentTopic === topic.slug,
+                    })}
+                  >
+                    {topic.topic}
+                  </CustomLink>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      );
+    }
   }
 
+  return null;
+};
+
+const BlogHero = ({ topicInfos }) => {
+  const { t } = useTranslation();
   return (
-    <section className="container blog-hero">
-      <Background className="blog-hero-left">
-        <div className="blog-hero-content">
-          <div className="blog-hero-header">
-            <div className="blog-hero-topic">
-              <div className="line" />
-              {article.topics?.length > 0 && (
-                <Text
-                  className="blog-hero-topic-text"
-                  size="small"
-                  weight="bold"
-                  uppercase
-                >
-                  {article.topics[0].topic}
-                </Text>
-              )}
-            </div>
-            <Text
-              className="blog-hero-topic-time"
-              weight="bold"
-              style={{ fontSize: 14 }}
-              capitalized
-            >
-              {formatDate(lang, article.publishedAt)}
-            </Text>
-          </div>
-          <Text
-            className="blog-hero-topic-title"
-            color="white"
-            weight="bold"
-            style={{ fontSize: 30 }}
-          >
-            {article.title}
-          </Text>
-          <Text className="blog-hero-topic-description" type="p">
-            {article.description}
-          </Text>
+    <section id="banner">
+      <div className="container">
+        <div className="banner">
+          <p className="title-banner">{t("common:blog")}</p>
+          <p className="breadcrumb-banner">
+            <CustomLink link={{ url: "/" }} className="link-home">
+              <span className="text-home">Home</span>
+            </CustomLink>
+            /
+            <CustomLink link={{ url: "/blog" }}>
+              <span className="text-blog">{t("common:blog")}</span>
+            </CustomLink>
+          </p>
+          <TopicList topicInfos={topicInfos} />
         </div>
-        <Button
-          isLink
-          button={{
-            url: `/blog/article/${article.slug}`,
-            newTab: false,
-          }}
-          buttonType="primary"
-          border="rounded"
-        >
-          <Text>{t("common:readMore")}</Text>
-        </Button>
-      </Background>
-      <Image
-        className="hidden lg:block"
-        img={article.thumbnail ? article.thumbnail : article.image}
-        alt="article"
-        style={{ maxHeight: 400 }}
-        lazy={false}
-      />
+      </div>
     </section>
   );
 };

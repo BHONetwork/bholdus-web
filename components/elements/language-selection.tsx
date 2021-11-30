@@ -22,18 +22,13 @@ const LanguageSelection = ({ languages }) => {
   const { pathname, asPath, locale } = router;
 
   return (
-    <Menu as="div" className="relative inline-block text-left ml-4">
+    <Menu as="div" className="language">
       {({ open }) => (
         <>
-          <div>
-            <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-2 focus:outline-none">
-              <Text type="div">{locale}</Text>
-              <MdKeyboardArrowDown
-                className="-mr-1 ml-2 mt-1 h-5 w-5"
-                style={{ color: "white" }}
-              />
-            </Menu.Button>
-          </div>
+          <Menu.Button className="language-menu">
+            <Text type="div">{locale}</Text>
+            <MdKeyboardArrowDown style={{ color: "white" }} />
+          </Menu.Button>
 
           <Transition
             show={open}
@@ -45,32 +40,28 @@ const LanguageSelection = ({ languages }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <Menu.Items className="origin-top-right left-0 absolute mt-2 pr-2 bg-darkGrey rounded-md focus:outline-none z-20">
-              <div className="px-4 py-2">
-                {languages.map((language: any, index: number) => (
-                  <Menu.Item key={index}>
-                    {() => (
-                      <NextLink
-                        className="flex flex-row items-center"
-                        pathname={pathname}
-                        asPath={asPath}
-                        locale={language.code}
-                      >
-                        <Text size="normal" className="whitespace-nowrap mr-2">
-                          {language.name}
-                        </Text>
-                        {locale === language.code && (
-                          <MdCheck
-                            className="flex-shrink-0"
-                            color="#fff"
-                            size={15}
-                          />
-                        )}
-                      </NextLink>
-                    )}
-                  </Menu.Item>
-                ))}
-              </div>
+            <Menu.Items className="language-content">
+              {languages.map((language: any, index: number) => (
+                <Menu.Item key={index}>
+                  {() => (
+                    <NextLink
+                      className="flex flex-row items-center"
+                      pathname={pathname}
+                      asPath={asPath}
+                      locale={language.code}
+                    >
+                      <Text size="normal">{language.name}</Text>
+                      {locale === language.code && (
+                        <MdCheck
+                          className="flex-shrink-0"
+                          color="#fff"
+                          size={15}
+                        />
+                      )}
+                    </NextLink>
+                  )}
+                </Menu.Item>
+              ))}
             </Menu.Items>
           </Transition>
         </>

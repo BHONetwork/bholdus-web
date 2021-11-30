@@ -21,7 +21,13 @@
     content: '';
     transform: rotate(45deg);
   }
-
+  button {
+    background-color: transparent;
+    border: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .popover {
     &-box {
       min-width: 250px;
@@ -50,7 +56,10 @@
       &[data-popper-placement^='right'] > #arrow {
         left: -6px;
       }
-      
+      a {
+        color: #011348;
+        line-height: 30px;
+      }
     }
   }
 }

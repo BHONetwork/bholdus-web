@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import DefaultSeo from "../components/elements/seo/default-seo";
 
 import { fetchAPI, getLocale } from "../utils/api";
-import "../assets/css/tailwind.css";
 import "../styles/main.scss";
 import * as ga from "../utils/ga";
 
@@ -18,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     AOS.init({
       duration: 600,
-      once: false,
+      once: true,
     });
 
     const handleRouteChange = (url) => {

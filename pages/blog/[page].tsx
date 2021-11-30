@@ -13,7 +13,7 @@ import Image from "../../components/common/image";
 import CustomLink from "../../components/common/custom-link";
 import OptimizedImage from "../../components/common/optimized-image";
 import ArticleList from "./ArticleList";
-
+import { FeatureArticle } from "./FeatureArticle";
 import { fetchAPI, getLocale } from "../../utils/api";
 import { formatDate } from "../../utils/datetime";
 
@@ -22,6 +22,9 @@ import {
   ARTICLE_TYPE_SEARCH,
   PAGE_SIZE,
 } from "../../constants/common";
+import { locale } from "dayjs";
+import { redirect } from "next/dist/server/api-utils";
+import topics from "./topics";
 
 const articlesQuery = ({ isCount, locale, pageNumber }) =>
   stringify({
@@ -49,130 +52,23 @@ export const LocalArticle = ({
     );
 
   return (
-    <div
-      className={classNames("blog-article-item", {
-        searched: articleType === ARTICLE_TYPE_SEARCH,
-      })}
-    >
-      <div className="blog-article-item-cover">
-        <Image className="blog-article-item-image" img={image} />
+    <li className="item-post">
+      <div className="wrap-img">
+        <a href="blog-detail.html" className="link-item">
+          <Image className="blog-article-item-image" img={image} />
+        </a>
       </div>
-
-      <TextWrapper>
-        <Text className="blog-article-item-title" color="black" weight="bold">
-          {title}
-        </Text>
-        <Text className="blog-article-item-description" color="black">
-          {description}
-        </Text>
-        <Text color="black" weight="bold" style={{ fontSize: 14 }} capitalized>
-          {formatDate(lang, publishedAt)}
-        </Text>
-        {articleType === ARTICLE_TYPE_SEARCH && !isMobile && (
-          <CustomLink link={{ url: `/blog/article/${slug}` }}>
-            <div className="blog-article-item-read-action">
-              <Text color="green">Read this article </Text>
-              <OptimizedImage
-                className="blog-article-item-read-action-icon"
-                img={{
-                  url: "/images/right_arrow_green.svg",
-                  alternativeText: "right-arrow",
-                }}
-                width={25}
-                height={25}
-              />
-            </div>
-          </CustomLink>
-        )}
-      </TextWrapper>
-    </div>
+      <div className="wrap-content">
+        <p className="date">{formatDate(lang, publishedAt)}</p>
+        <p className="title">
+          <a href="blog-detail.html" className="link-item">
+            {title}
+          </a>
+        </p>
+        <p className="desc">{description}</p>
+      </div>
+    </li>
   );
-};
-
-// const LocalArticles = ({ topic, articles, className = "", translation }) => {
-//   return (
-//     <div className={classNames("blog-article", className)}>
-//       <div className="blog-article-category">
-//         <div className="blog-article-line" />
-//         <Text size="small" weight="bold" uppercase color="green">
-//           {topic}
-//         </Text>
-//       </div>
-
-//       <div className="blog-article-items">
-//         {articles.map((article: any) => (
-//           <CustomLink
-//             key={article.id}
-//             link={{ url: `/blog/article/${article.slug}` }}
-//           >
-//             <LocalArticle article={article} translation={translation} />
-//           </CustomLink>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-export const TopicList = ({
-  className = "",
-  topicInfos,
-  setMobileBlogMenuIsShown,
-}) => {
-  const translation = useTranslation();
-
-  if (topicInfos) {
-    const { topics, currentTopic } = topicInfos;
-    if (topics && topics.length) {
-      const { t } = translation;
-
-      return (
-        <div
-          className={classNames(
-            "topic-list flex flex-row flex-wrap justify-center gap-x-12 gap-y-4 pb-3 sm:pd-3 md:pd-6 bg-white",
-            className
-          )}
-        >
-          <CustomLink link={{ url: "/blog" }}>
-            <Text
-              className={classNames(
-                currentTopic === t("common:blog")
-                  ? ["border-b-2", "border-black"]
-                  : null
-              )}
-              weight={currentTopic === t("common:blog") ? "bold" : "normal"}
-              color="black"
-            >
-              {t("common:blog")}
-            </Text>
-          </CustomLink>
-
-          {topics.map((topic: any, index: number) => {
-            return (
-              <CustomLink
-                key={`topic-navigate-${topic.slug}-${index}`}
-                link={{ url: `/blog/topic/${topic.slug}/1` }}
-                onClick={() => setMobileBlogMenuIsShown(false)}
-              >
-                <Text
-                  className={classNames(
-                    currentTopic === topic.slug
-                      ? ["border-b-2", "border-black"]
-                      : null
-                  )}
-                  color="black"
-                  weight={currentTopic === topic.slug ? "bold" : "normal"}
-                >
-                  {topic.topic}
-                </Text>
-              </CustomLink>
-            );
-          })}
-        </div>
-      );
-    }
-  }
-
-  return null;
 };
 
 const Blog = ({
@@ -183,13 +79,16 @@ const Blog = ({
   page,
   global,
 }) => {
+  console.log(topics);
   const router = useRouter();
   const { query, locale } = router;
 
   const translation = useTranslation();
   const { t } = translation;
 
-  const Hero = () => <BlogHero article={featuredArticle} />;
+  const Hero = () => (
+    <BlogHero topicInfos={{ topics, currentTopic: t("common:blog") }} />
+  );
 
   return (
     <>
@@ -198,25 +97,29 @@ const Blog = ({
         Hero={Hero}
         global={global}
         topicInfos={{ topics, currentTopic: t("common:blog") }}
-        mainClass="bg-white blog-container"
+        containerClass="page-blog"
+        mainClass="page-blog"
       >
-        <div className="container">
-          <ArticleList
-            articles={articles}
-            articlesCount={articlesCount}
-            articleType={ARTICLE_TYPE_BLOG}
-            pageNumberQuery={parseInt(query.page as string, 10)}
-            articleListClassName="blog-article-items gap-8 sm:gap-y-8 sm:gap-x-8 md:gap-x-4 md:gap-y-6 lg:gap-6 xl:gap-x-20 xl:gap-y-12"
-            isfeaturedArticleAppear={!!featuredArticle}
-            apiLoadMorePathFunc={({ nextPage }) =>
-              `/articles?${articlesQuery({
-                isCount: false,
-                locale,
-                pageNumber: nextPage,
-              })}`
-            }
-            navigateLink="/blog/"
-          />
+        <div className="content-blog" id="content-blog">
+          <div className="container">
+            <FeatureArticle article={featuredArticle} />
+            <ArticleList
+              articles={articles}
+              articlesCount={articlesCount}
+              articleType={ARTICLE_TYPE_BLOG}
+              pageNumberQuery={parseInt(query.page as string, 10)}
+              articleListClassName=""
+              isfeaturedArticleAppear={!!featuredArticle}
+              apiLoadMorePathFunc={({ nextPage }) =>
+                `/articles?${articlesQuery({
+                  isCount: false,
+                  locale,
+                  pageNumber: nextPage,
+                })}`
+              }
+              navigateLink="/blog/"
+            />
+          </div>
         </div>
       </Layout>
     </>

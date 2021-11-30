@@ -1,64 +1,64 @@
 import classNames from "classnames";
 import React from "react";
-import { styled } from "../../../assets/css/stitches.config";
+// import { styled } from "../../../assets/css/stitches.config";
 
 import CustomLink from "../../common/custom-link";
 import Loader from "../../elements/loader";
 
 import { ButtonProps } from "./types";
 
-const ButtonComponent = styled("button", {
-  padding: "1rem 2.8rem",
-  fontFamily: "$default",
-  textAlign: "center",
-  fontSize: "$normal",
-  variants: {
-    color: {
-      green: {
-        background: "$green",
-      },
-      pink: {
-        background: "$pink",
-      },
-      orange: {
-        background: "$orange",
-      },
-      purple: {
-        background: "$purple",
-      },
-    },
-    buttonType: {
-      primary: {
-        background: "$green",
-        color: "$white",
-      },
-      secondary: {
-        background: "$white",
-        color: "$green2",
-      },
-      darkBlue: {
-        background: "$darkGrey2",
-        color: "$white",
-      },
-      disabled: {
-        background: "$darkGrey",
-        color: "$white",
-      },
-    },
-    border: {
-      rounded: {
-        borderRadius: 2,
-      },
-      roundedMd: {
-        borderRadius: 5,
-      },
-    },
-  },
-  defaultVariants: {
-    buttonType: "primary",
-    border: "rounded",
-  },
-});
+// const ButtonComponent = styled("button", {
+//   padding: "1rem 2.8rem",
+//   fontFamily: "$default",
+//   textAlign: "center",
+//   fontSize: "$normal",
+//   variants: {
+//     color: {
+//       green: {
+//         background: "$green",
+//       },
+//       pink: {
+//         background: "$pink",
+//       },
+//       orange: {
+//         background: "$orange",
+//       },
+//       purple: {
+//         background: "$purple",
+//       },
+//     },
+//     buttonType: {
+//       primary: {
+//         background: "$green",
+//         color: "$white",
+//       },
+//       secondary: {
+//         background: "$white",
+//         color: "$green2",
+//       },
+//       darkBlue: {
+//         background: "$darkGrey2",
+//         color: "$white",
+//       },
+//       disabled: {
+//         background: "$darkGrey",
+//         color: "$white",
+//       },
+//     },
+//     border: {
+//       rounded: {
+//         borderRadius: 2,
+//       },
+//       roundedMd: {
+//         borderRadius: 5,
+//       },
+//     },
+//   },
+//   defaultVariants: {
+//     buttonType: "primary",
+//     border: "rounded",
+//   },
+// });
 
 const Button = (props: ButtonProps) => {
   const {
@@ -70,7 +70,7 @@ const Button = (props: ButtonProps) => {
   } = props;
 
   const Component = (componentProps: any) => (
-    <ButtonComponent
+    <div
       className={classNames({
         "flex flex-row items-center justify-center": loading,
       })}
@@ -86,7 +86,7 @@ const Button = (props: ButtonProps) => {
           <div>{button.text}</div>
         </>
       )}
-    </ButtonComponent>
+    </div>
   );
 
   if (isLink) {

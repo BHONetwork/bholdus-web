@@ -1,19 +1,27 @@
-import Section from "../sections";
 import PressItem from "./press-item";
-import Image from "../../common/image";
 
 const PressSection = ({ data }) => {
   return (
-    <Section id="press" smallTitle={data.smallTitle} title={data.title}>
-      <div className="press-container container">
-        {data.press.map((press: any, index: number) => (
-          <PressItem key={press.id} data={press} index={index} />
-        ))}
+    <section id="in-press">
+      <div className="container">
+        <div className="in-press">
+          <div className="in-press">
+            <div className="title-section">
+              {data?.smallTitle && data.smallTitle !== " " ? (
+                <p className="title-top-section">{data.smallTitle}</p>
+              ) : null}
+
+              <p className="title-bot-section">{data.title}</p>
+            </div>
+            <div className="list-in-press">
+              {data.press.map((press: any, index: number) => (
+                <PressItem key={press.id} data={press} index={index} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
-      {data.imageBackground ? (
-        <Image img={data.imageBackground} classWrapName="press-bg" />
-      ) : null}
-    </Section>
+    </section>
   );
 };
 

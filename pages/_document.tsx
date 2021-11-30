@@ -42,7 +42,7 @@ class MyDocument extends Document {
           `,
             }}
           />
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
             (function(I,n,f,o,b,i,p){I[b]=I[b]||function(){(I[b].q=I[b].q||[]).push(arguments)};
@@ -53,7 +53,7 @@ class MyDocument extends Document {
             liveChat('init', '9807e206-fc76-45fa-ad55-e9fbabe8ed9c');
             `,
             }}
-          />
+          /> */}
         </Head>
         <body>
           <Main />

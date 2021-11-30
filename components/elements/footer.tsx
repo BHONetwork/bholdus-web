@@ -1,5 +1,3 @@
-import classNames from "classnames";
-
 import OptimizedImage from "../common/optimized-image";
 import CustomLink from "../common/custom-link";
 import Text from "../common/text";
@@ -7,35 +5,43 @@ import Social from "./social";
 
 const Footer = ({ footer }) => {
   return (
-    <footer className={classNames("footer-wrap")}>
+    <footer id="footer">
       <div className="container">
-        <div className="footer-container">
-          <div className="footer-left">
-            <div className="footer-logo">
-              <OptimizedImage img={footer.logo} width={183} height={50} />
+        <div className="container">
+          <div className="footer">
+            <div className="logo-copyright">
+              <div className="wrap-logo">
+                <OptimizedImage
+                  img={{
+                    url: "/images/logo.svg",
+                    alternativeText: "bholdus logo",
+                  }}
+                  lazy={false}
+                />
+              </div>
+              <p className="copyright">{footer.smallText}</p>
+              <Social className="wrap-social" social={footer.socials} />
             </div>
-            <Social className="footer-social" social={footer.socials} />
-            <Text className="footer-copyright">{footer.smallText}</Text>
-          </div>
-          <div className="footer-right">
-            {footer.menu.map((menu: any, index: number) => {
-              if (menu.enable)
-                return (
-                  <div className="menu" key={index}>
-                    <div className="menu-title">{menu.title}</div>
-                    <ul className="menu-links">
-                      {menu.Links.map((link: any, lindex: number) => (
-                        <li key={lindex}>
-                          <CustomLink link={link}>
-                            <Text type="div">{link.text}</Text>
-                          </CustomLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              return null;
-            })}
+            <div className="nav">
+              {footer.menu.map((menu: any, index: number) => {
+                if (menu.enable)
+                  return (
+                    <div className="item-nav" key={index}>
+                      <p className="title title-small">{menu.title}</p>
+                      <ul className="list">
+                        {menu.Links.map((link: any, lindex: number) => (
+                          <li className="item" key={lindex}>
+                            <CustomLink link={link} className="link">
+                              <Text type="div">{link.text}</Text>
+                            </CustomLink>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                return null;
+              })}
+            </div>
           </div>
         </div>
       </div>

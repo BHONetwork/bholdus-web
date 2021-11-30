@@ -1,73 +1,88 @@
 import Button from "../common/button";
-import Text from "../common/text";
-import Image from "../common/image";
-import OptimizedImage from "../common/optimized-image";
+import RichText from "../common/rich-text";
 
 const LandingPageHero = ({ data }) => {
-  const video_url = data.videoBackground?.video_url?.url
-    ? data.videoBackground.video_url.url.replace(
-        "bholdus.s3.ap-southeast-1.amazonaws.com",
-        "cdn.bholdus.com"
-      )
-    : null;
-
-  const background =
-    data?.videoBackground?.enable && video_url ? (
-      <div className="bg-hero-video">
-        <video
-          className="lazy"
-          preload={"yes"}
-          autoPlay={true}
-          muted={true}
-          loop={true}
-          playsInline={true}
-        >
-          <source src={video_url} type="video/mp4" />
-        </video>
-      </div>
-    ) : (
-      <div className="bg-hero-image">
-        <Image img={data.imageBackground} lazy={false} />
-      </div>
-    );
-
   return (
-    <section className="relative z-2 min-h-screen flex-col flex">
-      {background}
-      <div id="hero" className="container">
-        <div className="hero-logo">
-          <OptimizedImage
-            img={data.image}
-            data-aos="fade"
-            width={150}
-            height={150}
-          />
-        </div>
-
-        <div
-          className="hero-content"
-          data-aos="fade-up"
-          data-aos-anchor-placement="bottom-bottom"
-        >
-          <Text className="hero-title" type="h1">
-            {data.title}
-          </Text>
-
-          <Text className="hero-description" type="p">
-            {data.description}
-          </Text>
-
-          {/* Buttons row */}
-          <div className="hero-button">
-            {data.actions.map((button: any) => (
-              <Button
-                className="mr-2 mb-2"
-                isLink
-                key={button.id}
-                buttonType={button.type}
-                button={button}
+    <section id="banner-home">
+      <div className="banner-background">
+        <section id="main-background">
+          <div className="video">
+            <video
+              width="1920"
+              height="900"
+              className="lazy"
+              preload={"yes"}
+              autoPlay={true}
+              muted={true}
+              loop={true}
+              playsInline={true}
+            >
+              <source
+                src="https://cdn.bholdus.com/bholdus-web/bg2_618268dd31.mp4"
+                type="video/mp4"
               />
-            ))}
+            </video>
+          </div>
+          <div className="video-mobi">
+            <video
+              width="100%"
+              height="500"
+              className="lazy"
+              preload={"yes"}
+              autoPlay={true}
+              muted={true}
+              loop={true}
+              playsInline={true}
+            >
+              <source
+                src="https://cdn.bholdus.com/bholdus-web/bgmobi2_2f635bc1e5.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
+          <div className="gradient-bot"></div>
+        </section>
+        <section id="background-2">
+          <div className="gradient"></div>
+          <div className="img-bg"></div>
+          <div className="gradient-top"></div>
+          <div className="gradient-bot"></div>
+        </section>
+        <section id="background-3">
+          <div className="gradient"></div>
+          <div className="img-bg"></div>
+          <div className="gradient-top"></div>
+          <div className="gradient-bot"></div>
+        </section>
+        <section id="background-4">
+          <div className="gradient"></div>
+          <div className="img-bg"></div>
+          <div className="gradient-top"></div>
+        </section>
+      </div>
+      <div className="container">
+        <div className="banner-home">
+          <div className="wrap-banner">
+            <div className="title-banner title-section">
+              <RichText children={data.title} />
+            </div>
+            <div className="desc-banner">
+              <RichText children={data.description} />
+            </div>
+            <div className="button-banner">
+              {data.actions.map((button: any) => (
+                <Button
+                  className="button-item"
+                  isLink
+                  key={button.id}
+                  buttonType={button.type}
+                  button={button}
+                />
+              ))}
+              <a href="#" className="button-item">
+                BUY BHO NOW
+              </a>
+            </div>
           </div>
         </div>
       </div>

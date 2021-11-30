@@ -11,7 +11,7 @@ const Layout = ({
   Hero,
   children,
   global,
-  containerClass = "bg-default",
+  containerClass = "page-home",
   mainClass = "",
   topicInfos = null,
   sectionClass = "",
@@ -22,39 +22,27 @@ const Layout = ({
   const [bannerIsShown, setBannerIsShown] = useState(true);
   const [announcementIsShown, setAnnouncementIsShown] = useState(true);
   return (
-    <div
-      className={classNames(
-        "flex flex-col justify-between min-h-screen overflow-hidden position-relative",
-        containerClass
-      )}
-    >
-      <header className="flex flex-col">
-        {notificationBanner?.enable && bannerIsShown && (
-          <NotificationBanner
-            data={notificationBanner}
-            closeSelf={() => setBannerIsShown(false)}
-          />
-        )}
-        <div className="relative">
+    <div id={`${containerClass}`} className={classNames(containerClass)}>
+      <div className={classNames("wrapper", mainClass)}>
+        <header className="header">
+          {notificationBanner?.enable && bannerIsShown && (
+            <NotificationBanner
+              data={notificationBanner}
+              closeSelf={() => setBannerIsShown(false)}
+            />
+          )}
           <Navbar
             navbar={navbar}
-            subnav={subnav}
             transparent={transparentNavbar}
             topicInfos={topicInfos}
             showAnnouncement={(show) => setAnnouncementIsShown(show)}
           />
-        </div>
-      </header>
-
-      <main className={classNames("page-min-h", mainClass)}>
+        </header>
         <Hero />
+        {children}
+        <Footer footer={footer} />
+      </div>
 
-        <div className={classNames("main-container", sectionClass)}>
-          {children}
-        </div>
-      </main>
-
-      <Footer footer={footer} />
       <Announcement data={announcement} show={announcementIsShown} />
     </div>
   );

@@ -5,14 +5,20 @@ import { groupByKey } from "../../../utils/others";
 
 const PartnerSection = ({ data }) => {
   const groupPartners = groupByKey(data.partners, "type");
-  console.log(groupPartners);
   return (
-    <Section id="partners" smallTitle={data.smallTitle} title={data.title}>
-      <GroupPartners groupPartners={groupPartners} />
-      {data.imageBackground ? (
-        <Image img={data.imageBackground} classWrapName="partners-bg" />
-      ) : null}
-    </Section>
+    <section id="our-partners">
+      <div className="container">
+        <div className="our-partners">
+          <div className="title-section">
+            {data?.smallTitle && data.smallTitle !== " " ? (
+              <p className="title-top-section">{data.smallTitle}</p>
+            ) : null}
+            <p className="title-bot-section">{data.smallTitle}</p>
+          </div>
+          <GroupPartners groupPartners={groupPartners} />
+        </div>
+      </div>
+    </section>
   );
 };
 

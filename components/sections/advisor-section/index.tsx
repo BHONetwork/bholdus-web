@@ -1,20 +1,25 @@
-import Section from "../sections";
 import BoardProfile from "./advisor-profile";
-import Image from "../../common/image";
 
 const AdvisorSection = ({ data }) => {
   const id = data.fixId ? data.fixId : `advisor-${data.id}`;
   return (
-    <Section id={id} smallTitle={data.smallTitle} title={data.title}>
-      <div className="advisor-container container">
-        {data.persons.map((person: any, index: number) => (
-          <BoardProfile key={person.id} data={person} index={index} />
-        ))}
+    <section id={id}>
+      <div className="container">
+        <div className="our-board">
+          <div className="title-section">
+            {data?.smallTitle && data.smallTitle !== " " ? (
+              <p className="title-top-section">{data.smallTitle}</p>
+            ) : null}
+            <p className="title-bot-section">{data.title}</p>
+          </div>
+          <div className="list-our-board">
+            {data.persons.map((person: any, index: number) => (
+              <BoardProfile key={person.id} data={person} index={index} />
+            ))}
+          </div>
+        </div>
       </div>
-      {data.imageBackground ? (
-        <Image img={data.imageBackground} classWrapName="advisor-bg" />
-      ) : null}
-    </Section>
+    </section>
   );
 };
 
