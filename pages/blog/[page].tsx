@@ -72,7 +72,6 @@ const Blog = ({
   page,
   global,
 }) => {
-  console.log(topics);
   const router = useRouter();
   const { query, locale } = router;
 

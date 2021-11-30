@@ -5,7 +5,6 @@ import CustomLink from "../common/custom-link";
 
 const TopicList = ({ topicInfos }) => {
   const translation = useTranslation();
-  console.log(topicInfos);
   if (topicInfos) {
     const { topics, currentTopic } = topicInfos;
     if (topics && topics.length) {

@@ -6,7 +6,6 @@ import Button from "../../components/common/button";
 
 const FeatureArticle = ({ article }) => {
   const { t, lang } = useTranslation();
-  console.log(article);
   if (!article) return null;
   return (
     <div className="intro-blog">
