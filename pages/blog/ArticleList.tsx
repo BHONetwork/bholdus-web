@@ -6,7 +6,6 @@ import classNames from "classnames";
 
 import Button from "../../components/common/button";
 import CustomLink from "../../components/common/custom-link";
-import Text from "../../components/common/text";
 import Pagination from "../../components/elements/pagination";
 
 import { LocalArticle } from "./[page]";

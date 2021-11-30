@@ -1,7 +1,5 @@
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-import Text from "../../common/text";
-
 const CollapsibleTrigger = ({ accordion }) => {
   return (
     <div className="collapsible_trigger">

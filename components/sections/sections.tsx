@@ -1,5 +1,3 @@
-import Text from "../common/text";
-
 const Section = ({ id = "", smallTitle, title, children, style = {} }) => {
   return (
     <section id={id} style={{ ...style }}>

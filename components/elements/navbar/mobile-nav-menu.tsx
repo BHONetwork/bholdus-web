@@ -3,7 +3,6 @@ import classNames from "classnames";
 import SubNav from "./sub-nav";
 import CustomLink from "../../common/custom-link";
 import Button from "../../common/button";
-import Text from "../../common/text";
 import OptimizedImage from "../../common/optimized-image";
 
 const MobileNavMenu = ({ navbar, subnav, closeSelf, mobileMenuIsShown }) => {
@@ -40,7 +39,7 @@ const MobileNavMenu = ({ navbar, subnav, closeSelf, mobileMenuIsShown }) => {
                     onClick={closeSelf}
                   >
                     <div className="navbar-mobile-menu-item">
-                      <Text>{navLink.text}</Text>
+                      <p>{navLink.text}</p>
                       <MdChevronRight className="h-8 w-auto" color="#fff" />
                     </div>
                   </CustomLink>

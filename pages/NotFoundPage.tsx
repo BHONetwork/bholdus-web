@@ -2,7 +2,6 @@ import { MdFilterDrama } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import PageHero from "../components/sections/page-hero";
 import CustomLink from "../components/common/custom-link";
-import Text from "../components/common/text";
 import Layout from "../components/layout";
 
 const NotFoundPage = ({ global }) => {

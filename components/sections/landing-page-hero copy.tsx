@@ -1,5 +1,4 @@
 import Button from "../common/button";
-import Text from "../common/text";
 import Image from "../common/image";
 import OptimizedImage from "../common/optimized-image";
 
@@ -49,13 +48,9 @@ const LandingPageHero = ({ data }) => {
           data-aos="fade-up"
           data-aos-anchor-placement="bottom-bottom"
         >
-          <Text className="hero-title" type="h1">
-            {data.title}
-          </Text>
+          <h1 className="hero-title">{data.title}</h1>
 
-          <Text className="hero-description" type="p">
-            {data.description}
-          </Text>
+          <p className="hero-description">{data.description}</p>
 
           {/* Buttons row */}
           <div className="hero-button">

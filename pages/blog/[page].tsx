@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import Seo from "../../components/elements/seo";
 import Layout from "../../components/layout";
 import BlogHero from "../../components/sections/blog-hero";
-import Text from "../../components/common/text";
 import Image from "../../components/common/image";
 import CustomLink from "../../components/common/custom-link";
 import OptimizedImage from "../../components/common/optimized-image";

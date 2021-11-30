@@ -1,5 +1,3 @@
-import Text from "../common/text";
-
 const PageHero = ({ page }) => {
   return (
     <section id="banner">

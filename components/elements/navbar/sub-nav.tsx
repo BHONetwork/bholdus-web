@@ -1,7 +1,6 @@
 import classNames from "classnames";
 
 import CustomLink from "../../common/custom-link";
-import Text from "../../common/text";
 import LanguageSelection from "../language-selection";
 import supportedLocales from "../../../i18n/localesWithLabel.json";
 import Social from "../social";
@@ -21,12 +20,9 @@ const renderSubNav = ({ subnav }) => {
               {subnav.links.map((navLink: any) => (
                 <li key={navLink.id}>
                   <CustomLink link={navLink}>
-                    <Text
-                      className={classNames("px-2 py-1 navbar-second-link")}
-                      type="div"
-                    >
+                    <div className={classNames("px-2 py-1 navbar-second-link")}>
                       {navLink.text}
-                    </Text>
+                    </div>
                   </CustomLink>
                 </li>
               ))}

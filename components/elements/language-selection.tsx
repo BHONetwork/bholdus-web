@@ -5,8 +5,6 @@ import { MdKeyboardArrowDown, MdCheck } from "react-icons/md";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import Text from "../common/text";
-
 const NextLink = ({ pathname, asPath, locale, children, ...restProps }) => {
   return (
     <Link href={pathname} as={asPath} locale={locale}>
