@@ -4,12 +4,8 @@ const CollapsibleTrigger = ({ accordion }) => {
   return (
     <div className="collapsible_trigger">
       <div className="collapsible_trigger__left_col">
-        <Text size="medium" color="black" weight="bold">
-          {accordion.title}
-        </Text>
-        <Text size="medium" color="red">
-          {accordion.description}
-        </Text>
+        <p color="black">{accordion.title}</p>
+        <p color="red">{accordion.description}</p>
       </div>
       <MdKeyboardArrowRight className="trigger-icon" size={25} />
     </div>
