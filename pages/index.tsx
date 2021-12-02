@@ -38,6 +38,7 @@ const Home = ({ pageData, latestNews, global }) => {
       global={global}
       transparentNavbar={true}
       containerClass="page-home"
+      videobg={true}
     >
       {pageData.introduction && pageData.introduction.enable && (
         <Introduction data={pageData.introduction} />

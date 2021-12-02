@@ -17,7 +17,7 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     AOS.init({
       duration: 600,
-      once: true,
+      once: false,
     });
 
     const handleRouteChange = (url) => {

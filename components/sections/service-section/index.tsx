@@ -11,7 +11,13 @@ const ServiceSection = ({ data }) => {
         if (item?.container === container)
           if (item.position === position)
             return (
-              <div className={classNames("item-info", className)} key={idx}>
+              <div
+                className={classNames("item-info", className)}
+                key={idx}
+                data-aos="fade-left"
+                data-aos-delay={(idx + 1) * 400}
+                data-aos-duration="1000"
+              >
                 <OptimizedImage
                   img={item.image}
                   width={56}
@@ -25,14 +31,25 @@ const ServiceSection = ({ data }) => {
     return null;
   };
   return (
-    <section id="mission" data-aos="fade-up" data-aos-delay={200}>
+    <section id="mission">
       <div className="container">
         <div className="mission">
-          <div className="title-section">
+          <div
+            className="title-section"
+            data-aos="fade-right"
+            data-aos-easing="ease-in-sine"
+            data-aos-delay={400}
+            data-aos-duration="1000"
+          >
             <p className="title-top-section">{data.smallTitle}</p>
             <p className="title-bot-section">{data.title}</p>
           </div>
-          <div className="info-mission">
+          <div
+            className="info-mission"
+            id="info-mission"
+            data-aos="fade-left"
+            data-aos-easing="ease-in-sine"
+          >
             <div className="left-info">
               <div className="top-left">{renderContainer("left", "top")}</div>
               <div className="bot-left">{renderContainer("left", "bot")}</div>

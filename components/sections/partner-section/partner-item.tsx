@@ -5,7 +5,7 @@ const PartnerItem = ({ data, index }) => {
     <div
       className="item-strategic"
       data-aos="fade-up"
-      data-aos-delay={index * 200}
+      data-aos-delay={(index + 1) * 200}
     >
       <div className="wrap-img">
         <a

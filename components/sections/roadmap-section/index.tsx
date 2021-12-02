@@ -44,13 +44,22 @@ const RoadmapSection = ({ data }) => {
     return content;
   };
   return (
-    <section id="roadmap" data-aos="fade-down" data-aos-delay={400}>
-      <div className="roadmap">
+    <section id="roadmap">
+      <div
+        className="roadmap"
+        data-aos="fade-down"
+        data-aos-delay={400}
+        data-aos-duration={1000}
+      >
         <div className="title-section">
           <p className="title-top-section">{data.smallTitle}</p>
           <p className="title-bot-section">{data.title}</p>
         </div>
-        <div className="calendar-roadmap opacity opacity-1">
+        <div
+          className="calendar-roadmap opacity opacity-1"
+          data-aos="fade-up"
+          data-aos-delay={1000}
+        >
           <div className="list-month" ref={listMonthRef}>
             {data.roadMapItems.map((item: any, index: number) => (
               <div className="item-month" key={item.id}>
@@ -100,20 +109,36 @@ const RoadmapSection = ({ data }) => {
             </button>
           </div>
         </div>
-        <div className="info-roadmap" data-aos="fade-up" data-aos-delay={200}>
-          <div className="item-info item1">
+        <div className="info-roadmap">
+          <div
+            className="item-info item1"
+            data-aos="fade-up"
+            data-aos-delay={400}
+          >
             <p className="title-item">Worldwide Community Memners</p>
             <p className="number-item">70.000</p>
           </div>
-          <div className="item-info item2">
+          <div
+            className="item-info item2"
+            data-aos="fade-up"
+            data-aos-delay={800}
+          >
             <p className="title-item">Social Discussions</p>
             <p className="number-item">1.000.000</p>
           </div>
-          <div className="item-info item3">
+          <div
+            className="item-info item3"
+            data-aos="fade-up"
+            data-aos-delay={1200}
+          >
             <p className="title-item">Impression</p>
             <p className="number-item">5.000.000</p>
           </div>
-          <div className="item-info item4">
+          <div
+            className="item-info item4"
+            data-aos="fade-up"
+            data-aos-delay={1600}
+          >
             <p className="title-item">Registrations</p>
             <p className="number-item">30.000</p>
           </div>

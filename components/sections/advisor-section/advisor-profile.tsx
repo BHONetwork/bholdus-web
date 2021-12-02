@@ -1,7 +1,7 @@
 import OptimizedImage from "../../common/optimized-image";
 
 import { getSocials } from "../../../utils/api";
-import { data } from "autoprefixer";
+import React from "react";
 
 const BoardProfile = ({ data, index }) => {
   const socials = getSocials(data);
@@ -9,9 +9,9 @@ const BoardProfile = ({ data, index }) => {
     <div
       key={index}
       className="item-our-board"
-      data-aos="fade-zoom-in"
-      data-aos-easing="ease-in-back"
-      data-aos-delay={index * 200}
+      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
+      data-aos-delay={(index + 1) * 200}
+      data-aos-duration="1000"
       data-aos-offset="0"
     >
       <div className="img-item">

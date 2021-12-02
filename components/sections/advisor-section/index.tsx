@@ -6,7 +6,7 @@ const AdvisorSection = ({ data }) => {
     <section id={id}>
       <div className="container">
         <div className="our-board">
-          <div className="title-section">
+          <div className="title-section" data-aos="fade-down">
             {data?.smallTitle && data.smallTitle !== " " ? (
               <p className="title-top-section">{data.smallTitle}</p>
             ) : null}

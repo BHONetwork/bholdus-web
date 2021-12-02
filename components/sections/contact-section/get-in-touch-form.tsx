@@ -39,64 +39,57 @@ const GetInTouchForm = ({ className }) => {
         values,
       }) => (
         <>
-          <Form
-            className={classNames(
-              "contact-form flex flex-col lg:gap-6",
-              className
-            )}
-          >
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              type="text"
-              name="name"
-              placeholder={t("common:getInTouchFormName")}
-            />
-            <div className="text-left">
-              {errors.name && touched.name && errors.name}
+          <Form className="form-contact">
+            <div className="name-form">
+              <p className="label">{t("common:getInTouchFormName")}</p>
+              <p className="wrap-inp">
+                <Field className="input-name" type="text" name="name" />
+                <div className="text-left">
+                  {errors.name && touched.name && errors.name}
+                </div>
+              </p>
+            </div>
+            <div className="email-form">
+              <p className="label">{t("common:getInTouchFormEmail")}</p>
+              <p className="wrap-inp">
+                <Field className="input-email" type="email" name="email" />
+                <div className="text-left">
+                  {errors.email && touched.email && errors.email}
+                </div>
+              </p>
             </div>
 
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              type="email"
-              name="email"
-              placeholder={t("common:getInTouchFormEmail")}
-            />
-            <div className="text-left">
-              {errors.email && touched.email && errors.email}
+            <div className="message-form">
+              <p className="label">{t("common:getInTouchFormMessage")}</p>
+              <div className="wrap-textarea">
+                <Field
+                  className="textarea-message"
+                  component="textarea"
+                  style={{ height: 190, resize: "none" }}
+                  type="text"
+                  name="message"
+                />
+              </div>
             </div>
 
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              component="textarea"
-              style={{ height: 190, resize: "none" }}
-              type="text"
-              name="message"
-              placeholder={t("common:getInTouchFormMessage")}
-            />
             <div className="text-left">
               {errors.message && touched.message && errors.message}
             </div>
 
-            <Button
-              type="submit"
-              disabled={isSubmitting || isSuccessful || isLoading}
-              loading={isLoading}
-              color={isSuccessful ? "purple" : "green"}
-            >
-              {isSuccessful ? (
-                <div className="flex flex-row items-center justify-center text-left">
-                  <MdDone
-                    className="mr-2 flex-shrink-0"
-                    color="#fff"
-                    size={20}
-                  />
+            <div className="wrap-but">
+              <button
+                className="button-form"
+                type="submit"
+                disabled={isSubmitting || isSuccessful || isLoading}
+              >
+                {isSuccessful ? (
                   <p>{t("common:getInTouchFormThankYou")}</p>
-                </div>
-              ) : (
-                <p>{t("common:getInTouchFormSendMessage")}</p>
-              )}
-            </Button>
-            <div className="text-left">{errors.api && errors.api}</div>
+                ) : (
+                  <p>{t("common:getInTouchFormSendMessage")}</p>
+                )}
+              </button>
+              <div className="text-left">{errors.api && errors.api}</div>
+            </div>
 
             <HCaptcha
               sitekey={process.env.HCAPTCHA_SITEKEY}

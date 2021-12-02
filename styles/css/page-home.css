@@ -206,6 +206,7 @@
   width: 100%;
   height: 1747px;
   top: 6719px;
+  z-index: 0;
 }
 #page-home #background-4 .gradient {
   position: absolute;

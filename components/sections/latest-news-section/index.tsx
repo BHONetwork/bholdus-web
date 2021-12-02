@@ -7,7 +7,12 @@ const LatestNewsSection = ({ data, articles }) => {
       <section id="news">
         <div className="container">
           <div className="news">
-            <div className="title-section">
+            <div
+              className="title-section"
+              data-aos="fade-down"
+              data-aos-delay={400}
+              data-aos-duration={1000}
+            >
               {data?.smallTitle && data.smallTitle !== " " ? (
                 <p className="title-top-section">{data.smallTitle}</p>
               ) : null}
@@ -15,7 +20,13 @@ const LatestNewsSection = ({ data, articles }) => {
             </div>
             <div className="list-news">
               {articles.map((article: any, index: number) => (
-                <div className="item-news" key={index}>
+                <div
+                  className="item-news"
+                  key={index}
+                  data-aos="fade-up"
+                  data-aos-delay={400}
+                  data-aos-duration={(index + 1) * 400}
+                >
                   <div className="wrap-img">
                     <OptimizedImage
                       img={article.image}

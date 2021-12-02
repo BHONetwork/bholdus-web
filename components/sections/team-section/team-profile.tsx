@@ -9,9 +9,10 @@ const TeamProfile = ({ data, index }) => {
     <div
       key={index}
       className="item-our-brain"
-      data-aos="fade-zoom-in"
+      data-aos="fade-up"
       data-aos-easing="ease-in-back"
-      data-aos-delay={200}
+      data-aos-delay={(index + 1) * 200}
+      data-aos-duration="1000"
       data-aos-offset="0"
     >
       <div className="img-item">

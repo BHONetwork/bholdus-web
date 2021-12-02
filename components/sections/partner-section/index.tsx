@@ -9,7 +9,12 @@ const PartnerSection = ({ data }) => {
     <section id="our-partners">
       <div className="container">
         <div className="our-partners">
-          <div className="title-section">
+          <div
+            className="title-section"
+            data-aos="fade-down"
+            data-aos-delay={400}
+            data-aos-duration={1000}
+          >
             {data?.smallTitle && data.smallTitle !== " " ? (
               <p className="title-top-section">{data.smallTitle}</p>
             ) : null}
