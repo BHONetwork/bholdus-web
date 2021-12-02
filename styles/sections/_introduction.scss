@@ -1,6 +1,6 @@
 #intro {
   margin-top: 60px;
-  .intro{
+  .intro {
     .media-intro {
       .delay-2 {
         animation-delay: -2s;
@@ -21,6 +21,12 @@
         align-items: center;
         height: 54px;
         width: 54p;
+        @include mobile-only {
+          max-width: 25px;
+          max-height: 25px;
+          top: calc(50% - 10px);
+          left: calc(50% - 10px);
+        }
       }
       .play-button {
         transform: rotate(-1deg);
@@ -28,6 +34,7 @@
         height: 100%;
         max-width: 53px;
         max-height: 53px;
+        
       }
     }
   }
