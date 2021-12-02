@@ -1385,8 +1385,8 @@ section {
     width: 100%;
   }
   .our-board .list-our-board .item-our-board .img-item img {
-    width: 100%;
-    height: auto;
+    /* width: 100%; */
+    /* height: auto; */
   }
   #our-brain {
     padding-top: 0;
@@ -1612,8 +1612,8 @@ section {
     width: calc(50% - 10px);
   }
   .our-brain .list-our-brain .item-our-brain .img-item img {
-    width: 100%;
-    height: auto;
+    /* width: 100%; */
+    /* height: auto; */
   }
   #news {
     padding: 50px 0;
