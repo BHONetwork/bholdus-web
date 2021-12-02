@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const pageData = await fetchAPI(`/landing-page?_locale=${locale}`);
   const latestNews = await fetchAPI(
-    `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=3`
+    `/articles?status=published&_locale=${locale}&_sort=publishedAt:desc&_limit=6`
   );
 
   if (pageData == null) {

@@ -17,7 +17,6 @@
     "@martin_hotell/rex-tils": "^2.1.1",
     "@popperjs/core": "^2.10.1",
     "@types/react": "17.0.24",
-    "aos": "^3.0.0-beta.6",
     "autoprefixer": "^10.3.6",
     "classnames": "^2.2.6",
     "dayjs": "^1.10.7",

@@ -6,15 +6,7 @@ const TeamProfile = ({ data, index }) => {
   const socials = getSocials(data);
 
   return (
-    <div
-      key={index}
-      className="item-our-brain"
-      data-aos="fade-up"
-      data-aos-easing="ease-in-back"
-      data-aos-delay={(index + 1) * 100}
-      data-aos-duration="1000"
-      data-aos-offset="0"
-    >
+    <div key={index} className="item-our-brain">
       <div className="img-item">
         <OptimizedImage img={data.avatar} layout="fill" />
       </div>

@@ -1,9 +1,56 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import classNames from "classnames";
 import { useWindowSize } from "../../../utils/hooks";
 import OptimizedImage from "../../common/optimized-image";
-
+import { useScrollPosition, addClassElement } from "../../../utils/hooks";
 const RoadmapSection = ({ data }) => {
+  const sectionRef = useRef(null);
+  let locked1 = false;
+  let locked2 = false;
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y < 760 && !locked1) {
+        locked1 = true;
+        addClassElement("#roadmap .title-section", "top-to-bot opacity-1");
+        addClassElement(
+          "#roadmap .roadmap .calendar-roadmap",
+          "opacity opacity-1"
+        );
+      }
+      if (currPos.y < -40 && !locked2) {
+        locked2 = true;
+        addClassElement(
+          "#roadmap .roadmap .info-roadmap .item1",
+          "bot-to-top-2 opacity-1"
+        );
+        setTimeout(function () {
+          addClassElement(
+            "#roadmap .roadmap .info-roadmap .item2",
+            "bot-to-top-2 opacity-1"
+          );
+        }, 500);
+        setTimeout(function () {
+          addClassElement(
+            "#roadmap .roadmap .info-roadmap .item3",
+            "bot-to-top-2 opacity-1"
+          );
+        }, 1000);
+        setTimeout(function () {
+          addClassElement(
+            "#roadmap .roadmap .info-roadmap .item4",
+            "bot-to-top-2 opacity-1"
+          );
+        }, 1500);
+        addClassElement(
+          "#roadmap .roadmap .info-roadmap .img-info",
+          "top-to-bot"
+        );
+      }
+    },
+    [],
+    sectionRef
+  );
+
   const listMonthRef = useRef(null);
   const windowSize = useWindowSize();
   let xLeft,
@@ -13,7 +60,6 @@ const RoadmapSection = ({ data }) => {
   );
   // calculate the center point
   const centerPoint = Math.round(data?.roadMapItems.length / 2);
-
   useEffect(() => {
     if (windowSize?.width > 1365) xStep = 226;
     if (windowSize?.width < 1365) xStep = 209;
@@ -44,21 +90,13 @@ const RoadmapSection = ({ data }) => {
     return content;
   };
   return (
-    <section id="roadmap">
+    <section id="roadmap" ref={sectionRef}>
       <div className="roadmap">
-        <div
-          className="title-section"
-          data-aos="fade-down"
-          data-aos-duration={1000}
-        >
+        <div className="title-section">
           <p className="title-top-section">{data.smallTitle}</p>
           <p className="title-bot-section">{data.title}</p>
         </div>
-        <div
-          className="calendar-roadmap opacity opacity-1"
-          data-aos="fade-up"
-          data-aos-delay={1000}
-        >
+        <div className="calendar-roadmap">
           <div className="list-month" ref={listMonthRef}>
             {data.roadMapItems.map((item: any, index: number) => (
               <div className="item-month" key={item.id}>
@@ -109,35 +147,19 @@ const RoadmapSection = ({ data }) => {
           </div>
         </div>
         <div className="info-roadmap">
-          <div
-            className="item-info item1"
-            data-aos="fade-up"
-            data-aos-delay={400}
-          >
+          <div className="item-info item1">
             <p className="title-item">Worldwide Community Memners</p>
             <p className="number-item">70.000</p>
           </div>
-          <div
-            className="item-info item2"
-            data-aos="fade-up"
-            data-aos-delay={800}
-          >
+          <div className="item-info item2">
             <p className="title-item">Social Discussions</p>
             <p className="number-item">1.000.000</p>
           </div>
-          <div
-            className="item-info item3"
-            data-aos="fade-up"
-            data-aos-delay={1200}
-          >
+          <div className="item-info item3">
             <p className="title-item">Impression</p>
             <p className="number-item">5.000.000</p>
           </div>
-          <div
-            className="item-info item4"
-            data-aos="fade-up"
-            data-aos-delay={1600}
-          >
+          <div className="item-info item4">
             <p className="title-item">Registrations</p>
             <p className="number-item">30.000</p>
           </div>

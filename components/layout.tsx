@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import Navbar from "./elements/navbar";
@@ -6,8 +6,7 @@ import Footer from "./elements/footer";
 import Announcement from "./elements/announcement";
 
 import NotificationBanner from "./elements/notification-banner";
-import { data } from "autoprefixer";
-
+import { setOpacityElement } from "../utils/hooks";
 const Layout = ({
   Hero,
   children,
@@ -19,10 +18,31 @@ const Layout = ({
   transparentNavbar = false,
   videobg = false,
 }) => {
-  const { subnav, navbar, footer, notificationBanner, announcement } = global;
+  const { navbar, footer, notificationBanner, announcement } = global;
 
   const [bannerIsShown, setBannerIsShown] = useState(true);
   const [announcementIsShown, setAnnouncementIsShown] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setOpacityElement("#main-background .video", 1);
+      setOpacityElement("#main-background .video-mobi", 1);
+      setOpacityElement(".wrapper", 1);
+      setOpacityElement(".logo-bholdus-loading", 0);
+      // page-blog
+      setOpacityElement(".page-blog .bg-blog", 1);
+      setOpacityElement(".page-blog header", 1);
+      setOpacityElement(".page-blog section", 1);
+      setOpacityElement(".page-blog footer", 1);
+
+      // // page-help-center
+      setOpacityElement(".page-help-center .bg-help-center", 1);
+      setOpacityElement(".page-help-center header", 1);
+      setOpacityElement(".page-help-center section", 1);
+      setOpacityElement(".page-help-center footer", 1);
+    }, 1000);
+  }, []);
+
   return (
     <div id={`${containerClass}`} className={classNames(containerClass)}>
       {videobg && (

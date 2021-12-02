@@ -1,18 +1,29 @@
+import { useRef } from "react";
+import { addClassElement, useScrollPosition } from "../../../utils/hooks";
 import CustomLink from "../../common/custom-link";
 import OptimizedImage from "../../common/optimized-image";
 
 const LatestNewsSection = ({ data, articles }) => {
+  const sectionRef = useRef(null);
+  let locked = false;
+  useScrollPosition(
+    ({ currPos }) => {
+      console.log(currPos, locked);
+      if (currPos.y < 650 && !locked) {
+        locked = true;
+        addClassElement("#news .title-section", "top-to-bot opacity-1");
+        addClassElement("#news .news .list-news", "bot-to-top");
+      }
+    },
+    [],
+    sectionRef
+  );
   if (articles.length > 0) {
     return (
-      <section id="news">
+      <section id="news" ref={sectionRef}>
         <div className="container">
           <div className="news">
-            <div
-              className="title-section"
-              data-aos="fade-down"
-              data-aos-delay={400}
-              data-aos-duration={1000}
-            >
+            <div className="title-section">
               {data?.smallTitle && data.smallTitle !== " " ? (
                 <p className="title-top-section">{data.smallTitle}</p>
               ) : null}
@@ -20,13 +31,7 @@ const LatestNewsSection = ({ data, articles }) => {
             </div>
             <div className="list-news">
               {articles.map((article: any, index: number) => (
-                <div
-                  className="item-news"
-                  key={index}
-                  data-aos="fade-up"
-                  data-aos-delay={400}
-                  data-aos-duration={(index + 1) * 400}
-                >
+                <div className="item-news" key={index}>
                   <div className="wrap-img">
                     <OptimizedImage
                       img={article.image}

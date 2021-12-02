@@ -73,7 +73,7 @@ section {
   }
 }
 #banner-home .banner-home .wrap-banner .desc-banner {
-  margin-top: 18px;
+  /* margin-top: 18px; */
   color: #cdc6e7;
   line-height: 22px;
 }
@@ -215,9 +215,10 @@ section {
 .title-top-section {
   color: #fa784d;
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   width: max-content;
+  text-transform: uppercase;
 }
 .title-top-section::after {
   content: "";
@@ -776,11 +777,11 @@ section {
 .our-brain .list-our-brain {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: -24px;
 }
 .our-brain .list-our-brain .item-our-brain {
-  width: 200px;
+  width: 166px;
   margin: 24px 30px;
   position: relative;
 }
@@ -1005,16 +1006,11 @@ section {
   justify-content: center;
 }
 #in-press .in-press .list-in-press .item-in-press .wrap-img,
-#our-partners
-  .our-partners
-  .strategic-partners
-  .list-strategic
-  .item-strategic
-  .wrap-img {
-  width: 220px;
-  height: 160px;
+#our-partners .our-partners .strategic-partners .list-strategic .item-strategic .wrap-img {
+  width: 169px;
+  height: 118px;
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -1276,11 +1272,7 @@ section {
     height: auto;
   }
   #in-press .in-press .list-in-press .item-in-press,
-  #our-partners
-    .our-partners
-    .strategic-partners
-    .list-strategic
-    .item-strategic {
+  #our-partners .our-partners .strategic-partners .list-strategic .item-strategic {
     width: 160px;
     display: flex;
   }
@@ -1891,10 +1883,13 @@ section {
 #roadmap .title-section,
 #roadmap .roadmap .calendar-roadmap,
 #about-token .title-section,
-#our-board .title-section,
-#our-brain .title-section,
-.our-brain .list-our-brain .item-our-brain {
-  opacity: 1;
+.our-board .title-section,
+.our-brain .title-section,
+.our-brain .list-our-brain .item-our-brain,
+#in-press .in-press .list-in-press .item-in-press,
+#our-partners .our-partners .strategic-partners .list-strategic .item-strategic
+ {
+  opacity: 0;
 }
 .opacity-1 {
   opacity: 1 !important;

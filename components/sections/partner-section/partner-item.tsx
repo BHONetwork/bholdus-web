@@ -2,11 +2,7 @@
 import OptimizedImage from "../../common/optimized-image";
 const PartnerItem = ({ data, index }) => {
   return (
-    <div
-      className="item-strategic"
-      data-aos="fade-up"
-      data-aos-delay={(index + 1) * 200}
-    >
+    <div className="item-strategic">
       <div className="wrap-img">
         <a
           style={{ textDecoration: "none" }}

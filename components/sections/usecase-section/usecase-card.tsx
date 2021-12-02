@@ -1,15 +1,8 @@
 import OptimizedImage from "../../common/optimized-image";
 
 const UsecaseCard = ({ data, index }) => {
-  const data_aos = index % 2 === 0 ? "fade-right" : "fade-left";
   return (
-    <div
-      key={data.id}
-      className="usecases-card"
-      data-aos={data_aos}
-      data-aos-delay={200}
-      data-aos-easing="ease-in-sine"
-    >
+    <div key={data.id} className="usecases-card">
       <OptimizedImage
         img={data.image}
         className="usecases-icon"

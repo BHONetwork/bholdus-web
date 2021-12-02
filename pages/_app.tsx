@@ -1,6 +1,5 @@
 import App from "next/app";
 import Head from "next/head";
-import AOS from "aos";
 import "intl-pluralrules";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -15,11 +14,6 @@ const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
 
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: false,
-    });
-
     const handleRouteChange = (url) => {
       ga.pageview(url);
     };

@@ -6,14 +6,7 @@ import React from "react";
 const BoardProfile = ({ data, index }) => {
   const socials = getSocials(data);
   return (
-    <div
-      key={index}
-      className="item-our-board"
-      data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-      data-aos-delay={(index + 1) * 200}
-      data-aos-duration="1000"
-      data-aos-offset="0"
-    >
+    <div key={index} className="item-our-board">
       <div className="img-item">
         <OptimizedImage img={data.avatar} layout="fill" />
       </div>

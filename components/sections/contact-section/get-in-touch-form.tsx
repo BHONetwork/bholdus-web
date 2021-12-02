@@ -42,21 +42,21 @@ const GetInTouchForm = ({ className }) => {
           <Form className="form-contact">
             <div className="name-form">
               <p className="label">{t("common:getInTouchFormName")}</p>
-              <p className="wrap-inp">
+              <div className="wrap-inp">
                 <Field className="input-name" type="text" name="name" />
                 <div className="text-left">
                   {errors.name && touched.name && errors.name}
                 </div>
-              </p>
+              </div>
             </div>
             <div className="email-form">
               <p className="label">{t("common:getInTouchFormEmail")}</p>
-              <p className="wrap-inp">
+              <div className="wrap-inp">
                 <Field className="input-email" type="email" name="email" />
                 <div className="text-left">
                   {errors.email && touched.email && errors.email}
                 </div>
-              </p>
+              </div>
             </div>
 
             <div className="message-form">

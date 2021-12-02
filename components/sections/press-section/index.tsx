@@ -1,8 +1,33 @@
+import { useRef } from "react";
+import { addClassElement, useScrollPosition } from "../../../utils/hooks";
 import PressItem from "./press-item";
 
 const PressSection = ({ data }) => {
+  const sectionRef = useRef(null);
+  let locked = false;
+  useScrollPosition(
+    ({ currPos }) => {
+      console.log(currPos, locked);
+      if (currPos.y < 650 && !locked) {
+        locked = true;
+        addClassElement("#in-press .in-press .title-section", "top-to-bot");
+        const items = document.querySelectorAll(
+          `#in-press .in-press .list-in-press .item-in-press`
+        );
+        if (items)
+          items.forEach((item, idx) => {
+            setTimeout(() => {
+              item.classList.add(`bot-to-top`);
+              item.classList.add(`opacity-1`);
+            }, idx * 200);
+          });
+      }
+    },
+    [],
+    sectionRef
+  );
   return (
-    <section id="in-press">
+    <section id="in-press" ref={sectionRef}>
       <div className="container">
         <div className="in-press">
           <div className="in-press">
