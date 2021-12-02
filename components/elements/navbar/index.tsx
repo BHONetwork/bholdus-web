@@ -106,7 +106,11 @@ const Navbar = ({
     showAnnouncement(!show);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      showMobileMenu(false);
+    });
+  }, []);
 
   return (
     <header id="header">

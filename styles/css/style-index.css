@@ -1282,6 +1282,7 @@ section {
     .list-strategic
     .item-strategic {
     width: 160px;
+    display: flex;
   }
   #roadmap .roadmap .info-roadmap .img-info img {
     height: auto;
@@ -1625,6 +1626,7 @@ section {
   }
   #our-partners .our-partners .title-partners {
     margin-top: 28px;
+    text-transform: uppercase;
   }
   #our-partners .our-partners .strategic-partners {
     position: relative;
