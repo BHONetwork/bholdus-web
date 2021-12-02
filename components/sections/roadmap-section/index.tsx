@@ -45,13 +45,12 @@ const RoadmapSection = ({ data }) => {
   };
   return (
     <section id="roadmap">
-      <div
-        className="roadmap"
-        data-aos="fade-down"
-        data-aos-delay={400}
-        data-aos-duration={1000}
-      >
-        <div className="title-section">
+      <div className="roadmap">
+        <div
+          className="title-section"
+          data-aos="fade-down"
+          data-aos-duration={1000}
+        >
           <p className="title-top-section">{data.smallTitle}</p>
           <p className="title-bot-section">{data.title}</p>
         </div>

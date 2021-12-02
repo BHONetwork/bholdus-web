@@ -11,7 +11,7 @@ const TeamProfile = ({ data, index }) => {
       className="item-our-brain"
       data-aos="fade-up"
       data-aos-easing="ease-in-back"
-      data-aos-delay={(index + 1) * 200}
+      data-aos-delay={(index + 1) * 100}
       data-aos-duration="1000"
       data-aos-offset="0"
     >
