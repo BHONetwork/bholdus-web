@@ -27,7 +27,7 @@ const Introduction = ({ data }) => {
 
   return (
     <>
-      <section id="intro" data-aos="fade-up" data-aos-delay={400}>
+      <section id="intro">
         <div className="intro">
           <div className="media-intro">
             <OptimizedImage
@@ -63,17 +63,7 @@ const Introduction = ({ data }) => {
             </ul>
           </div>
         </div>
-        {/* {data.imageBackground ? (
-          <Image img={data.imageBackground} className="introduction-bg" />
-        ) : null} */}
       </section>
-      {data.introductionVideoLink && (
-        <VideoModal
-          isShown={displayIntroductionVideo}
-          closeSelf={() => setDisplayIntroductionVideo(false)}
-          src={data.introductionVideoLink}
-        />
-      )}
     </>
   );
 };
