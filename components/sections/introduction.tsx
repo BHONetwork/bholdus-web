@@ -39,7 +39,7 @@ const Introduction = ({ data }) => {
             />
             {data.introductionVideoLink && (
               <>
-                <PlayButton onClick={() => setDisplayIntroductionVideo(true)} />
+                <PlayButton onClick={() => {}} />
                 <div className="circle"></div>
                 <div className="circle-ani delay-2"></div>
                 <div className="circle-ani delay-0"></div>
