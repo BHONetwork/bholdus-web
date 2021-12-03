@@ -158,6 +158,13 @@ const Navbar = ({
                   </li>
                 ))}
               </ul>
+              <div className="wrap-social-mobile">
+                {mobileMenuIsShown && navbar.button && (
+                  <button className="login">
+                    <Button button={navbar.button} isLink />
+                  </button>
+                )}
+              </div>
             </div>
             {supportedLocales?.length > 0 && (
               <LanguageSelection languages={supportedLocales} />

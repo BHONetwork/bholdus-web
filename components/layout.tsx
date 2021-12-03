@@ -31,6 +31,8 @@ const Layout = ({
       // if (body) body.style.overflow = "inherit";
       setOpacityElement(".wrapper", 1);
       setOpacityElement(".logo-bholdus-loading", 0);
+      const loading = document.querySelector(".logo-bholdus-loading");
+      if (loading?.classList) loading.classList.add("z-index-1");
       setOpacityElement("#main-background .video", 1);
       setOpacityElement("#main-background .video-mobi", 1);
       // page-blog

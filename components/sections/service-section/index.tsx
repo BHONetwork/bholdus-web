@@ -44,7 +44,7 @@ const ServiceSection = ({ data }) => {
             "#mission .mission .info-mission .right-info .item-info:last-child",
             "right-to-left-2 opacity-1 item-5"
           );
-        }, 2500);
+        }, 2000);
         setTimeout(function () {
           addClassElement(
             "#mission .mission .desc-mission",
