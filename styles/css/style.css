@@ -364,23 +364,23 @@ p.social-item a {
 
   #header .header .wrap-menu {
     position: absolute;
-    width: 0;
     top: 71px;
     left: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s;
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 0;
   }
 
   #header .header .wrap-menu.active {
     width: 100%;
     opacity: 1;
     visibility: visible;
-    padding-left: 20px;
     z-index: 9;
     background: rgba(3 23 82 / 93%);
     margin: 0;
-    padding-top: 20px;
     height: calc(100vh - 71px);
   }
 
