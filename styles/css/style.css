@@ -361,21 +361,20 @@ p.social-item a {
     height: 40px;
     margin-right: -5px;
   }
-
   #header .header .wrap-menu {
     position: absolute;
     top: 71px;
-    left: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s;
     padding-top: 20px;
     padding-left: 20px;
-    width: 0;
+    width: 100vw;
+    right: -100vw;
   }
 
   #header .header .wrap-menu.active {
-    width: 100%;
+    right: 0;
     opacity: 1;
     visibility: visible;
     z-index: 9;
@@ -461,4 +460,15 @@ p.social-item a {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+.header #header {
+  overflow: hidden;
+}
+.overflow-inherit {
+  overflow: inherit !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

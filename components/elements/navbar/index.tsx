@@ -99,8 +99,14 @@ const Navbar = ({
   const showMobileMenu = (show) => {
     if (show) {
       document.querySelector("body").classList.add("noscroll");
+      document
+        .querySelector(".header #header")
+        .classList.add("overflow-inherit");
     } else {
       document.querySelector("body").classList.remove("noscroll");
+      document
+        .querySelector(".header #header")
+        .classList.remove("overflow-inherit");
     }
     setMobileMenuIsShown(show);
     showAnnouncement(!show);
