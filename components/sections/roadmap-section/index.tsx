@@ -148,7 +148,7 @@ const RoadmapSection = ({ data }) => {
         </div>
         <div className="info-roadmap">
           <div className="item-info item1">
-            <p className="title-item">Worldwide Community Memners</p>
+            <p className="title-item">Worldwide Community Members</p>
             <p className="number-item">70.000</p>
           </div>
           <div className="item-info item2">
