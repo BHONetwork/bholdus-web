@@ -263,6 +263,4 @@
   background: linear-gradient(180deg, rgba(3, 23, 82, 0) 0%, #031752 100%);
   transform: rotate(-180deg);
 }
-body {
-  overflow: hidden;
-}
+

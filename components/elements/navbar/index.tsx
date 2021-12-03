@@ -108,7 +108,7 @@ const Navbar = ({
 
   const router = useRouter();
   const handleRouteChange = () => {
-    if (mobileMenuIsShown) showMobileMenu(false);
+    showMobileMenu(false);
   };
   useEffect(() => {
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -119,7 +119,7 @@ const Navbar = ({
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      if (mobileMenuIsShown) showMobileMenu(false);
+      showMobileMenu(false);
     });
   }, []);
 

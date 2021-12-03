@@ -27,8 +27,8 @@ const Layout = ({
 
   useEffect(() => {
     setTimeout(() => {
-      const body = document.querySelector("body");
-      if (body) body.style.overflow = "inherit";
+      // const body = document.querySelector("body");
+      // if (body) body.style.overflow = "inherit";
       setOpacityElement(".wrapper", 1);
       setOpacityElement(".logo-bholdus-loading", 0);
       setOpacityElement("#main-background .video", 1);

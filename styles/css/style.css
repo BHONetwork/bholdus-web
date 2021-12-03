@@ -11,7 +11,8 @@ body {
   font-size: 14px;
   color: #fff;
   word-wrap: break-word;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow: inherit;
 }
 
 a {
@@ -50,7 +51,6 @@ svg {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  width: max-content;
   margin: 0 auto;
 }
 
@@ -364,16 +364,16 @@ p.social-item a {
 
   #header .header .wrap-menu {
     position: absolute;
-    width: 100%;
+    width: 0;
     top: 71px;
-    right: -100%;
+    left: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s;
   }
 
   #header .header .wrap-menu.active {
-    right: 0%;
+    width: 100%;
     opacity: 1;
     visibility: visible;
     padding-left: 20px;
