@@ -380,6 +380,7 @@ p.social-item a {
   #header .header .wrap-menu {
     position: absolute;
     top: 71px;
+    bottom: 0;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s;
@@ -478,9 +479,9 @@ p.social-item a {
   }
 }
 
-.header #header {
+/* .header #header {
   overflow: hidden;
-}
+} */
 .overflow-inherit {
   overflow: inherit !important;
 }
