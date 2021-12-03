@@ -7,9 +7,9 @@ const GroupPartners = ({ groupPartners }) => {
     <>
       {Object.keys(groupPartners).map((key, index) => (
         <div className="strategic-partners" key={index}>
-          <p className="title-partners title-small title-media">
+          {/* <p className="title-partners title-small title-media">
             {t(`common:partner-${key}`)}
-          </p>
+          </p> */}
           <div className="list-strategic">
             {groupPartners[key].map((partner: any, index: number) => (
               <PartnerItem key={partner.id} data={partner} index={index} />

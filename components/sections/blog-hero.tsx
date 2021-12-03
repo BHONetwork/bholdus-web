@@ -26,9 +26,11 @@ const TopicList = ({ topicInfos }) => {
 
             {topics.map((topic: any, index: number) => {
               return (
-                <li className="item-menu">
+                <li
+                  className="item-menu"
+                  key={`topic-navigate-${topic.slug}-${index}`}
+                >
                   <CustomLink
-                    key={`topic-navigate-${topic.slug}-${index}`}
                     link={{ url: `/blog/topic/${topic.slug}/1` }}
                     className={classNames("link-item", {
                       "link-blog": currentTopic === topic.slug,

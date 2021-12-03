@@ -9,7 +9,6 @@ const PartnerSection = ({ data }) => {
   let locked = false;
   useScrollPosition(
     ({ currPos }) => {
-      console.log(currPos, locked);
       if (currPos.y < 650 && !locked) {
         locked = true;
         addClassElement(

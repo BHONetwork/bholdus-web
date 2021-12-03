@@ -444,6 +444,7 @@ p.social-item a {
   z-index: 1;
   top: calc(50vh - 101px);
   left: calc(50% - 101px);
+  z-index: 999;
 }
 
 .rotate {

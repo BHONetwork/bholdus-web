@@ -7,7 +7,6 @@ const PressSection = ({ data }) => {
   let locked = false;
   useScrollPosition(
     ({ currPos }) => {
-      console.log(currPos, locked);
       if (currPos.y < 650 && !locked) {
         locked = true;
         addClassElement("#in-press .in-press .title-section", "top-to-bot");

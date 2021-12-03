@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import Navbar from "./elements/navbar";
@@ -7,6 +7,8 @@ import Announcement from "./elements/announcement";
 
 import NotificationBanner from "./elements/notification-banner";
 import { setOpacityElement } from "../utils/hooks";
+import OptimizedImage from "./common/optimized-image";
+import LogoLoading from "./logo_loading.svg";
 const Layout = ({
   Hero,
   children,
@@ -25,28 +27,33 @@ const Layout = ({
 
   useEffect(() => {
     setTimeout(() => {
-      setOpacityElement("#main-background .video", 1);
-      setOpacityElement("#main-background .video-mobi", 1);
+      const body = document.querySelector("body");
+      if (body) body.style.overflow = "inherit";
       setOpacityElement(".wrapper", 1);
       setOpacityElement(".logo-bholdus-loading", 0);
+      setOpacityElement("#main-background .video", 1);
+      setOpacityElement("#main-background .video-mobi", 1);
       // page-blog
       setOpacityElement(".page-blog .bg-blog", 1);
       setOpacityElement(".page-blog header", 1);
       setOpacityElement(".page-blog section", 1);
       setOpacityElement(".page-blog footer", 1);
-
       // // page-help-center
       setOpacityElement(".page-help-center .bg-help-center", 1);
       setOpacityElement(".page-help-center header", 1);
       setOpacityElement(".page-help-center section", 1);
       setOpacityElement(".page-help-center footer", 1);
     }, 1000);
+    setTimeout(() => {}, 2000);
   }, []);
 
   return (
     <div id={`${containerClass}`} className={classNames(containerClass)}>
       {videobg && (
         <>
+          <div className="logo-bholdus-loading">
+            <LogoLoading />
+          </div>
           <section id="main-background">
             <div className="video">
               <video
@@ -82,7 +89,13 @@ const Layout = ({
                 />
               </video>
             </div>
+            {/* <div className="img-square"></div> */}
             <div className="gradient-bot"></div>
+            {/* <div className="img-rotate">
+              <div className="logo-bholdus">
+                <LogoLoading />
+              </div>
+            </div> */}
           </section>
           <section id="background-2">
             <div className="gradient"></div>

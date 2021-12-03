@@ -106,9 +106,20 @@ const Navbar = ({
     showAnnouncement(!show);
   };
 
+  const router = useRouter();
+  const handleRouteChange = () => {
+    if (mobileMenuIsShown) showMobileMenu(false);
+  };
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      showMobileMenu(false);
+      if (mobileMenuIsShown) showMobileMenu(false);
     });
   }, []);
 

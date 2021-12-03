@@ -6,7 +6,10 @@
 }
 #page-home #main-background {
   position: absolute;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* width: 100%; */
   height: 1853px;
   background: linear-gradient(
     134.11deg,
@@ -41,7 +44,7 @@
   transform-origin: 50% 50%;
   mix-blend-mode: screen;
 }
-@keyframes rotate-2 {
+/* @keyframes rotate-2 {
   0% {
     transform: rotate(360deg);
     transform-origin: 50% 50%;
@@ -50,7 +53,7 @@
     transform: rotate(0deg);
     transform-origin: 50% 50%;
   }
-}
+} */
 #page-home #main-background .img-rotate .img-rotate-2 {
   position: absolute;
   background: url(https://cdn.bholdus.com/bholdus-web/img-main-bg.webp);
@@ -82,14 +85,14 @@
   left: calc(50% - 124px);
   background-size: contain;
 }
-@keyframes xoay {
+/* @keyframes xoay {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 #page-home #main-background .img-rotate .logo-bholdus {
   position: absolute;
   top: 333px;

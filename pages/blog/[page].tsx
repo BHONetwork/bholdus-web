@@ -18,6 +18,7 @@ import {
   ARTICLE_TYPE_SEARCH,
   PAGE_SIZE,
 } from "../../constants/common";
+import CustomLink from "../../components/common/custom-link";
 
 const articlesQuery = ({ isCount, locale, pageNumber }) =>
   stringify({
@@ -35,32 +36,30 @@ export const LocalArticle = ({
   isMobile = false,
 }) => {
   const { lang } = translation;
-  const { title, description, image, publishedAt, slug } = article;
-
-  const TextWrapper = ({ children }) =>
-    articleType === ARTICLE_TYPE_SEARCH ? (
-      <div className="text-wrapper">{children}</div>
-    ) : (
+  const { title, description, image, publishedAt } = article;
+  const LinkWrapper = ({ children, url, className }) =>
+    articleType === ARTICLE_TYPE_SEARCH && !isMobile ? (
       children
+    ) : (
+      <CustomLink link={{ url }} className={className}>
+        {children}
+      </CustomLink>
     );
-
   return (
-    <li className="item-post">
+    <LinkWrapper
+      key={article.id}
+      url={`/blog/article/${article.slug}`}
+      className="link-item"
+    >
       <div className="wrap-img">
-        <a href="blog-detail.html" className="link-item">
-          <Image className="blog-article-item-image" img={image} />
-        </a>
+        <Image className="blog-article-item-image" img={image} />
       </div>
       <div className="wrap-content">
         <p className="date">{formatDate(lang, publishedAt)}</p>
-        <p className="title">
-          <a href="blog-detail.html" className="link-item">
-            {title}
-          </a>
-        </p>
+        <div className="title">{title}</div>
         <p className="desc">{description}</p>
       </div>
-    </li>
+    </LinkWrapper>
   );
 };
 

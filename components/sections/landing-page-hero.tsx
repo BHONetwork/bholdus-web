@@ -16,16 +16,12 @@ const LandingPageHero = ({ data }) => {
             <div className="button-banner">
               {data.actions.map((button: any) => (
                 <Button
-                  className="button-item"
                   isLink
                   key={button.id}
                   buttonType={button.type}
                   button={button}
                 />
               ))}
-              <a href="#" className="button-item">
-                BUY BHO NOW
-              </a>
             </div>
           </div>
         </div>

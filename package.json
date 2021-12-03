@@ -51,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.15.7",
+    "@svgr/webpack": "^6.1.0",
     "@types/gtag.js": "^0.0.7",
     "@typescript-eslint/eslint-plugin": "4.31.2",
     "@typescript-eslint/parser": "4.31.2",

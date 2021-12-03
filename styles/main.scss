@@ -5,17 +5,11 @@
 @import "vars";
 @import "mixin";
 @import "elements/popover";
-// @import "elements/social";
-// @import "elements/pagination";
-// @import "sections/navbar";
 @import "sections/announcement";
-// @import "sections/search";
 @import "sections/hero";
 @import "sections/notification";
 @import "sections/introduction";
-// @import "sections/about";
 @import "sections/advisor";
-// @import "sections/usecases";
 @import "sections/team";
 @import "sections/road";
 @import "sections/news";
@@ -23,7 +17,6 @@
 @import "sections/contact";
 @import "sections/press";
 @import "sections/partner";
-// @import "sections/blog";
 @import "sections/footer";
 @import "page";
 @import "blog";
@@ -32,8 +25,11 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  overflow: inherit;
+// body {
+  // overflow: inherit;
+// }
+#__next {
+  position: relative;
 }
 
 .flex {

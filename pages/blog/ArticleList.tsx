@@ -68,13 +68,6 @@ const ArticleList = ({
   const translation = useTranslation();
   const { t } = translation;
 
-  const LinkWrapper = ({ children, url }) =>
-    articleType === ARTICLE_TYPE_SEARCH && !isMobile ? (
-      children
-    ) : (
-      <CustomLink link={{ url }}>{children}</CustomLink>
-    );
-
   useEffect(() => {
     setArticleList(articles);
   }, [articles]);
@@ -98,14 +91,14 @@ const ArticleList = ({
       {displayArticles && displayArticles.length ? (
         <ul className="list-post">
           {displayArticles.map((article: any, index: number) => (
-            <LinkWrapper key={article.id} url={`/blog/article/${article.slug}`}>
+            <li className="item-post" key={index}>
               <LocalArticle
                 article={article}
                 translation={translation}
                 articleType={articleType}
                 isMobile={isMobile}
               />
-            </LinkWrapper>
+            </li>
           ))}
         </ul>
       ) : (

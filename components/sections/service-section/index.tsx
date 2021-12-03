@@ -19,32 +19,32 @@ const ServiceSection = ({ data }) => {
         );
         addClassElement(
           "#mission .mission .info-mission .left-info .top-left",
-          "right-to-left-2 opacity-1"
+          "right-to-left-2 opacity-1 item-1"
         );
         setTimeout(function () {
           addClassElement(
-            "#mission .mission .info-mission .left-info .bot-left .item-info:first-child",
-            "right-to-left-2 opacity-1"
+            "#mission .mission .info-mission .right-info .item-info:first-child",
+            "right-to-left-2 opacity-1 item-2"
           );
         }, 500);
         setTimeout(function () {
           addClassElement(
-            "#mission .mission .info-mission .left-info .bot-left .item-info:last-child",
-            "right-to-left-2 opacity-1"
+            "#mission .mission .info-mission .left-info .bot-left .item-info:first-child",
+            "right-to-left-2 opacity-1 item-3"
           );
         }, 1000);
         setTimeout(function () {
           addClassElement(
-            "#mission .mission .info-mission .right-info .item-info:first-child",
-            "right-to-left-2 opacity-1"
+            "#mission .mission .info-mission .left-info .bot-left .item-info:last-child",
+            "right-to-left-2 opacity-1 item-4"
           );
         }, 1500);
         setTimeout(function () {
           addClassElement(
             "#mission .mission .info-mission .right-info .item-info:last-child",
-            "right-to-left-2 opacity-1"
+            "right-to-left-2 opacity-1 item-5"
           );
-        }, 2000);
+        }, 2500);
         setTimeout(function () {
           addClassElement(
             "#mission .mission .desc-mission",
@@ -52,7 +52,6 @@ const ServiceSection = ({ data }) => {
           );
         }, 2500);
       }
-      // setElementPosition(currPos);
     },
     [],
     sectionRef
