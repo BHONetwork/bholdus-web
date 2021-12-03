@@ -89,9 +89,7 @@ const ServiceSection = ({ data }) => {
               <div className="top-left">{renderContainer("left", "top")}</div>
               <div className="bot-left">{renderContainer("left", "bot")}</div>
             </div>
-            <div className="right-info">
-              {renderContainer("right", "none", "right-to-left-2")}
-            </div>
+            <div className="right-info">{renderContainer("right", "none")}</div>
           </div>
           <div className="desc-mission">{data.description}</div>
         </div>
