@@ -49,11 +49,11 @@ const Layout = ({
 
   return (
     <div id={`${containerClass}`} className={classNames(containerClass)}>
+      <div className="logo-bholdus-loading">
+        <LogoLoading />
+      </div>
       {videobg && (
         <>
-          <div className="logo-bholdus-loading">
-            <LogoLoading />
-          </div>
           <section id="main-background">
             <div className="video">
               <video
