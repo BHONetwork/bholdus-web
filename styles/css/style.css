@@ -397,7 +397,7 @@ p.social-item a {
     z-index: 9;
     background: rgba(3 23 82 / 93%);
     margin: 0;
-    /* height: calc(100vh - 71px); */
+    height: calc(100vh - 71px);
   }
 
   #header .header .wrap-menu .menu li {
