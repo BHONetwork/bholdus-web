@@ -1,10 +1,8 @@
-import Text from "../common/text";
-
 const Section = ({ id = "", smallTitle, title, children, style = {} }) => {
   return (
     <section id={id} style={{ ...style }}>
       <div className="container">
-        <Text
+        {/* <Text
           type="h3"
           css={{
             color: "$lightGrey",
@@ -34,7 +32,7 @@ const Section = ({ id = "", smallTitle, title, children, style = {} }) => {
             : {})}
         >
           {title}
-        </Text>
+        </Text> */}
       </div>
       {children}
     </section>

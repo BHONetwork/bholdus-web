@@ -7,29 +7,43 @@ import Layout from "../../../components/layout";
 import BlogDetailHero from "../../../components/sections/blog-detail-hero";
 
 import Image from "../../../components/common/image";
-import Text from "../../../components/common/text";
 import RichText from "../../../components/common/rich-text";
 import CustomLink from "../../../components/common/custom-link";
 import ShareSocials from "../../../components/sections/share-socials";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
-
+import { formatDate } from "../../../utils/datetime";
 const LocalArticle = ({ article }) => {
+  const { t, lang } = useTranslation();
   const { title, image } = article;
   return (
-    <div className="blog-article-related-item">
-      <div className="blog-article-related-item-cover">
-        <Image className="blog-article-related-item-image" img={image} />
+    <li className="item-post">
+      <div className="wrap-img">
+        <CustomLink
+          key={article.id}
+          link={{ url: `/blog/article/${article.slug}` }}
+          className="link-item"
+        >
+          <Image img={image} />
+        </CustomLink>
       </div>
-      <Text
-        className="blog-article-related-item-title"
-        color="black"
-        weight="bold"
-      >
-        {title}
-      </Text>
-    </div>
+      <div className="wrap-content">
+        <p className="date">
+          {formatDate(lang, article.publishedAt)} <span>|</span>{" "}
+          {article.topics[0].topic}
+        </p>
+        <p className="title">
+          <CustomLink
+            key={article.id}
+            link={{ url: `/blog/article/${article.slug}` }}
+            className="link-item"
+          >
+            {title}
+          </CustomLink>
+        </p>
+      </div>
+    </li>
   );
 };
 
@@ -37,64 +51,46 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
   const { content, image, topics } = article;
 
   return (
-    <div className="container flex flex-col">
-      <div className="flex flex-col items-center mb-16">
-        <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
-        <RichText className="container" children={content} />
-      </div>
-
-      <div className="mb-16">
-        <ShareSocials types={["facebook", "telegram"]} />
-      </div>
-
-      {topics?.length > 0 && (
-        <div className="flex flex-col">
-          <Text className="mb-6" size="medium" weight="bold" color="black">
-            {t("common:articleTopics")}
-          </Text>
-          <div className="flex flex-row flex-wrap">
-            {topics.map((topic: any) => (
-              <CustomLink
-                key={topic.id}
-                link={{ url: `/blog/topic/${topic.slug}` }}
-              >
-                <div
-                  className="py-4 px-14 mr-2 mb-2"
-                  style={{ border: "1px solid #000000", borderRadius: "2px" }}
-                >
-                  <Text size="medium" color="black" weight="semiBold">
-                    {topic.topic}
-                  </Text>
-                </div>
-              </CustomLink>
-            ))}
-          </div>
+    <section id="content-blog-detail">
+      <div className="container">
+        <div className="article">
+          <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
+          <RichText className="container" children={content} />
         </div>
-      )}
-
-      {relatedArticles?.length > 0 && (
-        <div className="blog-article-related">
-          <Text
-            className="blog-article-related-title"
-            size="medium"
-            weight="bold"
-            color="black"
-          >
-            {t("common:articleRelated")}
-          </Text>
-          <div className="blog-article-related-items">
-            {relatedArticles.map((article: any) => (
-              <CustomLink
-                key={article.id}
-                link={{ url: `/blog/article/${article.slug}` }}
-              >
-                <LocalArticle article={article} />
-              </CustomLink>
-            ))}
+        {topics?.length > 0 && (
+          <div className="tagged-topics">
+            <p className="title">{t("common:articleTopics")}</p>
+            <div className="hashtags-social">
+              <div className="hashtags">
+                {topics.map((topic: any) => (
+                  <CustomLink
+                    key={topic.id}
+                    link={{ url: `/blog/topic/${topic.slug}` }}
+                    className="link-tag"
+                  >
+                    <span>{topic.topic}</span>
+                  </CustomLink>
+                ))}
+              </div>
+              <div className="social">
+                <ShareSocials types={["facebook", "telegram"]} />
+              </div>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+
+        {relatedArticles?.length > 0 && (
+          <div className="more-stories">
+            <div className="title"> {t("common:articleRelated")}</div>
+            <ul className="list-post">
+              {relatedArticles.map((article: any, index) => (
+                <LocalArticle article={article} key={index} />
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 
@@ -110,7 +106,12 @@ const Article = ({ article, relatedArticles, metadata, global }) => {
         seoData={{ type: "blog-post", data: article }}
         globalSeoData={global.defaultSeo}
       />
-      <Layout Hero={Hero} global={global} mainClass="bg-white">
+      <Layout
+        Hero={Hero}
+        global={global}
+        mainClass="bg-white"
+        containerClass="page-blog"
+      >
         <LocalArticleDetail
           article={article}
           relatedArticles={relatedArticles}

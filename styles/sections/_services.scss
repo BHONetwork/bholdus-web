@@ -1,112 +1,12 @@
-#services {
-  margin-top: 80px;
-  scroll-margin-top: 150px;
-  position: relative;
-
-  @include not-tablet {
-    margin-top: 160px;
-  }
-
-  .services {
-    &-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 1685px;
-      width: 100%;
-      // height: 1376px;
-      z-index: 0;
-      transform: translate3d(0px, -150px, 0px);
-      img {
-        object-fit: cover;
-      }
-      @include tablet {
-        height: 220%;
-      }
-    }
-    &-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin-top: 40px;
-      z-index: 1;
-
-      @include not-tablet {
-        margin-top: 0;
-      }
-
-      .service-card {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        margin-bottom: 80px;
-        padding-top: 64px;
-        padding-bottom: 36px;
-        border-radius: 4px;
-        width: 200px;
-        height: 210px;
-        margin-left: 15px;
-        margin-right: 15px;
-
-        @include mobile-only {
-          margin-bottom: 40px;
-          width: 110px;
-          height: 140px;
-          padding: 10px;
-        }
-
-        @include not-mobile {
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-
-        &:hover {
-          .service-card-bg {
-            width: 105%;
-            height: 105%;
-          }
-        }
-
-        &-bg {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 100%;
-          height: 100%;
-          z-index: 0;
-
-          -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-          -webkit-border-radius: 10px;
-          border-radius: 10px;
-          -webkit-transition: width 0.4s, height 0.4s;
-          -o-transition: width 0.4s, height 0.4s;
-          transition: width 0.4s, height 0.4s;
-        }
-
-        &-text {
-          z-index: 10;
-          font-weight: $font-weights-bold;
-          font-size: $font-size-normal;
-
-          @include mobile-only {
-            font-size: 13px;
-            font-weight: $font-weights-normal;
-          }
-        }
-
-        .service-card-img {
-          margin-bottom: 20px;
-          z-index: 10;
-
-          @include mobile-only {
-            margin-bottom: 5px;
-            width: 50px;
+#mission {
+  // margin-top: 80px;
+  .mission {
+    .info-mission {
+      .item-info {
+        .text-info {
+          .markdown-body {
+            font-size: unset;
+            color: #FFFFFF;
           }
         }
       }

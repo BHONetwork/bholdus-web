@@ -21,7 +21,7 @@ const PopOver = ({ children, button }) => {
   });
 
   return (
-    <Popover className={classNames("popover-container")}>
+    <Popover className={classNames("popover-container social-item")}>
       <Popover.Button
         className="w-full outline-none focus:outline-none"
         ref={setReferenceElement}

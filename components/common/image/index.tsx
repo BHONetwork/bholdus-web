@@ -1,17 +1,17 @@
 import classNames from "classnames";
 import LazyLoad from "react-lazyload";
 
-import { styled } from "../../../assets/css/stitches.config";
+// import { styled } from "../../../assets/css/stitches.config";
 
-const ImageComponent = styled("img", {
-  variants: {
-    rounded: {
-      true: {
-        borderRadius: "50%",
-      },
-    },
-  },
-});
+// const ImageComponent = styled("img", {
+//   variants: {
+//     rounded: {
+//       true: {
+//         borderRadius: "50%",
+//       },
+//     },
+//   },
+// });
 
 const Image = ({
   img,
@@ -29,7 +29,7 @@ const Image = ({
     : null;
   if (!url) return null;
   const Component = () => (
-    <ImageComponent
+    <img
       className={classNames(className)}
       style={{ ...style }}
       src={url}

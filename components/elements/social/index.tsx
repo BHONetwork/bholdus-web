@@ -15,6 +15,7 @@ const Social = ({ className, social }) => {
         <a
           key={key}
           href={group[0].url}
+          className="social-item"
           target="_blank"
           rel="noopener noreferrer nofollow"
         >
