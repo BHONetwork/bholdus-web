@@ -5,8 +5,7 @@ module.exports = {
   defaultLocale: "en",
   localeDetection: false,
   pages: {
-    "*": ["common"],
-    "*": ["roadmap"],
+    "*": ["common", "roadmap"],
   },
   loadLocaleFrom: (lang, ns) =>
     import(`./translations/${lang}/${ns}.json`).then((m) => m.default),
