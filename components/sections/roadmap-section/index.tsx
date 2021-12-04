@@ -169,7 +169,7 @@ const RoadmapSection = ({ data }) => {
                 url: "/images/img-bot-roadmap.webp",
                 alternativeText: "bholdus",
               }}
-              lazy={true}
+              lazy={false}
             />
           </div>
         </div>

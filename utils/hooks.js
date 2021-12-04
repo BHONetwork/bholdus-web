@@ -66,7 +66,7 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
     throttleTimeout = null;
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       if (wait) {
         if (throttleTimeout === null) {
@@ -80,7 +80,7 @@ export function useScrollPosition(effect, deps, element, useWindow, wait) {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, deps);
+  }, [deps]);
 }
 
 export const setOpacityElement = (el, value) => {

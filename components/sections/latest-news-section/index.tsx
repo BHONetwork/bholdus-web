@@ -8,7 +8,6 @@ const LatestNewsSection = ({ data, articles }) => {
   let locked = false;
   useScrollPosition(
     ({ currPos }) => {
-      console.log(currPos, locked);
       if (currPos.y < 650 && !locked) {
         locked = true;
         addClassElement("#news .title-section", "top-to-bot opacity-1");

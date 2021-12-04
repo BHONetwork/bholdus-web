@@ -7,7 +7,6 @@ import Announcement from "./elements/announcement";
 
 import NotificationBanner from "./elements/notification-banner";
 import { setOpacityElement } from "../utils/hooks";
-import OptimizedImage from "./common/optimized-image";
 import LogoLoading from "./logo_loading.svg";
 const Layout = ({
   Hero,
@@ -45,6 +44,7 @@ const Layout = ({
       setOpacityElement(".page-help-center header", 1);
       setOpacityElement(".page-help-center section", 1);
       setOpacityElement(".page-help-center footer", 1);
+      setOpacityElement(".announcement", 1);
     }, 1000);
     setTimeout(() => {}, 2000);
   }, []);
@@ -91,13 +91,7 @@ const Layout = ({
                 />
               </video>
             </div>
-            {/* <div className="img-square"></div> */}
             <div className="gradient-bot"></div>
-            {/* <div className="img-rotate">
-              <div className="logo-bholdus">
-                <LogoLoading />
-              </div>
-            </div> */}
           </section>
           <section id="background-2">
             <div className="gradient"></div>

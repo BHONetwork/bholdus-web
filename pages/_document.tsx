@@ -5,7 +5,6 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import OptimizedImage from "../components/common/optimized-image";
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -17,6 +16,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
           <meta
             name="keywords"
             content="Blockchain, DeFi, Real World DeFi, NFTs, DApps, DeFi DApps, BHO, BHO token, BHO price, Crosschain, Digital Assets, DEX, Decentralized Exchange, Bholdus"

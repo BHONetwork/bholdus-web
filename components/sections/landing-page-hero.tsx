@@ -15,12 +15,7 @@ const LandingPageHero = ({ data }) => {
             </div>
             <div className="button-banner">
               {data.actions.map((button: any) => (
-                <Button
-                  isLink
-                  key={button.id}
-                  buttonType={button.type}
-                  button={button}
-                />
+                <Button isLink key={button.id} button={button} />
               ))}
             </div>
           </div>
