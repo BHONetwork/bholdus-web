@@ -1908,7 +1908,7 @@ section {
 .logo-bholdus-loading {
   position: fixed;
   z-index: 999;
-  top: calc(50vh - 101px);
+  top: calc(50vh - 150px);
   left: calc(50% - 101px);
 }
 /* loading svg */
