@@ -7,25 +7,21 @@ const NotificationBanner = ({ data, closeSelf }) => {
   return (
     <div
       id="notification-banner"
-      className={classNames("p-2", {
+      className={classNames({
         "bg-green2": data.type === "info",
         "bg-orange-600": data.type === "warning",
         "bg-red-600": data.type === "alert",
       })}
     >
-      <div className="container flex flex-row justify-between items-center">
+      <div className="container">
         <div />
         <RichText
           className="notification-banner-content"
           children={data.text}
           skipHtml={true}
         />
-        <button
-          onClick={closeSelf}
-          className="flex-shrink-0"
-          aria-label="close"
-        >
-          <MdClose className="h-6 w-auto" color="#fff" />
+        <button onClick={closeSelf} aria-label="close">
+          <MdClose />
         </button>
       </div>
     </div>

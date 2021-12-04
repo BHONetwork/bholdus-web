@@ -1,8 +1,4 @@
 [
   { "code": "en", "name": "English" },
-  { "code": "vi", "name": "Tiếng Việt" },
-  { "code": "fr-FR", "name": "Français" },
-  { "code": "id", "name": "Bahasa Indonesia" },
-  { "code": "zh-Hans-SG", "name": "中国人" },
-  { "code": "ms-MY", "name": "Bahasa Melayu" }
+  { "code": "vi", "name": "Tiếng Việt" }
 ]

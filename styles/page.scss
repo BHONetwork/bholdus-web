@@ -1,0 +1,127 @@
+.page-container {
+  position: relative;
+  /* max-width: 1440px; */
+  width: 100%;
+  background: linear-gradient(
+    208.67deg,
+    #f255c9 -21.16%,
+    #c048b0 -14.57%,
+    #8e3b97 -7.99%,
+    #633082 -0.3%,
+    #402770 7.38%,
+    #252062 23.73%,
+    #111b59 36.17%,
+    #061853 63.35%,
+    #021751 88.6%
+  );
+  margin: 0 auto;
+
+  #banner {
+    padding: 64px 0 32px;
+
+    .banner {
+      @include not-desktop {
+        padding: 24px 0px 32px;
+      }
+      .title-banner {
+        font-family: "Nunito Sans";
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 45px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      #title-post {
+        @include not-desktop {
+          font-size: 24px;
+        }
+      }
+
+      .breadcrumb-banner {
+        margin-top: 20px;
+        text-align: center;
+
+        .text-home {
+          font-size: 16px;
+          line-height: 22px;
+          color: #cdc6e7;
+          margin-right: 24px;
+        }
+        .text-blog {
+          font-size: 16px;
+          line-height: 22px;
+          margin-left: 24px;
+        }
+      }
+      .menu-banner {
+        margin-top: 60px;
+        @include not-desktop {
+          margin-top: 30px;
+        }
+
+        .list-menu {
+          list-style: none;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          .item-menu {
+            .link-item {
+              font-family: Nunito Sans;
+              font-weight: bold;
+              font-size: 20px;
+              line-height: 24px;
+              margin: 0 12px;
+              text-transform: uppercase;
+              transition: all 0.3s;
+              @include not-desktop {
+                margin: 0 8px;
+              }
+              @include mobile-only {
+                padding: 5px;
+                display: inline-block;
+              }
+              &:hover,
+              .active {
+                color: #fa784d;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #page-content {
+    padding: 36px 0px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    font-size: 16px;
+    .markdown-body {
+      a {
+        color: #221770;
+      }
+    }
+  }
+
+  .page-404 {
+    margin: 40px 0;
+    padding: 40px 0;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: #fa784d;
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 28px;
+      margin-bottom: 10px;
+    }
+    a {
+      color: #221770;
+    }
+  }
+}

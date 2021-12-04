@@ -1,12 +1,8 @@
 import { useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
-import { MdDone } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import classNames from "classnames";
-import Button from "../../common/button";
-import Text from "../../common/text";
 
 import { fetchAPI } from "../../../utils/api";
 
@@ -40,66 +36,57 @@ const GetInTouchForm = ({ className }) => {
         values,
       }) => (
         <>
-          <Form
-            className={classNames(
-              "contact-form flex flex-col lg:gap-6",
-              className
-            )}
-          >
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              type="text"
-              name="name"
-              placeholder={t("common:getInTouchFormName")}
-            />
-            <Text className="text-left" type="div" uppercase>
-              {errors.name && touched.name && errors.name}
-            </Text>
-
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              type="email"
-              name="email"
-              placeholder={t("common:getInTouchFormEmail")}
-            />
-            <Text className="text-left" type="div" uppercase>
-              {errors.email && touched.email && errors.email}
-            </Text>
-
-            <Field
-              className="form-field p-4 rounded focus:outline-none lg:mb-0 mb-2"
-              component="textarea"
-              style={{ height: 190, resize: "none" }}
-              type="text"
-              name="message"
-              placeholder={t("common:getInTouchFormMessage")}
-            />
-            <Text className="text-left" type="div" uppercase>
-              {errors.message && touched.message && errors.message}
-            </Text>
-
-            <Button
-              type="submit"
-              disabled={isSubmitting || isSuccessful || isLoading}
-              loading={isLoading}
-              color={isSuccessful ? "purple" : "green"}
-            >
-              {isSuccessful ? (
-                <div className="flex flex-row items-center justify-center text-left">
-                  <MdDone
-                    className="mr-2 flex-shrink-0"
-                    color="#fff"
-                    size={20}
-                  />
-                  <Text>{t("common:getInTouchFormThankYou")}</Text>
+          <Form className="form-contact">
+            <div className="name-form">
+              <p className="label">{t("common:getInTouchFormName")}</p>
+              <div className="wrap-inp">
+                <Field className="input-name" type="text" name="name" />
+                <div className="text-left">
+                  {errors.name && touched.name && errors.name}
                 </div>
-              ) : (
-                <Text>{t("common:getInTouchFormSendMessage")}</Text>
-              )}
-            </Button>
-            <Text className="text-left" type="div" uppercase>
-              {errors.api && errors.api}
-            </Text>
+              </div>
+            </div>
+            <div className="email-form">
+              <p className="label">{t("common:getInTouchFormEmail")}</p>
+              <div className="wrap-inp">
+                <Field className="input-email" type="email" name="email" />
+                <div className="text-left">
+                  {errors.email && touched.email && errors.email}
+                </div>
+              </div>
+            </div>
+
+            <div className="message-form">
+              <p className="label">{t("common:getInTouchFormMessage")}</p>
+              <div className="wrap-textarea">
+                <Field
+                  className="textarea-message"
+                  component="textarea"
+                  style={{ height: 190, resize: "none" }}
+                  type="text"
+                  name="message"
+                />
+              </div>
+            </div>
+
+            <div className="text-left">
+              {errors.message && touched.message && errors.message}
+            </div>
+
+            <div className="wrap-but">
+              <button
+                className="button-form"
+                type="submit"
+                disabled={isSubmitting || isSuccessful || isLoading}
+              >
+                {isSuccessful ? (
+                  <p>{t("common:getInTouchFormThankYou")}</p>
+                ) : (
+                  <p>{t("common:getInTouchFormSendMessage")}</p>
+                )}
+              </button>
+              <div className="text-left">{errors.api && errors.api}</div>
+            </div>
 
             <HCaptcha
               sitekey={process.env.HCAPTCHA_SITEKEY}

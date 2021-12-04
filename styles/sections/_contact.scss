@@ -1,27 +1,23 @@
-#contact {
-  margin-top: 40px;
-  scroll-margin-top: 150px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  @include not-tablet {
-    margin-top: 80px;
-  }
-  .contact {
-    &-bg {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 0;
-      img {
-        object-fit: cover;
+#contact-us {
+  .contact-us {
+    .contact-left {
+      .form-contact {
+        .message-form {
+          margin: 24px 0 0;
+        }
+        .text-left {
+          color: red;
+          font-size: 12px;
+          margin: 3px 5px;
+          text-align: left;
+        }
+        .wrap-but {
+          margin-top: 40px;
+          .text-left {
+            text-align: center;
+          }
+        }
       }
-    }
-    &-form {
-      max-width: 540px;
-      width: 100%;
-      z-index: 1;
     }
   }
 }

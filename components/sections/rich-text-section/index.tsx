@@ -1,7 +1,11 @@
 import RichText from "../../common/rich-text";
 
 const RichTextSection = ({ data }) => {
-  return <RichText children={data.content} className="container" />;
+  return (
+    <section id="page-content">
+      <RichText children={data.content} className="container" />
+    </section>
+  );
 };
 
 export default RichTextSection;

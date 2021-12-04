@@ -21,7 +21,7 @@ const Page = ({ page, global }) => {
   return (
     <>
       <Seo metadata={page.seo} seoData={getSeoData(page)} />
-      <Layout Hero={Hero} global={global} mainClass="bg-white">
+      <Layout Hero={Hero} global={global} mainClass="page-container">
         {page.sections.map((section: any, index: number) => {
           const { __component, ...rest } = section;
           if (__component in mapSections && section.enable) {

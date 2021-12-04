@@ -1,0 +1,59 @@
+#notification-banner{
+  padding: 8px;
+  z-index: 100;
+  position: relative;
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    button {
+      flex-shrink: 0;
+      background-color: transparent;
+      background-image: none;
+      border: 0;
+      color: #FFFFFF;
+      svg {
+        height: 24px;
+        width: auto;
+      }
+      &:hover{
+        cursor: pointer;
+      }
+    }
+  }
+}
+.bg-green2 {
+  background-color: rgba(0,184,113,1);
+}
+.bg-orange-600 { background-color: #dd6b20; }
+.bg-red-600 { background-color: #e53e3e; }
+.notification-banner-content h1,
+.notification-banner-content h2,
+.notification-banner-content h3,
+.notification-banner-content h4,
+.notification-banner-content h5,
+.notification-banner-content h6,
+.notification-banner-content a,
+.notification-banner-content div,
+.notification-banner-content p {
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+}
+
+.notification-banner-content h1:last-child,
+.notification-banner-content h2:last-child,
+.notification-banner-content h3:last-child,
+.notification-banner-content h4:last-child,
+.notification-banner-content h5:last-child,
+.notification-banner-content h6:last-child,
+.notification-banner-content a:last-child,
+.notification-banner-content div:last-child,
+.notification-banner-content p:last-child {
+  margin-bottom: 0;
+}
+
+.notification-banner-content a {
+  text-decoration: underline;
+}
