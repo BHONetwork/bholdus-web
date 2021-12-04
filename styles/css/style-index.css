@@ -800,7 +800,7 @@ section {
 @media (max-width: 767px) {
   .our-brain .list-our-brain {
     margin-top: 0;
-    justify-content: space-evenly !important;
+    justify-content: space-between !important;
   }
   .our-brain .list-our-brain .item-our-brain {
     margin: 0;
@@ -1396,7 +1396,7 @@ section {
     padding-bottom: 20px;
   }
   .our-brain .list-our-brain {
-    justify-content: space-evenly;
+    justify-content: space-between;
   }
   #news .news .in-press,
   #news .news {
