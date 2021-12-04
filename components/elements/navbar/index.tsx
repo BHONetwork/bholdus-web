@@ -159,11 +159,13 @@ const Navbar = ({
                 ))}
               </ul>
               <div className="wrap-social-mobile">
-                {mobileMenuIsShown && navbar.button && (
-                  <button className="login">
-                    <Button button={navbar.button} isLink />
-                  </button>
-                )}
+                {mobileMenuIsShown &&
+                  navbar.button &&
+                  navbar.button.map((btn, idx) => (
+                    <button className="login" key={idx}>
+                      <Button button={btn} isLink />
+                    </button>
+                  ))}
               </div>
             </div>
             {supportedLocales?.length > 0 && (
@@ -203,11 +205,12 @@ const Navbar = ({
               </div>
             </div>
             <div className="wrap-social">
-              {navbar.button && (
-                <button className="login">
-                  <Button button={navbar.button} isLink />
-                </button>
-              )}
+              {navbar.button &&
+                navbar.button.map((btn, idx) => (
+                  <button className="login" key={idx}>
+                    <Button button={btn} isLink />
+                  </button>
+                ))}
             </div>
           </div>
         </div>
