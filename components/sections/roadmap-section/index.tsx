@@ -3,7 +3,10 @@ import classNames from "classnames";
 import { useWindowSize } from "../../../utils/hooks";
 import OptimizedImage from "../../common/optimized-image";
 import { useScrollPosition, addClassElement } from "../../../utils/hooks";
+import useTranslation from "next-translate/useTranslation";
+
 const RoadmapSection = ({ data }) => {
+  const { t } = useTranslation();
   const sectionRef = useRef(null);
   let locked1 = false;
   let locked2 = false;
@@ -148,19 +151,19 @@ const RoadmapSection = ({ data }) => {
         </div>
         <div className="info-roadmap">
           <div className="item-info item1">
-            <p className="title-item">Worldwide Community Members</p>
+            <p className="title-item">{t("roadmap:members")}</p>
             <p className="number-item">70.000</p>
           </div>
           <div className="item-info item2">
-            <p className="title-item">Social Discussions</p>
+            <p className="title-item">{t("roadmap:discussions")}</p>
             <p className="number-item">1.000.000</p>
           </div>
           <div className="item-info item3">
-            <p className="title-item">Impression</p>
+            <p className="title-item">{t("roadmap:impressions")}</p>
             <p className="number-item">5.000.000</p>
           </div>
           <div className="item-info item4">
-            <p className="title-item">Registrations</p>
+            <p className="title-item">{t("roadmap:registrations")}</p>
             <p className="number-item">30.000</p>
           </div>
           <div className="img-info">

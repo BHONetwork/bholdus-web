@@ -1,11 +1,8 @@
 import { useRef, useState } from "react";
 import * as yup from "yup";
 import { Formik, Form, Field } from "formik";
-import { MdDone } from "react-icons/md";
 import useTranslation from "next-translate/useTranslation";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import classNames from "classnames";
-import Button from "../../common/button";
 
 import { fetchAPI } from "../../../utils/api";
 
