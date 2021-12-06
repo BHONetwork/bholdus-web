@@ -145,6 +145,9 @@ const Navbar = ({
             </CustomLink>
           </div>
           <div className="wrap-right">
+            {supportedLocales?.length > 0 && (
+              <LanguageSelection languages={supportedLocales} />
+            )}
             <div
               className={classNames("wrap-menu", {
                 active: mobileMenuIsShown,
@@ -168,9 +171,6 @@ const Navbar = ({
                   ))}
               </div>
             </div>
-            {supportedLocales?.length > 0 && (
-              <LanguageSelection languages={supportedLocales} />
-            )}
             <div className="icon-menu-mobile">
               <div
                 className={classNames("icon-show wrap-icon", {
