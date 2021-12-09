@@ -134,7 +134,7 @@ const Layout = ({
       </div>
 
       <Announcement data={announcement} show={announcementIsShown} />
-      <ModalVideo />
+      {ModalVideo !== null ? <ModalVideo /> : null}
     </div>
   );
 };

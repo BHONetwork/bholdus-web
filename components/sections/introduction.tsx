@@ -1,4 +1,3 @@
-import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 
 import OptimizedImage from "../common/optimized-image";
