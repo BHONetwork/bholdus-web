@@ -17,9 +17,20 @@ import TokenomicSection from "../components/sections/tokenomic-section";
 import { fetchAPI, getLocale } from "../utils/api";
 import { useState } from "react";
 import dynamic from "next/dynamic";
-const ReactModalVideo = dynamic(() => import("react-modal-video"), {
-  ssr: false,
-});
+type ModalVideoType = {
+  channel: string;
+  autoplay: number;
+  allowFullScreen: boolean;
+  isOpen: boolean;
+  videoId: string;
+  onClose: () => void;
+};
+const ReactModalVideo = dynamic<ModalVideoType>(
+  () => import("react-modal-video"),
+  {
+    ssr: false,
+  }
+);
 
 const mapSections = {
   "sections.text-section": TextSection,
