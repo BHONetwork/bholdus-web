@@ -15,6 +15,11 @@ import PartnerSection from "../components/sections/partner-section";
 import PressSection from "../components/sections/press-section";
 import TokenomicSection from "../components/sections/tokenomic-section";
 import { fetchAPI, getLocale } from "../utils/api";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+const ReactModalVideo = dynamic(() => import("react-modal-video"), {
+  ssr: false,
+});
 
 const mapSections = {
   "sections.text-section": TextSection,
@@ -31,6 +36,26 @@ const mapSections = {
 };
 
 const Home = ({ pageData, latestNews, global }) => {
+  const [displayIntroductionVideo, setDisplayIntroductionVideo] =
+    useState(false);
+  const setDisplayVideo = (show) => {
+    if (show) document.querySelector("body").classList.add("noscroll");
+    else document.querySelector("body").classList.remove("noscroll");
+    setDisplayIntroductionVideo(show);
+  };
+  const ModalVideo = () =>
+    pageData.introduction &&
+    pageData.introduction.enable &&
+    pageData.introduction.introductionVideoLink && (
+      <ReactModalVideo
+        channel="youtube"
+        autoplay={1}
+        allowFullScreen={true}
+        isOpen={displayIntroductionVideo}
+        videoId={pageData.introduction.introductionVideoLink}
+        onClose={() => setDisplayVideo(false)}
+      />
+    );
   const Hero = () => <LandingPageHero data={pageData.hero} />;
   return (
     <Layout
@@ -39,9 +64,13 @@ const Home = ({ pageData, latestNews, global }) => {
       transparentNavbar={true}
       containerClass="page-home"
       videobg={true}
+      ModalVideo={ModalVideo}
     >
       {pageData.introduction && pageData.introduction.enable && (
-        <Introduction data={pageData.introduction} />
+        <Introduction
+          data={pageData.introduction}
+          setDisplayVideo={setDisplayVideo}
+        />
       )}
 
       {pageData.sections.map((section: any, index: number) => {

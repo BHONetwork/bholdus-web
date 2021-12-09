@@ -824,11 +824,11 @@ section {
   }
 }
 .our-brain .list-our-brain .item-our-brain:first-child,
-.our-brain .list-our-brain .item-our-brain:nth-child(6) {
+.our-brain .list-our-brain .item-our-brain:nth-child(5n+6) {
   margin-left: 0;
 }
 .our-brain .list-our-brain .item-our-brain:last-child,
-.our-brain .list-our-brain .item-our-brain:nth-child(5) {
+.our-brain .list-our-brain .item-our-brain:nth-child(5n) {
   margin-right: 0;
 }
 .our-brain .list-our-brain .item-our-brain .img-item {
@@ -948,11 +948,11 @@ section {
   overflow: hidden;
 }
 #news .news .list-news .item-news:first-child,
-#news .news .list-news .item-news:nth-child(4) {
+#news .news .list-news .item-news:nth-child(3n+4) {
   margin-left: 0;
 }
 #news .news .list-news .item-news:last-child,
-#news .news .list-news .item-news:nth-child(3) {
+#news .news .list-news .item-news:nth-child(3n) {
   margin-right: 0;
 }
 @media (max-width: 1199px) {

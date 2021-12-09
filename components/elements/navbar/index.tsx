@@ -155,15 +155,16 @@ const Navbar = ({
               id="js-menu-mobile"
             >
               <ul className="menu">
-                {navbar.links.map((navLink: any) => (
-                  <li key={navLink.id} className="menu-item">
-                    <CustomLink link={navLink}>{navLink.text}</CustomLink>
-                  </li>
-                ))}
+                {navbar?.links &&
+                  navbar.links.map((navLink: any) => (
+                    <li key={navLink.id} className="menu-item">
+                      <CustomLink link={navLink}>{navLink.text}</CustomLink>
+                    </li>
+                  ))}
               </ul>
               <div className="wrap-social-mobile">
                 {mobileMenuIsShown &&
-                  navbar.button &&
+                  navbar?.button &&
                   navbar.button.map((btn, idx) => (
                     <button className="login" key={idx}>
                       <Button button={btn} isLink />
@@ -205,7 +206,7 @@ const Navbar = ({
               </div>
             </div>
             <div className="wrap-social">
-              {navbar.button &&
+              {navbar?.button &&
                 navbar.button.map((btn, idx) => (
                   <button className="login" key={idx}>
                     <Button button={btn} isLink />

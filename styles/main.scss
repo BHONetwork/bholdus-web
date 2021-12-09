@@ -22,7 +22,7 @@
 @import "page";
 @import "blog";
 @import "markdown";
-
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
 html {
   scroll-behavior: smooth;
 }

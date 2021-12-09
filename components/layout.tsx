@@ -18,6 +18,7 @@ const Layout = ({
   sectionClass = "",
   transparentNavbar = false,
   videobg = false,
+  ModalVideo = null,
 }) => {
   const { navbar, footer, notificationBanner, announcement } = global;
 
@@ -133,6 +134,7 @@ const Layout = ({
       </div>
 
       <Announcement data={announcement} show={announcementIsShown} />
+      <ModalVideo />
     </div>
   );
 };
