@@ -26,4 +26,27 @@ module.exports = nextTranslate({
 
     return config;
   },
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; frame-ancestors 'self'; form-action 'self';",
+          },
+        ],
+      },
+    ];
+  },
 });
