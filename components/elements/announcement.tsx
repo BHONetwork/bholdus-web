@@ -13,20 +13,20 @@ const Announcement = ({ data, show }) => {
       >
         <div className="container">
           <div className="announcement-container">
-            <button
-              className="announcement-close"
-              onClick={() => setClose(true)}
-            >
-              <OptimizedImage
-                img={{
-                  url: "/images/close.svg",
-                  alternativeText: "play-button",
-                }}
-                width={25}
-                height={25}
-              />
-            </button>
             <div className="announcement-image">
+              <button
+                className="announcement-close"
+                onClick={() => setClose(true)}
+              >
+                <OptimizedImage
+                  img={{
+                    url: "/images/close.svg",
+                    alternativeText: "play-button",
+                  }}
+                  width={25}
+                  height={25}
+                />
+              </button>
               <a
                 key={data.id}
                 href={data.url}
