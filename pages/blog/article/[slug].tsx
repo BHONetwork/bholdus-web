@@ -54,7 +54,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
-          <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
+          <Image img={image} className="mb-9" />
           <RichText className="container" children={content} />
         </div>
         {topics?.length > 0 && (
