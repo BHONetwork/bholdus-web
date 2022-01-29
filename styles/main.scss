@@ -34,6 +34,11 @@ html {
   position: relative;
 }
 
+.google-tag {
+  display: none;
+  visibility: hidden;
+}
+
 .flex {
   display: flex;
 }
