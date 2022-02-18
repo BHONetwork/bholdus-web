@@ -12,7 +12,7 @@ const ArticleHero = ({ article }) => {
           {article.topics[0] && (
             <p className="title-topic">{article.topics[0].topic} </p>
           )}
-          <p className="title-banner">{article.title}</p>
+          <h1 className="title-banner">{article.title}</h1>
 
           <p className="title-description">{article.description}</p>
           <p className="blog-hero-detail-meta">
