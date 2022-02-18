@@ -8,7 +8,7 @@ const PartnerItem = ({ data, index }) => {
           style={{ textDecoration: "none" }}
           href={data.url}
           target={data.newTab ? "_blank" : "_self"}
-          rel={data.newTab ? "noopener noreferrer" : ""}
+          rel={data.newTab ? "noopener noreferrer nofollow" : ""}
           title={data.title}
         >
           <OptimizedImage img={data.image} layout="intrinsic" />
