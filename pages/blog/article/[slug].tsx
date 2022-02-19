@@ -31,7 +31,7 @@ const LocalArticle = ({ article }) => {
       <div className="wrap-content">
         <p className="date">
           {formatDate(lang, article.publishedAt)} <span>|</span>{" "}
-          {article.topics[0].topic}
+          {article.topics.length > 0 ? article.topics[0].topic : null}
         </p>
         <p className="title">
           <CustomLink
