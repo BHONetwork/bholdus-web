@@ -48,13 +48,12 @@ const LocalArticle = ({ article }) => {
 };
 
 const LocalArticleDetail = ({ article, relatedArticles, t }) => {
-  const { content, image, topics } = article;
-
+  const { content, image, topics, displayBanner } = article;
   return (
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
-          <Image img={image} className="mb-9" />
+          {displayBanner ? <Image img={image} className="mb-9" /> : null}
           <RichText className="container" children={content} />
         </div>
         {topics?.length > 0 && (
