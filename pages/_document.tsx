@@ -16,10 +16,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta
+          {/* <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
-          />
+          /> */}
           <meta
             name="keywords"
             content="Blockchain, DeFi, Real World DeFi, NFTs, DApps, DeFi DApps, BHO, BHO token, BHO price, Crosschain, Digital Assets, DEX, Decentralized Exchange, Bholdus"
