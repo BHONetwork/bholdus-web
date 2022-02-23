@@ -51,7 +51,7 @@ const Introduction = ({ data }) => {
               <p className="title-top title-top-section">
                 {t("common:introduction")}
               </p>
-              <p className="title-bot title-bot-section">{data.title}</p>
+              <h2 className="title-bot title-bot-section">{data.title}</h2>
             </div>
             <p className="desc-info">{data.description}</p>
             <ul className="list-info">

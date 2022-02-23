@@ -43,7 +43,7 @@ const PartnerSection = ({ data }) => {
             {data?.smallTitle && data.smallTitle !== " " ? (
               <p className="title-top-section">{data.smallTitle}</p>
             ) : null}
-            <p className="title-bot-section">{data.title}</p>
+            <h2 className="title-bot-section">{data.title}</h2>
           </div>
           <GroupPartners groupPartners={groupPartners} />
         </div>

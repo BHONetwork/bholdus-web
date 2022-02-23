@@ -26,7 +26,7 @@ const LatestNewsSection = ({ data, articles }) => {
               {data?.smallTitle && data.smallTitle !== " " ? (
                 <p className="title-top-section">{data.smallTitle}</p>
               ) : null}
-              <p className="title-bot-section">{data.title}</p>
+              <h2 className="title-bot-section">{data.title}</h2>
             </div>
             <div className="list-news">
               {articles.map((article: any, index: number) => (
@@ -44,7 +44,9 @@ const LatestNewsSection = ({ data, articles }) => {
                         key={article.id}
                         link={{ url: `/blog/article/${article.slug}` }}
                       >
-                        {article.description}
+                        <h3 className="latest-news-title">
+                          {article.description}
+                        </h3>
                       </CustomLink>
                     </div>
                     <p className="desc-item">
