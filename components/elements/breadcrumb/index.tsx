@@ -10,7 +10,9 @@ const Breadcrumb = (props: BreadcrumbProps) => {
     return (
       <ol className={classNames("breadcrumb", className)}>
         {breadcrumbList.map((breadcrumbItem: BreadcrumbItemType) => (
-          <li>
+          <li
+            key={`breadcrumb-${className}-item-${breadcrumbItem.label.trim()}`}
+          >
             {breadcrumbItem.link ? (
               <CustomLink link={{ url: breadcrumbItem.link }}>
                 {breadcrumbItem.label}
