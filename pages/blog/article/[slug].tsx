@@ -10,12 +10,38 @@ import Image from "../../../components/common/image";
 import RichText from "../../../components/common/rich-text";
 import CustomLink from "../../../components/common/custom-link";
 import ShareSocials from "../../../components/sections/share-socials";
+import Breadcrumb from "../../../components/elements/breadcrumb/breadcrumb";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
 import { formatDate } from "../../../utils/datetime";
+
+const generateArticleBreadcrumbList = ({ article, t }) => {
+  if (article) {
+    const { topics, title } = article;
+
+    if (topics && topics[0] && title) {
+      return [
+        { link: "/", label: t("common:homepage") },
+        { link: "/blog", label: t("common:news") },
+        {
+          link: `/blog/topic/${topics[0].slug}`,
+          label: topics[0].topic,
+        },
+        {
+          link: "",
+          label: title,
+        },
+      ];
+    }
+
+    return [];
+  }
+  return [];
+};
+
 const LocalArticle = ({ article }) => {
-  const { t, lang } = useTranslation();
+  const { lang } = useTranslation();
   const { title, image } = article;
   return (
     <li className="item-post">
@@ -53,6 +79,10 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
+          <Breadcrumb
+            className="article"
+            breadcrumbList={generateArticleBreadcrumbList({ article, t })}
+          />
           {displayBanner ? <Image img={image} className="mb-9" /> : null}
           <RichText className="container" children={content} />
         </div>
