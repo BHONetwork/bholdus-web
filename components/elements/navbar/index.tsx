@@ -145,6 +145,9 @@ const Navbar = ({
             </CustomLink>
           </div>
           <div className="wrap-right">
+            {supportedLocales?.length > 0 && (
+              <LanguageSelection languages={supportedLocales} />
+            )}
             <div
               className={classNames("wrap-menu", {
                 active: mobileMenuIsShown,
@@ -152,15 +155,16 @@ const Navbar = ({
               id="js-menu-mobile"
             >
               <ul className="menu">
-                {navbar.links.map((navLink: any) => (
-                  <li key={navLink.id} className="menu-item">
-                    <CustomLink link={navLink}>{navLink.text}</CustomLink>
-                  </li>
-                ))}
+                {navbar?.links &&
+                  navbar.links.map((navLink: any) => (
+                    <li key={navLink.id} className="menu-item">
+                      <CustomLink link={navLink}>{navLink.text}</CustomLink>
+                    </li>
+                  ))}
               </ul>
               <div className="wrap-social-mobile">
                 {mobileMenuIsShown &&
-                  navbar.button &&
+                  navbar?.button &&
                   navbar.button.map((btn, idx) => (
                     <button className="login" key={idx}>
                       <Button button={btn} isLink />
@@ -168,9 +172,6 @@ const Navbar = ({
                   ))}
               </div>
             </div>
-            {supportedLocales?.length > 0 && (
-              <LanguageSelection languages={supportedLocales} />
-            )}
             <div className="icon-menu-mobile">
               <div
                 className={classNames("icon-show wrap-icon", {
@@ -205,7 +206,7 @@ const Navbar = ({
               </div>
             </div>
             <div className="wrap-social">
-              {navbar.button &&
+              {navbar?.button &&
                 navbar.button.map((btn, idx) => (
                   <button className="login" key={idx}>
                     <Button button={btn} isLink />

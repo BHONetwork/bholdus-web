@@ -31,7 +31,7 @@ const LocalArticle = ({ article }) => {
       <div className="wrap-content">
         <p className="date">
           {formatDate(lang, article.publishedAt)} <span>|</span>{" "}
-          {article.topics[0].topic}
+          {article.topics.length > 0 ? article.topics[0].topic : null}
         </p>
         <p className="title">
           <CustomLink
@@ -48,13 +48,12 @@ const LocalArticle = ({ article }) => {
 };
 
 const LocalArticleDetail = ({ article, relatedArticles, t }) => {
-  const { content, image, topics } = article;
-
+  const { content, image, topics, displayBanner } = article;
   return (
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
-          <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
+          {displayBanner ? <Image img={image} className="mb-9" /> : null}
           <RichText className="container" children={content} />
         </div>
         {topics?.length > 0 && (

@@ -78,7 +78,7 @@ const Blog = ({
   const { t } = translation;
 
   const Hero = () => (
-    <BlogHero topicInfos={{ topics, currentTopic: t("common:blog") }} />
+    <BlogHero topicInfos={{ topics, currentTopic: t("common:news") }} />
   );
 
   return (
@@ -87,7 +87,7 @@ const Blog = ({
       <Layout
         Hero={Hero}
         global={global}
-        topicInfos={{ topics, currentTopic: t("common:blog") }}
+        topicInfos={{ topics, currentTopic: t("common:news") }}
         containerClass="page-blog"
         mainClass="page-blog"
       >

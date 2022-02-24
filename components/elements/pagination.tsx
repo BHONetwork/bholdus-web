@@ -72,7 +72,7 @@ const Pagination = ({
             .map((value, index) => {
               const pageNumber = index + beginPaginateNumber;
               return (
-                <li className="item-page">
+                <li className="item-page" key={String(index)}>
                   <CustomLink
                     key={`page-num-${pageNumber}`}
                     className={classNames("link-item", {

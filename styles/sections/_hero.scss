@@ -25,7 +25,8 @@
           font-weight: 800;
           @include mobile-only {
             line-height: unset;
-            font-size: 24px;
+            line-height: 44px;
+            font-size: 32px;
           }
         }
 
