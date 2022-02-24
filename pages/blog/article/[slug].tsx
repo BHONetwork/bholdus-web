@@ -10,7 +10,7 @@ import Image from "../../../components/common/image";
 import RichText from "../../../components/common/rich-text";
 import CustomLink from "../../../components/common/custom-link";
 import ShareSocials from "../../../components/sections/share-socials";
-import Breadcrumb from "../../../components/elements/breadcrumb/breadcrumb";
+import Breadcrumb from "../../../components/elements/breadcrumb";
 
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
