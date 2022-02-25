@@ -23,7 +23,6 @@ const generateArticleBreadcrumbList = ({ article, t }) => {
     if (topics && topics[0] && title) {
       return [
         { link: "/", label: t("common:homepage") },
-        { link: "/blog", label: t("common:news") },
         {
           link: `/blog/topic/${topics[0].slug}`,
           label: topics[0].topic,
