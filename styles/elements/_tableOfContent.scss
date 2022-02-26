@@ -1,0 +1,39 @@
+.table-of-contents {
+  display: none;
+  &:not(:empty) {
+    &::before {
+      font-size: 20px;
+      content: attr(data-title);
+      display: block;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+  }
+  list-style-type: none;
+
+  .heading-index-item {
+    margin-bottom: 8px;
+    &.level {
+      &-1 {
+        font-weight: 700;
+      }
+      &-2 {
+        font-weight: 600;
+        padding-left: 1rem;
+      }
+      &-3 {
+        padding-left: 2rem;
+      }
+      &-4 {
+        padding-left: 3rem;
+      }
+      &-5 {
+        padding-left: 4rem;
+      }
+      &-6 {
+        padding-left: 5rem;
+      }
+
+    }
+  }
+}

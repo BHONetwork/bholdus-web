@@ -15,6 +15,7 @@ import Breadcrumb from "../../../components/elements/breadcrumb";
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
 import { formatDate } from "../../../utils/datetime";
+import ArticleTableOfContents from "../../../components/elements/ArticleTableOfContents";
 
 const generateArticleBreadcrumbList = ({ article, t }) => {
   if (article) {
@@ -82,6 +83,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
             className="article"
             breadcrumbList={generateArticleBreadcrumbList({ article, t })}
           />
+          <ArticleTableOfContents article={article} />
           {displayBanner ? <Image img={image} className="mb-9" /> : null}
           <RichText className="container" children={content} />
         </div>
