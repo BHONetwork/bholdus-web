@@ -98,7 +98,7 @@ const Blog = ({
               articles={articles}
               articlesCount={articlesCount}
               articleType={ARTICLE_TYPE_BLOG}
-              pageNumberQuery={parseInt(query.page as string, 10)}
+              pageNumberQuery={1}
               articleListClassName=""
               isfeaturedArticleAppear={!!featuredArticle}
               apiLoadMorePathFunc={({ nextPage }) =>
@@ -117,39 +117,8 @@ const Blog = ({
   );
 };
 
-// TODO: getStaticPaths
-export const getStaticPaths: GetStaticPaths = async () => {
-  // const pages = await fetchAPI("/pages?status=published");
-  // const articlesCount = await fetchAPI(
-  //   `/articles/count?${articlesQuery({
-  //     isCount: true,
-  //     locale: "en",
-  //     pageNumber,
-  //   })}`
-  // );
-
-  // const paths = pages
-  //   .filter((page: any) => page.slug !== "blog")
-  //   .reduce((acc: any, page: any) => {
-  //     return acc.concat(
-  //       popularLocales.map((locale) => ({
-  //         params: { slug: [page.slug] },
-  //         locale,
-  //       }))
-  //     );
-  //   }, []);
-  return { paths: [], fallback: "blocking" };
-};
-
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { params } = ctx;
-  const pageNumber = parseInt(params.page as string, 10);
-
-  if (isNaN(pageNumber)) {
-    return {
-      redirect: { destination: `/blog/1`, permanent: false },
-    };
-  }
+  const pageNumber = 1;
 
   const locale = getLocale(ctx);
 

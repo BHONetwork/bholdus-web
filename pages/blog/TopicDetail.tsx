@@ -3,16 +3,16 @@ import { stringify } from "qs";
 import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
 
-import Seo from "../../../components/elements/seo";
-import Layout from "../../../components/layout";
-import BlogHero from "../../../components/sections/blog-hero";
+import Seo from "../../components/elements/seo";
+import Layout from "../../components/layout";
+import BlogHero from "../../components/sections/blog-hero";
 
-import ArticleList from "../ArticleList";
+import ArticleList from "./ArticleList";
 
-import { fetchAPI, getLocale } from "../../../utils/api";
+import { fetchAPI, getLocale } from "../../utils/api";
 
-import { ARTICLE_TYPE_BLOG, PAGE_SIZE } from "../../../constants/common";
-import FeatureArticle from "../FeatureArticle";
+import { ARTICLE_TYPE_BLOG, PAGE_SIZE } from "../../constants/common";
+import FeatureArticle from "./FeatureArticle";
 
 const articlesOfTopicQuery = ({ isCount, locale, topicSlug, pageNumber }) =>
   stringify({
@@ -102,7 +102,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   if (isNaN(pageNumber)) {
     return {
-      redirect: { destination: `/blog/topic/${topicSlug}/1`, permanent: false },
+      redirect: { destination: `/blog/${topicSlug}`, permanent: false },
     };
   }
 

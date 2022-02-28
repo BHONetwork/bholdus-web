@@ -25,7 +25,7 @@ const generateArticleBreadcrumbList = ({ article, t }) => {
       return [
         { link: "/", label: t("common:homepage") },
         {
-          link: `/blog/topic/${topics[0].slug}`,
+          link: `/blog/${topics[0].slug}`,
           label: topics[0].topic,
         },
         {
@@ -95,7 +95,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
                 {topics.map((topic: any) => (
                   <CustomLink
                     key={topic.id}
-                    link={{ url: `/blog/topic/${topic.slug}` }}
+                    link={{ url: `/blog/${topic.slug}` }}
                     className="link-tag"
                   >
                     <span>{topic.topic}</span>

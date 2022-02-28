@@ -108,6 +108,7 @@
   #content-blog {
     background: rgba(255, 255, 255, 0.95);
     padding-top: 36px;
+    padding-bottom: 36px;
     .intro-blog {
       position: relative;
       .bg-intro {
@@ -276,6 +277,10 @@
             }
           }
         }
+      }
+
+      .page-404 {
+        background: none;
       }
     }
     .pagination {
