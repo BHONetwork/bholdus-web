@@ -3,6 +3,8 @@ import { omit } from "lodash";
 interface HeadingProps {
   level: number;
   children?: React.ReactNode;
+  index?: number;
+  siblingCount?: number;
   node?: {
     position: {
       start: { line: number; column: number; offset: number };
@@ -13,18 +15,17 @@ interface HeadingProps {
 }
 
 const Heading = (props: HeadingProps) => {
-  const { level, children, node, ...restProps } = props;
+  const { level, children, node, index, siblingCount, ...restProps } = props;
 
   const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
 
   let id: string;
-  if (node && node.position && node.position.start) {
-    const { line, column, offset } = node.position.start;
-    id = `h${level}-${line}-${column}-${offset}`;
+  if (typeof index !== undefined) {
+    id = `h${level}-${index}`;
   }
 
   return (
-    <HeadingTag id={id} {...omit(restProps, ["node"])}>
+    <HeadingTag id={id} {...omit(restProps, ["node", "index", "siblingCount"])}>
       {children}
     </HeadingTag>
   );

@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import useTranslation from "next-translate/useTranslation";
+import { useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 
 import HeadingIndex from "./HeadingIndex";
@@ -7,10 +8,19 @@ import HeadingIndex from "./HeadingIndex";
 import { ArticleTableOfContentsProps } from "./type";
 
 const emptyFunc = () => null;
-
 const ArticleTableOfContents = (props: ArticleTableOfContentsProps) => {
+  const tocWrapperRef = useRef<HTMLOListElement>();
   const { t } = useTranslation();
-  const { className, article, ...restProps } = props;
+  const { className, article } = props;
+
+  useEffect(() => {
+    const childElement = tocWrapperRef.current.querySelectorAll("*");
+    if (childElement.length > 0) {
+      tocWrapperRef.current.style.display = "block";
+    } else {
+      tocWrapperRef.current.style.display = "none";
+    }
+  });
 
   if (article) {
     const { content } = article;
@@ -18,15 +28,19 @@ const ArticleTableOfContents = (props: ArticleTableOfContentsProps) => {
     if (content) {
       return (
         <ol
-          className={classNames("table-of-contents article", className)}
+          ref={tocWrapperRef}
+          className={classNames(
+            "table-of-contents table-of-contents-article",
+            className
+          )}
           data-title={t("common:tableOfContents")}
         >
           <ReactMarkdown
-            className="table-of-contents-heading"
-            unwrapDisallowed
+            includeElementIndex
             components={{
               a: emptyFunc,
               p: emptyFunc,
+              text: emptyFunc,
               ol: emptyFunc,
               ul: emptyFunc,
               li: emptyFunc,

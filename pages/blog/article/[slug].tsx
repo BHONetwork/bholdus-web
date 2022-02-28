@@ -55,9 +55,13 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
-          <ArticleTableOfContents article={article} />
           {displayBanner ? <Image img={image} className="mb-9" /> : null}
-          <RichText className="container" children={content} />
+          <ArticleTableOfContents article={article} />
+          <RichText
+            className="container"
+            children={content}
+            includeElementIndex
+          />
         </div>
         {topics?.length > 0 && (
           <div className="tagged-topics">

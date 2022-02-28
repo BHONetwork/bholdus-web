@@ -9,5 +9,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.addMissingImports": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

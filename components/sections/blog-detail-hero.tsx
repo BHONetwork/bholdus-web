@@ -30,7 +30,7 @@ const ArticleHero = ({ article }) => {
       <div className="container">
         <div className="banner banner-topic">
           <Breadcrumb
-            className="article"
+            className="breadcrumb-article"
             breadcrumbList={generateArticleBreadcrumbList({ article, t })}
           />
           <h1 className="title-banner">{article.title}</h1>
