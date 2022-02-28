@@ -1,14 +1,26 @@
 ol.breadcrumb {
-  display: none;
   list-style-type: none;
-  // display: flex;
+  display: flex;
   align-items: center;
 
+  li {
+    font-size: 16px;
+  }
+
   li:not(:last-child) {
+    a {
+      color: #cdc6e7;
+    }
+
     &::after {
       content: "/";
-      margin-left: 6px;
-      margin-right: 6px;
+      margin-left: 24px;
+      margin-right: 24px;
+    }
+  }
+  li {
+    &:last-child {
+      font-weight: 700;
     }
   }
 
