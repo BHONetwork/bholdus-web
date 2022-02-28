@@ -17,6 +17,7 @@ import { formatDate } from "../../utils/datetime";
 import {
   ARTICLE_TYPE_BLOG,
   ARTICLE_TYPE_SEARCH,
+  DEFAULT_HOST,
   PAGE_SIZE,
 } from "../../constants/common";
 import CustomLink from "../../components/common/custom-link";
@@ -101,7 +102,13 @@ const Blog = ({
 
   return (
     <>
-      <Seo metadata={page.seo} seoData={{ type: "blog", data: page }} />
+      <Seo
+        metadata={page.seo}
+        seoData={{ type: "blog", data: page }}
+        canonical={`${DEFAULT_HOST}/blog${
+          isTopicDetailPage ? `/${topicName}` : ""
+        }`}
+      />
       <Layout
         Hero={Hero}
         global={global}
