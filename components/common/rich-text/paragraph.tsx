@@ -5,7 +5,11 @@ const Paragraph = ({ children, ...restProps }) => {
     (child: any) =>
       typeof child === "object" && child.key && !!child.key.match(/img|image/g)
   );
-  return hasImage ? children : <p {...omit(restProps, ["node"])}>{children}</p>;
+  return hasImage ? (
+    children
+  ) : (
+    <p {...omit(restProps, ["node", "index", "siblingCount"])}>{children}</p>
+  );
 };
 
 export default Paragraph;

@@ -29,4 +29,5 @@ export type SeoProps = {
   metadata: Metadata;
   seoData?: SeoData;
   globalSeoData?: any;
+  canonical?: string;
 };

@@ -9,7 +9,7 @@ import { DEFAULT_HOST } from "../../../constants/common";
 
 const Seo = (props: SeoProps) => {
   const { locale, asPath } = useRouter();
-  const { metadata, seoData = {}, globalSeoData = {} } = props;
+  const { metadata, seoData = {}, globalSeoData = {}, canonical } = props;
   const url =
     locale === "en"
       ? `${DEFAULT_HOST}${asPath.split("?")[0]}`
@@ -27,6 +27,7 @@ const Seo = (props: SeoProps) => {
             url,
             locale: locale || "en",
           }}
+          canonical={canonical}
         />
       )}
       {seoData && (

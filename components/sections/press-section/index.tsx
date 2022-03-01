@@ -35,7 +35,7 @@ const PressSection = ({ data }) => {
                 <p className="title-top-section">{data.smallTitle}</p>
               ) : null}
 
-              <p className="title-bot-section">{data.title}</p>
+              <h2 className="title-bot-section">{data.title}</h2>
             </div>
             <div className="list-in-press">
               {data.press.map((press: any, index: number) => (

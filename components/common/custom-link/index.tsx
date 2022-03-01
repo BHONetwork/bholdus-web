@@ -27,7 +27,7 @@ const CustomLink = (props: CustomLinkProps) => {
       style={{ textDecoration: "none" }}
       href={link.url}
       target={link.newTab ? "_blank" : "_self"}
-      rel={link.newTab ? "noopener noreferrer" : ""}
+      rel={link.newTab ? "noopener noreferrer nofollow" : ""}
       {...restProps}
     >
       {children}

@@ -8,7 +8,7 @@ const Image = (props: any) => {
   return (
     <ImageComponent
       img={{ url: src, alternativeText: alt }}
-      {...omit(restProps, ["node"])}
+      {...omit(restProps, ["node", "index", "siblingCount"])}
     />
   );
 };
