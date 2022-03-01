@@ -1,7 +1,7 @@
 import React from "react";
 import { stringify } from "qs";
 import useTranslation from "next-translate/useTranslation";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import Seo from "../../components/elements/seo";
@@ -72,7 +72,7 @@ const Blog = ({
   global,
 }) => {
   const router = useRouter();
-  const { query, locale } = router;
+  const { locale } = router;
 
   const translation = useTranslation();
   const { t } = translation;
@@ -122,7 +122,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
   const locale = getLocale(ctx);
 
-  const [topics, featuredArticles, articles, articlesCount, pages] =
+  const [topics, featuredArticles, articles, articlesCount, page] =
     await Promise.all([
       fetchAPI(`/topics?_locale=${locale}`),
       fetchAPI(
@@ -138,10 +138,10 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
           pageNumber,
         })}`
       ),
-      fetchAPI(`/pages?slug=blog&_locale=${locale}&status=published`),
+      fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
     ]);
 
-  const featuredArticle = featuredArticles[0] || null;
+  const featuredArticle = (featuredArticles && featuredArticles[0]) || null;
 
   return {
     props: {
@@ -149,7 +149,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
       featuredArticle,
       articles,
       articlesCount,
-      page: pages[0] || null,
+      page: page || null,
     },
     revalidate: 1, // redo SSG in the background
   };
