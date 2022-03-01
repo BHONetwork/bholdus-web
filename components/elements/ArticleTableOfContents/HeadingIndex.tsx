@@ -1,19 +1,5 @@
 import { omit } from "lodash";
 
-interface HeadingIndexProps {
-  level: number;
-  children?: React.ReactNode;
-  index?: number;
-  siblingCount?: number;
-  node?: {
-    position: {
-      start: { line: number; column: number; offset: number };
-      [other: string]: any;
-    };
-    [other: string]: any;
-  };
-}
-
 const getChildrenText = (children) => {
   if (children) {
     let digDeep = children;
@@ -27,7 +13,7 @@ const getChildrenText = (children) => {
   return children;
 };
 
-const HeadingIndex = (props: HeadingIndexProps) => {
+const HeadingIndex = (props: any) => {
   const { level, children, node, index, siblingCount, ...restProps } = props;
 
   const HeadingIndexTag = "li" as keyof JSX.IntrinsicElements;
