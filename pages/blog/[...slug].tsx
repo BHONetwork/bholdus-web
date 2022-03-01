@@ -205,7 +205,7 @@ const topicDetailGetStaticProps = async ({
     "topics.slug": topicSlug,
   });
 
-  const [topics, featuredArticles, articlesOfTopic, articlesCount, pages] =
+  const [topics, featuredArticles, articlesOfTopic, articlesCount, page] =
     await Promise.all([
       fetchAPI(`/topics?_locale=${locale}`),
       fetchAPI(`/articles?${featuredArticleQuery}`),
@@ -225,11 +225,10 @@ const topicDetailGetStaticProps = async ({
           topicPageNumber,
         })}`
       ),
-      // TODO: seo for topic page
-      fetchAPI(`/pages?slug=blog&_locale=${locale}&status=published`),
+      fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
     ]);
 
-  const featuredArticle = featuredArticles[0] || null;
+  const featuredArticle = (featuredArticles && featuredArticles[0]) || null;
 
   return {
     props: {
@@ -238,7 +237,7 @@ const topicDetailGetStaticProps = async ({
       featuredArticle,
       articlesCount: articlesCount - 1,
       topicName: topicSlug,
-      page: pages[0] || null,
+      page: page || null,
       isTopicDetailPage: true,
     },
     revalidate: 1, // redo SSG in the background
