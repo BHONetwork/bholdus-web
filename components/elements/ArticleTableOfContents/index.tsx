@@ -56,6 +56,7 @@ const ArticleTableOfContents = (props: ArticleTableOfContentsProps) => {
               ins: emptyFunc,
               s: emptyFunc,
               del: emptyFunc,
+              hr: emptyFunc,
               h1: HeadingIndex,
               h2: HeadingIndex,
               h3: HeadingIndex,
