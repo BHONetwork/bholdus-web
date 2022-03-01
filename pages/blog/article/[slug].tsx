@@ -14,8 +14,10 @@ import ShareSocials from "../../../components/sections/share-socials";
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
 import { formatDate } from "../../../utils/datetime";
+import ArticleTableOfContents from "../../../components/elements/ArticleTableOfContents";
+
 const LocalArticle = ({ article }) => {
-  const { t, lang } = useTranslation();
+  const { lang } = useTranslation();
   const { title, image } = article;
   return (
     <li className="item-post">
@@ -54,7 +56,12 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
       <div className="container">
         <div className="article">
           {displayBanner ? <Image img={image} className="mb-9" /> : null}
-          <RichText className="container" children={content} />
+          <ArticleTableOfContents article={article} />
+          <RichText
+            className="container"
+            children={content}
+            includeElementIndex
+          />
         </div>
         {topics?.length > 0 && (
           <div className="tagged-topics">
@@ -64,7 +71,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
                 {topics.map((topic: any) => (
                   <CustomLink
                     key={topic.id}
-                    link={{ url: `/blog/topic/${topic.slug}` }}
+                    link={{ url: `/blog/${topic.slug}` }}
                     className="link-tag"
                   >
                     <span>{topic.topic}</span>

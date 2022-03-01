@@ -114,6 +114,8 @@ const Layout = ({
         </>
       )}
       <div className={classNames("wrapper", mainClass)}>
+        {/* NOTE: SEO optimize */}
+        <h1 style={{ display: "none" }}>Bholdus | DeFi For The Real World</h1>
         <header className="header">
           {notificationBanner?.enable && bannerIsShown && (
             <NotificationBanner
@@ -129,6 +131,7 @@ const Layout = ({
           />
         </header>
         <Hero />
+
         {children}
         <Footer footer={footer} />
       </div>

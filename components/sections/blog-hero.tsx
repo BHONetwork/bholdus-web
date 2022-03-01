@@ -31,7 +31,7 @@ const TopicList = ({ topicInfos }) => {
                   key={`topic-navigate-${topic.slug}-${index}`}
                 >
                   <CustomLink
-                    link={{ url: `/blog/topic/${topic.slug}/1` }}
+                    link={{ url: `/blog/${topic.slug}` }}
                     className={classNames("link-item", {
                       "link-blog": currentTopic === topic.slug,
                     })}

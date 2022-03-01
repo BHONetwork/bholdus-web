@@ -44,21 +44,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .reduce((acc: any, page: any) => {
       return acc.concat(
         popularLocales.map((locale) => ({
-          params: { slug: [page.slug] },
+          params: { slug: page.slug },
           locale,
         }))
       );
     }, []);
+
   return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
-  if (params && params.slug && params.slug[0] === "blog") {
-    return {
-      redirect: { destination: "/blog/1", permanent: false },
-    };
-  }
 
   const locale = getLocale(ctx);
   const page = await fetchAPI(

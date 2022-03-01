@@ -97,7 +97,7 @@ const RoadmapSection = ({ data }) => {
       <div className="roadmap">
         <div className="title-section">
           <p className="title-top-section">{data.smallTitle}</p>
-          <p className="title-bot-section">{data.title}</p>
+          <h2 className="title-bot-section">{data.title}</h2>
         </div>
         <div className="calendar-roadmap">
           <div className="list-month" ref={listMonthRef}>

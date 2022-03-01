@@ -13,11 +13,14 @@
   "articleRelated": "Bài viết liên quan",
   "thePageCannotBeFound": "Không tìm thấy trang này",
   "goBackToHomepage": "Quay trở lại trang chủ",
+  "goBackToNews": "Quay trở lại trang Tin tức",
   "partner-strategy": "Đối tác chiến lược",
   "partner-media": "Đối tác truyền thông",
+  "homepage": "Trang chủ",
   "blog": "Blog",
   "news": "Tin tức",
   "searchResult": "Kết quả tìm kiếm với từ khóa",
   "articles": "bài viết",
-  "all": "Tất cả"
+  "all": "Tất cả",
+  "tableOfContents": "Mục lục"
 }
