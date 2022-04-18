@@ -153,7 +153,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const locale = getLocale(ctx);
   const [article, page] = await Promise.all([
     params.slug === "press-release"
-      ? fetchAPI(`/articles/${params.slug}?status=draft&_locale=${locale}`)
+      ? fetchAPI(`/articles/${params.slug}?_locale=${locale}`)
       : fetchAPI(`/articles/${params.slug}?status=published&_locale=${locale}`),
     fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
   ]);
