@@ -13,7 +13,7 @@ const TeamProfile = ({ data, index }) => {
       <div className="info-item">
         <div className="wrap-info">
           <p className="title-item">{data.name}</p>
-          <p className="position-item">{data.title}</p>
+          <h2 className="position-item">{data.title}</h2>
         </div>
         <div className="social-item">
           {socials.map(({ type, url }, index: number) => (

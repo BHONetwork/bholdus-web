@@ -1,7 +1,5 @@
-import { useState } from "react";
 import useTranslation from "next-translate/useTranslation";
 
-import VideoModal from "../elements/video-modal";
 import OptimizedImage from "../common/optimized-image";
 
 const PlayButton = ({ onClick }) => {
@@ -19,10 +17,7 @@ const PlayButton = ({ onClick }) => {
   );
 };
 
-const Introduction = ({ data }) => {
-  const [displayIntroductionVideo, setDisplayIntroductionVideo] =
-    useState(false);
-
+const Introduction = ({ data, setDisplayVideo }) => {
   const { t } = useTranslation();
 
   return (
@@ -39,7 +34,11 @@ const Introduction = ({ data }) => {
             />
             {data.introductionVideoLink && (
               <>
-                <PlayButton onClick={() => {}} />
+                <PlayButton
+                  onClick={() => {
+                    setDisplayVideo(true);
+                  }}
+                />
                 <div className="circle"></div>
                 <div className="circle-ani delay-2"></div>
                 <div className="circle-ani delay-0"></div>
@@ -51,7 +50,7 @@ const Introduction = ({ data }) => {
               <p className="title-top title-top-section">
                 {t("common:introduction")}
               </p>
-              <p className="title-bot title-bot-section">{data.title}</p>
+              <h2 className="title-bot title-bot-section">{data.title}</h2>
             </div>
             <p className="desc-info">{data.description}</p>
             <ul className="list-info">

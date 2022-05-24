@@ -13,10 +13,14 @@
   "articleRelated": "More stories",
   "thePageCannotBeFound": "The page cannot be found",
   "goBackToHomepage": "Go back to Homepage",
+  "goBackToNews": "Go back to News",
   "partner-strategy": "Strategic Partners",
   "partner-media": "Media Partners",
+  "homepage": "Home",
   "blog": "Blog",
+  "news": "News",
   "searchResult": "Search result with keyword",
   "articles": "articles",
-  "all": "All"
+  "all": "All",
+  "tableOfContents": "Table of contents"
 }

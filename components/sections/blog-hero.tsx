@@ -17,10 +17,10 @@ const TopicList = ({ topicInfos }) => {
               <CustomLink
                 link={{ url: "/blog" }}
                 className={classNames("link-item", {
-                  "link-blog": currentTopic === t("common:blog"),
+                  "link-blog": currentTopic === t("common:news"),
                 })}
               >
-                {t("common:blog")}
+                {t("common:news")}
               </CustomLink>
             </li>
 
@@ -31,7 +31,7 @@ const TopicList = ({ topicInfos }) => {
                   key={`topic-navigate-${topic.slug}-${index}`}
                 >
                   <CustomLink
-                    link={{ url: `/blog/topic/${topic.slug}/1` }}
+                    link={{ url: `/blog/${topic.slug}` }}
                     className={classNames("link-item", {
                       "link-blog": currentTopic === topic.slug,
                     })}
@@ -56,14 +56,14 @@ const BlogHero = ({ topicInfos }) => {
     <section id="banner">
       <div className="container">
         <div className="banner">
-          <p className="title-banner">{t("common:blog")}</p>
+          <p className="title-banner">{t("common:news")}</p>
           <p className="breadcrumb-banner">
             <CustomLink link={{ url: "/" }} className="link-home">
               <span className="text-home">Home</span>
             </CustomLink>
             /
             <CustomLink link={{ url: "/blog" }}>
-              <span className="text-blog">{t("common:blog")}</span>
+              <span className="text-blog">{t("common:news")}</span>
             </CustomLink>
           </p>
           <TopicList topicInfos={topicInfos} />

@@ -65,13 +65,14 @@ const Button = (props: ButtonProps) => {
     button,
     isLink = false,
     loading = false,
+    className,
     children,
     ...restProps
   } = props;
 
   const Component = (componentProps: any) => (
     <div
-      className={classNames({
+      className={classNames(className, {
         "flex flex-row items-center justify-center": loading,
       })}
       {...restProps}

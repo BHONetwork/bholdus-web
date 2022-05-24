@@ -17,6 +17,7 @@
     "@headlessui/react": "^1.4.1",
     "@martin_hotell/rex-tils": "^2.1.1",
     "@popperjs/core": "^2.10.1",
+    "@svgr/webpack": "^6.1.0",
     "@types/react": "17.0.24",
     "autoprefixer": "^10.3.6",
     "classnames": "^2.2.6",
@@ -40,6 +41,7 @@
     "react-icons": "^4.2.0",
     "react-lazyload": "^3.2.0",
     "react-markdown": "7.0.1",
+    "react-modal-video": "^1.2.8",
     "react-popper": "^2.2.5",
     "react-share": "^4.4.0",
     "rehype-highlight": "5.0.0",
@@ -48,8 +50,7 @@
     "remark-slug": "7.0.0",
     "sass": "^1.41.1",
     "typescript": "^4.4.3",
-    "yup": "^0.32.9",
-    "@svgr/webpack": "^6.1.0"
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.15.7",

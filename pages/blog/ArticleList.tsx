@@ -8,12 +8,13 @@ import Button from "../../components/common/button";
 import CustomLink from "../../components/common/custom-link";
 import Pagination from "../../components/elements/pagination";
 
-import { LocalArticle } from "./[page]";
+import { LocalArticle } from "./[...slug]";
 
 import { isUAMobileMatch } from "../../utils/others";
 
 import { ARTICLE_TYPE_SEARCH, PAGE_SIZE } from "../../constants/common";
 import { fetchAPI } from "../../utils/api";
+import NotFoundContent from "../../components/elements/NotFoundContent";
 
 const PaginateWrapper = ({ children, pageNumber, totalPage }) => {
   const isMobile = navigator ? isUAMobileMatch(navigator.userAgent) : false;
@@ -103,10 +104,11 @@ const ArticleList = ({
         </ul>
       ) : (
         !isfeaturedArticleAppear && (
-          <div className="page-404">
-            <MdFilterDrama size={200} />
-            <p>{t("common:blogNoArticles")}</p>
-          </div>
+          <NotFoundContent
+            emptyMessage="common:blogNoArticles"
+            navigateLink="/blog"
+            navigateMessage="common:goBackToNews"
+          />
         )
       )}
 

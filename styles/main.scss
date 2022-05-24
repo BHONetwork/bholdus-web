@@ -5,6 +5,11 @@
 @import "vars";
 @import "mixin";
 @import "elements/popover";
+@import "elements/social";
+@import "elements/loader";
+@import "elements/breadcrumb";
+@import "elements/tableOfContent"; 
+@import "elements/notFoundContent"; 
 @import "sections/announcement";
 @import "sections/hero";
 @import "sections/notification";
@@ -21,7 +26,7 @@
 @import "page";
 @import "blog";
 @import "markdown";
-
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
 html {
   scroll-behavior: smooth;
 }
@@ -30,6 +35,11 @@ html {
 // }
 #__next {
   position: relative;
+}
+
+.google-tag {
+  display: none;
+  visibility: hidden;
 }
 
 .flex {
@@ -118,4 +128,7 @@ html {
 }
 .z-index-1 {
   z-index: -1 !important;
+}
+.modal-video {
+  background-color: rgba(0, 0, 0, 0.9) !important;
 }

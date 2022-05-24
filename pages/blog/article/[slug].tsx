@@ -14,8 +14,10 @@ import ShareSocials from "../../../components/sections/share-socials";
 import { fetchAPI, getLocale } from "../../../utils/api";
 import popularLocales from "../../../i18n/popularLocales.json";
 import { formatDate } from "../../../utils/datetime";
+import ArticleTableOfContents from "../../../components/elements/ArticleTableOfContents";
+
 const LocalArticle = ({ article }) => {
-  const { t, lang } = useTranslation();
+  const { lang } = useTranslation();
   const { title, image } = article;
   return (
     <li className="item-post">
@@ -31,7 +33,7 @@ const LocalArticle = ({ article }) => {
       <div className="wrap-content">
         <p className="date">
           {formatDate(lang, article.publishedAt)} <span>|</span>{" "}
-          {article.topics[0].topic}
+          {article.topics.length > 0 ? article.topics[0].topic : null}
         </p>
         <p className="title">
           <CustomLink
@@ -48,14 +50,18 @@ const LocalArticle = ({ article }) => {
 };
 
 const LocalArticleDetail = ({ article, relatedArticles, t }) => {
-  const { content, image, topics } = article;
-
+  const { content, image, topics, displayBanner } = article;
   return (
     <section id="content-blog-detail">
       <div className="container">
         <div className="article">
-          <Image img={image} className="mb-9" style={{ maxHeight: 500 }} />
-          <RichText className="container" children={content} />
+          {displayBanner ? <Image img={image} className="mb-9" /> : null}
+          <ArticleTableOfContents article={article} />
+          <RichText
+            className="container"
+            children={content}
+            includeElementIndex
+          />
         </div>
         {topics?.length > 0 && (
           <div className="tagged-topics">
@@ -65,7 +71,7 @@ const LocalArticleDetail = ({ article, relatedArticles, t }) => {
                 {topics.map((topic: any) => (
                   <CustomLink
                     key={topic.id}
-                    link={{ url: `/blog/topic/${topic.slug}` }}
+                    link={{ url: `/blog/${topic.slug}` }}
                     className="link-tag"
                   >
                     <span>{topic.topic}</span>
@@ -146,7 +152,9 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const { params } = ctx;
   const locale = getLocale(ctx);
   const [article, page] = await Promise.all([
-    fetchAPI(`/articles/${params.slug}?status=published&_locale=${locale}`),
+    params.slug === "press-release"
+      ? fetchAPI(`/articles/${params.slug}?_locale=${locale}`)
+      : fetchAPI(`/articles/${params.slug}?status=published&_locale=${locale}`),
     fetchAPI(`/pages/blog?_locale=${locale}&status=published`),
   ]);
 

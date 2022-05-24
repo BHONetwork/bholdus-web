@@ -492,6 +492,4 @@ p.social-item a {
   overflow: inherit !important;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
+

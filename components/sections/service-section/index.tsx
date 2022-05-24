@@ -1,11 +1,13 @@
 import OptimizedImage from "../../common/optimized-image";
-import RichText from "../../common/rich-text";
+// import RichText from "../../common/rich-text";
 import classNames from "classnames";
 import { useRef } from "react";
 import { useScrollPosition, addClassElement } from "../../../utils/hooks";
 const ServiceSection = ({ data }) => {
   const renderTitle = (title) => {
-    return <RichText children={title} />;
+    /* NOTE: remove RichText because SEO optimize */
+    // return <RichText children={title} />;
+    return <h3 className="mission-item-title">{title}</h3>;
   };
   const sectionRef = useRef();
   let locked = false;
@@ -82,7 +84,7 @@ const ServiceSection = ({ data }) => {
         <div className="mission">
           <div className="title-section">
             <p className="title-top-section">{data.smallTitle}</p>
-            <p className="title-bot-section">{data.title}</p>
+            <h2 className="title-bot-section">{data.title}</h2>
           </div>
           <div className="info-mission" id="info-mission">
             <div className="left-info">
