@@ -113,3 +113,4 @@ exports
 build
 .next
 .env.*
+.env.local

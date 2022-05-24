@@ -9,7 +9,8 @@
     "build": "next build --profile",
     "start": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@hcaptcha/react-hcaptcha": "^0.3.7",

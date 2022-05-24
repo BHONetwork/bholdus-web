@@ -4,6 +4,7 @@ import CustomLink from "../../common/custom-link";
 import OptimizedImage from "../../common/optimized-image";
 
 const LatestNewsSection = ({ data, articles }) => {
+  console.log(articles);
   const sectionRef = useRef(null);
   let locked = false;
   useScrollPosition(
@@ -55,7 +56,7 @@ const LatestNewsSection = ({ data, articles }) => {
                       </span>
                       <span className="dot">|</span>
                       <span className="category">
-                        {article.topics[0].topic}
+                        {article?.topics[0]?.topic}
                       </span>
                     </p>
                   </div>
