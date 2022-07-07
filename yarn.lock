@@ -4301,10 +4301,10 @@ next-seo@^4.26.0:
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.26.0.tgz#4218cfae5651fdc2e330dcdf1cc1b34ce199d41c"
   integrity sha512-5TqywQ3XAwqdmEU1AyNZjR7WdDKFTkDD8aBtgQelPvzBUEy8i0mTjtiw+09jhiHFNik6FqS8uPKCaYcY6jRgSQ==
 
-next-translate@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.0.7.tgz#53fab15ae856eee62d41ac96aa3e6e4c874e715f"
-  integrity sha512-21FgG5ZVYVoB6of2ySrjfDu/qaojRW/DMPWQQfWDec1jltRGk4Oeb+12Y1DoNWh0Yd+FJvv8WpUeUeU+pfNX6Q==
+next-translate@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/next-translate/-/next-translate-1.5.0.tgz#b1e5c4a8e55e31b3ed1b9428529f27c289c6b7bc"
+  integrity sha512-6amnuJWw22XbaM2DVhsYaOXelFLjTbMqTgqvB+h9VfE/H2aQ/edfT06ONQLQbsVV/I7Hn+93LTaV1/qOo6Kf9A==
 
 next@^11.1.3:
   version "11.1.3"
